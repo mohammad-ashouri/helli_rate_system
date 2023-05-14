@@ -1,0 +1,486 @@
+input[type='radio']{
+    font-family: 'Vazir';
+}
+select option{
+    font-family: 'Vazir';
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-size: 13px;
+    opacity: 1; /* Firefox */
+    color: darkgrey;
+}
+
+.tableejmali{
+    background-color: darkgrey;
+    border: 2px solid #0a0a0a;
+}
+.tableejmali td {
+    background-color: whitesmoke;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+.tableejmali th{
+    text-align: right;
+    padding: 15px;
+    font-size: 14px;
+
+}
+.tableratermanager{
+    background-color: #ffdb99;
+    border-radius: 5px;
+    border: 2px solid #0a0a0a;
+}
+.tableratermanager td {
+    text-align: center;
+    background-color: #ffdb99;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+.tableratermanager th{
+    text-align: right;
+    padding: 8px;
+    font-size: 14px;
+}
+.tablegroupheader{
+    background-color: #ffdb99;
+    border-radius: 5px;
+    border: 2px solid #0a0a0a;
+}
+.tablegroupheader td {
+    text-align: center;
+    background-color: #ffdb99;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+.tablegroupheader th{
+    text-align: right;
+    padding: 8px;
+    font-size: 14px;
+}
+.inputratermanager{
+    border-radius: 5px;
+}
+.tarikh{
+    width: 50px;
+}
+.tozihat_textarea{
+    height: 200px;
+    font-size: 15px;
+    background-color: whitesmoke;
+
+}
+.jam-div{
+    background-color: #00E466;
+    border-radius: 5px;
+    width: 200px;
+    padding: 5px;
+}
+
+p{
+    font-weight: bold;
+}
+.ghalebpazhouhesh_rate{
+    width: 250px;
+}
+.tozihat_arzyabi_paragraphs{
+    font-weight: bold;
+    font-size: 13.2px;
+}
+.arzyabinashodetable{
+    overflow-x: auto;
+}
+.arzyabinashodetable td, th{
+    text-align: center;
+    padding: 10px;
+}
+.arzyabinashodetable td{
+    font-size: 14px;
+    border-bottom: 1px solid;
+    border-color: #bbbfc3;
+    padding-right: 10px;
+}
+.arzyabinashodetable th{
+    font-size: 15px;
+}
+
+.setratertable{
+    overflow-x: auto;
+}
+.setratertable td, th{
+    text-align: center;
+    padding: 10px;
+}
+.setratertable td{
+    font-size: 14px;
+    border-bottom: 1px solid;
+    border-color: #bbbfc3;
+    padding-right: 10px;
+}
+.setratertable th{
+    font-size: 15px;
+}
+
+.arzyabinashodetable2 td, th{
+    text-align: center;
+    padding: 6px
+}
+.arzyabinashodetable2 td{
+    font-size: 14px;
+    border-bottom: 3px solid black;
+    border-color: black;
+}
+.arzyabinashodetable2 th{
+    font-size: 15px;
+}
+.arzyabinashodetable2{
+    overflow-x: auto;
+    width: 100%;
+
+}
+.asarname{
+    width: 70%;
+}
+.codeasar{
+    width: 120px;
+}
+.tablepaziresh{
+    background-color: #4FB4D7;
+    border: 2px solid #0a0a0a;
+    width: 80%;
+    /*border-radius: 10px 10px 10px 10px;*/
+}
+.tablepaziresh td {
+    text-align: center;
+    background-color: #9c9491;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px;
+    /*border-left: 2px solid black;*/
+    border-right: 2px solid black;
+}
+.tablepaziresh th{
+    text-align: right;
+    padding: 8px;
+    font-size: 14px;
+
+}
+.tablepazireshlinks{
+    background-color: antiquewhite;
+    border: 2px solid #0a0a0a;
+    width: 100%;
+    /*border-radius: 10px 10px 10px 10px;*/
+}
+.tablepazireshlinks td {
+    text-align: center;
+    background-color: burlywood;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px;
+    /*border-left: 2px solid black;*/
+    border-right: 2px solid black;
+}
+.tablepazireshlinks th{
+    text-align: right;
+    padding: 8px;
+    font-size: 14px;
+    text-align: left;
+
+}
+.pazireshselections{
+    width: 80%;
+    height: 30px;
+    text-align: center;
+    alignment: center;
+    align-items: center;
+}
+.set{
+    font-weight: bold;
+    padding: 15px;
+}
+.table_p_info td{
+    border-bottom: 1px solid black;
+}
+.table_p_info th{
+    /*padding-left: 40px;*/
+}
+.table_p_info {
+    text-align: center;
+    padding: 10px;
+}
+.textpazireshtable{
+    width: 350px;
+}
+.tablenewasar{
+    background-color: #4FB4D7;
+    border: 2px solid #0a0a0a;
+}
+.tablenewasar td {
+    text-align: right;
+    background-color: #9c9491;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+.tablenewasar th{
+    text-align: right;
+    padding: 8px;
+    font-size: 14px;
+    width: 200px;
+}
+.newasarselections{
+    width: 250px;
+    height: 30px;
+    text-align: center;
+    alignment: center;
+    align-items: center;
+}
+.textnewasartable{
+    width: 100%;
+}
+textarea{
+    width: 100%;
+}
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+.tablecv tr td{
+    padding: 5px;
+    border: 1px solid black;
+    font-size: 15px;
+}
+.cvinput{
+    padding: 5px;
+}
+.arzyabishodetable{
+    padding: 15px;
+    border-bottom: 2px solid black;
+}
+.arzyabishodetable td{
+    padding: 10px;
+    border-bottom: 2px solid black;
+
+}
+.removefromrated{
+    direction: ltr;
+    alignment: left;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 3px 3px #888888;
+    padding: 5px
+}
+.tableamar{
+    padding: 50px;
+        border-radius: 5px;
+    background-color: #74bfdd;
+}
+.tableamar tr td{
+    width: 100px;
+    text-align: center;
+    background-color: darkgrey;
+}
+.tableamar th {
+    width: 600px;
+    text-align: right;
+}
+.tableamarostan{
+    padding: 50px;
+    border-radius: 5px;
+    background-color: darkseagreen;
+}
+.tableamarostan tr td{
+    width: 100px;
+    text-align: center;
+    background-color: bisque;
+}
+.tableamarostan tr:hover{
+    background-color: gray;
+}
+.tableamarostan th{
+    width: 200px;
+    text-align: right;
+}
+.tableamarasar{
+    padding: 50px;
+    border-radius: 5px;
+    background-color: darkcyan;
+}
+.tableamarasar tr td{
+    width: 100px;
+    text-align: center;
+    background-color: lightseagreen;
+}
+.tableamarasar tr:hover{
+    background-color: gray;
+}
+.tableamarasar th{
+    color: whitesmoke;
+    width: 200px;
+    text-align: right;
+}
+.tablecvtahsili{
+    width: 100%;
+    text-align: center;
+    border-spacing: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.tablecvtahsili tr td{
+    padding: 10px;
+    border: 1px solid black;
+    font-size: 15px;
+
+}
+.tablecvshoghli{
+    width: 100%;
+    border-spacing: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.tablecvshoghli tr td{
+    padding: 10px;
+    width: 75%;
+    border: 1px solid black;
+    font-size: 15px;
+}
+.tablecvshoghli th{
+    text-align: right;
+    font-size: 15px;
+}
+.tablecvtavanaei{
+    width: 100%;
+    border-spacing: 20px;
+    padding: 10px;
+    border-radius: 10px;
+
+
+}
+.tablecvtavanaei tr td{
+    width: 10%;
+    padding: 10px;
+    border: 1px solid black;
+    font-size: 15px;
+}
+.tablecvtavanaei th{
+    text-align: right;
+}
+.inputsavabegh{
+    width: 300px;
+    padding: 6px;
+    border-radius: 5px;
+}
+.cvtablemaharat{
+}
+.cvtablemaharat td{
+    padding-right: 5px;
+    border-bottom: 1px solid black;
+
+}
+.cvtablemaharat th{
+    padding-right: 50px;
+    text-align: right;
+    border-bottom: 1px solid black;
+}
+.cv_et_shakhsi{
+    text-align: right;
+    alignment: right;
+
+}
+.cv_et_shakhsi td{
+    padding-right: 10px;
+    text-align: right;
+    padding-bottom: 10px;
+}
+.cv_et_shakhsi th{
+    text-align: right;
+    font-size: 14px;
+
+}
+
+.inputcvshakhsiaddress{
+    width: 700px;
+}
+.inputcvshakhsiphone{
+    width: 200px;
+}
+.inputcvshakhsicodemelli{
+    width: 100%;
+}
+.inputmaharat{
+    width: 150px;
+    padding: 6px;
+    border-radius: 5px;
+}
+.tabletafsili{
+    border: 3px solid black ;
+    border-radius: 8px;
+    position: center;
+
+}
+.tabletafsili td{
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+
+}
+.tabletafsili th{
+    background-color: silver;
+    font-size: 14px;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: right;
+    border-radius: 8px;
+
+}
+.tarikh{
+    width: 120px;
+    text-align: center;
+}
+.jam-label{
+alignment: left;
+}
+.rate_inputs{
+    width: 80px;
+}
+
+.attachtable{
+    border-collapse:collapse;
+    border-spacing: 5px;
+}
+.attachtable th{
+    padding: 7px;
+    background-color: #ff5722;
+    color: #fff;
+}
+
+.attachtable td{
+    padding:5px;
+    text-align:right;
+    border:2px solid black;
+}
+
