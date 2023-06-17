@@ -13,7 +13,7 @@ include_once 'build/php/functions.php';
 //type=3 => دبیر مدرسه
 //approved=0 => کاربر غیر فعال شده
 $dateforinsertloglogins = $year . '/' . $month . '/' . $day . ' ' . $hour . ':' . $min . ':' . $sec;
-
+$ip='127.0.0.1';
 if (isset($_POST) & !empty($_POST)) {
     $user = $_POST['username'];
     $pass = $_POST['password'];

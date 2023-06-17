@@ -65,34 +65,34 @@ if (!isset($_SESSION['islogin'])) {
     <?php if ($_SESSION['head'] == 3): ?>
         <title>صفحه کاربری دبیر مدرسه</title>
     <?php endif; ?>
-    <link rel="icon" type="image/x-icon" href="/build/dist/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="./build/dist/img/favicon.ico">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="/build/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="./build/dist/css/bootstrap-theme.css">
     <!-- Bootstrap rtl -->
-    <link rel="stylesheet" href="/build/dist/css/rtl.css">
+    <link rel="stylesheet" href="./build/dist/css/rtl.css">
     <!-- Custom styles from me -->
-    <link rel="stylesheet" href="/build/dist/css/custom_css.css">
+    <link rel="stylesheet" href="./build/dist/css/custom_css.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="/build/dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="./build/dist/css/AdminLTE.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="/build/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="./build/dist/css/skins/_all-skins.min.css">
 
 <!--    <script src="http://code.jquery.com/jquery-latest.js"></script>-->
-    <script src="/build/js/submit.js"></script>
+    <script src="./build/js/submit.js"></script>
 
     <!-- Select2 CSS -->
-    <link rel="stylesheet" type="text/css" href="/bower_components/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="./bower_components/select2/dist/css/select2.min.css">
 
     <!-- jQuery -->
-    <script src="/bower_components/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="./bower_components/jquery-3.3.1.min.js" type="text/javascript"></script>
 
     <!-- Select2 JS -->
-    <script src="/bower_components/select2/dist/js/select2.min.js" type="text/javascript"></script>
+    <script src="./bower_components/select2/dist/js/select2.min.js" type="text/javascript"></script>
 
     <![endif]-->
     <!-- Google Font -->
@@ -126,7 +126,7 @@ if (!isset($_SESSION['islogin'])) {
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="/build/dist/img/user-img.jpg" class="user-image" alt="User Image">
+                            <img src="./build/dist/img/user-img.jpg" class="user-image" alt="User Image">
                             <span class="hidden-xs">
                                 <?php
                                 if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3) {
@@ -143,7 +143,7 @@ if (!isset($_SESSION['islogin'])) {
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="/build/dist/img/user-img.jpg" class="img-circle" alt="User Image">
+                                <img src="./build/dist/img/user-img.jpg" class="img-circle" alt="User Image">
 
                                 <p>
                                     <?php

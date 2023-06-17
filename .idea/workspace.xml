@@ -4,15 +4,450 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/helli_rate_system.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Syncronize With Host And Git">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/DB_Example/helli_helli-info.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/js/provinces_manager.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/php/SignUpInc/DeleteAllUserPostsForThisFestival.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/provinces_settings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/signup_posts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.user.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/a-p-info.php" beforeDir="false" afterPath="$PROJECT_DIR$/a-p-info.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin_manager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/attach_file_to_asar.php" beforeDir="false" afterPath="$PROJECT_DIR$/attach_file_to_asar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/ISSUE_TEMPLATE.md" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/ISSUE_TEMPLATE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/grunt/configBridge.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/grunt/configBridge.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/grunt/npm-shrinkwrap.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/grunt/npm-shrinkwrap.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/grunt/sauce_browsers.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/grunt/sauce_browsers.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/alerts.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/alerts.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/badges.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/badges.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/bootstrap.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/bootstrap.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/breadcrumbs.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/breadcrumbs.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/button-groups.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/button-groups.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/buttons.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/buttons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/carousel.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/carousel.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/close.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/close.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/code.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/code.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/component-animations.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/component-animations.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/dropdowns.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/dropdowns.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/forms.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/forms.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/glyphicons.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/glyphicons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/grid.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/grid.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/input-groups.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/input-groups.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/jumbotron.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/jumbotron.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/labels.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/labels.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/list-group.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/list-group.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/media.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/media.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/alerts.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/alerts.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/background-variant.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/background-variant.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/border-radius.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/border-radius.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/buttons.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/buttons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/center-block.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/center-block.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/clearfix.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/clearfix.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/forms.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/forms.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/gradients.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/gradients.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/grid-framework.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/grid-framework.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/grid.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/grid.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/hide-text.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/hide-text.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/image.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/image.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/labels.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/labels.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/list-group.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/list-group.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/nav-divider.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/nav-divider.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/nav-vertical-align.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/nav-vertical-align.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/opacity.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/opacity.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/pagination.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/pagination.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/panels.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/panels.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/progress-bar.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/progress-bar.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/reset-filter.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/reset-filter.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/reset-text.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/reset-text.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/resize.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/resize.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/responsive-visibility.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/responsive-visibility.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/size.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/size.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/tab-focus.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/tab-focus.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/table-row.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/table-row.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/text-emphasis.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/text-emphasis.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/text-overflow.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/text-overflow.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/vendor-prefixes.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/mixins/vendor-prefixes.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/modals.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/modals.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/navbar.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/navbar.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/navs.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/navs.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/normalize.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/normalize.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/pager.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/pager.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/pagination.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/pagination.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/panels.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/panels.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/popovers.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/popovers.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/print.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/print.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/progress-bars.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/progress-bars.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/responsive-embed.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/responsive-embed.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/responsive-utilities.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/responsive-utilities.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/scaffolding.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/scaffolding.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/tables.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/tables.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/theme.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/theme.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/thumbnails.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/thumbnails.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/tooltip.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/tooltip.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/type.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/type.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/utilities.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/utilities.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/variables.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/variables.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/less/wells.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/less/wells.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/nuget/MyGet.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/nuget/MyGet.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/nuget/bootstrap.less.nuspec" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/nuget/bootstrap.less.nuspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/nuget/bootstrap.nuspec" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/nuget/bootstrap.nuspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/bootstrap/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/bootstrap/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/css/font-awesome.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/css/font-awesome.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/less/animated.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/less/animated.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/less/bordered-pulled.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/less/bordered-pulled.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/less/core.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/less/core.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/less/fixed-width.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/less/fixed-width.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/less/font-awesome.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/less/font-awesome.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/less/icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/less/icons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/less/larger.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/less/larger.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/less/list.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/less/list.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/less/mixins.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/less/mixins.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/less/path.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/less/path.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/less/rotated-flipped.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/less/rotated-flipped.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/less/screen-reader.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/less/screen-reader.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/less/stacked.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/less/stacked.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/less/variables.less" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/less/variables.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/scss/_animated.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/scss/_animated.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/scss/_bordered-pulled.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/scss/_bordered-pulled.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/scss/_core.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/scss/_core.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/scss/_fixed-width.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/scss/_fixed-width.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/scss/_icons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/scss/_icons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/scss/_larger.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/scss/_larger.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/scss/_list.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/scss/_list.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/scss/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/scss/_mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/scss/_path.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/scss/_path.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/scss/_rotated-flipped.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/scss/_rotated-flipped.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/scss/_screen-reader.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/scss/_screen-reader.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/scss/_stacked.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/scss/_stacked.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/scss/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/font-awesome/scss/font-awesome.scss" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/font-awesome/scss/font-awesome.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery-knob/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery-knob/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery-knob/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery-knob/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery-knob/knob.jquery.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery-knob/knob.jquery.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery-knob/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery-knob/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery-slimscroll/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery-slimscroll/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery-slimscroll/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery-slimscroll/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery-slimscroll/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery-slimscroll/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery-sparkline/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery-sparkline/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery-sparkline/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery-sparkline/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery-sparkline/sparkline.jquery.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery-sparkline/sparkline.jquery.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery-ui/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery-ui/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery-ui/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery-ui/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery-ui/component.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery-ui/component.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery-ui/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery-ui/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery-ui/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bower_components/jquery/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/bower_components/jquery/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/alerts.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/alerts.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/badges.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/badges.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/bootstrap.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/bootstrap.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/breadcrumbs.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/breadcrumbs.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/button-groups.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/button-groups.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/buttons.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/buttons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/carousel.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/carousel.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/close.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/close.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/code.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/code.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/component-animations.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/component-animations.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/dropdowns.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/dropdowns.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/forms.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/forms.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/glyphicons.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/glyphicons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/grid.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/grid.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/input-groups.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/input-groups.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/jumbotron.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/jumbotron.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/labels.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/labels.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/list-group.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/list-group.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/media.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/media.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/alerts.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/alerts.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/background-variant.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/background-variant.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/border-radius.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/border-radius.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/buttons.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/buttons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/center-block.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/center-block.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/clearfix.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/clearfix.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/forms.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/forms.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/gradients.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/gradients.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/grid-framework.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/grid-framework.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/grid.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/grid.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/hide-text.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/hide-text.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/image.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/image.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/labels.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/labels.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/list-group.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/list-group.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/nav-divider.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/nav-divider.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/nav-vertical-align.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/nav-vertical-align.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/opacity.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/opacity.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/pagination.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/pagination.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/panels.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/panels.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/progress-bar.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/progress-bar.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/reset-filter.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/reset-filter.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/reset-text.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/reset-text.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/resize.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/resize.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/responsive-visibility.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/responsive-visibility.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/size.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/size.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/tab-focus.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/tab-focus.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/table-row.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/table-row.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/text-emphasis.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/text-emphasis.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/text-overflow.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/text-overflow.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/mixins/vendor-prefixes.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/mixins/vendor-prefixes.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/modals.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/modals.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/navbar.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/navbar.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/navs.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/navs.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/normalize.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/normalize.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/pager.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/pager.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/pagination.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/pagination.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/panels.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/panels.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/popovers.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/popovers.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/print.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/print.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/progress-bars.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/progress-bars.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/responsive-embed.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/responsive-embed.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/responsive-utilities.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/responsive-utilities.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/scaffolding.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/scaffolding.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/tables.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/tables.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/theme.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/theme.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/thumbnails.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/thumbnails.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/tooltip.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/tooltip.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/type.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/type.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/utilities.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/utilities.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/variables.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/variables.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bootstrap-less/wells.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootstrap-less/wells.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/dist/css/adminlte.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/dist/css/adminlte.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/dist/css/adminlte.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/dist/css/adminlte.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/404_500_errors.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/404_500_errors.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/AdminLTE-without-plugins.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/AdminLTE-without-plugins.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/AdminLTE.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/AdminLTE.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/alerts.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/alerts.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/bootstrap-social.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/bootstrap-social.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/boxes.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/boxes.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/buttons.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/buttons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/callout.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/callout.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/carousel.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/carousel.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/control-sidebar.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/control-sidebar.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/core.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/core.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/datepicker.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/datepicker.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/direct-chat.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/direct-chat.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/dropdown.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/dropdown.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/forms.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/forms.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/fullcalendar.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/fullcalendar.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/header.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/header.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/info-box.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/info-box.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/invoice.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/invoice.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/labels.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/labels.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/lockscreen.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/lockscreen.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/login_and_register.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/login_and_register.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/mailbox.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/mailbox.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/miscellaneous.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/miscellaneous.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/mixins.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/mixins.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/modal.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/modal.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/navs.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/navs.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/plugins.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/plugins.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/print.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/print.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/products.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/products.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/profile.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/profile.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/progress-bars.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/progress-bars.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/select2.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/select2.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/sidebar-mini.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/sidebar-mini.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/sidebar.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/sidebar.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/skins/_all-skins.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/skins/_all-skins.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/skins/skin-black-light.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/skins/skin-black-light.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/skins/skin-black.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/skins/skin-black.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/skins/skin-blue-light.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/skins/skin-blue-light.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/skins/skin-blue.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/skins/skin-blue.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/skins/skin-green-light.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/skins/skin-green-light.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/skins/skin-green.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/skins/skin-green.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/skins/skin-purple-light.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/skins/skin-purple-light.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/skins/skin-purple.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/skins/skin-purple.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/skins/skin-red-light.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/skins/skin-red-light.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/skins/skin-red.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/skins/skin-red.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/skins/skin-yellow-light.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/skins/skin-yellow-light.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/skins/skin-yellow.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/skins/skin-yellow.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/small-box.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/small-box.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/social-widgets.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/social-widgets.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/table.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/table.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/timeline.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/timeline.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/treeview.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/treeview.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/users-list.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/users-list.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/less/variables.less" beforeDir="false" afterPath="$PROJECT_DIR$/build/less/variables.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/php/inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/php/inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scss/_bootstrap_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/build/scss/_bootstrap_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scss/_bootstrap_variables_old2.scss" beforeDir="false" afterPath="$PROJECT_DIR$/build/scss/_bootstrap_variables_old2.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scss/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/build/scss/_header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/build/scss/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chk.php" beforeDir="false" afterPath="$PROJECT_DIR$/chk.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/adminlte.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/adminlte.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/adminlte.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/adminlte.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/error_log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/cs/functions" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/cs/functions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/da/functions" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/da/functions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/de/functions" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/de/functions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/es/functions" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/es/functions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/fi/functions" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/fi/functions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/fr/functions" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/fr/functions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/hu/functions" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/hu/functions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/it/functions" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/it/functions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/nl/functions" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/nl/functions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/no/functions" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/no/functions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/pl/functions" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/pl/functions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/ru/functions" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/ru/functions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/tr/functions" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Classes/PHPExcel/locale/tr/functions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/Examples/Reader/sampleData/example1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/Examples/Reader/sampleData/example1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/Examples/Reader/sampleData/example1.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/Examples/Reader/sampleData/example1.tsv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/Examples/Reader/sampleData/example2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/Examples/Reader/sampleData/example2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Architecture.cd" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Architecture.cd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/ClassDiagrams.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/ClassDiagrams.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/ClassDiagrams.csproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/ClassDiagrams.csproj.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/ClassDiagrams.sln" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/ClassDiagrams.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/IReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/IReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/IWriter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/IWriter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/PHPExcel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/PHPExcel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/PHPExcel_IOFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/PHPExcel_IOFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/PHPExcel_Reader_Excel2007.cs" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/PHPExcel_Reader_Excel2007.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/PHPExcel_Reader_Excel5.cs" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/PHPExcel_Reader_Excel5.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/PHPExcel_Reader_Serialized.cs" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/PHPExcel_Reader_Serialized.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/PHPExcel_Writer_Excel2007.cs" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/PHPExcel_Writer_Excel2007.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/PHPExcel_Writer_Serialized.cs" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/PHPExcel_Writer_Serialized.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/Worksheet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/Classes/Worksheet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/ReaderWriter.cd" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/assets/ClassDiagrams/ReaderWriter.cd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/CalculationEngine/FunctionReference/01-Introduction.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/CalculationEngine/FunctionReference/01-Introduction.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/CalculationEngine/FunctionReference/02-01-Date-and-Time-Handling.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/CalculationEngine/FunctionReference/02-01-Date-and-Time-Handling.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/CalculationEngine/FunctionReference/02-General-Introduction.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/CalculationEngine/FunctionReference/02-General-Introduction.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/CalculationEngine/FunctionReference/03-01-Cube-Functions.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/CalculationEngine/FunctionReference/03-01-Cube-Functions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/CalculationEngine/FunctionReference/03-02-Database-Functions.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/CalculationEngine/FunctionReference/03-02-Database-Functions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/CalculationEngine/FunctionReference/03-03-Date-and-Time-Functions.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/CalculationEngine/FunctionReference/03-03-Date-and-Time-Functions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/01-Autofilters.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/01-Autofilters.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/02-Setting-an-Autofilter.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/02-Setting-an-Autofilter.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/03-Autofilter-Expressions.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/03-Autofilter-Expressions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/04-01-Autofilter-Expressions-Simple.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/04-01-Autofilter-Expressions-Simple.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/04-02-Autofilter-Expressions-Dategroup.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/04-02-Autofilter-Expressions-Dategroup.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/04-03-Autofilter-Expressions-Custom.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/04-03-Autofilter-Expressions-Custom.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/04-04-Autofilter-Expressions-Dynamic.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/04-04-Autofilter-Expressions-Dynamic.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/04-05-Autofilter-Expressions-Topten.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/04-05-Autofilter-Expressions-Topten.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/05-Executing-Autofilters.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/05-Executing-Autofilters.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/06-Autofilter-Sorting.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Features/Autofilters/06-Autofilter-Sorting.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Functions/FunctionListByCategory.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Functions/FunctionListByCategory.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Functions/FunctionListByName.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Functions/FunctionListByName.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/01-Getting-Started.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/01-Getting-Started.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/02-Architecture.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/02-Architecture.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/03-Creating-a-Spreadsheet.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/03-Creating-a-Spreadsheet.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/04-Configuration-Settings.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/04-Configuration-Settings.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/05-Deleting-a-Workbook.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/05-Deleting-a-Workbook.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/06-Worksheets.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/06-Worksheets.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/07-Accessing-Cells.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/07-Accessing-Cells.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/08-Recipes.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/08-Recipes.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/09-Calculation-Engine.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/09-Calculation-Engine.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/10-Reading-and-Writing.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/10-Reading-and-Writing.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/11-Appendices.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/Overview/11-Appendices.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/ReadingSpreadsheetFiles/01-File-Formats.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/ReadingSpreadsheetFiles/01-File-Formats.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/ReadingSpreadsheetFiles/02-Security.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/ReadingSpreadsheetFiles/02-Security.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/ReadingSpreadsheetFiles/03-Loading-a-Spreadsheet.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/ReadingSpreadsheetFiles/03-Loading-a-Spreadsheet.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/ReadingSpreadsheetFiles/04-Loading-with-a-Reader.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/ReadingSpreadsheetFiles/04-Loading-with-a-Reader.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/ReadingSpreadsheetFiles/05-Reader-Options.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/ReadingSpreadsheetFiles/05-Reader-Options.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/ReadingSpreadsheetFiles/06-Error-Handling.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/ReadingSpreadsheetFiles/06-Error-Handling.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/ReadingSpreadsheetFiles/07-Helper-Methods.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Documentation/markdown/ReadingSpreadsheetFiles/07-Helper-Methods.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Examples/SylkTest.slk" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/Examples/SylkTest.slk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/license.md" beforeDir="false" afterPath="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel/license.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/animated.less" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/animated.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/bordered-pulled.less" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/bordered-pulled.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/core.less" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/core.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/fixed-width.less" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/fixed-width.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/font-awesome.less" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/font-awesome.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/icons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/larger.less" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/larger.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/list.less" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/list.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/mixins.less" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/mixins.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/path.less" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/path.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/rotated-flipped.less" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/rotated-flipped.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/screen-reader.less" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/screen-reader.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/stacked.less" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/stacked.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/variables.less" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/less/variables.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_animated.scss" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_animated.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_bordered-pulled.scss" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_bordered-pulled.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_core.scss" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_core.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_fixed-width.scss" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_fixed-width.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_icons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_icons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_larger.scss" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_larger.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_list.scss" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_list.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_path.scss" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_path.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_rotated-flipped.scss" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_rotated-flipped.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_screen-reader.scss" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_screen-reader.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_stacked.scss" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_stacked.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/font-awesome.scss" beforeDir="false" afterPath="$PROJECT_DIR$/login/fonts/font-awesome-4.7.0/scss/font-awesome.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_panels/admin-panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/main_panels/admin-panel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_panels/rater_ostani_panel.php000" beforeDir="false" afterPath="$PROJECT_DIR$/main_panels/rater_ostani_panel.php000" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/manager_nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/php.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/Soft98.iR.url" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/Soft98.iR.url" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_animated.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_animated.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_bordered-pulled.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_bordered-pulled.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_core.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_core.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_duotone-icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_duotone-icons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_fixed-width.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_fixed-width.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_icons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_list.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_list.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_mixins.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_mixins.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_rotated-flipped.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_rotated-flipped.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_screen-reader.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_screen-reader.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_shims.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_shims.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_sizing.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_sizing.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_stacked.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_stacked.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_variables.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/_variables.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/brands.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/brands.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/duotone.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/duotone.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/fontawesome.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/fontawesome.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/light.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/light.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/regular.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/regular.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/solid.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/solid.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/thin.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/thin.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/v4-shims.less" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/less/v4-shims.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/metadata/categories.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/metadata/categories.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/metadata/icons.json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/metadata/icons.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/metadata/icons.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/metadata/icons.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/metadata/shims.json" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/metadata/shims.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/metadata/shims.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/metadata/shims.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/metadata/sponsors.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/metadata/sponsors.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_animated.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_animated.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_bordered-pulled.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_bordered-pulled.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_core.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_core.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_duotone-icons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_duotone-icons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_fixed-width.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_fixed-width.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_functions.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_functions.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_icons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_icons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_list.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_list.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_rotated-flipped.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_rotated-flipped.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_screen-reader.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_screen-reader.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_shims.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_shims.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_sizing.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_sizing.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_stacked.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_stacked.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/brands.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/brands.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/duotone.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/duotone.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/fontawesome.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/fontawesome.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/light.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/light.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/regular.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/regular.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/solid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/solid.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/thin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/thin.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/v4-shims.scss" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/scss/v4-shims.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rater_pages/error_log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report_from_rates_keshvari.php" beforeDir="false" afterPath="$PROJECT_DIR$/report_from_rates_keshvari.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report_from_state_rates.php" beforeDir="false" afterPath="$PROJECT_DIR$/report_from_state_rates.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sabt-arzyabi-ejmali.php" beforeDir="false" afterPath="$PROJECT_DIR$/sabt-arzyabi-ejmali.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superadmin_options.php" beforeDir="false" afterPath="$PROJECT_DIR$/superadmin_options.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,14 +505,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1686991119669</updated>
-      <workItem from="1686991120627" duration="666000" />
+      <workItem from="1686991120627" duration="1029000" />
     </task>
+    <task id="LOCAL-00001" summary="Syncronize With Host And Git">
+      <created>1686992152949</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686992152950</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Syncronize With Host And Git" />
+    <option name="LAST_COMMIT_MESSAGE" value="Syncronize With Host And Git" />
   </component>
 </project>
