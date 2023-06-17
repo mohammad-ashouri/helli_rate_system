@@ -51,7 +51,6 @@
                         <div class="box-body">
 
                             <form id="myform" method="post" action="build/php/inc.php" onsubmit="return validateForm()">
-                                <input type="hidden" name="karbar" value="<?php echo $rows['code']; ?>">
                                 <p>کد اثر
                                     <input style="width: 120px; border-radius: 5px; padding: 5px" type="text"
                                            disabled="disabled" value="<?php
@@ -85,8 +84,8 @@
                                     نظر شما:
                                     <select style="" name="nazar" id="nazar">
                                         <option selected>انتخاب کنید</option>
-                                        <option>راه‌یابی اثر به مرحله تفصیلی</option>
-                                        <option>توقف اثر در مرحله اجمالی</option>
+                                        <option value="راه‌یابی اثر به مرحله تفصیلی">راه‌یابی اثر به مرحله تفصیلی</option>
+                                        <option value="توقف اثر در مرحله اجمالی">توقف اثر در مرحله اجمالی</option>
                                     </select>
                                 </center>
                                 <br/>
@@ -129,18 +128,20 @@ echo @$rows_ejmali['tozihat']; ?>
                                         </div>
                                     </section>
                                 </div>
-                                <center>
-
-                                    <p class="row1-ejmali">
-                                        تاریخ ثبت
-                                        &nbsp;&nbsp;
-                                        <input class="tarikh" disabled="disabled" value="<?php echo jdate("Y/n/j") ?>">
-
-
-                                </center>
+<!--                                <center>-->
+<!---->
+<!--                                    <p class="row1-ejmali">-->
+<!--                                        تاریخ ثبت-->
+<!--                                        &nbsp;&nbsp;-->
+<!--                                        <input class="tarikh" disabled="disabled" value="--><?php //echo jdate("Y/n/j") ?><!--">-->
+<!---->
+<!---->
+<!--                                </center>-->
                                 </p>
                                 <center>
                                     <p class="virayesh-ejmali-button">
+                                        <input type="hidden" name="codeasarfield" value="<?php echo $postcode; ?>">
+
                                         <input style="padding: 6px 10px 5px 10px" type="submit" name="setejmali"
                                                onclick="return confirm('ارزیاب گرامی: لطفا در صورت صحت نمره نهایی اثر و اطمینان نسبت به نوشتن توضیحات تشریحی درباره نقاط قوت یا ضعف اثر، بر روی گزینه OK کلیک کنید')"
                                                value="ثبت">

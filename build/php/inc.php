@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 1);
 include_once __DIR__ . '/../../config/connection.php';
 session_start();
 $user = $_SESSION['username'];
@@ -1008,7 +1009,6 @@ elseif (isset($_POST['paziresh']) and !empty($_POST['codeasarfield']) and !empty
         $allowed_pdf = array('pdf');
         $ext_pdf = pathinfo($file_name, PATHINFO_EXTENSION);
         $filename_without_extpdf = pathinfo($file_name, PATHINFO_FILENAME);
-        echo $codeasar;
         if ($file_size > 20971520) {
             header("location:" . $main_website_url . "/../../edit_asar.php?pazireshsetPDFFileTooBig&codeasar=$codeasar&nameasar=$asarname");
         } elseif ($file_size == 0) {
@@ -1060,6 +1060,9 @@ elseif (isset($_POST['paziresh']) and !empty($_POST['codeasarfield']) and !empty
     if ($_FILES['fileasar_word']['name'] == null and $_FILES['fileasar']['name'] == null) {
         header("location:" . $main_website_url . "/../../edit_asar.php?pazireshset&codeasar=$codeasar&nameasar=$asarname");
     }
+
+    header("location:" . $main_website_url . "/../../edit_asar.php?pazireshset&codeasar=$codeasar&nameasar=$asarname");
+
 }
 //end paziresh
 
@@ -1550,12 +1553,16 @@ elseif (isset($_POST['uploadcv']) and !empty($_POST['coderater']) and !empty($_F
 //end upload rater cv
 
 //start set ejmali keshvari
-elseif (isset($_POST['setejmali']) && !empty($_POST['codeasarfield'])) {
+elseif (isset($_POST['setejmali']) && isset($_POST['codeasarfield'])) {
     $operation = "setejmali";
     mysqli_query($connection, "insert into link_logs (id,url,operation,time,username) values ('$LinkLogID','$urlofthispage','$operation','$dateforupdateloghelli','$user')");
 
     $codeasar = $_POST['codeasarfield'];
-    mysqli_query($connection, "insert into t_a_ejmali (codeasar) values ('$codeasar')");
+    $query=mysqli_query($connection,"select * from t_a_ejmali where codeasar='$codeasar'");
+    foreach($query as $check){}
+    if(!$check){
+        mysqli_query($connection, "insert into t_a_ejmali (codeasar) values ('$codeasar')");
+    }
     $comment = $_POST['nazar'];
     switch ($comment) {
         case 'راه‌یابی اثر به مرحله تفصیلی':
@@ -1584,15 +1591,15 @@ elseif (isset($_POST['setejmali']) && !empty($_POST['codeasarfield'])) {
             break;
     }
     $tozih = $_POST['tozihat'];
-    $user = $_SESSION['username'];
+    $user = $_SESSION['coderater'];
     $query = "update `t_a_ejmali` set reayatsakhtarasar='$t1',shivaeematn='$t2',reayataeinnegaresh='$t3',
                         tabiinmasale='$t4',manabemotabar='$t5',ghabeliatelmiasar='$t6',sazmandehimabahes='$t7',
                         parhizazmatalebzaed='$t8',keyfiatjambandi='$t9',tozihat='$tozih',jam='$jamnomre',
                         tarikhsabt_day='$day',tarikhsabt_month='$month',tarikhsabt_year='$year',
                         secsabt='$sec',minsabt='$min',hoursabt='$hour',rater_id='$user'
-                        where `codeasar`='$codeasar' ";
+                        where codeasar='$codeasar' ";
     mysqli_query($connection, $query);
-    mysqli_query($connection, "update `etelaat_a` set `tarikharzyabi`='$date' where `codeasar`='$codeasar'");
+    mysqli_query($connection, "update `etelaat_a` set `tarikharzyabi`='$date',codearzyabejmali='$user' where `codeasar`='$codeasar'");
     if ($jamnomre >= 75) {
         mysqli_query($connection, "insert into `tafsili1` (`codeasar`) values ('$codeasar')");
         mysqli_query($connection, "insert into `tafsili2` (`codeasar`) values ('$codeasar')");

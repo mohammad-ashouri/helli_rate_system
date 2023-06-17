@@ -1,17 +1,19 @@
-<?php
-session_start();
-include_once 'config/connection.php';
-$query = mysqli_query($connection, "select * from options where op_name='maintenance'");
-foreach ($query as $option) {
-}
-if ($option['op_value'] == 1) {
-    header("location: maintenance.php");
-}
+ <?php
+ session_start();
+// ini_set('display_errors', 1);
+
+ include_once __DIR__ . '/config/connection.php';
+ $query = mysqli_query($connection, "select * from options where op_name='maintenance'");
+ foreach ($query as $option) {
+ }
+ if ($option['op_value'] == 1) {
+     header("location: maintenance.php");
+ }
    
-if (isset($_SESSION['username'])){
-	header("location:panel.php");
-}
-?>
+ if (isset($_SESSION['username'])){
+ 	header("location:panel.php");
+ }
+ ?>
 
 <!DOCTYPE html>
 <html lang="fa">
@@ -42,7 +44,7 @@ if (isset($_SESSION['username'])){
     </center>
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form  action="chk.php" class="login100-form validate-form" method="post">
+				<form  action="./chk.php" class="login100-form validate-form" method="post">
 <!--					<span class="login100-form-title p-b-26">-->
                     <center>
                         <p style=" font-family: 'B Titr'; font-size: 20px; color: black">
@@ -126,6 +128,5 @@ if (isset($_GET['error'])):
  ?>
 <script>
     alert("مشکلی در ورود شما به سیستم وجود دارد. لطفا با کارشناس سامانه جشنواره تماس حاصل فرمایید.");
-    
 </script>
 <?php endif; ?>

@@ -5,229 +5,229 @@
     }
     if (@$notapprovedraters != null):
         ?>
-        <div class="row">
-            <section class="col-lg-12 col-md-12">
-                <div class="box box-solid box-warning">
-                    <div class="box-header">
-                        <i class="fa fa-info-circle"></i>
-                        <h3 class='box-title'>
-                            لیست ارزیابان تایید نشده بر اساس استان
-                        </h3>
-                        <!-- tools box -->
-                        <div class="pull-left box-tools">
-                            <button type="button" class="btn bg-info btn-sm" data-widget="collapse"><i
-                                        class="fa fa-minus"></i>
-                            </button>
-                        </div>
-                        <!-- /. tools -->
-                    </div>
-                    <div class="box-body" style="overflow-x: auto">
-                        <div class="row">
-                            <center>
-                                <table id="myTable3" class="setratertable" style="text-align: center  ">
-                                    <tr>
-                                        <th>ردیف</th>
-                                        <th>نام استان</th>
-                                        <th>تعداد ارزیاب ثبت نامی</th>
-                                        <th>تعداد ارزیاب بدون رزومه</th>
-                                        <th>تعداد ارزیاب تایید شده</th>
-                                        <th>تعداد ارزیاب تایید نشده</th>
-                                        <th>عملیات</th>
-                                    </tr>
-                                    <?php
-                                    $a = 1;
-                                    $tedadkol = 0;
-                                    $tbr = 0;
-                                    $tt = 0;
-                                    $ttn = 0;
-                                    $query = mysqli_query($connection, "select distinct(city_name) from rater_list where city_name is not null and city_name!='' and type=0 and shahr_name!='بناب' and shahr_name!='کاشان' order by city_name asc");
-                                    foreach ($query as $notapprovedraters):
-                                        ?>
-                                        <tr>
-                                            <td>
-                                                <?php echo $a;
-                                                $a++; ?>
-                                            </td>
-                                            <td>
-                                                <?php
-                                                echo $city_name = $notapprovedraters['city_name'];
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <?php
-                                                $query = mysqli_query($connection, "select * from rater_list where city_name='$city_name' and (shahr_name!='بناب' and shahr_name!='کاشان') and type=0");
-                                                echo mysqli_num_rows($query);
-                                                $tedadkol = mysqli_num_rows($query) + $tedadkol;
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <?php
-                                                $query = mysqli_query($connection, "select * from rater_list where city_name='$city_name' and (shahr_name!='بناب' and shahr_name!='کاشان') and approved=0 and type=0 and cv_filepath is null");
-                                                echo mysqli_num_rows($query);
-                                                $tbr = mysqli_num_rows($query) + $tbr;
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <?php
-                                                $query = mysqli_query($connection, "select * from rater_list where city_name='$city_name' and (shahr_name!='بناب' and shahr_name!='کاشان') and cv_filepath is not null and type=0");
-                                                echo mysqli_num_rows($query);
-                                                $tt = mysqli_num_rows($query) + $tt;
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <?php
-                                                $query = mysqli_query($connection, "select * from rater_list where city_name='$city_name' and (shahr_name!='بناب' and shahr_name!='کاشان') and approved=2 and type=0");
-                                                echo mysqli_num_rows($query);
-                                                $ttn = mysqli_num_rows($query) + $ttn;
-                                                ?>
-                                            </td>
-                                            <?php
-                                            foreach ($query as $itemnotapprove) {
-                                            }
-                                            if (@$itemnotapprove != null):
-                                                ?>
-                                                <td>
-                                                    <form action="build/php/inc.php" method="post">
-                                                        <input type="hidden" value="<?php echo $city_name ?>"
-                                                               name="city_name">
-                                                        <input value="تایید ارزیاب‌های این استان" type="submit"
-                                                               name="set_approved" style="padding: 5px">
-                                                    </form>
-                                                </td>
-                                                <?php $itemnotapprove = null;endif; ?>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                    <?php
-                                    $query = mysqli_query($connection, "select * from rater_list where type=0 and shahr_name='بناب'");
-                                    foreach ($query as $notapprovedraters) {
-                                    }
-                                    ?>
-                                    <tr>
-                                        <td>
-                                            <?php echo $a;
-                                            $a++; ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            echo 'منطقه بناب';
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='بناب' and type=0");
-                                            echo mysqli_num_rows($query);
-                                            $tedadkol = mysqli_num_rows($query) + $tedadkol;
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='بناب' and approved=0 and type=0 and cv_filepath is null");
-                                            echo mysqli_num_rows($query);
-                                            $tbr = mysqli_num_rows($query) + $tbr;
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='بناب' and cv_filepath is not null and type=0");
-                                            echo mysqli_num_rows($query);
-                                            $tt = mysqli_num_rows($query) + $tt;
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='بناب' and approved=2 and type=0");
-                                            echo mysqli_num_rows($query);
-                                            $ttn = mysqli_num_rows($query) + $ttn;
-                                            ?>
-                                        </td>
-                                        <?php
-                                        foreach ($query as $itemnotapprove) {
-                                        }
-                                        if (@$itemnotapprove != null):
-                                            ?>
-                                            <td>
-                                                <form action="build/php/inc.php" method="post">
-                                                    <input type="hidden" value="<?php echo $city_name ?>"
-                                                           name="city_name">
-                                                    <input value="تایید ارزیاب‌های این استان" type="submit"
-                                                           name="set_approved" style="padding: 5px">
-                                                </form>
-                                            </td>
-                                            <?php $itemnotapprove = null;endif; ?>
-                                    </tr>
-                                    <?php
-                                    $query = mysqli_query($connection, "select * from rater_list where type=0 and shahr_name='کاشان'");
-                                    foreach ($query as $notapprovedraters) {
-                                    }
-                                    ?>
-                                    <tr>
-                                        <td>
-                                            <?php echo $a;
-                                            $a++; ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            echo 'منطقه کاشان';
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and type=0");
-                                            echo mysqli_num_rows($query);
-                                            $tedadkol = mysqli_num_rows($query) + $tedadkol;
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and approved=0 and type=0 and cv_filepath is null");
-                                            echo mysqli_num_rows($query);
-                                            $tbr = mysqli_num_rows($query) + $tbr;
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and cv_filepath is not null and type=0");
-                                            echo mysqli_num_rows($query);
-                                            $tt = mysqli_num_rows($query) + $tt;
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and approved=2 and type=0");
-                                            echo mysqli_num_rows($query);
-                                            $ttn = mysqli_num_rows($query) + $ttn;
-                                            ?>
-                                        </td>
-                                        <?php
-                                        foreach ($query as $itemnotapprove) {
-                                        }
-                                        if (@$itemnotapprove != null):
-                                            ?>
-                                            <td>
-                                                <form action="build/php/inc.php" method="post">
-                                                    <input type="hidden" value="<?php echo $city_name ?>"
-                                                           name="city_name">
-                                                    <input value="تایید ارزیاب‌های این استان" type="submit"
-                                                           name="set_approved" style="padding: 5px">
-                                                </form>
-                                            </td>
-                                            <?php $itemnotapprove = null;endif; ?>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td><?php echo $tedadkol; ?></td>
-                                        <td><?php echo $tbr; ?></td>
-                                        <td><?php echo $tt; ?></td>
-                                        <td><?php echo $ttn; ?></td>
-                                        <td></td>
-                                    </tr>
-                                </table>
-                            </center>
-                        </div>
-                    </div>
-            </section>
-        </div>
+<!--        <div class="row">-->
+<!--            <section class="col-lg-12 col-md-12">-->
+<!--                <div class="box box-solid box-warning">-->
+<!--                    <div class="box-header">-->
+<!--                        <i class="fa fa-info-circle"></i>-->
+<!--                        <h3 class='box-title'>-->
+<!--                            لیست ارزیابان تایید نشده بر اساس استان-->
+<!--                        </h3>-->
+<!--                        <!-- tools box -->-->
+<!--                        <div class="pull-left box-tools">-->
+<!--                            <button type="button" class="btn bg-info btn-sm" data-widget="collapse"><i-->
+<!--                                        class="fa fa-minus"></i>-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                        <!-- /. tools -->-->
+<!--                    </div>-->
+<!--                    <div class="box-body" style="overflow-x: auto">-->
+<!--                        <div class="row">-->
+<!--                            <center>-->
+<!--                                <table id="myTable3" class="setratertable" style="text-align: center  ">-->
+<!--                                    <tr>-->
+<!--                                        <th>ردیف</th>-->
+<!--                                        <th>نام استان</th>-->
+<!--                                        <th>تعداد ارزیاب ثبت نامی</th>-->
+<!--                                        <th>تعداد ارزیاب بدون رزومه</th>-->
+<!--                                        <th>تعداد ارزیاب تایید شده</th>-->
+<!--                                        <th>تعداد ارزیاب تایید نشده</th>-->
+<!--                                        <th>عملیات</th>-->
+<!--                                    </tr>-->
+<!--                                    --><?php
+//                                    $a = 1;
+//                                    $tedadkol = 0;
+//                                    $tbr = 0;
+//                                    $tt = 0;
+//                                    $ttn = 0;
+//                                    $query = mysqli_query($connection, "select distinct(city_name) from rater_list where city_name is not null and city_name!='' and type=0 and shahr_name!='بناب' and shahr_name!='کاشان' order by city_name asc");
+//                                    foreach ($query as $notapprovedraters):
+//                                        ?>
+<!--                                        <tr>-->
+<!--                                            <td>-->
+<!--                                                --><?php //echo $a;
+//                                                $a++; ?>
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                                --><?php
+//                                                echo $city_name = $notapprovedraters['city_name'];
+//                                                ?>
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                                --><?php
+//                                                $query = mysqli_query($connection, "select * from rater_list where city_name='$city_name' and (shahr_name!='بناب' and shahr_name!='کاشان') and type=0");
+//                                                echo mysqli_num_rows($query);
+//                                                $tedadkol = mysqli_num_rows($query) + $tedadkol;
+//                                                ?>
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                                --><?php
+//                                                $query = mysqli_query($connection, "select * from rater_list where city_name='$city_name' and (shahr_name!='بناب' and shahr_name!='کاشان') and approved=0 and type=0 and cv_filepath is null");
+//                                                echo mysqli_num_rows($query);
+//                                                $tbr = mysqli_num_rows($query) + $tbr;
+//                                                ?>
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                                --><?php
+//                                                $query = mysqli_query($connection, "select * from rater_list where city_name='$city_name' and (shahr_name!='بناب' and shahr_name!='کاشان') and cv_filepath is not null and type=0");
+//                                                echo mysqli_num_rows($query);
+//                                                $tt = mysqli_num_rows($query) + $tt;
+//                                                ?>
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                                --><?php
+//                                                $query = mysqli_query($connection, "select * from rater_list where city_name='$city_name' and (shahr_name!='بناب' and shahr_name!='کاشان') and approved=2 and type=0");
+//                                                echo mysqli_num_rows($query);
+//                                                $ttn = mysqli_num_rows($query) + $ttn;
+//                                                ?>
+<!--                                            </td>-->
+<!--                                            --><?php
+//                                            foreach ($query as $itemnotapprove) {
+//                                            }
+//                                            if (@$itemnotapprove != null):
+//                                                ?>
+<!--                                                <td>-->
+<!--                                                    <form action="build/php/inc.php" method="post">-->
+<!--                                                        <input type="hidden" value="--><?php //echo $city_name ?><!--"-->
+<!--                                                               name="city_name">-->
+<!--                                                        <input value="تایید ارزیاب‌های این استان" type="submit"-->
+<!--                                                               name="set_approved" style="padding: 5px">-->
+<!--                                                    </form>-->
+<!--                                                </td>-->
+<!--                                                --><?php //$itemnotapprove = null;endif; ?>
+<!--                                        </tr>-->
+<!--                                    --><?php //endforeach; ?>
+<!--                                    --><?php
+//                                    $query = mysqli_query($connection, "select * from rater_list where type=0 and shahr_name='بناب'");
+//                                    foreach ($query as $notapprovedraters) {
+//                                    }
+//                                    ?>
+<!--                                    <tr>-->
+<!--                                        <td>-->
+<!--                                            --><?php //echo $a;
+//                                            $a++; ?>
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            --><?php
+//                                            echo 'منطقه بناب';
+//                                            ?>
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            --><?php
+//                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='بناب' and type=0");
+//                                            echo mysqli_num_rows($query);
+//                                            $tedadkol = mysqli_num_rows($query) + $tedadkol;
+//                                            ?>
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            --><?php
+//                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='بناب' and approved=0 and type=0 and cv_filepath is null");
+//                                            echo mysqli_num_rows($query);
+//                                            $tbr = mysqli_num_rows($query) + $tbr;
+//                                            ?>
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            --><?php
+//                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='بناب' and cv_filepath is not null and type=0");
+//                                            echo mysqli_num_rows($query);
+//                                            $tt = mysqli_num_rows($query) + $tt;
+//                                            ?>
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            --><?php
+//                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='بناب' and approved=2 and type=0");
+//                                            echo mysqli_num_rows($query);
+//                                            $ttn = mysqli_num_rows($query) + $ttn;
+//                                            ?>
+<!--                                        </td>-->
+<!--                                        --><?php
+//                                        foreach ($query as $itemnotapprove) {
+//                                        }
+//                                        if (@$itemnotapprove != null):
+//                                            ?>
+<!--                                            <td>-->
+<!--                                                <form action="build/php/inc.php" method="post">-->
+<!--                                                    <input type="hidden" value="--><?php //echo $city_name ?><!--"-->
+<!--                                                           name="city_name">-->
+<!--                                                    <input value="تایید ارزیاب‌های این استان" type="submit"-->
+<!--                                                           name="set_approved" style="padding: 5px">-->
+<!--                                                </form>-->
+<!--                                            </td>-->
+<!--                                            --><?php //$itemnotapprove = null;endif; ?>
+<!--                                    </tr>-->
+<!--                                    --><?php
+//                                    $query = mysqli_query($connection, "select * from rater_list where type=0 and shahr_name='کاشان'");
+//                                    foreach ($query as $notapprovedraters) {
+//                                    }
+//                                    ?>
+<!--                                    <tr>-->
+<!--                                        <td>-->
+<!--                                            --><?php //echo $a;
+//                                            $a++; ?>
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            --><?php
+//                                            echo 'منطقه کاشان';
+//                                            ?>
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            --><?php
+//                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and type=0");
+//                                            echo mysqli_num_rows($query);
+//                                            $tedadkol = mysqli_num_rows($query) + $tedadkol;
+//                                            ?>
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            --><?php
+//                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and approved=0 and type=0 and cv_filepath is null");
+//                                            echo mysqli_num_rows($query);
+//                                            $tbr = mysqli_num_rows($query) + $tbr;
+//                                            ?>
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            --><?php
+//                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and cv_filepath is not null and type=0");
+//                                            echo mysqli_num_rows($query);
+//                                            $tt = mysqli_num_rows($query) + $tt;
+//                                            ?>
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            --><?php
+//                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and approved=2 and type=0");
+//                                            echo mysqli_num_rows($query);
+//                                            $ttn = mysqli_num_rows($query) + $ttn;
+//                                            ?>
+<!--                                        </td>-->
+<!--                                        --><?php
+//                                        foreach ($query as $itemnotapprove) {
+//                                        }
+//                                        if (@$itemnotapprove != null):
+//                                            ?>
+<!--                                            <td>-->
+<!--                                                <form action="build/php/inc.php" method="post">-->
+<!--                                                    <input type="hidden" value="--><?php //echo $city_name ?><!--"-->
+<!--                                                           name="city_name">-->
+<!--                                                    <input value="تایید ارزیاب‌های این استان" type="submit"-->
+<!--                                                           name="set_approved" style="padding: 5px">-->
+<!--                                                </form>-->
+<!--                                            </td>-->
+<!--                                            --><?php //$itemnotapprove = null;endif; ?>
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td>--><?php //echo $tedadkol; ?><!--</td>-->
+<!--                                        <td>--><?php //echo $tbr; ?><!--</td>-->
+<!--                                        <td>--><?php //echo $tt; ?><!--</td>-->
+<!--                                        <td>--><?php //echo $ttn; ?><!--</td>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+<!--                                </table>-->
+<!--                            </center>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--            </section>-->
+<!--        </div>-->
     <?php endif; ?>
     <div class="row">
         <section class="col-lg-12 col-md-12">

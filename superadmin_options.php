@@ -1,5 +1,6 @@
 <?php
 include_once __DIR__ . '/header.php';
+if($_SESSION['head']==1 and $_SESSION['full_access']==1):
 ?>
 
 <div class="content-wrapper">
@@ -15,9 +16,9 @@ include_once __DIR__ . '/header.php';
                 <div class="box-body">
                     <p>لطفا پس از اتمام کار با سامانه، از حساب کاربری خود خارج شوید.</p>
                     <p>لطفا در حفظ و نگهداری نام کاربری و رمز عبور خود نهایت دقت را داشته باشید.</p>
-<!--                    <form method="post" action="build/php/inc.php">-->
-<!--                        <input type="submit" name="querya">-->
-<!--                    </form>-->
+                    <!--                    <form method="post" action="build/php/inc.php">-->
+                    <!--                        <input type="submit" name="querya">-->
+                    <!--                    </form>-->
                 </div>
             </div>
         </section>
@@ -40,17 +41,19 @@ include_once __DIR__ . '/header.php';
                                 <span>
                                     وضعیت در حال تعمیر:
                                     <?php
-                                    $query=mysqli_query($connection,"select * from options where op_name='maintenance'");
-                                    foreach ($query as $options){}
-                                    if ($options['op_value']==0){
+                                    $query = mysqli_query($connection, "select * from options where op_name='maintenance'");
+                                    foreach ($query as $options) {
+                                    }
+                                    if ($options['op_value'] == 0) {
                                         echo 'غیر فعال';
-                                    }else{
+                                    } else {
                                         echo 'فعال';
                                     }
                                     ?>
                                 </span>
                             <br/><br/>
-                            <input name="maintenance" type="submit" value="تغییر وضعیت حالت تعمیر و نگهداری" class="btn btn-block btn-danger">
+                            <input name="maintenance" type="submit" value="تغییر وضعیت حالت تعمیر و نگهداری"
+                                   class="btn btn-block btn-danger">
                         </form>
                     </center>
                 </div>
@@ -58,7 +61,8 @@ include_once __DIR__ . '/header.php';
         </section>
     </div>
 
-        <!-- /.content-wrapper -->
-        <?php
-        include_once __DIR__ . '/footer.php';
-        ?>
+    <!-- /.content-wrapper -->
+    <?php
+    endif;
+    include_once __DIR__ . '/footer.php';
+    ?>

@@ -3,9 +3,9 @@
 session_start();
 include_once 'config/connection.php';
 include_once 'build/php/functions.php';
-$ip = getIPAddress();
-$browsername = $_SERVER['HTTP_USER_AGENT'];
-$browserversion = NULL;
+//$ip = getIPAddress();
+//$browsername = $_SERVER['HTTP_USER_AGENT'];
+//$browserversion = NULL;
 //type=0 => ارزیاب جشنواره
 //type=1 => کارشناس سامانه
 //type=1 and full_access=1 => مدیر سامانه
@@ -80,7 +80,7 @@ if (isset($_POST) & !empty($_POST)) {
             foreach ($query as $items) {
             }
             if ($items != null) {
-                $code = $items['username'];
+                $code = @$items['username'];
                 mysqli_query($connection, "update log_helli set logout_year=1,logout_month=1,logout_day=1,logout_hour=1,logout_minute=1,logout_second=1 where username='$code' and logout_year is null");
             }
             mysqli_query($connection, "insert into `log_helli`(`username`,`login_year`,`login_month`,`login_day`,`login_hour`,`login_minute`,`login_second`,`ip_address`,`browser_name`,`browser_version`)

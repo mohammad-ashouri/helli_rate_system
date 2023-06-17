@@ -9,7 +9,7 @@
         echo "active treeview";
     }
     ?>">
-        <a href="<?php echo  '../panel.php'; ?>">
+        <a href="<?php echo '../panel.php'; ?>">
             <i class="fa fa-home"></i> <span>صفحه اصلی</span>
         </a>
     </li>
@@ -54,7 +54,7 @@
                     echo "active treeview";
                 }
                 ?>">
-                    <a href="<?php echo  'arzyabi_shode.php'; ?>">
+                    <a href="<?php echo 'arzyabi_shode.php'; ?>">
                         <i class="fa fa-check"></i> <span>ارزیابی اجمالی</span>
                     </a>
                 </li>
@@ -63,7 +63,7 @@
                     echo "active treeview";
                 }
                 ?>">
-                    <a href="<?php echo  'arzyabi_shodet2.php'; ?>">
+                    <a href="<?php echo 'arzyabi_shodet2.php'; ?>">
                         <i class="fa fa-check"></i> <span>تفصیلی دوم</span>
                     </a>
                 </li>
@@ -72,7 +72,7 @@
                     echo "active treeview";
                 }
                 ?>">
-                    <a href="<?php echo  'arzyabi_shodet3.php'; ?>">
+                    <a href="<?php echo 'arzyabi_shodet3.php'; ?>">
                         <i class="fa fa-check"></i> <span>تفصیلی سوم</span>
                     </a>
                 </li>
@@ -85,7 +85,7 @@
             switch ($_SERVER['PHP_SELF']) {
                 case '/new_info.php':
                 case '/edit_asar.php':
-                case '/attach_file_to_asar.php':
+//                case '/attach_file_to_asar.php':
                 case '/tafsili2edit.php':
                 case '/tafsili3edit.php':
                     echo 'active treeview';
@@ -107,7 +107,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'new_info.php'; ?>">
+                        <a href="<?php echo 'new_info.php'; ?>">
                             <i class="fa fa-info-circle"></i> <span>ثبت اثر جدید</span>
                         </a>
                     </li>
@@ -116,7 +116,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'edit_asar.php'; ?>">
+                        <a href="<?php echo 'edit_asar.php'; ?>">
                             <i class="fa fa-download"></i> <span>ویرایش اطلاعات اثر</span>
                         </a>
                     </li>
@@ -129,21 +129,21 @@
                     <!--                            <i class="fa-file-excel-o"></i> <span>ورود اطلاعات با فایل اکسل</span>-->
                     <!--                        </a>-->
                     <!--                    </li>-->
-                    <li class="<?php
-                    if ($_SERVER['PHP_SELF'] == "/attach_file_to_asar.php") {
-                        echo "active treeview";
-                    }
-                    ?>">
-                        <a href="<?php echo  'attach_file_to_asar.php'; ?>">
-                            <i class="fa fa-paperclip"></i> <span>الصاق فایل به اثر</span>
-                        </a>
-                    </li>
+<!--                    <li class="--><?php
+//                    if ($_SERVER['PHP_SELF'] == "/attach_file_to_asar.php") {
+//                        echo "active treeview";
+//                    }
+//                    ?><!--">-->
+<!--                        <a href="--><?php //echo 'attach_file_to_asar.php'; ?><!--">-->
+<!--                            <i class="fa fa-paperclip"></i> <span>الصاق فایل به اثر</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
                     <li class="<?php
                     if ($_SERVER['PHP_SELF'] == "/tafsili2edit.php") {
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'tafsili2edit.php'; ?>">
+                        <a href="<?php echo 'tafsili2edit.php'; ?>">
                             <i class="fa fa-info-circle"></i> <span>ویرایش ارزیابی دوم</span>
                         </a>
                     </li>
@@ -152,7 +152,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'tafsili3edit.php'; ?>">
+                        <a href="<?php echo 'tafsili3edit.php'; ?>">
                             <i class="fa fa-info-circle"></i> <span>ویرایش ارزیابی سوم</span>
                         </a>
                     </li>
@@ -163,7 +163,7 @@
 
             <li class="<?php
             switch ($_SERVER['PHP_SELF']) {
-                case '/attach_file_to_asar.php':
+//                case '/attach_file_to_asar.php':
                 case '/move_to_school.php':
                 case '/edit_asar.php':
                 case '/a-p-info.php':
@@ -181,22 +181,22 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="<?php
-                    if ($_SERVER['PHP_SELF'] == "/attach_file_to_asar.php") {
-                        echo "active treeview";
-                    }
-                    ?>">
-                        <a href="<?php echo  'attach_file_to_asar.php'; ?>">
-                            <i class="fa fa-paperclip"></i> <span>الصاق فایل به اثر</span>
-                        </a>
-                    </li>
+<!--                    <li class="--><?php
+//                    if ($_SERVER['PHP_SELF'] == "/attach_file_to_asar.php") {
+//                        echo "active treeview";
+//                    }
+//                    ?><!--">-->
+<!--                        <a href="--><?php //echo 'attach_file_to_asar.php'; ?><!--">-->
+<!--                            <i class="fa fa-paperclip"></i> <span>الصاق فایل به اثر</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
                     <?php if ($_SESSION['head'] == 2): ?>
                         <li class="<?php
                         if ($_SERVER['PHP_SELF'] == "/move_to_school.php") {
                             echo "active treeview";
                         }
                         ?>">
-                            <a href="<?php echo  'move_to_school.php'; ?>">
+                            <a href="<?php echo 'move_to_school.php'; ?>">
                                 <i class="fa fa-send"></i> <span>انتقال آثار به ارزیابی مدرسه‌ای</span>
                             </a>
                         </li>
@@ -207,7 +207,7 @@
                             echo "active treeview";
                         }
                         ?>">
-                            <a href="<?php echo  'edit_asar.php'; ?>">
+                            <a href="<?php echo 'edit_asar.php'; ?>">
                                 <i class="fa fa-download"></i> <span>ویرایش اطلاعات اثر</span>
                             </a>
                         </li>
@@ -216,7 +216,7 @@
                             echo "active treeview";
                         }
                         ?>">
-                            <a href="<?php echo  'a-p-info.php'; ?>">
+                            <a href="<?php echo 'a-p-info.php'; ?>">
                                 <i class="fa fa-info-circle"></i> <span>جستجو در پایگاه داده</span>
                             </a>
                         </li>
@@ -250,7 +250,7 @@
                     echo "active treeview";
                 }
                 ?>">
-                    <a href="<?php echo  'set_asar_for_rater_ejmali.php'; ?>">
+                    <a href="<?php echo 'set_asar_for_rater_ejmali.php'; ?>">
                         <i class="fa fa-check"></i> <span>اختصاص به ارزیاب اجمالی</span>
                     </a>
                 </li>
@@ -260,7 +260,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'set_asar_for_rater_tafsili1.php'; ?>">
+                        <a href="<?php echo 'set_asar_for_rater_tafsili1.php'; ?>">
                             <i class="fa fa-check"></i> <span>اختصاص به ارزیاب تفصیلی اول</span>
                         </a>
                     </li>
@@ -270,7 +270,7 @@
                     echo "active treeview";
                 }
                 ?>">
-                    <a href="<?php echo  'set_asar_for_rater_tafsili2.php'; ?>">
+                    <a href="<?php echo 'set_asar_for_rater_tafsili2.php'; ?>">
                         <i class="fa fa-check"></i> <span>اختصاص به ارزیاب تفصیلی دوم</span>
                     </a>
                 </li>
@@ -279,7 +279,7 @@
                     echo "active treeview";
                 }
                 ?>">
-                    <a href="<?php echo  'set_asar_for_rater_tafsili3.php'; ?>">
+                    <a href="<?php echo 'set_asar_for_rater_tafsili3.php'; ?>">
                         <i class="fa fa-check"></i> <span>اختصاص به ارزیاب تفصیلی سوم</span>
                     </a>
                 </li>
@@ -312,7 +312,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'ejmali_edit.php'; ?>">
+                        <a href="<?php echo 'ejmali_edit.php'; ?>">
                             <i class="fa fa-check"></i> <span>ویرایش ارزیابی اجمالی</span>
                         </a>
                     </li>
@@ -321,7 +321,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'tafsili1_edit.php'; ?>">
+                        <a href="<?php echo 'tafsili1_edit.php'; ?>">
                             <i class="fa fa-check"></i> <span>ویرایش ارزیابی تفصیلی اول</span>
                         </a>
                     </li>
@@ -330,7 +330,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'tafsili2_edit.php'; ?>">
+                        <a href="<?php echo 'tafsili2_edit.php'; ?>">
                             <i class="fa fa-check"></i> <span>ویرایش ارزیابی تفصیلی دوم</span>
                         </a>
                     </li>
@@ -339,7 +339,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'tafsili3_edit.php'; ?>">
+                        <a href="<?php echo 'tafsili3_edit.php'; ?>">
                             <i class="fa fa-check"></i> <span>ویرایش ارزیابی تفصیلی سوم</span>
                         </a>
                     </li>
@@ -413,7 +413,7 @@
                 echo "active treeview";
             }
             ?>">
-                <a href="<?php echo  'report_from_rates.php'; ?>">
+                <a href="<?php echo 'report_from_rates.php'; ?>">
                     <i class="fa fa-check"></i>
                     <span>
                     <?php if ($_SESSION['head'] == 1 or ($_SESSION['head'] == 0 and $_SESSION['groupname'] != null)): ?>
@@ -435,7 +435,7 @@
                 echo "active treeview";
             }
             ?>">
-                <a href="<?php echo  'report_from_city_rates.php'; ?>">
+                <a href="<?php echo 'report_from_city_rates.php'; ?>">
                     <i class="fa fa-check"></i>
                     <span>
                         وضعیت ارزیابی آثار مدرسه
@@ -447,7 +447,7 @@
                 echo "active treeview";
             }
             ?>">
-                <a href="<?php echo  'Send_To_Secretariat.php'; ?>">
+                <a href="<?php echo 'Send_To_Secretariat.php'; ?>">
                     <i class="fa fa-send"></i> <span>تاییدیه و ارسال آثار به دبیرخانه</span>
                 </a>
             </li>
@@ -485,7 +485,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'a-p-info.php'; ?>">
+                        <a href="<?php echo 'a-p-info.php'; ?>">
                             <i class="fa fa-info-circle"></i> <span>جستجو در پایگاه داده</span>
                         </a>
                     </li>
@@ -494,7 +494,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'arzyabi_ejmali_info.php'; ?>">
+                        <a href="<?php echo 'arzyabi_ejmali_info.php'; ?>">
                             <i class="fa fa-info-circle"></i> <span>نمایش همه ارزیابی های اجمالی</span>
                         </a>
                     </li>
@@ -503,7 +503,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'report.php'; ?>">
+                        <a href="<?php echo 'report.php'; ?>">
                             <i class="fa fa-check"></i> <span>گزارش گیری از اطلاعات ادوار</span>
                         </a>
                     </li>
@@ -512,7 +512,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'export.php'; ?>">
+                        <a href="<?php echo 'export.php'; ?>">
                             <i class="fa fa-check"></i> <span>خروجی اکسل از اطلاعات</span>
                         </a>
                     </li>
@@ -521,7 +521,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'report_from_rates_keshvari.php'; ?>">
+                        <a href="<?php echo 'report_from_rates_keshvari.php'; ?>">
                             <i class="fa fa-check"></i> <span>گزارش وضعیت ارزیابی کشوری</span>
                         </a>
                     </li>
@@ -530,7 +530,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'report_from_state_rates.php'; ?>">
+                        <a href="<?php echo 'report_from_state_rates.php'; ?>">
                             <i class="fa fa-check"></i> <span>گزارش وضعیت ارزیابی استانی</span>
                         </a>
                     </li>
@@ -539,7 +539,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'report_from_city_rates.php'; ?>">
+                        <a href="<?php echo 'report_from_city_rates.php'; ?>">
                             <i class="fa fa-check"></i> <span>گزارش وضعیت ارزیابی مدرسه ای</span>
                         </a>
                     </li>
@@ -549,7 +549,7 @@
                             echo "active treeview";
                         }
                         ?>">
-                            <a href="<?php echo  'excel_export_with_save_payment.php'; ?>">
+                            <a href="<?php echo 'excel_export_with_save_payment.php'; ?>">
                                 <i class="fa fa-check"></i> <span>خروجی پرداختی به ارزیابان</span>
                             </a>
                         </li>
@@ -558,7 +558,7 @@
                             echo "active treeview";
                         }
                         ?>">
-                            <a href="<?php echo  'report-logins.php'; ?>">
+                            <a href="<?php echo 'report-logins.php'; ?>">
                                 <i class="fa fa-check"></i> <span>آخرین بازدید کاربران</span>
                             </a>
                         </li>
@@ -568,7 +568,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'approved_state_works.php'; ?>">
+                        <a href="<?php echo 'approved_state_works.php'; ?>">
                             <i class="fa fa-check"></i> <span>فایل های تاییدیه استان ها</span>
                         </a>
                     </li>
@@ -599,7 +599,7 @@
                         echo "active treeview";
                     }
                     ?>">
-                        <a href="<?php echo  'add_rater.php'; ?>">
+                        <a href="<?php echo 'add_rater.php'; ?>">
                             <i class="fa fa-check"></i> <span>مدیریت ارزیابان</span>
                         </a>
                     </li>
@@ -621,7 +621,7 @@
                 echo "active treeview";
             }
             ?>">
-                <a href="<?php echo  '/add_rater_ostani.php'; ?>">
+                <a href="<?php echo '/add_rater_ostani.php'; ?>">
                     <i class="fa fa-reply"></i> <span>مدیریت ارزیابان استانی</span>
                 </a>
             </li>
@@ -654,7 +654,7 @@
                                 echo "active treeview";
                             }
                             ?>">
-                                <a href="<?php echo  'admin_manager.php'; ?>">
+                                <a href="<?php echo 'admin_manager.php'; ?>">
                                     <i class="fa fa-check"></i> <span>ادمین های کشوری</span>
                                 </a>
                             </li>
@@ -664,7 +664,7 @@
                             echo "active treeview";
                         }
                         ?>">
-                            <a href="<?php echo  'ostani_admins.php'; ?>">
+                            <a href="<?php echo 'ostani_admins.php'; ?>">
                                 <i class="fa fa-check"></i> <span>ادمین های استانی</span>
                             </a>
                         </li>
@@ -673,7 +673,7 @@
                             echo "active treeview";
                         }
                         ?>">
-                            <a href="<?php echo  'madrese_admins.php'; ?>">
+                            <a href="<?php echo 'madrese_admins.php'; ?>">
                                 <i class="fa fa-check"></i> <span>ادمین های مدرسه‌ای</span>
                             </a>
                         </li>
@@ -681,13 +681,71 @@
                 </li>
                 <?php if (@$_SESSION['full_access'] == 1): ?>
                     <li class="<?php
-                    if ($_SERVER['PHP_SELF'] == "/superadmin_options.php") {
-                        echo "active treeview";
+                    switch ($_SERVER['PHP_SELF']) {
+                        case '/superadmin_options.php':
+                            echo 'active treeview';
+                            break;
+                        default:
+                            echo 'treeview';
+                            break;
                     }
                     ?>">
-                        <a href="<?php echo 'superadmin_options.php'; ?>">
-                            <i class="fa fa-cogs"></i> <span>تنظیمات سامانه</span>
+                        <a href="#">
+                            <i class="fa fa-reply"></i> <span>تنظیمات سامانه ارزیابی</span>
+                            <span class="pull-left-container">
+              <i class="fa fa-angle-right pull-left"></i>
+            </span>
                         </a>
+                        <ul class="treeview-menu">
+                            <li class="<?php
+                            if ($_SERVER['PHP_SELF'] == "/superadmin_options.php") {
+                                echo "active treeview";
+                            }
+                            ?>">
+                                <a href="<?php echo 'superadmin_options.php'; ?>">
+                                    <i class="fa fa-cogs"></i> <span>تنظیمات عمومی</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="<?php
+                    switch ($_SERVER['PHP_SELF']) {
+                        case '/superadmin_options.php':
+                        case '/signup_posts.php':
+                            echo 'active treeview';
+                            break;
+                        default:
+                            echo 'treeview';
+                            break;
+                    }
+                    ?>">
+                        <a href="#">
+                            <i class="fa fa-reply"></i> <span>تنظیمات سامانه ثبت نام</span>
+                            <span class="pull-left-container">
+              <i class="fa fa-angle-right pull-left"></i>
+            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?php
+                            if ($_SERVER['PHP_SELF'] == "/superadmin_options.php") {
+                                echo "active treeview";
+                            }
+                            ?>">
+                                <a href="<?php echo 'superadmin_options.php'; ?>">
+                                    <i class="fa fa-cogs"></i> <span>تنظیمات فراخوان</span>
+                                </a>
+                            </li>
+                            <li class="<?php
+                            if ($_SERVER['PHP_SELF'] == "/signup_posts.php") {
+                                echo "active treeview";
+                            }
+                            ?>">
+                                <a href="<?php echo 'signup_posts.php'; ?>">
+                                    <i class="fa fa-cogs"></i> <span>آثار کاربران ثبت نام شده</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
 
                 <?php
@@ -698,7 +756,7 @@
 
 
     <li>
-        <a href="<?php echo  'logout.php'; ?>">
+        <a href="<?php echo 'logout.php'; ?>">
             <i class="fa fa-sign-out"></i> <span>خروج از سامانه</span>
         </a>
     </li>
