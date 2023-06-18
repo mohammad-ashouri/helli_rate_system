@@ -68,8 +68,9 @@ if (!isset($_SESSION['islogin'])) {
     <link rel="icon" type="image/x-icon" href="./build/dist/img/favicon.ico">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap 3.3.7 -->
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="./build/dist/css/bootstrap-theme.css">
+<!--    <link rel="stylesheet" href="./bower_components/bootstrap-5.0.2/css/bootstrap.css">-->
     <!-- Bootstrap rtl -->
     <link rel="stylesheet" href="./build/dist/css/rtl.css">
     <!-- Custom styles from me -->
@@ -95,8 +96,6 @@ if (!isset($_SESSION['islogin'])) {
     <script src="./bower_components/select2/dist/js/select2.min.js" type="text/javascript"></script>
 
     <![endif]-->
-    <!-- Google Font -->
-    <!--    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">

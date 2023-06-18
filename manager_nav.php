@@ -745,6 +745,15 @@
                                     <i class="fa fa-cogs"></i> <span>آثار کاربران ثبت نام شده</span>
                                 </a>
                             </li>
+                            <li class="<?php
+                            if ($_SERVER['PHP_SELF'] == "/provinces_settings.php") {
+                                echo "active treeview";
+                            }
+                            ?>">
+                                <a href="<?php echo 'provinces_settings.php'; ?>">
+                                    <i class="fa fa-cogs"></i> <span>مدیریت استان/شهرستان/مدرسه</span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 

@@ -251,7 +251,7 @@ if ($approved1['approved'] == 0 and $approved1['type'] == 0):
                             </p>
                         <?php endif; ?>
                         <label style="border: 3px solid black; padding: 5px">
-                            <form action="build/php/rater_cv.php" method="post"
+                            <form action="./build/php/RaterCV.php" method="post"
                                   enctype="multipart/form-data" onsubmit="return validatefileisselected()">
                                 <input type="checkbox" name="accept_data"
                                        id="accept_data" onchange="checkaccept()">

@@ -4,14 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Fix Header And Footer Link">
-      <change afterPath="$PROJECT_DIR$/build/php/rater_cv.php" afterDir="false" />
+    <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Approve Rater After CV Is Uploaded">
+      <change afterPath="$PROJECT_DIR$/build/ajax/ProvincesManager.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/php/Template Inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/add_rater_ostani.php" beforeDir="false" afterPath="$PROJECT_DIR$/add_rater_ostani.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/php/inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/php/inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/php/maintenance.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/php/maintenance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_panels/admin-panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/main_panels/admin-panel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ajax/setejo.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/ajax/setejo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/js/provinces_manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/js/provinces_manager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/php/rater_cv.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/php/RaterCV.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/php/simple.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/manager_nav.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/panel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/provinces_settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/provinces_settings.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +35,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="f6c2126f-124e-4b5c-9357-af7f99e68321" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -60,6 +69,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "Settings.JavaScript.Linters.JSHint",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -77,7 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1686991119669</updated>
       <workItem from="1686991120627" duration="2760000" />
-      <workItem from="1687063116250" duration="1081000" />
+      <workItem from="1687063116250" duration="12683000" />
     </task>
     <task id="LOCAL-00001" summary="Syncronize With Host And Git">
       <created>1686992152949</created>
@@ -93,11 +103,29 @@
       <option name="project" value="LOCAL" />
       <updated>1686993851003</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Approve Rater After CV Is Uploaded">
+      <created>1687064319850</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1687064319850</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -105,6 +133,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Syncronize With Host And Git" />
     <MESSAGE value="Fix Header And Footer Link" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Header And Footer Link" />
+    <MESSAGE value="Approve Rater After CV Is Uploaded + Split Set Rater CV Codes Into Another File" />
+    <option name="LAST_COMMIT_MESSAGE" value="Approve Rater After CV Is Uploaded + Split Set Rater CV Codes Into Another File" />
   </component>
 </project>

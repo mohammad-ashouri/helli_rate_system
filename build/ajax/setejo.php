@@ -1,5 +1,4 @@
-<?php include_once __DIR__.'/../../config/connection.php'; ?>
-<?php
+<?php include_once __DIR__.'/../../config/connection.php';
 	session_start();
 	$state=$_SESSION['city'];
 	$city=$_SESSION['shahr_name'];

@@ -30,8 +30,9 @@ include_once __DIR__ . '/config/connection.php';
 <script>
     $.widget.bridge('uibutton', $.ui.button);
 </script>
-<!-- Bootstrap 3.3.7 -->
+<!-- Bootstrap -->
 <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!--<script src="./bower_components/bootstrap-5.0.2/js/bootstrap.min.js"></script>-->
 <!-- Sparkline -->
 <script src="./bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 <!-- jQuery Knob Chart -->

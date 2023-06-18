@@ -6,5 +6,4 @@ $select = mysqli_query($connection, "select * from log_helli where username='$us
 foreach ($select as $markforlinklogs) {
 }
 $LinkLogID = @$markforlinklogs['radif'];
-$dateforupdateloghelli = $year . '/' . $month . '/' . $day . ' ' . $hour . ':' . $min . ':' . $sec;
 $urlofthispage = $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
