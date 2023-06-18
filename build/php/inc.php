@@ -1513,44 +1513,6 @@ elseif (isset($_POST['enableadminmadrese']) and !empty($_POST['disablecode'])) {
 //end school admins
 //end admin manager
 
-//start upload rater cv
-elseif (isset($_POST['uploadcv']) and !empty($_POST['coderater']) and !empty($_FILES['uploadcvfile']) and $_POST['accept_data'] == 'on') {
-    $operation = "uploadcv";
-    mysqli_query($connection, "insert into link_logs (id,url,operation,time,username) values ('$LinkLogID','$urlofthispage','$operation','$dateforupdateloghelli','$user')");
-
-    $coderater = $_POST['coderater'];
-    $file_size = $_FILES['uploadcvfile']['size'];
-    $filename = $_FILES["uploadcvfile"]["name"];
-    $filename_without_extdocx = basename($filename, '.docx');
-    $allowed = array('docx', 'doc');
-    $ext = pathinfo($filename, PATHINFO_EXTENSION);
-
-    if ($file_size > 5242880) {
-        header("location:" . $main_website_url . "panel.php?wrongcvsize");
-    } elseif ($filename_without_extdocx != $coderater) {
-        header("location:" . $main_website_url . "panel.php?incompatibilitynames");
-    } elseif (!in_array($ext, $allowed)) {
-        header("location:" . $main_website_url . "panel.php?incompatibilityext");
-    } elseif ((substr($_FILES["uploadcvfile"]["name"], 0, -4) == $coderater) or substr($_FILES["uploadcvfile"]["name"], 0, -3) == $coderater) {
-        if (!file_exists(__DIR__ . "/../../dist/files/cv_raters/" . $_FILES["uploadcvfile"]["name"])) {
-            move_uploaded_file($_FILES["uploadcvfile"]["tmp_name"], __DIR__ . "/../../dist/files/cv_raters/" . $_FILES["uploadcvfile"]["name"]);
-            if ($_SESSION['head'] == 2 or $_SESSION['head'] == 3) {
-                $_SESSION['approved'] = 1;
-                mysqli_query($connection, "update rater_list set `cv_filepath`= 'dist/files/cv_raters/$filename',`approved`= 1,accept_data=1,cvsettime='$datewithtime' where `code`='$coderater' ");
-                header("location:" . $main_website_url . "panel.php?cvseted");
-            } elseif ($_SESSION['head'] == 0) {
-                $_SESSION['approved'] = 2;
-                mysqli_query($connection, "update rater_list set `cv_filepath`= 'dist/files/cv_raters/$filename',`approved`= 2,accept_data=1,cvsettime='$datewithtime' where `code`='$coderater' ");
-                header("location:" . $main_website_url . "panel.php?cvset");
-            }
-
-        } else {
-            header("location:" . $main_website_url . "panel.php?wrongcvset");
-        }
-
-    }
-}
-//end upload rater cv
 
 //start set ejmali keshvari
 elseif (isset($_POST['setejmali']) && isset($_POST['codeasarfield'])) {
@@ -1830,6 +1792,7 @@ elseif (isset($_POST['subsetnonkeshvarirater']) and !empty($_POST['code'])) {
     $operation = "subsetnonkeshvarirater";
     mysqli_query($connection, "insert into link_logs (id,url,operation,time,username) values ('$LinkLogID','$urlofthispage','$operation','$dateforupdateloghelli','$user')");
 
+    echo $_POST['code'];
     $codearzyab = $_POST['code'];
     $query = mysqli_query($connection, "select * from rater_list where code='$codearzyab'");
     foreach ($query as $checkraterfound) {

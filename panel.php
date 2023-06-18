@@ -15,7 +15,6 @@ include_once 'header.php';
                 <div class="box-body">
                     <p>لطفا پس از اتمام کار با سامانه، از حساب کاربری خود خارج شوید.</p>
                     <p>لطفا در حفظ و نگهداری نام کاربری و رمز عبور خود نهایت دقت را داشته باشید.</p>
-
                 </div>
             </div>
         </section>
@@ -252,7 +251,7 @@ if ($approved1['approved'] == 0 and $approved1['type'] == 0):
                             </p>
                         <?php endif; ?>
                         <label style="border: 3px solid black; padding: 5px">
-                            <form action="build/php/inc.php" method="post"
+                            <form action="build/php/rater_cv.php" method="post"
                                   enctype="multipart/form-data" onsubmit="return validatefileisselected()">
                                 <input type="checkbox" name="accept_data"
                                        id="accept_data" onchange="checkaccept()">

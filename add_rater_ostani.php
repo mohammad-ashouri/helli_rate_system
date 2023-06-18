@@ -10,10 +10,9 @@ if ($_SESSION['head'] == 1):
                     document.getElementById("cityselect").innerHTML = this.responseText;
                     document.getElementById("citytr").style.display = '';
                     document.getElementById("schooltr").style.display = '';
-
                 }
             }
-            xmlhttp.open("GET", "/build/ajax/showcity.php?statename=" + str, true);
+            xmlhttp.open("GET", "./build/ajax/showcity.php?statename=" + str, true);
             xmlhttp.send();
         }
     </script>
@@ -131,7 +130,7 @@ if ($_SESSION['head'] == 1):
                             </div>
                         <?php endif; ?>
                         <center>
-                            <form method="post" action="../build/php/inc.php" onsubmit="return checkcodemelli()">
+                            <form method="post" action="./build/php/inc.php" onsubmit="return checkcodemelli()">
                                 <table class="tableratermanager">
                                     <tr>
                                         <th>کد ملی (نام کاربری)</th>

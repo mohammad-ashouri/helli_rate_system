@@ -13,13 +13,13 @@
 <!--                        <h3 class='box-title'>-->
 <!--                            لیست ارزیابان تایید نشده بر اساس استان-->
 <!--                        </h3>-->
-<!--                        <!-- tools box -->-->
+<!--                        <!-- tools box -->
 <!--                        <div class="pull-left box-tools">-->
 <!--                            <button type="button" class="btn bg-info btn-sm" data-widget="collapse"><i-->
 <!--                                        class="fa fa-minus"></i>-->
 <!--                            </button>-->
 <!--                        </div>-->
-<!--                        <!-- /. tools -->-->
+<!--                        <!-- /. tools -->
 <!--                    </div>-->
 <!--                    <div class="box-body" style="overflow-x: auto">-->
 <!--                        <div class="row">-->
