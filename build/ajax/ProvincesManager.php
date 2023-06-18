@@ -25,7 +25,7 @@ if ($_SESSION['head'] == 1) {
             $state = $_REQUEST['state'];
             $city = $_REQUEST['city'];
             $school = $_REQUEST['school'];
-            $query = mysqli_query($signup_connection, "select * from provinces where markaz='$center' and ostan='$state' and shahr='$city' and madrese='$school'");
+            $query = mysqli_query($signup_connection, "select * from provinces where markaz='$center' and ostan='$state' and shahr='$city' and madrese='$school' and active=1");
             foreach ($query as $checkSchool) {
             }
             if ($checkSchool) {
@@ -54,20 +54,58 @@ if ($_SESSION['head'] == 1) {
             $state = $_REQUEST['state'];
             $city = $_REQUEST['city'];
             $gender = $_REQUEST['gender'];
-            if ($center == 'انتخاب کنید') {
-                $center = '';
-            } elseif ($state == 'انتخاب کنید') {
-                $state = '';
-            } elseif ($city) {
-                $city = '';
-            } elseif ($gender) {
-                $gender = '';
+            $query = "SELECT * FROM provinces";
+
+            switch ($gender) {
+                case 'مرد':
+                case 'زن':
+                    if (($state == 'انتخاب کنید' or $state == '') and ($city == 'انتخاب کنید' or $city == '')) {
+                        $query .= " WHERE markaz = '$center' and gender='$gender' order by ostan,shahr,madrese";
+                    } elseif (($state != 'انتخاب کنید' or $state != '') and ($city == 'انتخاب کنید' or $city == '')) {
+                        $query .= " WHERE markaz = '$center' and ostan='$state' and gender='$gender' order by ostan,shahr,madrese";
+                    } elseif (($state != 'انتخاب کنید' or $state != '') and ($city != 'انتخاب کنید' or $city != '')) {
+                        $query .= " WHERE markaz = '$center' and ostan='$state' and shahr='$city' and gender='$gender' order by ostan,shahr,madrese";
+                    }
+                    break;
+                default:
+                    if (($state == 'انتخاب کنید' or $state == '') and ($city == 'انتخاب کنید' or $city == '')) {
+                        $query .= " WHERE markaz = '$center' order by ostan,shahr,madrese";
+                    } elseif (($state != 'انتخاب کنید' or $state != '') and ($city == 'انتخاب کنید' or $city == '')) {
+                        $query .= " WHERE markaz = '$center' and ostan='$state' order by ostan,shahr,madrese";
+                    } elseif (($state != 'انتخاب کنید' or $state != '') and ($city != 'انتخاب کنید' or $city != '')) {
+                        $query .= " WHERE markaz = '$center' and ostan='$state' and shahr='$city' order by ostan,shahr,madrese";
+                    }
+                    break;
             }
 
-            echo "<table>";
-            echo "<tr> <th>ردیف</th> <th>مرکز</th> <th>استان</th> <th>شهرستان</th> <th>مدرسه</th> <th>جنسیت</th> </tr>";
-            echo "</table>";
 
+            echo "<table class='table table-bordered table-striped text-center'>";
+            echo "<tr> <th>ردیف</th> <th>مرکز</th> <th>استان</th> <th>شهرستان</th> <th>مدرسه</th> <th>جنسیت</th> <th>عملیات</th> </tr>";
+            $query = mysqli_query($signup_connection, $query);
+            $count = 1;
+            foreach ($query as $items) {
+                $tr= "<tr>" .
+                    "<td>" . $count++ . "</td>" .
+                    "<td>" . $items['markaz'] . "</td>" .
+                    "<td>" . $items['ostan'] . "</td>" .
+                    "<td>" . $items['shahr'] . "</td>" .
+                    "<td>" . $items['madrese'] . "</td>" .
+                    "<td>" . $items['gender'] . "</td>";
+                if ($items['active']==1){
+                    echo $tr.="<td> <button id='deactive' value=" . $items['id'] . " class='btn btn-danger deactiveProvinces'>غیرفعال</button> </td> </tr>";
+                }else{
+                    echo $tr.="<td> <button class='btn btn-block btn-success'>فعال</button> </td> </tr>";
+                }
+
+            }
+            echo "</table>";
+            break;
+        case 'deactiveProvince':
+            $province= $_REQUEST['province'];
+            $query=mysqli_query($signup_connection,"update provinces set active=0 where id='$province'");
+            if ($query){
+                echo 'Done';
+            }
             break;
     }
 

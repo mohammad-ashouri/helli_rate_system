@@ -5,18 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Approve Rater After CV Is Uploaded">
-      <change afterPath="$PROJECT_DIR$/build/ajax/ProvincesManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/php/Template Inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ajax/setejo.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/ajax/setejo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ajax/ProvincesManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/ajax/ProvincesManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/js/provinces_manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/js/provinces_manager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/php/rater_cv.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/php/RaterCV.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/php/simple.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/manager_nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/panel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/provinces_settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/provinces_settings.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,10 +33,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
     <include_path>
-      <path value="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel" />
       <path value="$PROJECT_DIR$/exceltomysql/vendor/composer" />
+      <path value="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel" />
     </include_path>
   </component>
   <component name="ProjectId" id="2RKFySJfOyVxaCFTwhd8y9xpl2m" />
@@ -64,6 +56,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/wamp64/www/helli_rate_system",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -88,6 +81,7 @@
       <updated>1686991119669</updated>
       <workItem from="1686991120627" duration="2760000" />
       <workItem from="1687063116250" duration="12683000" />
+      <workItem from="1687088457271" duration="6516000" />
     </task>
     <task id="LOCAL-00001" summary="Syncronize With Host And Git">
       <created>1686992152949</created>
@@ -135,5 +129,9 @@
     <MESSAGE value="Fix Header And Footer Link" />
     <MESSAGE value="Approve Rater After CV Is Uploaded + Split Set Rater CV Codes Into Another File" />
     <option name="LAST_COMMIT_MESSAGE" value="Approve Rater After CV Is Uploaded + Split Set Rater CV Codes Into Another File" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
