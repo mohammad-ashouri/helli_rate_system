@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Approve Rater After CV Is Uploaded">
-      <change afterPath="$PROJECT_DIR$/build/ajax/ProvincesManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/php/Template Inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ajax/setejo.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/ajax/setejo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/js/provinces_manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/js/provinces_manager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/php/rater_cv.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/php/RaterCV.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/php/simple.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/manager_nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/panel.php" beforeDir="false" afterPath="$PROJECT_DIR$/panel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/provinces_settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/provinces_settings.php" afterDir="false" />
-    </list>
+    <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Work On Provinces Settings" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1686991119669</updated>
       <workItem from="1686991120627" duration="2760000" />
-      <workItem from="1687063116250" duration="12683000" />
+      <workItem from="1687063116250" duration="12870000" />
     </task>
     <task id="LOCAL-00001" summary="Syncronize With Host And Git">
       <created>1686992152949</created>
@@ -110,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687064319850</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Work On Provinces Settings">
+      <created>1687080031917</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687080031917</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +127,7 @@
     <MESSAGE value="Syncronize With Host And Git" />
     <MESSAGE value="Fix Header And Footer Link" />
     <MESSAGE value="Approve Rater After CV Is Uploaded + Split Set Rater CV Codes Into Another File" />
-    <option name="LAST_COMMIT_MESSAGE" value="Approve Rater After CV Is Uploaded + Split Set Rater CV Codes Into Another File" />
+    <MESSAGE value="Work On Provinces Settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Work On Provinces Settings" />
   </component>
 </project>
