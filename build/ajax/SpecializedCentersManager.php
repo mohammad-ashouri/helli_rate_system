@@ -24,8 +24,9 @@ if ($_SESSION['head'] == 1) {
             }
             break;
         case 'gettingResult':
+            echo "<input class='form-control float-right' style='margin-bottom: 20px' placeholder='لطفا برای جستجو، نام مرکز مورد نظر را تایپ نمایید' onkeyup='searchInspecializedCentersInfo()' id='searchInTable'>";
             $query = mysqli_query($signup_connection,"Select * from specialized_centers order by title");
-            echo "<table class='table table-bordered table-striped text-center'>";
+            echo "<table id='specializedCentersInfo' class='table table-bordered table-striped text-center'>";
             echo "<tr> <th>ردیف</th> <th> مرکز [استان - شهرستان]</th> <th>عملیات</th> </tr>";
             $count = 1;
             foreach ($query as $items) {

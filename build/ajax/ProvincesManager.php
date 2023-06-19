@@ -78,8 +78,11 @@ if ($_SESSION['head'] == 1) {
                     break;
             }
 
+            echo "<div style='display: flex;margin-bottom: 20px'>";
+            echo "<input class='form-control float-right' style='margin-left: 20px' placeholder='برای جستجو، نام مدرسه مورد نظر را تایپ نمایید' onkeyup='searchInProvincesInfo()' id='searchInTable'>";
+            echo "</div>";
 
-            echo "<table class='table table-bordered table-striped text-center'>";
+            echo "<table id='provincesInfo' class='table table-bordered table-striped text-center'>";
             echo "<tr> <th>ردیف</th> <th>مرکز</th> <th>استان</th> <th>شهرستان</th> <th>مدرسه</th> <th>جنسیت</th> <th>عملیات</th> </tr>";
             $query = mysqli_query($signup_connection, $query);
             $count = 1;

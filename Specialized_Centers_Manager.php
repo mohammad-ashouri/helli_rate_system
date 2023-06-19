@@ -83,7 +83,6 @@ if ($_SESSION['head'] == 1 and $_SESSION['full_access'] == 1):
                                 </button>
                             </div>
                             <div id="result" style="margin-top: 3%">
-
                             </div>
                         </div>
                     </div>
