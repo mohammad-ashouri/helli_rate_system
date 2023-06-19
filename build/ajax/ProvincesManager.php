@@ -94,7 +94,7 @@ if ($_SESSION['head'] == 1) {
                 if ($items['active']==1){
                     echo $tr.="<td> <button id='deactive' value=" . $items['id'] . " class='btn btn-danger deactiveProvinces'>غیرفعال</button> </td> </tr>";
                 }else{
-                    echo $tr.="<td> <button class='btn btn-block btn-success'>فعال</button> </td> </tr>";
+                    echo $tr.="<td> <button id='active' value=" . $items['id'] . " class='btn btn-success activeProvinces'>فعال</button> </td> </tr>";
                 }
 
             }
@@ -103,6 +103,13 @@ if ($_SESSION['head'] == 1) {
         case 'deactiveProvince':
             $province= $_REQUEST['province'];
             $query=mysqli_query($signup_connection,"update provinces set active=0 where id='$province'");
+            if ($query){
+                echo 'Done';
+            }
+            break;
+        case 'activeProvince':
+            $province= $_REQUEST['province'];
+            $query=mysqli_query($signup_connection,"update provinces set active=1 where id='$province'");
             if ($query){
                 echo 'Done';
             }

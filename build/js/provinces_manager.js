@@ -105,7 +105,6 @@ document.getElementById('addProvince').onclick = function () {
                 gender: gender.value,
             },
             success: function (response) {
-                console.log(response);
                 if (response === 'DuplicateFounded') {
                     addProvince.style.display = "none";
                     alert('نام مدرسه تکراری وارد شده است.');
@@ -173,42 +172,66 @@ document.getElementById('statesForCheck').onchange = function () {
     });
 }
 
-document.getElementById('search').onclick = function () {
-    if (centersForCheck.value) {
-        $.ajax({
-            url: "./build/ajax/ProvincesManager.php",
-            type: "GET",
-            data: {
-                work: "gettingResult",
-                center: centersForCheck.value,
-                state: statesForCheck.value,
-                city: citiesForCheck.value,
-                gender: genderForCheck.value,
-            },
-            success: function (response) {
-                result.innerHTML = response;
-                var deactiveButtons = document.querySelectorAll('#deactive');
-                deactiveButtons.forEach(function(button) {
-                    button.addEventListener('click', function() {
-                        $.ajax({
-                            url: "./build/ajax/ProvincesManager.php",
-                            type: "POST",
-                            data: {
-                                work: "deactiveProvince",
-                                province: this.value,
-                            },
-                            success: function (response) {
-                                if (response==='Done'){
-                                    alert('عملیات با موفقیت انجام شد. صفحه مجددا بارگزاری می شود.');
-
-                                }
+function searchInc() {
+    $.ajax({
+        url: "./build/ajax/ProvincesManager.php",
+        type: "GET",
+        data: {
+            work: "gettingResult",
+            center: centersForCheck.value,
+            state: statesForCheck.value,
+            city: citiesForCheck.value,
+            gender: genderForCheck.value,
+        },
+        success: function (response) {
+            result.innerHTML = response;
+            var deactiveButtons = document.querySelectorAll('#deactive');
+            deactiveButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    $.ajax({
+                        url: "./build/ajax/ProvincesManager.php",
+                        type: "POST",
+                        data: {
+                            work: "deactiveProvince",
+                            province: this.value,
+                        },
+                        success: function (response) {
+                            if (response === 'Done') {
+                                searchInc();
+                                alert('عملیات با موفقیت انجام شد.');
                             }
-                        });
+                        }
                     });
                 });
-            }
-        });
-    }else{
+            });
+
+            var activeButtons = document.querySelectorAll('#active');
+            activeButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    $.ajax({
+                        url: "./build/ajax/ProvincesManager.php",
+                        type: "POST",
+                        data: {
+                            work: "activeProvince",
+                            province: this.value,
+                        },
+                        success: function (response) {
+                            if (response === 'Done') {
+                                searchInc();
+                                alert('عملیات با موفقیت انجام شد.');
+                            }
+                        }
+                    });
+                });
+            });
+        }
+    });
+}
+
+document.getElementById('search').onclick = function () {
+    if (centersForCheck.value) {
+        searchInc();
+    } else {
         alert('مرکز را انتخاب نمایید.');
         return false;
     }

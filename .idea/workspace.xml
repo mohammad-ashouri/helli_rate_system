@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Approve Rater After CV Is Uploaded">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3757753c-b8de-4022-956e-fc50dcae8abf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3757753c-b8de-4022-956e-fc50dcae8abf.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ajax/ProvincesManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/ajax/ProvincesManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/js/provinces_manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/js/provinces_manager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/provinces_settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/provinces_settings.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +37,8 @@
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
     <include_path>
-      <path value="$PROJECT_DIR$/exceltomysql/vendor/composer" />
       <path value="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel" />
+      <path value="$PROJECT_DIR$/exceltomysql/vendor/composer" />
     </include_path>
   </component>
   <component name="ProjectId" id="2RKFySJfOyVxaCFTwhd8y9xpl2m" />
@@ -59,10 +60,13 @@
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/wamp64/www/helli_rate_system",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "Settings.JavaScript.Linters.JSHint",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
