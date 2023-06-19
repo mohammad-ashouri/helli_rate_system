@@ -50,13 +50,13 @@ if ($_SESSION['head']==1):
                             </tr>
                             <?php
                             $counter=1;
-                            $selectionfrometa=mysqli_query($connection,"select * from etelaat_a where bargozidehkeshvari='نمی باشد' and nobat_arzyabi='تفصیلی سوم' and vaziatkarname='در حال ارزیابی' and codearzyabtafsili3 is not null");
+                            $selectionfrometa=mysqli_query($connection,"select * from etelaat_a where bargozideh_ostani='می باشد' and nobat_arzyabi='تفصیلی سوم' and vaziatkarname='در حال ارزیابی'");
                             foreach ($selectionfrometa as $itemeta):
                                 ?>
                                 <tr>
                                     <td><?php echo $counter;$counter++?></td>
                                     <td>
-                                        <form method="post" action="tafsili3.php">
+                                        <form method="post" action="./tafsili3.php">
                                             <input  style="padding: 5px" name="subset" value="<?php echo $itemeta['codeasar'] ?>" type="submit">
                                         </form>
                                     </td>
@@ -73,8 +73,6 @@ if ($_SESSION['head']==1):
 
                                         ?>
                                     </td>
-                                    
-
                                 </tr>
                             <?php endforeach; ?>
 
