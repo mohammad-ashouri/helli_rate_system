@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Specialized Centers Completed">
+    <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Add Search Filed In Provinces Manager And Specialized Centers Manager Search Table">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Specialized_Centers_Manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/Specialized_Centers_Manager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ajax/ProvincesManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/ajax/ProvincesManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ajax/SpecializedCentersManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/ajax/SpecializedCentersManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/js/Specialized_Centers_Manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/js/Specialized_Centers_Manager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/js/provinces_manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/js/provinces_manager.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687161224782</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add Search Filed In Provinces Manager And Specialized Centers Manager Search Table">
+      <created>1687164449560</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687164449560</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,7 +163,8 @@
     <MESSAGE value="Approve Rater After CV Is Uploaded + Split Set Rater CV Codes Into Another File" />
     <MESSAGE value="Provinces Manager Completed" />
     <MESSAGE value="Specialized Centers Completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Specialized Centers Completed" />
+    <MESSAGE value="Add Search Filed In Provinces Manager And Specialized Centers Manager Search Table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Search Filed In Provinces Manager And Specialized Centers Manager Search Table" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
