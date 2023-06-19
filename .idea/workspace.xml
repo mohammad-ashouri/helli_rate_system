@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Work On Provinces Settings" />
+    <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Approve Rater After CV Is Uploaded">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ajax/ProvincesManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/ajax/ProvincesManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/js/provinces_manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/js/provinces_manager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/provinces_settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/provinces_settings.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,10 +33,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
     <include_path>
-      <path value="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel" />
       <path value="$PROJECT_DIR$/exceltomysql/vendor/composer" />
+      <path value="$PROJECT_DIR$/exceltomysql/vendor/phpoffice/phpexcel" />
     </include_path>
   </component>
   <component name="ProjectId" id="2RKFySJfOyVxaCFTwhd8y9xpl2m" />
@@ -50,6 +56,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/wamp64/www/helli_rate_system",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -73,7 +80,8 @@
       <option name="presentableId" value="Default" />
       <updated>1686991119669</updated>
       <workItem from="1686991120627" duration="2760000" />
-      <workItem from="1687063116250" duration="12870000" />
+      <workItem from="1687063116250" duration="12683000" />
+      <workItem from="1687088457271" duration="6516000" />
     </task>
     <task id="LOCAL-00001" summary="Syncronize With Host And Git">
       <created>1686992152949</created>
@@ -96,14 +104,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687064319850</updated>
     </task>
-    <task id="LOCAL-00004" summary="Work On Provinces Settings">
-      <created>1687080031917</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1687080031917</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +128,10 @@
     <MESSAGE value="Syncronize With Host And Git" />
     <MESSAGE value="Fix Header And Footer Link" />
     <MESSAGE value="Approve Rater After CV Is Uploaded + Split Set Rater CV Codes Into Another File" />
-    <MESSAGE value="Work On Provinces Settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Work On Provinces Settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Approve Rater After CV Is Uploaded + Split Set Rater CV Codes Into Another File" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
