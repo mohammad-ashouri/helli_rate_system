@@ -713,6 +713,8 @@
                     switch ($_SERVER['PHP_SELF']) {
                         case '/superadmin_options.php':
                         case '/signup_posts.php':
+                        case '/provinces_settings.php':
+                        case '/Specialized_Centers_Manager.php':
                             echo 'active treeview';
                             break;
                         default:
@@ -752,6 +754,15 @@
                             ?>">
                                 <a href="<?php echo 'provinces_settings.php'; ?>">
                                     <i class="fa fa-cogs"></i> <span>مدیریت استان/شهرستان/مدرسه</span>
+                                </a>
+                            </li>
+                            <li class="<?php
+                            if ($_SERVER['PHP_SELF'] == "/Specialized_Centers_Manager.php") {
+                                echo "active treeview";
+                            }
+                            ?>">
+                                <a href="<?php echo 'Specialized_Centers_Manager.php'; ?>">
+                                    <i class="fa fa-cogs"></i> <span>مدیریت مراکز تخصصی</span>
                                 </a>
                             </li>
                         </ul>

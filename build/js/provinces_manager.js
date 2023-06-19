@@ -111,7 +111,6 @@ document.getElementById('addProvince').onclick = function () {
                     return false;
                 } else {
                     alert('مدرسه با موفقیت اضافه شد.');
-                    location.reload();
                 }
             }
         });

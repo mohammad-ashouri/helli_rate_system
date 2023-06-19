@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Approve Rater After CV Is Uploaded">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Provinces Manager Completed">
+      <change afterPath="$PROJECT_DIR$/Specialized_Centers_Manager.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/ajax/SpecializedCentersManager.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/js/Specialized_Centers_Manager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/3757753c-b8de-4022-956e-fc50dcae8abf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3757753c-b8de-4022-956e-fc50dcae8abf.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ajax/ProvincesManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/ajax/ProvincesManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/js/provinces_manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/js/provinces_manager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/manager_nav.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +26,13 @@
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/exceltomysql/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -108,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687064319850</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Provinces Manager Completed">
+      <created>1687155677397</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687155677397</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,7 +148,8 @@
     <MESSAGE value="Syncronize With Host And Git" />
     <MESSAGE value="Fix Header And Footer Link" />
     <MESSAGE value="Approve Rater After CV Is Uploaded + Split Set Rater CV Codes Into Another File" />
-    <option name="LAST_COMMIT_MESSAGE" value="Approve Rater After CV Is Uploaded + Split Set Rater CV Codes Into Another File" />
+    <MESSAGE value="Provinces Manager Completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Provinces Manager Completed" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
