@@ -45,17 +45,13 @@ if ($_SESSION['head']==0 and $_SESSION['groupname']!=null){
                     <div class="box-body">
                         <div class="row" style="overflow-x: auto">
                             <?php
-                            $last_jashnvareh=mysqli_query($connection,"select jashnvareh from etelaat_a order by jashnvareh desc limit 1");
-                            foreach ($last_jashnvareh as $item){}
-                            $last_jashnvareh=$item['jashnvareh'];
                             switch ($_SESSION['head']){
                                 case 0:
                                     $result=mysqli_query($connection,"SELECT * FROM etelaat_a 
                                                                             inner join tafsili1_ostan on etelaat_a.codeasar=tafsili1_ostan.codeasar
                                                                             inner join tafsili2_ostan on etelaat_a.codeasar=tafsili2_ostan.codeasar
                                                                             inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar                                                                            
-                                                                            where etelaat_a.jashnvareh='$last_jashnvareh'
-                                                                             and etelaat_a.approve_sianat=0
+                                                                            where etelaat_a.approve_sianat=0
                                                                               and (etelaat_a.codearzyabtafsili3_ostani is null or etelaat_a.codearzyabtafsili3_ostani='')  
                                                                               and tafsili1_ostan.jam is not null 
                                                                               and tafsili2_ostan.jam is not null
@@ -73,8 +69,7 @@ if ($_SESSION['head']==0 and $_SESSION['groupname']!=null){
                                                                             inner join tafsili1_ostan on etelaat_a.codeasar=tafsili1_ostan.codeasar
                                                                             inner join tafsili2_ostan on etelaat_a.codeasar=tafsili2_ostan.codeasar
                                                                             inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar                                                                            
-                                                                            where etelaat_a.jashnvareh='$last_jashnvareh'
-                                                                             and etelaat_a.approve_sianat=0
+                                                                            where etelaat_a.approve_sianat=0
                                                                               and (etelaat_a.codearzyabtafsili3_ostani is null or etelaat_a.codearzyabtafsili3_ostani='') 
                                                                               and tafsili1_ostan.jam is not null 
                                                                               and tafsili2_ostan.jam is not null 
@@ -88,8 +83,7 @@ if ($_SESSION['head']==0 and $_SESSION['groupname']!=null){
                                                                             inner join tafsili1_ostan on etelaat_a.codeasar=tafsili1_ostan.codeasar
                                                                             inner join tafsili2_ostan on etelaat_a.codeasar=tafsili2_ostan.codeasar
                                                                             inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar                                                                            
-                                                                            where etelaat_a.jashnvareh='$last_jashnvareh'
-                                                                             and etelaat_a.approve_sianat=0
+                                                                            where etelaat_a.approve_sianat=0
                                                                               and (etelaat_a.codearzyabtafsili3_ostani is null or etelaat_a.codearzyabtafsili3_ostani='')  
                                                                               and tafsili1_ostan.jam is not null 
                                                                               and tafsili2_ostan.jam is not null
@@ -103,8 +97,7 @@ if ($_SESSION['head']==0 and $_SESSION['groupname']!=null){
                                                                             inner join tafsili1_ostan on etelaat_a.codeasar=tafsili1_ostan.codeasar
                                                                             inner join tafsili2_ostan on etelaat_a.codeasar=tafsili2_ostan.codeasar
                                                                             inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar                                                                            
-                                                                            where etelaat_a.jashnvareh='$last_jashnvareh'
-                                                                             and etelaat_a.approve_sianat=0
+                                                                            where etelaat_a.approve_sianat=0
                                                                               and (etelaat_a.codearzyabtafsili3_ostani is null or etelaat_a.codearzyabtafsili3_ostani='')  
                                                                               and tafsili1_ostan.jam is not null 
                                                                               and tafsili2_ostan.jam is not null
@@ -124,8 +117,7 @@ if ($_SESSION['head']==0 and $_SESSION['groupname']!=null){
                                                                             inner join tafsili1_madrese on etelaat_a.codeasar=tafsili1_madrese.codeasar
                                                                             inner join tafsili2_madrese on etelaat_a.codeasar=tafsili2_madrese.codeasar
                                                                             inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar                                                                            
-                                                                            where etelaat_a.jashnvareh='$last_jashnvareh'
-                                                                             and etelaat_a.approve_sianat=0
+                                                                            where etelaat_a.approve_sianat=0
                                                                               and (etelaat_a.codearzyabtafsili3_madrese is null or etelaat_a.codearzyabtafsili3_madrese='') 
                                                                               and tafsili1_madrese.jam is not null 
                                                                               and tafsili2_madrese.jam is not null
@@ -140,8 +132,7 @@ if ($_SESSION['head']==0 and $_SESSION['groupname']!=null){
                                                                             inner join tafsili1_madrese on etelaat_a.codeasar=tafsili1_madrese.codeasar
                                                                             inner join tafsili2_madrese on etelaat_a.codeasar=tafsili2_madrese.codeasar
                                                                             inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar                                                                            
-                                                                            where etelaat_a.jashnvareh='$last_jashnvareh'
-                                                                             and etelaat_a.approve_sianat=0
+                                                                            where etelaat_a.approve_sianat=0
                                                                               and (etelaat_a.codearzyabtafsili3_madrese is null or etelaat_a.codearzyabtafsili3_madrese='') 
                                                                               and tafsili1_madrese.jam is not null 
                                                                               and tafsili2_madrese.jam is not null
@@ -156,8 +147,7 @@ if ($_SESSION['head']==0 and $_SESSION['groupname']!=null){
                                                                             inner join tafsili1_madrese on etelaat_a.codeasar=tafsili1_madrese.codeasar
                                                                             inner join tafsili2_madrese on etelaat_a.codeasar=tafsili2_madrese.codeasar
                                                                             inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar                                                                            
-                                                                            where etelaat_a.jashnvareh='$last_jashnvareh'
-                                                                             and etelaat_a.approve_sianat=0
+                                                                            where etelaat_a.approve_sianat=0
                                                                               and (etelaat_a.codearzyabtafsili3_madrese is null or etelaat_a.codearzyabtafsili3_madrese='') 
                                                                               and tafsili1_madrese.jam is not null 
                                                                               and tafsili2_madrese.jam is not null 
@@ -173,7 +163,7 @@ if ($_SESSION['head']==0 and $_SESSION['groupname']!=null){
                                     break;
                             }
                             ?>
-                            <table id="myTable3" class="arzyabinashodetable">
+                            <table id="myTable3" class="table table-bordered table-striped text-center">
                                 <tr>
                                     <th>ردیف</th>
                                     <th>کد اثر</th>
