@@ -21,9 +21,6 @@ if ($_SESSION['head']==1):
     </div>
 
     <div class="box-body">
-        <?php
-
-        ?>
         <form method="post">
             <select name="selectjashnvare" style="padding: 5px">
                 <?php
@@ -58,19 +55,19 @@ if ($_SESSION['head']==1):
         $pazhooheshgaran =mysqli_query($connection,"SELECT distinct (codemelli) from etelaat_p where jashnvareh='$jashnvareh'") ;
         $kolleasar=mysqli_query($connection,"SELECT distinct (codeasar),jashnvareh from etelaat_p where jashnvareh='$jashnvareh'") ;
         $asarpazireshshode=mysqli_query($connection,"SELECT * from etelaat_a where vaziatpazireshasar='پذیرش شد' and sharayetavalliehsherkat='دارد' and jashnvareh='$jashnvareh'") ;
-        $asarsharayetdar=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar WHERE vaziatpazireshasar='پذیرش شد' and sharayetavalliehsherkat='دارد' and jashnvareh='$jashnvareh'") ;
+        $asarsharayetdar=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar WHERE vaziatpazireshasar='پذیرش شد' and sharayetavalliehsherkat='دارد' and etelaat_a.jashnvareh='$jashnvareh'") ;
         $tedadmardan=mysqli_query($connection,"SELECT distinct (codemelli) from etelaat_p where `gender`='مرد' and jashnvareh='$jashnvareh' ") ;
         $tedadzanan=mysqli_query($connection,"SELECT distinct (codemelli) from etelaat_p where `gender`='زن' and jashnvareh='$jashnvareh'") ;
         $tedadostan=mysqli_query($connection,"SELECT distinct (ostantahsili) from etelaat_p where ostantahsili != 'ندارد' and jashnvareh='$jashnvareh'") ;
         $ejmaliradi=mysqli_query($connection,"SELECT * from t_a_ejmali inner join etelaat_p on t_a_ejmali.codeasar=etelaat_p.codeasar WHERE jashnvareh='$jashnvareh' and jam<75") ;
         $ejmalighabool=mysqli_query($connection,"SELECT * from t_a_ejmali inner join etelaat_p on t_a_ejmali.codeasar=etelaat_p.codeasar WHERE jashnvareh='$jashnvareh' and jam>75") ;
         $kolleejmalisabtshode=mysqli_num_rows($ejmalighabool)+mysqli_num_rows($ejmaliradi) ;
-        $arzyabiostanisabtshode=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar WHERE jashnvareh='$jashnvareh' and filetafsili1_ostan is not null") ;
-        $arzyabitafsili2rahyafte=mysqli_query($connection, "SELECT * from tafsili2 inner join etelaat_p on tafsili2.codeasar=etelaat_p.codeasar WHERE jashnvareh='$jashnvareh' and jam is null ");
-        $arzyabitafsili2sabtshode=mysqli_query($connection,"SELECT * from tafsili2 inner join etelaat_p on tafsili2.codeasar=etelaat_p.codeasar WHERE jashnvareh='$jashnvareh' and jam is not null ") ;
-        $arzyabitafsili3rahyafte=mysqli_query($connection,"SELECT * from tafsili3 inner join etelaat_p on tafsili3.codeasar=etelaat_p.codeasar WHERE jashnvareh='$jashnvareh' and jam is null ") ;
-        $arzyabitafsili3sabtshode=mysqli_query($connection,"SELECT * from tafsili3 inner join etelaat_p on tafsili3.codeasar=etelaat_p.codeasar WHERE jashnvareh='$jashnvareh' and jam is not null ") ;
-        $ostan=mysqli_query($connection,"select count(ostantahsili),distinct ostantahsili from etelaat_p where jashnvareh='$jashnvareh'");
+        $arzyabiostanisabtshode=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar WHERE etelaat_a.jashnvareh='$jashnvareh' and filetafsili1_ostan is not null") ;
+        $arzyabitafsili2rahyafte=mysqli_query($connection, "SELECT * from tafsili2 inner join etelaat_p on tafsili2.codeasar=etelaat_p.codeasar WHERE etelaat_p.jashnvareh='$jashnvareh' and jam is null ");
+        $arzyabitafsili2sabtshode=mysqli_query($connection,"SELECT * from tafsili2 inner join etelaat_p on tafsili2.codeasar=etelaat_p.codeasar WHERE etelaat_p.jashnvareh='$jashnvareh' and jam is not null ") ;
+        $arzyabitafsili3rahyafte=mysqli_query($connection,"SELECT * from tafsili3 inner join etelaat_p on tafsili3.codeasar=etelaat_p.codeasar WHERE etelaat_p.jashnvareh='$jashnvareh' and jam is null ") ;
+        $arzyabitafsili3sabtshode=mysqli_query($connection,"SELECT * from tafsili3 inner join etelaat_p on tafsili3.codeasar=etelaat_p.codeasar WHERE etelaat_p.jashnvareh='$jashnvareh' and jam is not null ") ;
+//        $ostan=mysqli_query($connection,"select count(ostantahsili),distinct ostantahsili from etelaat_p where jashnvareh='$jashnvareh'");
 
 
         ?>
