@@ -4,9 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Rebase">
+    <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Report.php Temporary Fixed">
+      <change afterPath="$PROJECT_DIR$/build/ajax/GettingProvincesInfo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/ajax/Signup_Users.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/js/SignupUsers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/php/EditPost.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/signup_users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3757753c-b8de-4022-956e-fc50dcae8abf.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3757753c-b8de-4022-956e-fc50dcae8abf/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3757753c-b8de-4022-956e-fc50dcae8abf/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3757753c-b8de-4022-956e-fc50dcae8abf/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3757753c-b8de-4022-956e-fc50dcae8abf/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report.php" beforeDir="false" afterPath="$PROJECT_DIR$/report.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/php/inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/php/inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/manager_nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup_posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/signup_posts.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +30,7 @@
       <option value="$PROJECT_DIR$/bower_components/jquery-ui/composer.json" />
     </option>
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/exceltomysql/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -82,6 +94,14 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\helli_rate_system" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\helli_rate_system\build\ajax" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -94,7 +114,15 @@
       <workItem from="1687063116250" duration="12683000" />
       <workItem from="1687088457271" duration="6516000" />
       <workItem from="1687663319011" duration="2873000" />
-      <workItem from="1687676019920" duration="1552000" />
+      <workItem from="1687676019920" duration="1928000" />
+      <workItem from="1687894356772" duration="851000" />
+      <workItem from="1688219949840" duration="1165000" />
+      <workItem from="1688304138479" duration="1289000" />
+      <workItem from="1688547511251" duration="600000" />
+      <workItem from="1688548797716" duration="19000" />
+      <workItem from="1688784990895" duration="1853000" />
+      <workItem from="1689134993447" duration="13182000" />
+      <workItem from="1689222211346" duration="6301000" />
     </task>
     <task id="LOCAL-00001" summary="Syncronize With Host And Git">
       <created>1686992152949</created>
@@ -159,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687664315211</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Report.php Temporary Fixed">
+      <created>1687678589669</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1687678589670</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +224,19 @@
     <MESSAGE value="Delete Extra Files (TodoList.js)" />
     <MESSAGE value="Remove DB_Example Folder" />
     <MESSAGE value="Rebase" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rebase" />
+    <MESSAGE value="Report.php Temporary Fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Report.php Temporary Fixed" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/build/php/EditPost.php</url>
+          <line>66</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

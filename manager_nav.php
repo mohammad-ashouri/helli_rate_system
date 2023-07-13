@@ -14,20 +14,6 @@
         </a>
     </li>
 
-
-    <?php //if ($_SESSION['head']==0 and $_SESSION['approved']==1): ?>
-    <!--        <li class="-->
-    <?php
-    //    if ($_SERVER['PHP_SELF']=="/arzyabi_shode.php"){
-    //        echo "active treeview";
-    //    }
-    //          ?><!--">-->
-    <!--        <a href="--><?php //echo $main_website_url.'arzyabi_shode.php'; ?><!--">-->
-    <!--            <i class="fa fa-briefcase"></i> <span>آثار ارزیابی شده</span>-->
-    <!--        </a>-->
-    <!--    </li>-->
-    <!--        --><?php //endif; ?>
-
     <?php if ($_SESSION['head'] == 1): ?>
         <li class="<?php
         switch ($_SERVER['PHP_SELF']) {
@@ -129,15 +115,15 @@
                     <!--                            <i class="fa-file-excel-o"></i> <span>ورود اطلاعات با فایل اکسل</span>-->
                     <!--                        </a>-->
                     <!--                    </li>-->
-<!--                    <li class="--><?php
-//                    if ($_SERVER['PHP_SELF'] == "/attach_file_to_asar.php") {
-//                        echo "active treeview";
-//                    }
-//                    ?><!--">-->
-<!--                        <a href="--><?php //echo 'attach_file_to_asar.php'; ?><!--">-->
-<!--                            <i class="fa fa-paperclip"></i> <span>الصاق فایل به اثر</span>-->
-<!--                        </a>-->
-<!--                    </li>-->
+                    <!--                    <li class="--><?php
+                    //                    if ($_SERVER['PHP_SELF'] == "/attach_file_to_asar.php") {
+                    //                        echo "active treeview";
+                    //                    }
+                    //                    ?><!--">-->
+                    <!--                        <a href="--><?php //echo 'attach_file_to_asar.php'; ?><!--">-->
+                    <!--                            <i class="fa fa-paperclip"></i> <span>الصاق فایل به اثر</span>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
                     <li class="<?php
                     if ($_SERVER['PHP_SELF'] == "/tafsili2edit.php") {
                         echo "active treeview";
@@ -181,15 +167,15 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-<!--                    <li class="--><?php
-//                    if ($_SERVER['PHP_SELF'] == "/attach_file_to_asar.php") {
-//                        echo "active treeview";
-//                    }
-//                    ?><!--">-->
-<!--                        <a href="--><?php //echo 'attach_file_to_asar.php'; ?><!--">-->
-<!--                            <i class="fa fa-paperclip"></i> <span>الصاق فایل به اثر</span>-->
-<!--                        </a>-->
-<!--                    </li>-->
+                    <!--                    <li class="--><?php
+                    //                    if ($_SERVER['PHP_SELF'] == "/attach_file_to_asar.php") {
+                    //                        echo "active treeview";
+                    //                    }
+                    //                    ?><!--">-->
+                    <!--                        <a href="--><?php //echo 'attach_file_to_asar.php'; ?><!--">-->
+                    <!--                            <i class="fa fa-paperclip"></i> <span>الصاق فایل به اثر</span>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
                     <?php if ($_SESSION['head'] == 2): ?>
                         <li class="<?php
                         if ($_SERVER['PHP_SELF'] == "/move_to_school.php") {
@@ -713,6 +699,7 @@
                     switch ($_SERVER['PHP_SELF']) {
                         case '/superadmin_options.php':
                         case '/signup_posts.php':
+                        case '/signup_users.php':
                         case '/provinces_settings.php':
                         case '/Specialized_Centers_Manager.php':
                             echo 'active treeview';
@@ -745,6 +732,15 @@
                             ?>">
                                 <a href="<?php echo 'signup_posts.php'; ?>">
                                     <i class="fa fa-cogs"></i> <span>آثار کاربران ثبت نام شده</span>
+                                </a>
+                            </li>
+                            <li class="<?php
+                            if ($_SERVER['PHP_SELF'] == "/signup_users.php") {
+                                echo "active treeview";
+                            }
+                            ?>">
+                                <a href="<?php echo 'signup_users.php'; ?>">
+                                    <i class="fa fa-cogs"></i> <span>اطلاعات کاربران ثبت نام شده</span>
                                 </a>
                             </li>
                             <li class="<?php
