@@ -39,13 +39,12 @@
 <div class="limiter">
     <center>
         <div>
-            <img style="overflow: auto;" src="login/images/header.jpg" >
+            <img style="max-width: 100%; height: auto" src="login/images/header.jpg">
         </div>
     </center>
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<form  action="./chk.php" class="login100-form validate-form" method="post">
-<!--					<span class="login100-form-title p-b-26">-->
                     <center>
                         <p style=" font-family: 'B Titr'; font-size: 20px; color: black">
                             صفحه ورود به سامانه جشنواره علامه حلی (ره)
