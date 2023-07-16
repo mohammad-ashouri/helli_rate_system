@@ -208,6 +208,7 @@ if ($_SESSION['head'] == 1 and $_SESSION['full_access'] == 1):
                             <th>استان محل تحصیل</th>
                             <th>شهر محل تحصیل</th>
                             <th>مدرسه</th>
+                            <th>نوع تحصیل حوزوی</th>
                             <th>تاریخ ثبت اطلاعات</th>
                             <th>وضعیت</th>
                         </tr>
@@ -219,10 +220,11 @@ if ($_SESSION['head'] == 1 and $_SESSION['full_access'] == 1):
                                         id="namemarkaztahsili">
                                     <option value="" selected disabled>انتخاب نشده</option>
                                     <?php
-                                    $query=mysqli_query($signup_connection,"select distinct markaz from provinces order by markaz");
+                                    $query = mysqli_query($signup_connection, "select distinct markaz from provinces order by markaz");
                                     foreach ($query as $markaz):
-                                    ?>
-                                        <option <?php if ($markaz['markaz']==$educationalInfo['namemarkaztahsili']) echo 'selected'; ?> value="<?php echo $markaz['markaz']; ?>"> <?php echo $markaz['markaz']; ?></option>
+                                        ?>
+                                        <option <?php if ($markaz['markaz'] == $educationalInfo['namemarkaztahsili']) echo 'selected'; ?>
+                                                value="<?php echo $markaz['markaz']; ?>"> <?php echo $markaz['markaz']; ?></option>
                                     <?php
                                     endforeach;
                                     ?>
@@ -235,15 +237,16 @@ if ($_SESSION['head'] == 1 and $_SESSION['full_access'] == 1):
                                         id="ostantahsili">
                                     <option value="" selected disabled>انتخاب نشده</option>
                                     <?php
-                                    if ($educationalInfo['namemarkaztahsili']){
-                                        $namemarkaztahsili=$educationalInfo['namemarkaztahsili'];
+                                    if ($educationalInfo['namemarkaztahsili']) {
+                                        $namemarkaztahsili = $educationalInfo['namemarkaztahsili'];
                                         $query = mysqli_query($signup_connection, "select distinct ostan from provinces where markaz='$namemarkaztahsili' order by ostan");
-                                    }else {
+                                    } else {
                                         $query = mysqli_query($signup_connection, "select distinct ostan from provinces order by ostan");
                                     }
                                     foreach ($query as $ostantahsili):
                                         ?>
-                                        <option <?php if ($ostantahsili['ostan']==$educationalInfo['ostantahsili']) echo 'selected'; ?> value="<?php echo $ostantahsili['ostan']; ?>"> <?php echo $ostantahsili['ostan']; ?></option>
+                                        <option <?php if ($ostantahsili['ostan'] == $educationalInfo['ostantahsili']) echo 'selected'; ?>
+                                                value="<?php echo $ostantahsili['ostan']; ?>"> <?php echo $ostantahsili['ostan']; ?></option>
                                     <?php
                                     endforeach;
                                     ?>
@@ -255,15 +258,16 @@ if ($_SESSION['head'] == 1 and $_SESSION['full_access'] == 1):
                                         id="shahrtahsili">
                                     <option value="" selected disabled>انتخاب نشده</option>
                                     <?php
-                                    if ($educationalInfo['ostantahsili']){
-                                        $ostantahsili=$educationalInfo['ostantahsili'];
+                                    if ($educationalInfo['ostantahsili']) {
+                                        $ostantahsili = $educationalInfo['ostantahsili'];
                                         $query = mysqli_query($signup_connection, "select distinct shahr from provinces where ostan='$ostantahsili' order by ostan");
-                                    }else {
+                                    } else {
                                         $query = mysqli_query($signup_connection, "select distinct shahr from provinces order by shahr");
                                     }
                                     foreach ($query as $shahrtahsili):
                                         ?>
-                                        <option <?php if ($shahrtahsili['shahr']==$educationalInfo['shahrtahsili']) echo 'selected'; ?> value="<?php echo $shahrtahsili['shahr']; ?>"> <?php echo $shahrtahsili['shahr']; ?></option>
+                                        <option <?php if ($shahrtahsili['shahr'] == $educationalInfo['shahrtahsili']) echo 'selected'; ?>
+                                                value="<?php echo $shahrtahsili['shahr']; ?>"> <?php echo $shahrtahsili['shahr']; ?></option>
                                     <?php
                                     endforeach;
                                     ?>
@@ -276,20 +280,36 @@ if ($_SESSION['head'] == 1 and $_SESSION['full_access'] == 1):
                                         id="madresetahsili">
                                     <option value="" selected disabled>انتخاب نشده</option>
                                     <?php
-                                    if ($educationalInfo['madresetahsili']){
-                                        $ostantahsili=$educationalInfo['ostantahsili'];
-                                        $shahrtahsili=$educationalInfo['shahrtahsili'];
+                                    if ($educationalInfo['madresetahsili']) {
+                                        $ostantahsili = $educationalInfo['ostantahsili'];
+                                        $shahrtahsili = $educationalInfo['shahrtahsili'];
                                         $query = mysqli_query($signup_connection, "select distinct madrese from provinces where ostan='$ostantahsili' and shahr='$shahrtahsili' order by ostan");
-                                    }else {
+                                    } else {
                                         $query = mysqli_query($signup_connection, "select distinct madrese from provinces order by shahr");
                                     }
                                     foreach ($query as $madresetahsili):
                                         ?>
-                                        <option <?php if ($madresetahsili['madrese']==$educationalInfo['madresetahsili']) echo 'selected'; ?> value="<?php echo $madresetahsili['madrese']; ?>"> <?php echo $madresetahsili['madrese']; ?></option>
+                                        <option <?php if ($madresetahsili['madrese'] == $educationalInfo['madresetahsili']) echo 'selected'; ?>
+                                                value="<?php echo $madresetahsili['madrese']; ?>"> <?php echo $madresetahsili['madrese']; ?></option>
                                     <?php
                                     endforeach;
                                     ?>
                                 </select>
+                            </td>
+                            <td>
+                                <select class="form-control select2"
+                                        data-placeholder="مدرسه محل تحصیل را انتخاب کنید"
+                                        style="text-align: right"
+                                        id="noetahsilhozavi">
+                                    <option value="" selected disabled>انتخاب نشده</option>
+                                    <option <?php if ($educationalInfo['noetahsilhozavi'] == 'آزاد') echo 'selected'; ?>
+                                            value="آزاد">آزاد
+                                    </option>
+                                    <option <?php if ($educationalInfo['noetahsilhozavi'] == 'تحت برنامه') echo 'selected'; ?>
+                                            value="تحت برنامه">تحت برنامه
+                                    </option>
+                                </select>
+                            </td>
                             <td>
                                 <?php
                                 if ($educationalInfo['updated_at'] != $educationalInfo['created_at']) {
@@ -317,14 +337,205 @@ if ($_SESSION['head'] == 1 and $_SESSION['full_access'] == 1):
                             </td>
                         </tr>
                         <tr>
-                            <th>شماره شناسنامه</th>
+                            <?php
+                            if ($userInfo['gender'] == 'مرد') {
+                                echo '<th>پایه</th>';
+                            } elseif ($userInfo['gender'] == 'زن') {
+                                echo '<th>سطح/ترم</th>';
+                            }
+                            ?>
                             <th>شماره پرونده حوزوی</th>
                             <th>مدرک تحصیلی دانشگاهی</th>
                             <th>رشته تحصیلی دانشگاهی</th>
-                            <th>مرکز تخصصی حوزوی (در صورت تحصیل)</th>
+                            <th colspan="2">مرکز تخصصی حوزوی (در صورت تحصیل)</th>
                             <th>رشته تخصصی حوزوی</th>
                         </tr>
+                        <tr>
+                            <td>
+                                <?php
+                                if ($userInfo['gender'] == 'مرد'):
+                                    ?>
+                                    <select class="form-control select2"
+                                            data-placeholder="پایه را انتخاب کنید"
+                                            style="text-align: right"
+                                            id="paye">
+                                        <option value="" disabled selected>انتخاب نشده</option>
+                                        <?php
+                                        $options = array(
+                                            1 => '1',
+                                            2 => '2',
+                                            3 => '3',
+                                            4 => '4',
+                                            5 => '5',
+                                            6 => '6',
+                                            7 => '7',
+                                            8 => '8',
+                                            9 => '9',
+                                            10 => '10',
+                                            'خارج' => 'خارج'
+                                        );
 
+                                        foreach ($options as $value => $label) {
+                                            $selected = ($educationalInfo['paye'] == $value) ? 'selected' : '';
+                                            echo "<option value=\"$value\" $selected>$label</option>";
+                                        }
+                                        ?>
+                                    </select>
+
+                                <?php
+                                elseif ($userInfo['gender'] == 'زن'):
+                                    ?>
+                                    <div style="display: flex; gap: 20px; align-items: center">
+                                        <select class="form-control select2" data-placeholder="سطح را انتخاب کنید"
+                                                style="text-align: right" id="sath">
+                                            <option value="" disabled selected>انتخاب نشده</option>
+                                            <option <?php if ($educationalInfo['sath'] == 2) echo 'selected'; ?>
+                                                    value="2">2
+                                            </option>
+                                            <option <?php if ($educationalInfo['sath'] == 3) echo 'selected'; ?>
+                                                    value="3">3
+                                            </option>
+                                            <option <?php if ($educationalInfo['sath'] == 4) echo 'selected'; ?>
+                                                    value="4">4
+                                            </option>
+                                        </select>
+
+                                        <select class="form-control select2" data-placeholder="ترم را انتخاب کنید"
+                                                style="text-align: right" id="term">
+                                            <option value="" disabled selected>انتخاب نشده</option>
+                                            <?php
+                                            if ($educationalInfo['sath'] == 2):
+                                                ?>
+                                                <option <?php if ($educationalInfo['term'] == 1) echo 'selected'; ?>
+                                                        value="1">1
+                                                </option>
+                                                <option <?php if ($educationalInfo['term'] == 2) echo 'selected'; ?>
+                                                        value="2">2
+                                                </option>
+                                                <option <?php if ($educationalInfo['term'] == 3) echo 'selected'; ?>
+                                                        value="3">3
+                                                </option>
+                                                <option <?php if ($educationalInfo['term'] == 4) echo 'selected'; ?>
+                                                        value="4">4
+                                                </option>
+                                                <option <?php if ($educationalInfo['term'] == 5) echo 'selected'; ?>
+                                                        value="5">5
+                                                </option>
+                                                <option <?php if ($educationalInfo['term'] == 6) echo 'selected'; ?>
+                                                        value="6">6
+                                                </option>
+                                                <option <?php if ($educationalInfo['term'] == 7) echo 'selected'; ?>
+                                                        value="7">7
+                                                </option>
+                                                <option <?php if ($educationalInfo['term'] == 8) echo 'selected'; ?>
+                                                        value="8">8
+                                                </option>
+                                                <option <?php if ($educationalInfo['term'] == 9) echo 'selected'; ?>
+                                                        value="9">9
+                                                </option>
+                                                <option <?php if ($educationalInfo['term'] == 10) echo 'selected'; ?>
+                                                        value="10">10
+                                                </option>
+                                            <?php
+                                            elseif ($educationalInfo['sath'] == 3 or $educationalInfo['sath'] == 4):
+                                                ?>
+                                                <option <?php if ($educationalInfo['term'] == 1) echo 'selected'; ?>
+                                                        value="1">1
+                                                </option>
+                                                <option <?php if ($educationalInfo['term'] == 2) echo 'selected'; ?>
+                                                        value="2">2
+                                                </option>
+                                                <option <?php if ($educationalInfo['term'] == 3) echo 'selected'; ?>
+                                                        value="3">3
+                                                </option>
+                                                <option <?php if ($educationalInfo['term'] == 4) echo 'selected'; ?>
+                                                        value="4">4
+                                                </option>
+                                                <option <?php if ($educationalInfo['term'] == 5) echo 'selected'; ?>
+                                                        value="5">5
+                                                </option>
+                                                <option <?php if ($educationalInfo['term'] == 6) echo 'selected'; ?>
+                                                        value="6">6
+                                                </option>
+                                            <?php endif; ?>
+                                        </select>
+                                    </div>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <input type="text" name="shparvandetahsili" class="form-control text-left"
+                                       id="shparvandetahsili"
+                                       value="<?php if (isset($educationalInfo['shparvandetahsili'])) {
+                                           echo $educationalInfo['shparvandetahsili'];
+                                       } ?>"
+                                       placeholder="شماره پرونده حوزوی را وارد کنید"/>
+                            </td>
+                            <td>
+                                <select class="form-control select2"
+                                        data-placeholder="مدرک تحصیلی دانشگاهی را انتخاب کنید" style="text-align: right"
+                                        id="tahsilatghhozavi">
+                                    <option value="" disabled selected>انتخاب نشده</option>
+                                    <option <?php if ($educationalInfo['tahsilatghhozavi'] == 'زیر دیپلم') echo 'selected'; ?>
+                                            value="زیر دیپلم">زیر دیپلم
+                                    </option>
+                                    <option <?php if ($educationalInfo['tahsilatghhozavi'] == 'دیپلم') echo 'selected'; ?>
+                                            value="دیپلم">دیپلم
+                                    </option>
+                                    <option <?php if ($educationalInfo['tahsilatghhozavi'] == 'فوق دیپلم') echo 'selected'; ?>
+                                            value="فوق دیپلم">فوق دیپلم
+                                    </option>
+                                    <option <?php if ($educationalInfo['tahsilatghhozavi'] == 'لیسانس') echo 'selected'; ?>
+                                            value="لیسانس">لیسانس
+                                    </option>
+                                    <option <?php if ($educationalInfo['tahsilatghhozavi'] == 'فوق لیسانس') echo 'selected'; ?>
+                                            value="فوق لیسانس">فوق لیسانس
+                                    </option>
+                                    <option <?php if ($educationalInfo['tahsilatghhozavi'] == 'دکتری') echo 'selected'; ?>
+                                            value="دکتری">دکتری
+                                    </option>
+                                </select>
+                            </td>
+                            <td>
+                                <input style="display: <?php if ($educationalInfo['tahsilatghhozavi'] == 'زیر دیپلم' or $educationalInfo['tahsilatghhozavi'] == 'دیپلم' or !$educationalInfo['tahsilatghhozavi']) {
+                                    echo 'none';
+                                } else {
+                                    echo '';
+                                }
+                                ?>" type="text" name="reshtedaneshgahi" class="form-control text-left"
+                                       id="reshtedaneshgahi"
+                                       value="<?php if (isset($educationalInfo['reshtedaneshgahi'])) {
+                                           echo $educationalInfo['reshtedaneshgahi'];
+                                       } ?>"
+                                       placeholder="رشته تحصیلی دانشگاهی را وارد کنید"/>
+                            </td>
+                            <td colspan="2">
+                                <select class="form-control select2"
+                                        data-placeholder="مرکز تخصصی حوزوی را انتخاب کنید" style="text-align: right"
+                                        id="markaztakhasosihozavi">
+                                    <option value="" disabled selected>انتخاب کنید</option>
+                                    <option value="اشتغال ندارم">اشتغال ندارم</option>
+                                    <?php
+                                    $query = mysqli_query($signup_connection, "select * from specialized_centers where active=1 order by title");
+                                    foreach ($query as $specialized_centers):
+                                        ?>
+                                        <option value="<?php echo $specialized_centers['title']; ?>" <?php if ($specialized_centers['title'] == $educationalInfo['markaztakhasosihozavi']) echo 'selected'; ?>><?php echo $specialized_centers['title']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </td>
+                            <td>
+                                <input style="display: <?php if ($educationalInfo['reshtetakhasosihozavi'] == 'اشتغال ندارم' or !$educationalInfo['reshtetakhasosihozavi']) {
+                                    echo 'none';
+                                } else {
+                                    echo '';
+                                }
+                                ?>" type="text" name="reshtetakhasosihozavi" class="form-control text-left"
+                                       id="reshtetakhasosihozavi"
+                                       value="<?php if (isset($educationalInfo['reshtetakhasosihozavi'])) {
+                                           echo $educationalInfo['reshtetakhasosihozavi'];
+                                       } ?>"
+                                       placeholder="رشته تخصصی حوزوی را وارد کنید"/>
+                            </td>
+                        </tr>
                     </table>
                 </div>
             </div>
