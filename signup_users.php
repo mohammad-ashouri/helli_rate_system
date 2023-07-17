@@ -194,7 +194,7 @@ if ($_SESSION['head'] == 1 and $_SESSION['full_access'] == 1):
                 </div>
             </div>
 
-            <div class="box box-warning">
+            <div class="box box-success">
                 <div class="box-header">
                     <i class="fa fa-info-circle"></i>
                     <h3 class="box-title">
@@ -534,6 +534,140 @@ if ($_SESSION['head'] == 1 and $_SESSION['full_access'] == 1):
                                            echo $educationalInfo['reshtetakhasosihozavi'];
                                        } ?>"
                                        placeholder="رشته تخصصی حوزوی را وارد کنید"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="box box-comment">
+                <div class="box-header">
+                    <i class="fa fa-info-circle"></i>
+                    <h3 class="box-title">
+                        اطلاعات تدریس
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <table class="table table-striped text-center">
+                        <tr>
+                            <th>کاربر استاد</th>
+                            <td>
+                                <select class="form-control select2"
+                                        data-placeholder="نام مرکز حوزوی را انتخاب کنید"
+                                        style="text-align: right"
+                                        id="isMaster">
+                                    <option <?php if ($teachingInfo['isMaster'] == 'خیر') echo 'selected'; ?>
+                                            value="خیر">خیر
+                                    </option>
+                                    <option <?php if ($teachingInfo['isMaster'] == 'بله') echo 'selected'; ?>
+                                            value="بله">بله
+                                    </option>
+                                </select>
+                            </td>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr id="isMasterTR1" style="<?php if ($teachingInfo['isMaster']=='خیر') echo 'display: none' ?>">
+                            <th>کد استادی</th>
+                            <th>استان محل تدریس</th>
+                            <th>شهر محل تدریس</th>
+                            <th>نام محل تدریس</th>
+                            <th>تاریخ ثبت اطلاعات</th>
+                            <th>وضعیت</th>
+                        </tr>
+                        <tr id="isMasterTR2" style="<?php if ($teachingInfo['isMaster']=='خیر') echo 'display: none' ?>">
+                            <td>
+                                <input type="text" class="form-control text-left"
+                                       id="masterCode"
+                                       value="<?php if (isset($teachingInfo['masterCode'])) {
+                                           echo $teachingInfo['masterCode'];
+                                       } ?>"
+                                       placeholder="کد استادی را وارد کنید"/>
+                            </td>
+                            <td>
+                                <select class="form-control select2"
+                                        data-placeholder="استان محل تدریس را انتخاب کنید"
+                                        style="text-align: right"
+                                        id="teachingProvince">
+                                    <option value="" selected disabled>انتخاب نشده</option>
+                                    <?php
+                                    $query = mysqli_query($signup_connection, "select distinct ostan from provinces order by ostan");
+                                    foreach ($query as $ostanTadris):
+                                        ?>
+                                        <option <?php if ($ostanTadris['ostan'] == $teachingInfo['teachingProvince']) echo 'selected'; ?>
+                                                value="<?php echo $ostanTadris['ostan']; ?>"> <?php echo $ostanTadris['ostan']; ?></option>
+                                    <?php
+                                    endforeach;
+                                    ?>
+                                </select>
+                            <td>
+                                <select class="form-control select2"
+                                        data-placeholder="شهر محل تدریس را انتخاب کنید"
+                                        style="text-align: right"
+                                        id="teachingCity">
+                                    <option value="" selected disabled>انتخاب نشده</option>
+                                    <?php
+                                    $teachingProvince = $teachingInfo['teachingProvince'];
+                                    $query = mysqli_query($signup_connection, "select distinct shahr from provinces where ostan='$teachingProvince' order by shahr");
+                                    foreach ($query as $shahrTadris):
+                                        ?>
+                                        <option <?php if ($shahrTadris['shahr'] == $teachingInfo['teachingCity']) echo 'selected'; ?>
+                                                value="<?php echo $shahrTadris['shahr']; ?>"> <?php echo $shahrTadris['shahr']; ?></option>
+                                    <?php
+                                    endforeach;
+                                    ?>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control select2"
+                                        data-placeholder="مدرسه محل تدریس را انتخاب کنید"
+                                        style="text-align: right"
+                                        id="teachingPlaceName">
+                                    <option value="" selected disabled>انتخاب نشده</option>
+                                    <?php
+                                    if ($teachingInfo['teachingPlaceName']) {
+                                        $teachingProvince = $teachingInfo['teachingProvince'];
+                                        $teachingCity = $teachingInfo['teachingCity'];
+                                        $query = mysqli_query($signup_connection, "select distinct madrese from provinces where ostan='$teachingProvince' and shahr='$teachingCity' order by ostan");
+                                    } else {
+                                        $query = mysqli_query($signup_connection, "select distinct madrese from provinces order by shahr");
+                                    }
+                                    foreach ($query as $teachingSchool):
+                                        ?>
+                                        <option <?php if ($teachingSchool['madrese'] == $teachingInfo['teachingPlaceName']) echo 'selected'; ?>
+                                                value="<?php echo $teachingSchool['madrese']; ?>"> <?php echo $teachingSchool['madrese']; ?></option>
+                                    <?php
+                                    endforeach;
+                                    ?>
+                                </select>
+                            </td>
+                            <td>
+                                <?php
+                                if ($teachingInfo['updated_at'] != $teachingInfo['created_at']) {
+                                    $sent_date = substr($userInfo['updated_at'], 0, 10);
+                                    $dateParts = explode("-", $sent_date);
+                                    $year = $dateParts[0];
+                                    $month = $dateParts[1];
+                                    $day = $dateParts[2];
+                                    print_r(gregorian_to_jalali($year, $month, $day, '/'));
+                                } else {
+                                    echo '';
+                                }
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                if ($teachingInfo['approved'] == 0) {
+                                    ?>
+                                    <button class="btn btn-danger" id="teachingSaveTo1">ذخیره نشده</button>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <button class="btn btn-success" id="teachingSaveTo0">ذخیره شده</button>
+                                <?php } ?>
                             </td>
                         </tr>
                     </table>

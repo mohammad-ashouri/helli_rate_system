@@ -79,6 +79,60 @@ function updateSchoolsSelect(schools) {
     });
 }
 
+function getTeachingSchools(state, city) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            updateTeachingSchoolsSelect(response);
+        }
+    };
+    xhr.open("GET", "./build/ajax/GettingProvincesInfo.php?work=getTeachingSchools&state=" + state + "&city=" + city, true);
+    xhr.send();
+}
+
+function updateTeachingSchoolsSelect(schools) {
+    var selectElement = document.getElementById("teachingPlaceName");
+    selectElement.innerHTML = "";
+    var option = document.createElement("option");
+    option.text = 'انتخاب کنید';
+    option.disabled = true;
+    option.selected = true;
+    selectElement.add(option);
+    schools.forEach(function (school) {
+        var option = document.createElement("option");
+        option.text = school;
+        selectElement.add(option);
+    });
+}
+
+function getTeachingCities(state) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            updateTeachingCitiesSelect(response);
+        }
+    };
+    xhr.open("GET", "./build/ajax/GettingProvincesInfo.php?work=getTeachingCities&state=" + state, true);
+    xhr.send();
+}
+
+function updateTeachingCitiesSelect(cities) {
+    var selectElement = document.getElementById("teachingCity");
+    selectElement.innerHTML = "";
+    var option = document.createElement("option");
+    option.text = 'انتخاب کنید';
+    option.disabled = true;
+    option.selected = true;
+    selectElement.add(option);
+    cities.forEach(function (city) {
+        var option = document.createElement("option");
+        option.text = city;
+        selectElement.add(option);
+    });
+}
+
 //Contact
 document.getElementById('phone').oninput = function () {
     $.ajax({
@@ -188,7 +242,7 @@ document.getElementById("madresetahsili").onchange = function () {
     xhr.send();
 };
 
-document.getElementById('noetahsilhozavi').onchange=function (){
+document.getElementById('noetahsilhozavi').onchange = function () {
     $.ajax({
         url: "./build/ajax/Signup_Users.php",
         type: "POST",
@@ -378,6 +432,99 @@ if (document.getElementById('educationalSaveTo0')) {
             type: "POST",
             data: {
                 work: "educationalSaveTo0",
+                value: 0,
+                nationalCode: national_code.value,
+            },
+            success: function (response) {
+                location.reload();
+            }
+        });
+    }
+}
+
+//Teaching
+
+document.getElementById('isMaster').onchange = function () {
+    if (isMaster.value === 'خیر') {
+        if (confirm('لطفا توجه داشته باشید: در صورت تغییر وضعیت استادی این کاربر از بله به خیر، کلیه اطلاعات وارد شده حذف خواهند شد. آیا مطمئن هستید؟')) {
+            $.ajax({
+                url: "./build/ajax/Signup_Users.php",
+                type: "POST",
+                data: {
+                    work: "isMasterStatusChange",
+                    value: isMaster.value,
+                    nationalCode: national_code.value,
+                }
+            });
+        }
+        isMasterTR1.style.display = 'none';
+        isMasterTR2.style.display = 'none';
+    } else if (isMaster.value === 'بله') {
+        alert('برای تغییر وضعیت کاربر، لطفا اطلاعات تدریس را وارد نمایید. پس از تغییر اطلاعات، وضعیت تدریس تغییر خواهد کرد.');
+        isMasterTR1.style.display = '';
+        isMasterTR2.style.display = '';
+    }
+}
+
+document.getElementById('masterCode').oninput = function () {
+    $.ajax({
+        url: "./build/ajax/Signup_Users.php",
+        type: "POST",
+        data: {
+            work: "masterCodeChange",
+            value: masterCode.value,
+            nationalCode: national_code.value,
+        }
+    });
+}
+
+document.getElementById("teachingProvince").onchange = function () {
+    alert('پس از انتخاب مدرسه، استان و شهر محل تدریس ثبت خواهند شد.');
+    getTeachingCities(this.value);
+};
+
+document.getElementById("teachingCity").onchange = function () {
+    getTeachingSchools(teachingProvince.value, this.value);
+};
+
+document.getElementById("teachingPlaceName").onchange = function () {
+    $.ajax({
+        url: "./build/ajax/Signup_Users.php",
+        type: "POST",
+        data: {
+            work: "teachingPlaceNameChange",
+            teachingProvince: teachingProvince.value,
+            teachingCity: teachingCity.value,
+            teachingPlaceName: this.value,
+            nationalCode: national_code.value,
+        }
+    });
+}
+
+if (document.getElementById('teachingSaveTo1')) {
+    document.getElementById('teachingSaveTo1').onclick = function () {
+        $.ajax({
+            url: "./build/ajax/Signup_Users.php",
+            type: "POST",
+            data: {
+                work: "teachingSaveTo1",
+                value: 1,
+                nationalCode: national_code.value,
+            },
+            success: function (response) {
+                location.reload();
+            }
+        });
+    }
+}
+
+if (document.getElementById('teachingSaveTo0')) {
+    document.getElementById('teachingSaveTo0').onclick = function () {
+        $.ajax({
+            url: "./build/ajax/Signup_Users.php",
+            type: "POST",
+            data: {
+                work: "teachingSaveTo0",
                 value: 0,
                 nationalCode: national_code.value,
             },

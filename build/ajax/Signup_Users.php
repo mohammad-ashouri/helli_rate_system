@@ -63,5 +63,26 @@ if ($_SESSION['head'] == 1) {
         case 'educationalSaveTo1':
             mysqli_query($signup_connection, "update educational_infos set approved=1,updated_at='$now' where national_code='$nationalCode'");
             break;
+        case 'isMasterStatusChange':
+            mysqli_query($signup_connection, "update teaching_infos set isMaster='$value',updated_at='$now' where national_code='$nationalCode'");
+            if ($value=='خیر'){
+                mysqli_query($signup_connection, "update teaching_infos set masterCode=null,teachingProvince=null,teachingCity=null,teachingPlaceName=null,updated_at='$now' where national_code='$nationalCode'");
+            }
+            break;
+        case 'masterCodeChange':
+            mysqli_query($signup_connection, "update teaching_infos set isMaster='بله', masterCode='$value',updated_at='$now' where national_code='$nationalCode'");
+            break;
+        case 'teachingPlaceNameChange':
+            $teachingProvince=$_REQUEST['teachingProvince'];
+            $teachingCity=$_REQUEST['teachingCity'];
+            $teachingPlaceName=$_REQUEST['teachingPlaceName'];
+            mysqli_query($signup_connection, "update teaching_infos set isMaster='بله',teachingProvince='$teachingProvince',teachingCity='$teachingCity',teachingPlaceName='$teachingPlaceName',updated_at='$now' where national_code='$nationalCode'");
+            break;
+        case 'teachingSaveTo0':
+            mysqli_query($signup_connection, "update teaching_infos set approved=0,updated_at='$now' where national_code='$nationalCode'");
+            break;
+        case 'teachingSaveTo1':
+            mysqli_query($signup_connection, "update teaching_infos set approved=1,updated_at='$now' where national_code='$nationalCode'");
+            break;
     }
 }
