@@ -512,8 +512,7 @@ if ($_SESSION['head'] == 1 and $_SESSION['full_access'] == 1):
                                 <select class="form-control select2"
                                         data-placeholder="مرکز تخصصی حوزوی را انتخاب کنید" style="text-align: right"
                                         id="markaztakhasosihozavi">
-                                    <option value="" disabled selected>انتخاب کنید</option>
-                                    <option value="اشتغال ندارم" <?php if ('اشتغال ندارم' == $educationalInfo['markaztakhasosihozavi']) echo 'selected'; ?>>اشتغال ندارم</option>
+                                    <option value="" <?php if ('' == $educationalInfo['markaztakhasosihozavi']) echo 'selected'; ?>>اشتغال ندارم</option>
                                     <?php
                                     $query = mysqli_query($signup_connection, "select * from specialized_centers where active=1 order by title");
                                     foreach ($query as $specialized_centers):

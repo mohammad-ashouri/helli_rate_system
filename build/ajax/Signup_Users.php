@@ -50,8 +50,8 @@ if ($_SESSION['head'] == 1) {
             break;
         case 'markaztakhasosihozaviChange':
             $markaztakhasosihozavi = $_REQUEST['markaztakhasosihozavi'];
-            if ($markaztakhasosihozavi == 'اشتغال ندارم' or $markaztakhasosihozavi == '') {
-                mysqli_query($signup_connection, "update educational_infos set markaztakhasosihozavi='$markaztakhasosihozavi',reshtetakhasosihozavi=null,updated_at='$now' where national_code='$nationalCode'");
+            if ($markaztakhasosihozavi == '') {
+                mysqli_query($signup_connection, "update educational_infos set markaztakhasosihozavi=null,reshtetakhasosihozavi=null,updated_at='$now' where national_code='$nationalCode'");
             } else {
                 $reshtetakhasosihozavi = $_REQUEST['reshtetakhasosihozavi'];
                 mysqli_query($signup_connection, "update educational_infos set markaztakhasosihozavi='$markaztakhasosihozavi',reshtetakhasosihozavi='$reshtetakhasosihozavi',updated_at='$now' where national_code='$nationalCode'");
