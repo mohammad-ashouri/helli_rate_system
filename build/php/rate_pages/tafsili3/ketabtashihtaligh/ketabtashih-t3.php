@@ -194,7 +194,7 @@
             <center>
                 <input type="hidden" name="codeasarfield" value="<?php echo $codeasar; ?>">
                 <input type="hidden" name="rater_id" value="<?php echo $_SESSION['username']; ?>">
-	            <?php if ($_POST['subjection']==null): ?>
+                <?php if ($_POST['subjection']==null or $_POST['subjection']=='subset'): ?>
                     <p class="virayesh-ejmali-button" >
                         <input onclick="return submitconfirm()" style="padding: 6px" type="submit" name="subt3ketabtashih" value="ثبت ارزیابی">
                     </p>

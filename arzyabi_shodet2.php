@@ -48,7 +48,7 @@ if ($_SESSION['head']==1 or $_SESSION['head']==2 or $_SESSION['head']==3):
                             </tr>
                             <?php
                             $counter=1;
-                            $selectionfrometa=mysqli_query($connection,"select * from etelaat_a where bargozideh_ostani='می باشد' and vaziatkarname='در حال ارزیابی' and nobat_arzyabi='تفصیلی دوم'");
+                            $selectionfrometa=mysqli_query($connection,"select * from etelaat_a where bargozideh_ostani='می باشد' and vaziatkarname='در حال ارزیابی' and nobat_arzyabi='تفصیلی دوم' and approver_sianat is not null");
                             foreach ($selectionfrometa as $itemeta):
                             ?>
                             <tr>
@@ -62,10 +62,14 @@ if ($_SESSION['head']==1 or $_SESSION['head']==2 or $_SESSION['head']==3):
                                 <td><?php echo $itemeta['ghalebpazhouhesh']." ".$itemeta['satharzyabi'] ?></td>
                                 <td><?php echo $itemeta['groupelmi'] ?></td>
                                 <td><?php
-                                    $codearzyab=$itemeta['codearzyabtafsili2'];
-                                    $selectionfromraterlist=mysqli_query($connection,"select * from rater_list where code='$codearzyab'");
-                                    foreach ($selectionfromraterlist as $itemrater){}
-                                    echo $itemrater['name']." ".$itemrater['family']
+                                    if ($itemeta['codearzyabtafsili2']) {
+                                        $codearzyab = $itemeta['codearzyabtafsili2'];
+                                        $selectionfromraterlist = mysqli_query($connection, "select * from rater_list where code='$codearzyab'");
+                                        foreach ($selectionfromraterlist as $itemrater) {
+                                        }
+                                        echo $itemrater['name'] . " " . $itemrater['family'];
+                                        $codearzyab = null;
+                                    }
                                     ?>
                                 </td>
                                 <td><?php
@@ -110,10 +114,14 @@ if ($_SESSION['head']==1 or $_SESSION['head']==2 or $_SESSION['head']==3):
                                     <td><?php echo $itemeta['ghalebpazhouhesh']." ".$itemeta['satharzyabi'] ?></td>
                                     <td><?php echo $itemeta['groupelmi'] ?></td>
                                     <td><?php
-                                        $codearzyab=$itemeta['codearzyabtafsili2'];
-                                        $selectionfromraterlist=mysqli_query($connection,"select * from rater_list where code='$codearzyab'");
-                                        foreach ($selectionfromraterlist as $itemrater){}
-                                        echo $itemrater['name']." ".$itemrater['family']
+                                        if ($codearzyab=$itemeta['codearzyabtafsili2_ostani']) {
+                                            $codearzyab = $itemeta['codearzyabtafsili2_ostani'];
+                                            $selectionfromraterlist = mysqli_query($connection, "select * from rater_list where code='$codearzyab'");
+                                            foreach ($selectionfromraterlist as $itemrater) {
+                                            }
+                                            echo $itemrater['name'] . " " . $itemrater['family'];
+                                            $codearzyab = null;
+                                        }
                                         ?>
                                     </td>
                                     <td><?php
@@ -160,10 +168,13 @@ if ($_SESSION['head']==1 or $_SESSION['head']==2 or $_SESSION['head']==3):
                                     <td><?php echo $itemeta['ghalebpazhouhesh']." ".$itemeta['satharzyabi'] ?></td>
                                     <td><?php echo $itemeta['groupelmi'] ?></td>
                                     <td><?php
-                                        $codearzyab=$itemeta['codearzyabtafsili2'];
-                                        $selectionfromraterlist=mysqli_query($connection,"select * from rater_list where code='$codearzyab'");
-                                        foreach ($selectionfromraterlist as $itemrater){}
-                                        echo $itemrater['name']." ".$itemrater['family']
+                                        if ($itemeta['codearzyabtafsili2_madrese']) {
+                                            $codearzyab = $itemeta['codearzyabtafsili2_madrese'];
+                                            $selectionfromraterlist = mysqli_query($connection, "select * from rater_list where code='$codearzyab'");
+                                            foreach ($selectionfromraterlist as $itemrater) {
+                                            }
+                                            echo $itemrater['name'] . " " . $itemrater['family'];
+                                        }
                                         ?>
                                     </td>
                                     <td><?php

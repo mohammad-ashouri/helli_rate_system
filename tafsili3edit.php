@@ -31,22 +31,14 @@
 						
 						<form method="post">
 							نمایش ارزیابی های تفصیلی سوم در جشنواره :
-							<select name="jashnvareh">
-								<?php
-                                    if ($_SESSION['head']==1){
-	                                    $query=mysqli_query($connection,"select advaar_cl from advaar where end_rate_date_keshvari is null");
-                                    }
-                                    elseif ($_SESSION['head']==2){
-	                                    $query=mysqli_query($connection,"select advaar_cl from advaar where end_rate_date_ostani is null");
-                                    }
-                                    elseif ($_SESSION['head']==3){
-	                                    $query=mysqli_query($connection,"select advaar_cl from advaar where end_rate_date_madrese is null");
-                                    }
-									foreach ($query as $jashnvarehlist):
-										?>
-										<option><?php echo $jashnvarehlist['advaar_cl'] ?></option>
-									<?php endforeach; ?>
-							</select>
+                            <select name="jashnvareh">
+                                <?php
+                                $query=mysqli_query($connection,"select distinct jashnvareh from etelaat_a");
+                                foreach ($query as $jashnvarehlist):
+                                    ?>
+                                    <option value="<?php echo $jashnvarehlist['jashnvareh']; ?>" <?php if (@$_POST['jashnvareh']==$jashnvarehlist['jashnvareh']) echo 'selected' ?>><?php echo $jashnvarehlist['jashnvareh']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
 							<input type="submit" name="jashnvarehset" value="جستجو" style="padding: 6px">
 						</form>
 					
@@ -74,11 +66,7 @@
 						<div class="row" style="overflow-x: auto">
 							<?php
 								if ($_SESSION['head']==1){
-									$result = mysqli_query($connection, "SELECT * FROM etelaat_a INNER join advaar on etelaat_a.jashnvareh=advaar.advaar_cl where etelaat_a.nobat_arzyabi='تفصیلی سوم' and etelaat_a.vaziatostaniasar is not null and etelaat_a.jashnvareh='$jashnvareh' and advaar.end_rate_date_keshvari is null order by etelaat_a.groupelmi asc");
-								}elseif ($_SESSION['head']==2){
-									$result = mysqli_query($connection, "SELECT * FROM etelaat_a INNER join advaar on etelaat_a.jashnvareh=advaar.advaar_cl where etelaat_a.nobat_arzyabi_ostani='تفصیلی سوم' and etelaat_a.jashnvareh='$jashnvareh' and advaar.end_rate_date_ostani is null order by etelaat_a.groupelmi asc");
-								}elseif ($_SESSION['head']==3){
-									$result = mysqli_query($connection, "SELECT * FROM etelaat_a INNER join advaar on etelaat_a.jashnvareh=advaar.advaar_cl where etelaat_a.nobat_arzyabi_madrese='تفصیلی سوم' and etelaat_a.jashnvareh='$jashnvareh' and advaar.end_rate_date_madrese is null order by etelaat_a.groupelmi asc");
+									$result = mysqli_query($connection, "SELECT * FROM etelaat_a where nobat_arzyabi='تفصیلی سوم' and vaziatkarname='اتمام ارزیابی' and vaziatostaniasar is not null and jashnvareh='$jashnvareh' order by groupelmi ");
 								}
 							?>
 							
@@ -101,23 +89,10 @@
 										<form method="post" action="tafsili3.php" target="_blank">
 											<tr>
 												<td><?php echo $a;$a++; ?></td>
-												<?php if ($_SESSION['head']==1): ?>
 													<td>
 														<input style="padding: 5px;" type="submit" name="editt3k" value="<?php echo $row1['codeasar'];?>">
 														<input type="hidden" name="subjection" value="editt3">
 													</td>
-												<?php elseif ($_SESSION['head']==2): ?>
-													<td>
-														<input style="padding: 5px;" type="submit" name="editt3o" value="<?php echo $row1['codeasar'];?>">
-														<input type="hidden" name="subjection" value="editt3ostan">
-													</td>
-												<?php elseif ($_SESSION['head']==3): ?>
-													<td>
-														<input style="padding: 5px;" type="submit" name="editt3m" value="<?php echo $row1['codeasar'];?>">
-														<input type="hidden" name="subjection" value="editt3madrese">
-													</td>
-												<?php endif; ?>
-												
 												<td>
 													<label style="width: 400px"><?php echo  $row1['nameasar'];?></label>
 												

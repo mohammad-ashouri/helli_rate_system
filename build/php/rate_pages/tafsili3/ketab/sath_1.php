@@ -219,7 +219,7 @@
             <br/>
             <center>
                 <input type="hidden" name="codeasarfield" value="<?php echo $codeasar; ?>">
-                <?php if ($_POST['subjection']==null): ?>
+                <?php if ($_POST['subjection']==null or $_POST['subjection']=='subset'): ?>
                     <p class="virayesh-ejmali-button" >
                         <input onclick="return submitconfirm()" style="padding: 6px" type="submit" name="subt3ketab" value="ثبت ارزیابی">
                     </p>

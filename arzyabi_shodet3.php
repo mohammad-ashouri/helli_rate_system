@@ -50,13 +50,14 @@ if ($_SESSION['head']==1):
                             </tr>
                             <?php
                             $counter=1;
-                            $selectionfrometa=mysqli_query($connection,"select * from etelaat_a where bargozideh_ostani='می باشد' and nobat_arzyabi='تفصیلی سوم' and vaziatkarname='در حال ارزیابی'");
+                            $selectionfrometa=mysqli_query($connection,"select * from etelaat_a inner join tafsili3 on etelaat_a.codeasar=tafsili3.codeasar where etelaat_a.bargozideh_ostani='می باشد' and etelaat_a.nobat_arzyabi='تفصیلی سوم' and tafsili3.jam is null and approver_sianat is not null");
                             foreach ($selectionfrometa as $itemeta):
                                 ?>
                                 <tr>
                                     <td><?php echo $counter;$counter++?></td>
                                     <td>
                                         <form method="post" action="./tafsili3.php">
+                                            <input type="hidden" name="subjection" value="subset">
                                             <input  style="padding: 5px" name="subset" value="<?php echo $itemeta['codeasar'] ?>" type="submit">
                                         </form>
                                     </td>
@@ -64,13 +65,16 @@ if ($_SESSION['head']==1):
                                     <td><?php echo $itemeta['ghalebpazhouhesh']." ".$itemeta['satharzyabi'] ?></td>
                                     <td><?php echo $itemeta['groupelmi'] ?></td>
                                     <td><?php
-                                        $codearzyab=$itemeta['codearzyabtafsili3'];
-                                        $selectionfromraterlist=mysqli_query($connection,"select * from rater_list where code='$codearzyab'");
-                                        foreach ($selectionfromraterlist as $itemrater){}
-                                        if (!empty($itemrater)){
-                                            echo $itemrater['name']." ".$itemrater['family'];
+                                        if ($itemeta['codearzyabtafsili3']) {
+                                            $codearzyab = $itemeta['codearzyabtafsili3'];
+                                            $selectionfromraterlist = mysqli_query($connection, "select * from rater_list where code='$codearzyab'");
+                                            foreach ($selectionfromraterlist as $itemrater) {
+                                            }
+                                            if (!empty($itemrater)) {
+                                                echo $itemrater['name'] . " " . $itemrater['family'];
+                                            }
+                                            $codearzyab = null;
                                         }
-
                                         ?>
                                     </td>
                                 </tr>

@@ -77,7 +77,7 @@
             $result=mysqli_query($connection,"select * from etelaat_a inner join tafsili3_madrese on etelaat_a.codeasar=tafsili3_madrese.codeasar where etelaat_a.codeasar='$codeasar'");
             break;
 		default:
-			$result=mysqli_query($connection,"select * from etelaat_a where codeasar='$codeasar' and etelaat_a.nobat_arzyabi='تفصیلی سوم' and etelaat_a.vaziatkarname='در حال ارزیابی'");
+			$result=mysqli_query($connection,"select * from etelaat_a where codeasar='$codeasar' ");
 			foreach ($result as $item){}
 			break;
 	}

@@ -41,10 +41,10 @@ if ($_SESSION['head']==1):
                                 نمایش ارزیابی های تفصیلی دوم در جشنواره :
                                 <select name="jashnvareh">
 		                            <?php
-			                            $query=mysqli_query($connection,"select * from advaar where end_rate_date_keshvari is null and end_rate_date_madrese is not null and end_rate_date_ostani is not null");
+			                            $query=mysqli_query($connection,"select distinct jashnvareh from etelaat_a  ");
 			                            foreach ($query as $jashnvarehlist):
 				                            ?>
-                                            <option><?php echo $jashnvarehlist['advaar_cl'] ?></option>
+                                            <option value="<?php echo $jashnvarehlist['jashnvareh']; ?>" <?php if ($_POST['jashnvareh']==$jashnvarehlist['jashnvareh']) echo 'selected' ?>><?php echo $jashnvarehlist['jashnvareh']; ?></option>
 			                            <?php endforeach; ?>
                                 </select>
                                 <input type="submit" name="jashnvarehset" value="جستجو" style="padding: 6px">
@@ -74,11 +74,7 @@ if ($_SESSION['head']==1):
                         <div class="row" style="overflow-x: auto">
                             <?php
                                 if ($_SESSION['head']==1){
-	                                $result = mysqli_query($connection, "SELECT * FROM etelaat_a INNER join advaar on etelaat_a.jashnvareh=advaar.advaar_cl where etelaat_a.codearzyabtafsili3 is null and etelaat_a.codearzyabtafsili2 is not null and etelaat_a.vaziatostaniasar is not null and etelaat_a.jashnvareh='$jashnvareh' and advaar.end_rate_date_keshvari is null order by etelaat_a.groupelmi asc");
-                                }elseif ($_SESSION['head']==2){
-	                                $result = mysqli_query($connection, "SELECT * FROM etelaat_a INNER join advaar on etelaat_a.jashnvareh=advaar.advaar_cl where codearzyabtafsili3_ostani is null and codearzyabtafsili2_ostani is not null and jashnvareh='$jashnvareh' and advaar.end_rate_date_ostani is null order by groupelmi asc");
-                                }elseif ($_SESSION['head']==3){
-	                                $result = mysqli_query($connection, "SELECT * FROM etelaat_a INNER join advaar on etelaat_a.jashnvareh=advaar.advaar_cl where codearzyabtafsili3_madrese is null and codearzyabtafsili2_madrese is not null and jashnvareh='$jashnvareh' and advaar.end_rate_date_madrese is null order by groupelmi asc");
+	                                $result = mysqli_query($connection, "SELECT * FROM etelaat_a where codearzyabtafsili3 is null and codearzyabtafsili2 is not null and vaziatostaniasar is not null and (vaziatkarname='در حال ارزیابی' or vaziatkarname='اتمام ارزیابی')  and jashnvareh='$jashnvareh' order by groupelmi ");
                                 }
                             ?>
 
@@ -98,26 +94,13 @@ if ($_SESSION['head']==1):
 	                                    $a=1;
                                     foreach($result as $row1) :?>
 
-                                        <form method="post" action="tafsili2.php" target="_blank">
+                                        <form method="post" action="./tafsili2.php" target="_blank">
                                             <tr>
                                                 <td><?php echo $a;$a++; ?></td>
-                                                <?php if ($_SESSION['head']==1): ?>
                                                 <td>
                                                     <input style="padding: 5px;" type="submit" name="editt2k" value="<?php echo $row1['codeasar'];?>">
-                                                    <input type="hidden" name="subjection" value="editt2">
+                                                    <input type="hidden" name="subjection" value="editt2k">
                                                 </td>
-	                                            <?php elseif ($_SESSION['head']==2): ?>
-                                                    <td>
-                                                        <input style="padding: 5px;" type="submit" name="editt2o" value="<?php echo $row1['codeasar'];?>">
-                                                        <input type="hidden" name="subjection" value="editt2ostan">
-                                                    </td>
-	                                            <?php elseif ($_SESSION['head']==3): ?>
-                                                    <td>
-                                                        <input style="padding: 5px;" type="submit" name="editt2m" value="<?php echo $row1['codeasar'];?>">
-                                                        <input type="hidden" name="subjection" value="editt2madrese">
-                                                    </td>
-	                                            <?php endif; ?>
-
                                                 <td>
                                                     <label style="width: 400px"><?php echo  $row1['nameasar'];?></label>
 

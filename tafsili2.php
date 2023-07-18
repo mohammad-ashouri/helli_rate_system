@@ -27,10 +27,11 @@ switch (@$_POST['subjection']) {
     case "statet2":
         $result = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar' and codearzyabtafsili2_ostani='$user' and nobat_arzyabi_ostani='تفصیلی دوم'");
         break;
-    case "editt2":
+    case "editt2k":
     case "log":
         $result = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
         $query = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
+    foreach ($query as $tafsili2items){}
         break;
     case "editt2o":
         $result = mysqli_query($connection, "select * from etelaat_a inner join tafsili2_ostan on etelaat_a.codeasar=tafsili2_ostan.codeasar where etelaat_a.codeasar='$codeasar'");
