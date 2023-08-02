@@ -303,7 +303,6 @@ if (isset($postcode) && !empty($postcode)){
                         document.getElementById("cityselect").innerHTML=this.responseText;
                         document.getElementById("citytr").style.display='';
                         document.getElementById("schooltr").style.display='';
-
                     }
                 }
                 xmlhttp.open("GET","/build/ajax/showcity.php?statename="+str+"&codeasar="+codeasar,true);
@@ -318,7 +317,7 @@ if (isset($postcode) && !empty($postcode)){
             </form>
             <?php if (isset($_POST['code']) and !empty($searchResult) and !empty($searchResultPerson)): ?>
             <br/><br/>
-            <form method="post" enctype="multipart/form-data" action="build/php/inc.php" id="pazireshform" onsubmit="return validatepaziresh()">
+            <form method="post" enctype="multipart/form-data" action="./build/php/edit_post.php" id="pazireshform" onsubmit="return validatepaziresh()">
                 <p>کد اثر
                     <input style="padding: 8px;border-radius: 7px;text-align: left;width: 100px" type="text" disabled="disabled" value="<?php echo @$searchResult['codeasar']; ?>">
                     <input name="codeasarfield" type="hidden"  value="<?php echo @$searchResult['codeasar']; ?>">
@@ -516,6 +515,7 @@ if (isset($postcode) && !empty($postcode)){
                                 <option></option>
                                 <option value="1" <?php if (@$searchResult['approve_sianat']=="1"){echo "selected";} ?>>تایید شده</option>
                                 <option value="0" <?php if (@$searchResult['approve_sianat']=="0"){echo "selected";} ?>>تایید نشده</option>
+                                <option value="9" <?php if (@$searchResult['approve_sianat']=="9"){echo "selected";} ?>>در حال ثبت نام</option>
                             </select>
                         </td>
                     </tr>
@@ -628,7 +628,7 @@ if (isset($postcode) && !empty($postcode)){
                             <select name="state_custom" id="statecustom">
                                 <option></option>
 				                <?php
-                     
+
 					                $resultstates=mysqli_query($connection,"select distinct name from state order by name asc");
 					                foreach ($resultstates as $state_info):
 						                ?>

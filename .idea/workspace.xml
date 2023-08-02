@@ -5,20 +5,80 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Report.php Temporary Fixed">
-      <change afterPath="$PROJECT_DIR$/build/ajax/GettingProvincesInfo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/ajax/Signup_Users.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/js/SignupUsers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/php/EditPost.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/signup_users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3757753c-b8de-4022-956e-fc50dcae8abf.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3757753c-b8de-4022-956e-fc50dcae8abf/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3757753c-b8de-4022-956e-fc50dcae8abf/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3757753c-b8de-4022-956e-fc50dcae8abf/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3757753c-b8de-4022-956e-fc50dcae8abf/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/php/edit_post.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/php/Send_To_Secreteriat.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/php/Send_To_Secreteriat.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/php/inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/php/inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/manager_nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signup_posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/signup_posts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cron/ftp.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edit_asar.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit_asar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/pen-to-square.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/pen.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/pencil-slash.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/pencil.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/people-arrows-left-right.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/people-carry-box.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/people-dress-simple.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/people-dress.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/people-group.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/people-line.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/people-pants-simple.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/people-pants.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/people-pulling.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/people-robbery.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/people-roof.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/people-simple.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/people.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/pepper-hot.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/pepper.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/percent.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/period.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-arrow-down-to-line.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-arrow-up-from-line.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-biking-mountain.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-biking.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-booth.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-breastfeeding.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-burst.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-cane.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-carry-box.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-chalkboard.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-circle-check.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-circle-exclamation.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-circle-minus.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-circle-plus.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-circle-question.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-circle-xmark.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-digging.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-dolly-empty.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-dolly.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-dots-from-line.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-dress-burst.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-dress-simple.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-dress.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-drowning.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-falling-burst.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-falling.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-from-portal.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-half-dress.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-harassing.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-hiking.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-military-pointing.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-military-rifle.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-military-to-person.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-pinball.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-praying.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-pregnant.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-rays.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-rifle.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-running.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-seat-reclined.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-seat.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-shelter.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-sign.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-simple.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-skating.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/fontawesome-6.1.1/svgs/regular/person-ski-jumping.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,32 +128,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/helli_rate_system&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/xampp/htdocs/helli_rate_system",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\helli_rate_system" />
@@ -123,6 +183,8 @@
       <workItem from="1688784990895" duration="1853000" />
       <workItem from="1689134993447" duration="13182000" />
       <workItem from="1689222211346" duration="6301000" />
+      <workItem from="1690882715608" duration="1732000" />
+      <workItem from="1690896684638" duration="4566000" />
     </task>
     <task id="LOCAL-00001" summary="Syncronize With Host And Git">
       <created>1686992152949</created>

@@ -52,9 +52,15 @@ if (!empty($_POST['sendtosecretariat']) and isset($_FILES['fileshora']) and isse
         }
         $last = $last_jashnvareh['advaar_cl'];
         $foldername = $username . '-' . $year . '-' . $month . '-' . $day . '-' . $hour . '-' . $min . '-' . $sec;
-        mkdir(__DIR__ . "/../../dist/files/Secretariat_Files/$foldername");
-        mkdir(__DIR__ . "/../../dist/files/Secretariat_Files/$foldername/shora");
-        mkdir(__DIR__ . "/../../dist/files/Secretariat_Files/$foldername/sianat");
+        if (!mkdir($concurrentDirectory = __DIR__ . "/../../dist/files/Secretariat_Files/$foldername") && !is_dir($concurrentDirectory)) {
+            throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+        }
+        if (!mkdir($concurrentDirectory = __DIR__ . "/../../dist/files/Secretariat_Files/$foldername/shora") && !is_dir($concurrentDirectory)) {
+            throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+        }
+        if (!mkdir($concurrentDirectory = __DIR__ . "/../../dist/files/Secretariat_Files/$foldername/sianat") && !is_dir($concurrentDirectory)) {
+            throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+        }
         $filesianati_src = "/dist/files/Secretariat_Files/$foldername/sianat/$filesianati_name";
         $fileshora_src = "/dist/files/Secretariat_Files/$foldername/shora/$fileshora_name";
         move_uploaded_file($tmpnamefileshora, __DIR__ . "/../../dist/files/Secretariat_Files/$foldername/shora/" . $fileshora_name);
