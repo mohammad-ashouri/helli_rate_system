@@ -102,6 +102,7 @@ function updateTeachingSchoolsSelect(schools) {
     schools.forEach(function (school) {
         var option = document.createElement("option");
         option.text = school;
+        option.value=school;
         selectElement.add(option);
     });
 }
@@ -129,6 +130,7 @@ function updateTeachingCitiesSelect(cities) {
     cities.forEach(function (city) {
         var option = document.createElement("option");
         option.text = city;
+        option.value = city;
         selectElement.add(option);
     });
 }

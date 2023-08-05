@@ -51,7 +51,7 @@ if ($_SESSION['head'] == 1 and $_SESSION['full_access'] == 1):
                 if (!@$userInfo) {
                     ?>
                     <div class="callout callout-warning">
-                        اثری با کد ملی وارد شده، در جشنواره جاری یافت نشد.
+                        کاربری با کد ملی وارد شده، در سامانه یافت نشد.
                     </div>
                     <?php
                 } else {

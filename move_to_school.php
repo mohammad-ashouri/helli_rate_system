@@ -62,7 +62,7 @@ if($_SESSION['head']==1 or $_SESSION['head']==2):
                 </div>
                 <div class="box-body">
                     <center>
-                        <form action="/build/php/inc.php" method="post" id="myform" onsubmit="">
+                        <form action="./build/php/Move_Posts_To_School.php" method="post" id="myform" onsubmit="">
                                 <span>
                                     مدرسه‌ای که می‌خواهید تمامی آثار ثبت شده‌اش را به آن انتقال دهید، انتخاب کنید :
                                     <select name="schoolname">
