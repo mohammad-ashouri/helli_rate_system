@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Fix Config Folder For .gitignore">
-      <change afterPath="$PROJECT_DIR$/build/php/Move_Posts_To_School.php" afterDir="false" />
+    <list default="true" id="0ea9de89-a57a-443e-a0bd-e4bae0bfe2f2" name="Changes" comment="Split Move Posts To School Script To Move_Posts_To_School.php + Fix signup_users.php Error Message">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/91b4ff6a-56cc-452c-a033-c07f015ca470.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/91b4ff6a-56cc-452c-a033-c07f015ca470.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a2fbcc9a-84ca-4489-8eed-fb82d24e806f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a2fbcc9a-84ca-4489-8eed-fb82d24e806f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/js/SignupUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/js/SignupUsers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/php/inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/build/php/inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/move_to_school.php" beforeDir="false" afterPath="$PROJECT_DIR$/move_to_school.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signup_users.php" beforeDir="false" afterPath="$PROJECT_DIR$/signup_users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edit_asar.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit_asar.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +50,10 @@
       <path value="$PROJECT_DIR$/exceltomysql/vendor/composer" />
     </include_path>
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": -1
+}]]></component>
   <component name="ProjectId" id="2RKFySJfOyVxaCFTwhd8y9xpl2m" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -114,6 +119,7 @@
       <workItem from="1689222211346" duration="6301000" />
       <workItem from="1690882715608" duration="1732000" />
       <workItem from="1690896684638" duration="4566000" />
+      <workItem from="1691225204392" duration="1038000" />
     </task>
     <task id="LOCAL-00001" summary="Syncronize With Host And Git">
       <created>1686992152949</created>
@@ -193,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691209405241</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Split Move Posts To School Script To Move_Posts_To_School.php + Fix signup_users.php Error Message">
+      <option name="closed" value="true" />
+      <created>1691224978405</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1691224978405</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,7 +239,8 @@
     <MESSAGE value="Rebase" />
     <MESSAGE value="Report.php Temporary Fixed" />
     <MESSAGE value="Fix Config Folder For .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Config Folder For .gitignore" />
+    <MESSAGE value="Split Move Posts To School Script To Move_Posts_To_School.php + Fix signup_users.php Error Message" />
+    <option name="LAST_COMMIT_MESSAGE" value="Split Move Posts To School Script To Move_Posts_To_School.php + Fix signup_users.php Error Message" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
