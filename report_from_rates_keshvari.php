@@ -97,43 +97,43 @@ if ($_SESSION['head'] == 1): ?>
         if ($gender == 'مرد') {
             if ($groupelmi == 'همه گروه‌ها') {
                 if ($state == 'همه استان‌ها') {
-                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
+                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
                 } else {
-                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_p.ostantahsili='$state' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
+                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
                 }
             } else {
                 if ($state == 'همه استان‌ها') {
-                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
+                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
                 } else {
-                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.bargozidehkeshvari='می باشد' and etelaat_p.ostantahsili='$state' order by emtiaznahaei desc");
+                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.bargozidehkeshvari='می باشد' and etelaat_p.ostantahsili='$state' order by emtiaznahaei desc");
                 }
             }
         } elseif ($gender == 'زن') {
             if ($groupelmi == 'همه گروه‌ها') {
                 if ($state == 'همه استان‌ها') {
-                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
+                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
                 } else {
-                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
+                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
                 }
             } else {
                 if ($state == 'همه استان‌ها') {
-                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
+                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
                 } else {
-                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='می باشد' order by emtiaznahaei desc");
+                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='می باشد' order by emtiaznahaei desc");
                 }
             }
         } else {
             if ($groupelmi == 'همه گروه‌ها') {
                 if ($state == 'همه استان‌ها') {
-                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_a.sharayetavalliehsherkat='دارد' order by etelaat_a.emtiaznahaei desc");
+                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 order by etelaat_a.emtiaznahaei desc");
                 } else {
-                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
+                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
                 }
             } else {
                 if ($state == 'همه استان‌ها') {
-                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.groupelmi='$groupelmi' order by etelaat_a.emtiaznahaei desc");
+                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_a.groupelmi='$groupelmi' order by etelaat_a.emtiaznahaei desc");
                 } else {
-                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' order by emtiaznahaei desc");
+                    $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' order by emtiaznahaei desc");
                 }
             }
         }
@@ -226,46 +226,46 @@ if ($_SESSION['head'] == 1): ?>
                                     if ($gender == 'مرد') {
                                         if ($groupelmi == 'همه گروه‌ها') {
                                             if ($state == 'همه استان‌ها') {
-                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
                                             } else {
-                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_p.ostantahsili='$state' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
                                             }
                                         } else {
                                             if ($state == 'همه استان‌ها') {
-                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
                                             } else {
-                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.bargozidehkeshvari='می باشد' and etelaat_p.ostantahsili='$state' order by emtiaznahaei desc");
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.bargozidehkeshvari='می باشد' and etelaat_p.ostantahsili='$state' order by emtiaznahaei desc");
                                             }
                                         }
                                     } elseif ($gender == 'زن') {
                                         if ($groupelmi == 'همه گروه‌ها') {
                                             if ($state == 'همه استان‌ها') {
-                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
                                             } else {
-                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
                                             }
                                         } else {
                                             if ($state == 'همه استان‌ها') {
-                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
                                             } else {
-                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='می باشد' order by emtiaznahaei desc");
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='می باشد' order by emtiaznahaei desc");
                                             }
                                         }
                                     } else {
                                         if ($groupelmi == 'همه گروه‌ها') {
                                             if ($state == 'همه استان‌ها') {
                                                 $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar 
-                                                                                            where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!=''
+                                                                                            where etelaat_a.jashnvareh='$jashnvareh'
                                                                                             and vaziatpazireshasar='پذیرش شد'
                                                                                             order by etelaat_a.emtiaznahaei desc");
                                             } else {
-                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='می باشد' order by etelaat_a.emtiaznahaei desc");
                                             }
                                         } else {
                                             if ($state == 'همه استان‌ها') {
-                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.groupelmi='$groupelmi' order by etelaat_a.emtiaznahaei desc");
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_a.groupelmi='$groupelmi' order by etelaat_a.emtiaznahaei desc");
                                             } else {
-                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' order by emtiaznahaei desc");
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' order by emtiaznahaei desc");
                                             }
                                         }
                                     }
@@ -300,6 +300,7 @@ if ($_SESSION['head'] == 1): ?>
                                                     foreach ($sql as $t2r) {
                                                     }
                                                     echo $t2r['name'] . ' ' . $t2r['family'];
+                                                    $t2r=null;
                                                 }
                                                 ?>
                                             </td>
@@ -311,6 +312,7 @@ if ($_SESSION['head'] == 1): ?>
                                                 if ($t2a != null) {
                                                     echo $t2a['jam'];
                                                 }
+                                                $t2a=null;
                                                 ?>
                                             </td>
                                             <td style="padding: 10px">
@@ -321,6 +323,7 @@ if ($_SESSION['head'] == 1): ?>
                                                     foreach ($sql as $t3r) {
                                                     }
                                                     echo $t3r['name'] . ' ' . $t3r['family'];
+                                                    $t3r=null;
                                                 }
                                                 ?>
                                             </td>
@@ -344,151 +347,150 @@ if ($_SESSION['head'] == 1): ?>
                                             <?php echo $values['emtiaznahaei'] ?>
                                             </td>
                                         </tr>
-                                    <?php endforeach; ?>
-                                    <!--                                    --><?php
-                                    //                                    $gender = $_POST['gender'];
-                                    //                                    $groupelmi = $_POST['groupelmi'];
-                                    //                                    $jashnvareh = $_POST['jashnvareh'];
-                                    //                                    if ($gender == 'مرد') {
-                                    //                                        if ($groupelmi == 'همه گروه‌ها') {
-                                    //                                            if ($state == 'همه استان‌ها') {
-                                    //                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
-                                    //                                            } else {
-                                    //                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_p.ostantahsili='$state' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
-                                    //                                            }
-                                    //                                        } else {
-                                    //                                            if ($state == 'همه استان‌ها') {
-                                    //                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
-                                    //                                            } else {
-                                    //                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.bargozidehkeshvari='نمی باشد' and etelaat_p.ostantahsili='$state' order by emtiaznahaei desc");
-                                    //                                            }
-                                    //                                        }
-                                    //                                    } elseif ($gender == 'زن') {
-                                    //                                        if ($groupelmi == 'همه گروه‌ها') {
-                                    //                                            if ($state == 'همه استان‌ها') {
-                                    //                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
-                                    //                                            } else {
-                                    //                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
-                                    //                                            }
-                                    //                                        } else {
-                                    //                                            if ($state == 'همه استان‌ها') {
-                                    //                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
-                                    //                                            } else {
-                                    //                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='نمی باشد' order by emtiaznahaei desc");
-                                    //                                            }
-                                    //                                        }
-                                    //                                    } else {
-                                    //                                        if ($groupelmi == 'همه گروه‌ها') {
-                                    //                                            if ($state == 'همه استان‌ها') {
-                                    //                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
-                                    //                                            } else {
-                                    //                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
-                                    //                                            }
-                                    //                                        } else {
-                                    //                                            if ($state == 'همه استان‌ها') {
-                                    //                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
-                                    //                                            } else {
-                                    //                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatostaniasar!='' and etelaat_a.approve_sianat=1 and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='نمی باشد' order by emtiaznahaei desc");
-                                    //                                            }
-                                    //                                        }
-                                    //                                    }
-                                    //                                    foreach ($query as $values):
-                                    //
+                                    <?php
+                                    endforeach;
+                                    $gender = $_POST['gender'];
+                                    $groupelmi = $_POST['groupelmi'];
+                                    $jashnvareh = $_POST['jashnvareh'];
+                                    if ($gender == 'مرد') {
+                                        if ($groupelmi == 'همه گروه‌ها') {
+                                            if ($state == 'همه استان‌ها') {
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
+                                            } else {
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
+                                            }
+                                        } else {
+                                            if ($state == 'همه استان‌ها') {
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
+                                            } else {
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='مرد' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.bargozidehkeshvari='نمی باشد' and etelaat_p.ostantahsili='$state' order by emtiaznahaei desc");
+                                            }
+                                        }
+                                    } elseif ($gender == 'زن') {
+                                        if ($groupelmi == 'همه گروه‌ها') {
+                                            if ($state == 'همه استان‌ها') {
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
+                                            } else {
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
+                                            }
+                                        } else {
+                                            if ($state == 'همه استان‌ها') {
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
+                                            } else {
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.gender='زن' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='نمی باشد' order by emtiaznahaei desc");
+                                            }
+                                        }
+                                    } else {
+                                        if ($groupelmi == 'همه گروه‌ها') {
+                                            if ($state == 'همه استان‌ها') {
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1  order by etelaat_a.emtiaznahaei desc");
+                                            } else {
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
+                                            }
+                                        } else {
+                                            if ($state == 'همه استان‌ها') {
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_a.groupelmi='$groupelmi' and etelaat_a.bargozidehkeshvari='نمی باشد' order by etelaat_a.emtiaznahaei desc");
+                                            } else {
+                                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.approve_sianat=1 and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' and etelaat_a.bargozidehkeshvari='نمی باشد' order by emtiaznahaei desc");
+                                            }
+                                        }
+                                    }
+                                    foreach ($query as $values):
+                                        ?>
+                                        <tr style="font-size: 15px;border-bottom: 2px solid black">
+                                            <td style="padding: 10px">
+                                                <?php echo $counter;
+                                                $counter++
+                                                ?>
+                                            </td>
+                                            <td style="padding: 10px">
+                                                <?php echo $values['codeasar']
+                                                ?>
+                                            </td>
+                                            <td style="padding: 10px">
+                                                <a href="/../
+                                    <?php echo $values['fileasar']
+                                                ?>">
+                                                    <?php echo $values['nameasar']
+
+                                                    ?>
+                                                </a>
+                                            </td>
+                                            <td style="padding: 10px">
+                                                <?php echo $values['ghalebpazhouhesh'] . ' ' . $values['satharzyabi']
+                                                ?>
+                                            </td>
+                                            <td style="padding: 10px">
+                                                <?php echo $values['groupelmi']
+                                                ?>
+                                            </td>
+                                            <td style="padding: 10px">
+                                                <?php
+                                                $codeasar = $values['codeasar'];
+                                                $sql = mysqli_query($connection, "select * from etelaat_p where codeasar='$codeasar'");
+                                                foreach ($sql as $sql1) {
+                                                }
+                                                echo $sql1['ostantahsili'];
+                                                ?>
+                                            </td>
+                                            <td style="padding: 10px">
+                                                <?php echo $values['nobat_arzyabi'] . ' (' . $values['vaziatkarname'] . ')'
+                                                ?>
+                                            </td>
+                                            <td style="padding: 10px">
+                                                <?php echo $values['jamemtiazostan']
+                                                ?>
+                                            </td>
+                                            <td style="padding: 10px">
+                                                <?php
+                                                if ($values['codearzyabtafsili2'] != null) {
+                                                    $coderater = $values['codearzyabtafsili2'];
+                                                    $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
+                                                    foreach ($sql as $t2r) {
+                                                    }
+                                                    echo $t2r['name'] . ' ' . $t2r['family'];
+                                                    $t2r=null;
+                                                }
+                                                ?>
+                                            </td>
+                                            <td style="padding: 10px">
+                                                <?php
+                                                $sql = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
+                                                foreach ($sql as $t2) {
+                                                }
+                                                echo @$t2['jam'];
+                                                $t2=null;
+                                                ?>
+                                            </td>
+                                            <td style="padding: 10px">
+                                                <?php
+                                                if ($values['codearzyabtafsili3'] != null) {
+                                                    $coderater = $values['codearzyabtafsili3'];
+                                                    $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
+                                                    foreach ($sql as $t3r) {
+                                                    }
+                                                    echo $t3r['name'] . ' ' . $t3r['family'];
+                                                    $t3r=null;
+                                                }
+                                                ?>
+                                            </td>
+                                            <td style="padding: 10px">
+                                                <?php
+                                                $sql = mysqli_query($connection, "select * from tafsili3 where codeasar='$codeasar'");
+                                                foreach ($sql as $t3) {
+                                                }
+                                                echo @$t3['jam'];
+                                                $t3=null;
+                                                ?>
+                                            </td>
+                                            <td style="padding: 10px">
+                                                <?php echo $values['emtiaznahaei']
+                                                ?>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach;
                                     ?>
-                                    <!--                                        <tr style="font-size: 15px;border-bottom: 2px solid black">-->
-                                    <!--                                            <td style="padding: 10px">-->
-                                    <!--                                                --><?php //echo $counter;
-                                    //                                                $counter++
-                                    ?>
-                                    <!--                                            </td>-->
-                                    <!--                                            <td style="padding: 10px">-->
-                                    <!--                                                --><?php //echo $values['codeasar']
-                                    ?>
-                                    <!--                                            </td>-->
-                                    <!--                                            <td style="padding: 10px">-->
-                                    <!--                                                <a href="/../-->
-                                    <?php //echo $values['fileasar']
-                                    ?><!--">-->
-                                    <!--                                                    --><?php //echo $values['nameasar']
-                                    ?>
-                                    <!--                                                </a>-->
-                                    <!--                                            </td>-->
-                                    <!--                                            <td style="padding: 10px">-->
-                                    <!--                                                --><?php //echo $values['ghalebpazhouhesh'] . ' ' . $values['satharzyabi']
-                                    ?>
-                                    <!--                                            </td>-->
-                                    <!--                                            <td style="padding: 10px">-->
-                                    <!--                                                --><?php //echo $values['groupelmi']
-                                    ?>
-                                    <!--                                            </td>-->
-                                    <!--                                            <td style="padding: 10px">-->
-                                    <!--                                                --><?php
-                                    //                                                $codeasar = $values['codeasar'];
-                                    //                                                $sql = mysqli_query($connection, "select * from etelaat_p where codeasar='$codeasar'");
-                                    //                                                foreach ($sql as $sql1) {
-                                    //                                                }
-                                    //                                                echo $sql1['ostantahsili'];
-                                    //
-                                    ?>
-                                    <!--                                            </td>-->
-                                    <!--                                            <td style="padding: 10px">-->
-                                    <!--                                                --><?php //echo $values['nobat_arzyabi'] . ' (' . $values['vaziatkarname'] . ')'
-                                    ?>
-                                    <!--                                            </td>-->
-                                    <!--                                            <td style="padding: 10px">-->
-                                    <!--                                                --><?php //echo $values['jamemtiazostan']
-                                    ?>
-                                    <!--                                            </td>-->
-                                    <!--                                            <td style="padding: 10px">-->
-                                    <!--                                                --><?php
-                                    //                                                if ($values['codearzyabtafsili2'] != null) {
-                                    //                                                    $coderater = $values['codearzyabtafsili2'];
-                                    //                                                    $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
-                                    //                                                    foreach ($sql as $sql1) {
-                                    //                                                    }
-                                    //                                                    echo $sql1['name'] . ' ' . $sql1['family'];
-                                    //                                                }
-                                    //
-                                    ?>
-                                    <!--                                            </td>-->
-                                    <!--                                            <td style="padding: 10px">-->
-                                    <!--                                                --><?php
-                                    //                                                $sql = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
-                                    //                                                foreach ($sql as $sql1) {
-                                    //                                                }
-                                    //                                                echo @$sql1['jam'];
-                                    //
-                                    ?>
-                                    <!--                                            </td>-->
-                                    <!--                                            <td style="padding: 10px">-->
-                                    <!--                                                --><?php
-                                    //                                                if ($values['codearzyabtafsili3'] != null) {
-                                    //                                                    $coderater = $values['codearzyabtafsili3'];
-                                    //                                                    $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
-                                    //                                                    foreach ($sql as $sql1) {
-                                    //                                                    }
-                                    //                                                    echo $sql1['name'] . ' ' . $sql1['family'];
-                                    //                                                }
-                                    //
-                                    ?>
-                                    <!--                                            </td>-->
-                                    <!--                                            <td style="padding: 10px">-->
-                                    <!--                                                --><?php
-                                    //                                                $sql = mysqli_query($connection, "select * from tafsili3 where codeasar='$codeasar'");
-                                    //                                                foreach ($sql as $sql1) {
-                                    //                                                }
-                                    //                                                echo @$sql1['jam'];
-                                    //
-                                    ?>
-                                    <!--                                            </td>-->
-                                    <!--                                            <td style="padding: 10px">-->
-                                    <!--                                                --><?php //echo $values['emtiaznahaei']
-                                    ?>
-                                    <!--                                            </td>-->
-                                    <!--                                        </tr>-->
-                                    <!--                                    --><?php //endforeach;
-                                    ?>
-                                </table
+                                </table>
                                 <br>
                                 <!--                                <form method="post" target="_blank" action="/build/php/excel_export/rates_exp.php">-->
                                 <!--                                    <input type="hidden" name="jashnvareh" value="-->
