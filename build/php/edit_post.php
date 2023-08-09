@@ -303,23 +303,9 @@ elseif (isset($_POST['pazireshcity']) and !empty($_POST['codeasarfield']) and !e
     $elmigroup = $_POST['elmigroup'];
     $noepazhouhesh = $_POST['noepazhoohesh'];
     $vaziatnashr = $_POST['vaziatnashr'];
-    $vaziatpazireshasar = $_POST['vaziatnashr'];
     $tedadsafhe = $_POST['tedadsafhe'];
     $bakhshvizheh = $_POST['bakhshvizheh'];
-    $vaziatpazireshasar = $_POST['vaziatpaziresh'];
-    $sharayetavvaliehsherkatasar = $_POST['sharayetavalieh'];
-    $ellat = $_POST['ellat'];
-    $vaziatmadreseasar = $_POST['vaziatmadreseasar'];
-    $bargozideh_madrese = $_POST['bargozideh_madrese'];
-    $jamemtiazmadrese = $_POST['jamemtiazmadrese'];
-    $vaziatostaniasar = $_POST['vaziatostani'];
-    $bargozideh_ostani = $_POST['bargozideh_ostani'];
-    $approve_sianat = $_POST['approve_sianat'];
-    $jamemtiazostan = $_POST['jamemtiazostan'];
-    $bargozidehkeshvariasar = $_POST['bargozidehkeshvari'];
-    $emtiaznahaei = $_POST['emtiaznahaei'];
     $karbar = $_SESSION['username'];
-    $bargozidehkeshvari = $_POST['bargozidehkeshvari'];
     if ($ghalebpazhouhesh == 'انتخاب کنید') {
         $ghalebpazhouhesh = null;
     }

@@ -28,7 +28,7 @@ if (isset($postcode) && !empty($postcode)){
                     @$QueryPerson=mysqli_query($connection,"select * from `etelaat_p` where `codeasar`='$postcode' and ostantahsili='اصفهان' and shahrtahsili='کاشان'");
                     break;
                 default:
-                    @$QueryAsar=mysqli_query($connection,"select * from `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codeasar='$postcode' and etelaat_p.ostantahsili!='اصفهان' and etelaat_p.shahrtahsili!='کاشان' and ostantahsili='$state' and etelaat_a.approve_sianat!=1");
+                    @$QueryAsar=mysqli_query($connection,"select * from `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codeasar='$postcode' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and ostantahsili='$state' and etelaat_a.approve_sianat!=1");
                     @$QueryPerson=mysqli_query($connection,"select * from `etelaat_p` where `codeasar`='$postcode' and ostantahsili!='اصفهان' and shahrtahsili!='کاشان' and ostantahsili='$state'");
                     break;
             }
@@ -39,16 +39,16 @@ if (isset($postcode) && !empty($postcode)){
             $school=$_SESSION['school'];
             switch ($city){
                 case 'بناب':
-                    @$QueryAsar=mysqli_query($connection,"select * from `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codeasar='$postcode' and etelaat_p.ostantahsili='آذربایجان شرقی' and etelaat_p.shahrtahsili='بناب' and etelaat_p.madrese='$school' and etelaat_a.approve_sianat=0");
+                    @$QueryAsar=mysqli_query($connection,"select * from `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codeasar='$postcode' and etelaat_p.ostantahsili='آذربایجان شرقی' and etelaat_p.shahrtahsili='بناب' and etelaat_p.madrese='$school' and etelaat_a.approve_sianat!=1");
                     @$QueryPerson=mysqli_query($connection,"select * from `etelaat_p` where `codeasar`='$postcode' and ostantahsili='آذربایجان شرقی' and shahrtahsili='بناب' and etelaat_p.madrese='$school'");
                     break;
                 case 'کاشان':
-                    @$QueryAsar=mysqli_query($connection,"select * from `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codeasar='$postcode' and etelaat_p.ostantahsili='اصفهان' and etelaat_p.shahrtahsili='کاشان' and etelaat_p.madrese='$school' and etelaat_a.approve_sianat=0");
+                    @$QueryAsar=mysqli_query($connection,"select * from `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codeasar='$postcode' and etelaat_p.ostantahsili='اصفهان' and etelaat_p.shahrtahsili='کاشان' and etelaat_p.madrese='$school' and etelaat_a.approve_sianat!=1");
                     @$QueryPerson=mysqli_query($connection,"select * from `etelaat_p` where `codeasar`='$postcode' and ostantahsili='اصفهان' and shahrtahsili='کاشان' and etelaat_p.madrese='$school'");
                     break;
                 default:
-                    @$QueryAsar=mysqli_query($connection,"select * from `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codeasar='$postcode' and etelaat_p.ostantahsili!='اصفهان' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.madrese='$school' and ostantahsili='$state' and etelaat_a.approve_sianat=0");
-                    @$QueryPerson=mysqli_query($connection,"select * from `etelaat_p` where `codeasar`='$postcode' and ostantahsili!='اصفهان' and shahrtahsili!='کاشان' and ostantahsili='$state' and etelaat_p.madrese='$school'");
+                    @$QueryAsar=mysqli_query($connection,"select * from `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codeasar='$postcode' and etelaat_p.ostantahsili!='اصفهان' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.madrese='$school' and ostantahsili='$state' and etelaat_a.approve_sianat!=1");
+                    @$QueryPerson=mysqli_query($connection,"select * from `etelaat_p` where `codeasar`='$postcode' and shahrtahsili!='بناب' and shahrtahsili!='کاشان' and ostantahsili='$state' and etelaat_p.madrese='$school'");
                     break;
             }
             break;
