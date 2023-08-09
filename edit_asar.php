@@ -1137,7 +1137,7 @@ if (isset($postcode) && !empty($postcode)){
                                 <label>
                                     <?php
                                         if ($pdf!=null and $pdf!='dist/files/asar_files/'){
-                                            echo "<a style='color: #0a58ca' target='_blank' href='$main_website_url$pdf'>".'دانلود فایل PDF'."</a>";
+                                            echo "<a style='color: #0a58ca' target='_blank' href='$pdf'>".'دانلود فایل PDF'."</a>";
                                         }
                                         else{
                                             echo 'موجود نیست';
@@ -1154,7 +1154,7 @@ if (isset($postcode) && !empty($postcode)){
                                 <label>
                                     <?php
                                     if ($word!=null and $word!='dist/files/asar_files_word/'){
-                                        echo "<a style='color: #0a58ca' target='_blank' href='$main_website_url$word'>".'دانلود فایل WORD'."</a>";
+                                        echo "<a style='color: #0a58ca' target='_blank' href='$word'>".'دانلود فایل WORD'."</a>";
                                     }
                                     else{
                                         echo 'موجود نیست';
