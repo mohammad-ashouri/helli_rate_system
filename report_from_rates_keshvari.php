@@ -275,7 +275,7 @@ if ($_SESSION['head'] == 1): ?>
                                                 $counter++ ?></td>
                                             <td style="padding: 10px"><?php echo $values['codeasar'] ?></td>
                                             <td style="padding: 10px">
-                                                <a href="/../<?php echo $values['fileasar'] ?>">
+                                                <a href="<?php echo $values['fileasar'] ?>">
                                                     <?php echo $values['nameasar'] ?>
                                                 </a>
                                             </td>
@@ -300,7 +300,7 @@ if ($_SESSION['head'] == 1): ?>
                                                     foreach ($sql as $t2r) {
                                                     }
                                                     echo $t2r['name'] . ' ' . $t2r['family'];
-                                                    $t2r=null;
+                                                    $t2r = null;
                                                 }
                                                 ?>
                                             </td>
@@ -312,7 +312,7 @@ if ($_SESSION['head'] == 1): ?>
                                                 if ($t2a != null) {
                                                     echo $t2a['jam'];
                                                 }
-                                                $t2a=null;
+                                                $t2a = null;
                                                 ?>
                                             </td>
                                             <td style="padding: 10px">
@@ -323,7 +323,7 @@ if ($_SESSION['head'] == 1): ?>
                                                     foreach ($sql as $t3r) {
                                                     }
                                                     echo $t3r['name'] . ' ' . $t3r['family'];
-                                                    $t3r=null;
+                                                    $t3r = null;
                                                 }
                                                 ?>
                                             </td>
@@ -408,12 +408,8 @@ if ($_SESSION['head'] == 1): ?>
                                                 ?>
                                             </td>
                                             <td style="padding: 10px">
-                                                <a href="/../
-                                    <?php echo $values['fileasar']
-                                                ?>">
-                                                    <?php echo $values['nameasar']
-
-                                                    ?>
+                                                <a href="<?php echo $values['fileasar'] ?>">
+                                                    <?php echo $values['nameasar'] ?>
                                                 </a>
                                             </td>
                                             <td style="padding: 10px">
@@ -449,7 +445,7 @@ if ($_SESSION['head'] == 1): ?>
                                                     foreach ($sql as $t2r) {
                                                     }
                                                     echo $t2r['name'] . ' ' . $t2r['family'];
-                                                    $t2r=null;
+                                                    $t2r = null;
                                                 }
                                                 ?>
                                             </td>
@@ -459,7 +455,7 @@ if ($_SESSION['head'] == 1): ?>
                                                 foreach ($sql as $t2) {
                                                 }
                                                 echo @$t2['jam'];
-                                                $t2=null;
+                                                $t2 = null;
                                                 ?>
                                             </td>
                                             <td style="padding: 10px">
@@ -470,7 +466,7 @@ if ($_SESSION['head'] == 1): ?>
                                                     foreach ($sql as $t3r) {
                                                     }
                                                     echo $t3r['name'] . ' ' . $t3r['family'];
-                                                    $t3r=null;
+                                                    $t3r = null;
                                                 }
                                                 ?>
                                             </td>
@@ -480,7 +476,7 @@ if ($_SESSION['head'] == 1): ?>
                                                 foreach ($sql as $t3) {
                                                 }
                                                 echo @$t3['jam'];
-                                                $t3=null;
+                                                $t3 = null;
                                                 ?>
                                             </td>
                                             <td style="padding: 10px">
