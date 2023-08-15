@@ -171,7 +171,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                             if (@$ejmali_ostan != '' or @$ejmali_ostan != null): ?>
                                                 <form target="_blank" action="/sabt-arzyabi-ejmali.php" method="post">
                                                     <span
-                                                        style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی اجمالی =></span>
+                                                            style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی اجمالی =></span>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     <span style="font-weight: bold">
                                                      امتیاز:
@@ -213,7 +213,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                             if (@$tafsili1_ostan != '' and @$tafsili1_ostan != null and @$tafsili1_ostan['jam'] != null): ?>
                                                 <form target="_blank" action="/tafsili1.php" method="post">
                                                     <span
-                                                        style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی اول =></span>
+                                                            style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی اول =></span>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     <span style="font-weight: bold">
                                                      امتیاز:
@@ -255,7 +255,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                             if (@$tafsili2_ostan != '' and @$tafsili2_ostan != null and @$tafsili2_ostan['jam']): ?>
                                                 <form target="_blank" action="/tafsili2.php" method="post">
                                                     <span
-                                                        style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی دوم =></span>
+                                                            style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی دوم =></span>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     <span style="font-weight: bold">
                                                      امتیاز:
@@ -295,16 +295,16 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                             foreach ($query as $tafsili3_ostan) {
                                             }
                                             if (@$tafsili3_ostan != '' and @$tafsili3_ostan != null and @$tafsili3_ostan['jam']): ?>
-                                                <!--                                                <form target="_blank" action="/tafsili3.php" method="post">-->
+                                                <form target="_blank" action="/tafsili3.php" method="post">
                                                 <span
-                                                    style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی سوم =></span>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <span style="font-weight: bold">
+                                                        style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی سوم =></span>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span style="font-weight: bold">
                                                      امتیاز:
                                                      <?php echo $tafsili3_ostan['jam'] ?>
                                                  </span>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <span style="font-weight: bold">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span style="font-weight: bold">
                                                      ارزیاب:
                                                      <?php
                                                      $tafsili3_ostan_rater = $tafsili3_ostan['rater_id'];
@@ -315,13 +315,13 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                      echo 'استاد ' . $tafsili3_ostan_info['name'] . ' ' . $tafsili3_ostan_info['family'];
                                                      ?>
                                                  </span>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <span style="font-weight: bold">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span style="font-weight: bold">
                                                      تاریخ ارزیابی:
                                                     <?php echo $tafsili3_ostan['datesabt'] ?>
                                                  </span>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <span style="font-weight: bold">
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span style="font-weight: bold">
                                                     <input name="subjection" value="tafsili3_ostan_log" type="hidden">
                                                     <input name="codeasar" value="<?php echo $codeasar ?>"
                                                            type="hidden">
@@ -362,7 +362,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                             if ($ejmali_madrese != '' or $ejmali_madrese != null): ?>
                                                 <form target="_blank" action="/sabt-arzyabi-ejmali.php" method="post">
                                                     <span
-                                                        style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی اجمالی =></span>
+                                                            style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی اجمالی =></span>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     <span style="font-weight: bold">
                                                      امتیاز:
@@ -404,7 +404,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                             if (@$tafsili1_madrese != '' and @$tafsili1_madrese != null and @$tafsili1_madrese['jam'] != null): ?>
                                                 <!--                                                <form target="_blank" action="/tafsili1.php" method="post">-->
                                                 <span
-                                                    style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی اول =></span>
+                                                        style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی اول =></span>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <span style="font-weight: bold">
                                                      امتیاز:
@@ -446,7 +446,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                             if (@$tafsili2_madrese != '' and @$tafsili2_madrese != null and @$tafsili2_madrese['jam'] != null): ?>
                                                 <!--                                                <form target="_blank" action="/tafsili2.php" method="post">-->
                                                 <span
-                                                    style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی دوم =></span>
+                                                        style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی دوم =></span>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <span style="font-weight: bold">
                                                      امتیاز:
@@ -488,7 +488,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                             if (@$tafsili3_madrese != '' and @$tafsili3_madrese != null and @$tafsili3_madrese['jam']): ?>
                                                 <!--                                                <form target="_blank" action="/tafsili3.php" method="post">-->
                                                 <span
-                                                    style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی سوم =></span>
+                                                        style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی سوم =></span>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <span style="font-weight: bold">
                                                      امتیاز:
@@ -755,12 +755,15 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                             $replacement = 'Login With Token => ';
                                             $token = str_replace($replacement, '', $userInfo['activity']);
                                             ?>
-                                            <button class="btn btn-danger" id="user-panel-button" style="width:150px ;padding: 5px; color:black;margin-right:650px; font-weight:bold" type="submit"
-                                                    value="http://ssmp.ismc.ir/?token=<?php echo $token; ?>" name="UserPanel">ورود به پنل
+                                            <button class="btn btn-danger" id="user-panel-button"
+                                                    style="width:150px ;padding: 5px; color:black;margin-right:650px; font-weight:bold"
+                                                    type="submit"
+                                                    value="http://ssmp.ismc.ir/?token=<?php echo $token; ?>"
+                                                    name="UserPanel">ورود به پنل
                                                 کاربری
                                             </button>
                                             <script>
-                                                document.getElementById("user-panel-button").addEventListener("click", function() {
+                                                document.getElementById("user-panel-button").addEventListener("click", function () {
                                                     var linkValue = this.value;
                                                     var newTab = window.open(linkValue, "_blank");
                                                     newTab.focus();
@@ -904,7 +907,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                                 </td>
                                                                 <td>
                                                                     <label style="font-weight: normal">
-                                                                        <?php echo $et_h['ghalebpazhouhesh']. ' ' . $et_h['satharzyabi']; ?>
+                                                                        <?php echo $et_h['ghalebpazhouhesh'] . ' ' . $et_h['satharzyabi']; ?>
                                                                     </label>
                                                                 </td>
                                                                 <td>
@@ -923,7 +926,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                                     } else {
                                                                         if (substr($et_h['fileasar'], 0, 5) === "https") {
                                                                             echo @$et_h['fileasar'];
-                                                                        }elseif (substr($et_h['fileasar'], 0, 4) === "http") {
+                                                                        } elseif (substr($et_h['fileasar'], 0, 4) === "http") {
                                                                             echo @$et_h['fileasar'];
                                                                         }
                                                                     }
