@@ -295,7 +295,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                             foreach ($query as $tafsili3_ostan) {
                                             }
                                             if (@$tafsili3_ostan != '' and @$tafsili3_ostan != null and @$tafsili3_ostan['jam']): ?>
-                                                <form target="_blank" action="/tafsili3.php" method="post">
+<!--                                                <form target="_blank" action="/tafsili3.php" method="post">-->
                                                 <span
                                                         style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی سوم =></span>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -329,7 +329,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                                 style="width: 250px; display: inline"
                                                                 name="tafsili3_ostan_log">مشاهده ریز نمرات ارزیابی تفصیلی سوم</button>
                                                 </span>
-                                                </form>
+<!--                                                </form>-->
                                                 <hr>
                                             <?php endif; ?>
                                         </div>
