@@ -163,7 +163,7 @@ if ($_SESSION['head'] == 1 and $_SESSION['full_access'] == 1):
                                     شماره همراه
                                 </th>
                                 <th>
-                                    وضعیت کاربری
+                                    عملیات
                                 </th>
                             </tr>
 
