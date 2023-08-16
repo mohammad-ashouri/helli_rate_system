@@ -148,6 +148,9 @@ if ($_SESSION['head'] == 1 and $_SESSION['full_access'] == 1):
                         <table class="arzyabinashodetable">
                             <tr>
                                 <th>
+                                    ردیف
+                                </th>
+                                <th>
                                     نام کاربری
                                 </th>
                                 <th>
