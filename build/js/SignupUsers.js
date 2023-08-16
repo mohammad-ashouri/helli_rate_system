@@ -135,6 +135,28 @@ function updateTeachingCitiesSelect(cities) {
     });
 }
 
+//Personal Image
+if (document.getElementById('remove_personal_image')) {
+    document.getElementById('remove_personal_image').onclick = function () {
+        if (confirm('در صورت تایید، عکس پرسنلی کاربر به طور دائمی حذف خواهد شد.' +
+            '\n' +
+            '\n' +
+            'آیا مطمئن هستید؟')) {
+            $.ajax({
+                url: "./build/ajax/Signup_Users.php",
+                type: "POST",
+                data: {
+                    work: "removePersonalImage",
+                    nationalCode: national_code.value
+                },
+                success: function (response) {
+                    location.reload();
+                }
+            });
+        }
+    }
+}
+
 //Contact
 document.getElementById('phone').oninput = function () {
     $.ajax({
@@ -192,7 +214,7 @@ if (document.getElementById('contactSaveTo1')) {
             data: {
                 work: "contactSaveTo1",
                 value: 1,
-                nationalCode: national_code.value,
+                nationalCode: national_code.value
             },
             success: function (response) {
                 location.reload();

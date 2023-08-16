@@ -76,6 +76,28 @@ if ($_SESSION['head'] == 1 and $_SESSION['full_access'] == 1):
                     </h3>
                 </div>
                 <div class="box-body">
+                    <?php
+                    if ($userInfo['personalImageSrc']):
+                    ?>
+                    <img style="width: 175px; height: 205px" src="
+                    <?php
+                    $personalSrcID=$userInfo['personalImageSrc'];
+                    $query=mysqli_query($signup_connection,"select src from images where id='$personalSrcID'");
+                    foreach ($query as $imageSrc){}
+                    $imageSrc=str_replace('public/','storage/',$imageSrc['src']) ;
+                    echo $signup_website_url . $imageSrc;
+                    ?>" alt="عکس پرسنلی">
+                    <button class="btn btn-danger" id="remove_personal_image">پاک کردن عکس پرسنلی</button>
+                    <?php else : ?>
+                    <div class="box box-solid box-danger">
+                        <div class="box-header">
+                            <i class="fa fa-info-circle"></i>
+                            <h3 class="box-title">
+                                عکس پرسنلی آپلود نشده است.
+                            </h3>
+                        </div>
+                    </div>
+                    <?php endif;  ?>
                     <table class="table table-striped text-center">
                         <tr>
                             <th>نام</th>
