@@ -50,7 +50,7 @@
                     <?php if ($_SESSION['head'] == 1 and (!isset($_POST['ejmali_madrese_log']) and !isset($_POST['ejmali_ostan_log']))): ?>
                         <div class="box-body">
 
-                            <form id="myform" method="post" action="build/php/inc.php" onsubmit="return validateForm()">
+                            <form id="myform" method="post" action="./build/php/inc.php" onsubmit="return validateForm()">
                                 <p>کد اثر
                                     <input style="width: 120px; border-radius: 5px; padding: 5px" type="text"
                                            disabled="disabled" value="<?php

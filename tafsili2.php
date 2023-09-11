@@ -60,7 +60,7 @@ switch (@$_POST['subjection']) {
 //			foreach ($result as $item){}
 //			break;
     default:
-        $result = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar' and nobat_arzyabi='تفصیلی دوم' and vaziatkarname='در حال ارزیابی'");
+        $result = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
         break;
 }
 foreach ($result as $item) {
@@ -96,7 +96,7 @@ foreach ($result as $item) {
                     <div class="box-header">
                         <i class="fa fa-info-circle"></i>
                         <h3 class="box-title">
-                            <?php if (!isset($_POST['logsend'])): ?>
+                            <?php if (!isset($_POST['logsend']) and !isset($_POST['log'])): ?>
                                 <?php if (@$_POST['subjection'] == 'editt2o' or @$_POST['subjection'] == 'editt2m') {
                                     echo 'ویرایش';
                                 } else {
@@ -107,7 +107,7 @@ foreach ($result as $item) {
                                 echo $item['ghalebpazhouhesh'] . " سطح " . $item['satharzyabi'];
                                 ?>
 
-                            <?php elseif (isset($_POST['logsend'])): ?>
+                            <?php elseif (isset($_POST['logsend']) or isset($_POST['log'])): ?>
                                 کارنامه ارزیابی شده
                                 <?php
                                 echo $item['ghalebpazhouhesh'] . " سطح " . $item['satharzyabi'];

@@ -6,6 +6,9 @@
     elseif (isset($_POST['codeasart3'])){
 		$codeasar=$_POST['codeasart3'];
 	}
+    elseif (isset($_POST['log'])){
+		$codeasar=$_POST['codeasar'];
+	}
     elseif (isset($_POST['logsend'])){
 		$codeasar=$_POST['codeasar'];
 	}
@@ -97,7 +100,7 @@
                     <p>لطفا پس از اتمام کار با سامانه، از حساب کاربری خود خارج شوید.</p>
                     <p>لطفا در حفظ و نگهداری نام کاربری و رمز عبور خود نهایت دقت را داشته باشید.</p>
                     <p><?php if (isset($_POST['tafsili3_madrese_log'])) {
-                            echo $codeasar;}  else { echo 'g';}?></p>
+                            echo $codeasar;} ?></p>
                 </div>
             </div>
         </section>
@@ -113,12 +116,12 @@
                     <div class="box-header">
                         <i class="fa fa-info-circle"></i>
                         <h3 class="box-title">
-							<?php if (!isset($_POST['logsend']) or isset($_POST['tafsili3_ostan_log']) or isset($_POST['tafsili3_madrese_log'])): ?>
+							<?php if (!isset($_POST['logsend']) and !isset($_POST['log']) and isset($_POST['tafsili3_ostan_log']) and isset($_POST['tafsili3_madrese_log'])): ?>
                                 ثبت ارزیابی
 								<?php
 								echo $item['ghalebpazhouhesh']." سطح ".$item['satharzyabi'];
 								?>
-							<?php elseif (isset($_POST['logsend'])): ?>
+							<?php elseif (isset($_POST['log']) or isset($_POST['logsend'])): ?>
                                 کارنامه ارزیابی شده
 								<?php
 								echo $item['ghalebpazhouhesh']." سطح ".$item['satharzyabi'];
