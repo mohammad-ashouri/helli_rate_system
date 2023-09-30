@@ -50,7 +50,7 @@ if (isset($_POST) & !empty($_POST)) {
                 $_SESSION['groupname'] = null;
             }
             $_SESSION['start'] = time();
-            $_SESSION['end'] = $_SESSION['start'] + (36000);
+            $_SESSION['end'] = $_SESSION['start'] + 10800;
             if ($rows['approved'] == 1 and $rows['city_name'] != NULL) {
                 $_SESSION['city'] = $rows['city_name'];
                 $_SESSION['school'] = $rows['school_name'];
@@ -94,7 +94,7 @@ if (isset($_POST) & !empty($_POST)) {
             $_SESSION['coderater'] = $rows['code'];
             $_SESSION['namefamily'] = $rows['name'] . " " . $rows['family'];
             $_SESSION['start'] = time();
-            $_SESSION['end'] = $_SESSION['start'] + (36000);
+            $_SESSION['end'] = $_SESSION['start'] + 10800;
             header("location:panel.php");
         } elseif ($user == $rows['username'] && $pass == $rows['password'] and $rows['type'] == 2 and $rows['approved'] == 1) {
 
@@ -120,7 +120,7 @@ if (isset($_POST) & !empty($_POST)) {
             $_SESSION['namefamily'] = $rows['name'] . " " . $rows['family'];
             $_SESSION['approved'] = $rows['approved'];
             $_SESSION['start'] = time();
-            $_SESSION['end'] = $_SESSION['start'] + (36000);
+            $_SESSION['end'] = $_SESSION['start'] + 10800;
             header("location:panel.php");
         } elseif ($user == $rows['username'] && $pass == $rows['password'] and $rows['type'] == 3 and $rows['approved'] == 1) {
             $operation = "CityAdminLoginSuccess";
@@ -146,7 +146,7 @@ if (isset($_POST) & !empty($_POST)) {
             $_SESSION['namefamily'] = $rows['name'] . " " . $rows['family'];
             $_SESSION['approved'] = $rows['approved'];
             $_SESSION['start'] = time();
-            $_SESSION['end'] = $_SESSION['start'] + (36000);
+            $_SESSION['end'] = $_SESSION['start'] + 10800;
             header("location:panel.php");
         } else {
             $pass = $_POST['password'];
