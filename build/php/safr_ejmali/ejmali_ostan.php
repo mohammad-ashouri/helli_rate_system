@@ -1,13 +1,12 @@
 <?php
-if (($_SESSION['city']=='قم' or @$_SESSION['groupname']!=null) and $_SESSION['head']==0){
-    $state='قم';
-    $city='قم';
-    $groupname=$_SESSION['groupname'];
-}
-else{
-    $groupname=null;
-    $state=$_SESSION['city'];
-    $city=$_SESSION['shahr_name'];
+if (($_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESSION['head'] == 0) {
+    $state = 'قم';
+    $city = 'قم';
+    $groupname = $_SESSION['groupname'];
+} else {
+    $groupname = null;
+    $state = $_SESSION['city'];
+    $city = $_SESSION['shahr_name'];
 }
 
 ?>
@@ -19,138 +18,153 @@ else{
                     <i class="fa fa-info-circle"></i>
 
                     <h3 class='box-title'>لیست آثار برای اختصاص به ارزیاب اجمالی استان
-                    <?php
-                        if ($state=='اصفهان' and $city=='کاشان'){
+                        <?php
+                        if ($city == 'کاشان') {
                             echo "منطقه کاشان";
-                        }elseif ($state=='آذربایجان شرقی' and $city=='بناب'){
+                        } elseif ($city == 'بناب') {
                             echo "منطقه بناب";
-                        }else{
-	                    echo $state;
+                        } elseif ($city == 'بابل') {
+                            echo "منطقه بابل";
+                        } else {
+                            echo $state;
                         }
                         ?>
-                     
+
                     </h3>
 
                     <!-- tools box -->
                     <div class="pull-left box-tools">
-                        <button type="button" class="btn bg-info btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
+                        <button type="button" class="btn bg-info btn-sm" data-widget="collapse"><i
+                                    class="fa fa-minus"></i>
                         </button>
                     </div>
                     <!-- /. tools -->
                 </div>
                 <div class="box-body">
-                    <input type="text" style="padding: 7px" id="codeasar" onkeyup="searchcodeasar()" placeholder="جستجو در کد اثر" title="جستجو در کد اثر">
-                    <input type="text" style="padding: 7px" id="nameasar" onkeyup="searchnameasar()" placeholder="جستجو در نام اثر" title="جستجو در نام اثر">
-                    <?php if ($groupname==null): ?>
-                    <input type="text" style="padding: 7px" id="myinput" onkeyup="searchfunction()" placeholder="جستجو در گروه علمی" title="جستجو در گروه علمی">
+                    <input type="text" style="padding: 7px" id="codeasar" onkeyup="searchcodeasar()"
+                           placeholder="جستجو در کد اثر" title="جستجو در کد اثر">
+                    <input type="text" style="padding: 7px" id="nameasar" onkeyup="searchnameasar()"
+                           placeholder="جستجو در نام اثر" title="جستجو در نام اثر">
+                    <?php if ($groupname == null): ?>
+                        <input type="text" style="padding: 7px" id="myinput" onkeyup="searchfunction()"
+                               placeholder="جستجو در گروه علمی" title="جستجو در گروه علمی">
                     <?php endif; ?>
                     <center>
-                    <table id="myTable3" class="arzyabinashodetable">
-                        <tr>
-                            <th>ردیف</th>
-
-                            <th onclick="sortTable1(0)">
-                                کد اثر
-                            </th>
-                            <th onclick="sortTable1(1)">
-                                نام اثر
-                            </th>
-                            <th onclick="sortTable1(2)">
-                                قالب پژوهش و سطح ارزیابی
-                            </th>
-                            <th onclick="sortTable1(3)">
-                                گروه علمی
-                            </th>
-                          	<th>
-                              امتیاز مدرسه
-                          </th>
-                            <th>
-                                اختصاص به ارزیاب
-                            </th>
-                        </tr>
-
-                        <?php
-                        $a=1;
-                        $user=$_SESSION['username'];
-                            if ($state=='آذربایجان شرقی' and $city=='بناب'){
-	                            $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_ostani='ارزیابی اجمالی' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and (etelaat_a.fileasar is not null or etelaat_a.fileasar_word is not null) and etelaat_p.ostantahsili='آذربایجان شرقی' and etelaat_p.shahrtahsili='بناب' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc,etelaat_a.jamemtiazmadrese desc");
-                            }elseif($city=='کاشان'){
-	                            $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_ostani='ارزیابی اجمالی' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_p.ostantahsili='اصفهان' and (etelaat_a.fileasar is not null or etelaat_a.fileasar_word is not null) and etelaat_p.shahrtahsili='کاشان' order by etelaat_a.groupelmi and etelaat_a.approve_sianat=0 asc,etelaat_a.jamemtiazmadrese desc");
-                            }elseif ($state=='قم' and $groupname!=null){
-                                $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_ostani='ارزیابی اجمالی' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili!='کاشان' and etelaat_a.groupelmi='$groupname' and (etelaat_a.fileasar is not null or etelaat_a.fileasar_word is not null) and etelaat_p.shahrtahsili!='بناب' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc,etelaat_a.jamemtiazmadrese desc");
-                            }
-                            else{
-	                            $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_ostani='ارزیابی اجمالی' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili!='کاشان' and (etelaat_a.fileasar is not null or etelaat_a.fileasar_word is not null) and etelaat_p.shahrtahsili!='بناب' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc,etelaat_a.jamemtiazmadrese desc");
-                            }
-                            foreach ($selectfrometelaat_aforejmaliostan as $bin):
-                            ?>
-
+                        <table id="myTable3" class="arzyabinashodetable">
                             <tr>
-                                <td><?php echo $a;$a++; ?></td>
+                                <th>ردیف</th>
 
-                                <td>
-                                    <?php echo $bin['codeasar']; ?>
-                                </td>
-                                <td>
-                                    <a href="<?php if ($bin['fileasar']=='dist/files/asar_files/'){echo $bin['fileasar_word'];} else {echo $bin['fileasar'];} ?>" target="_blank">
-                                        <label style="width: 300px">
-		                                    <?php echo $bin['nameasar']; ?>
-                                        </label>
-                                    </a>
-                                </td>
-                                <td>
-                                    <?php echo $bin['ghalebpazhouhesh']." سطح ".$bin['satharzyabi']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $bin['groupelmi']; ?>
-                                </td>
-                              	<td>
-                                  <?php
-                                  if($bin['jamemtiazmadrese']==null or $bin['jamemtiazmadrese']==''){
-                                   echo 'بدون ارزیابی در مدرسه';
-                                  }
-                                  else{
-                                  echo $bin['jamemtiazmadrese'];$bin['jamemtiazmadrese']=null;
-                                  }
-                                  ?>
-                              </td>
-                                <td>
-                                    <select style="font-size: small;padding: 5px" onchange="sendcode(this.value,<?php echo $bin['codeasar'] ?>)">
-                                        <option style="color: #aeaeae;">نام خانوادگی ارزیاب را تایپ کنید</option>
-		                                <?php
-                                            if ($city=='کاشان'){
-	                                            $query=mysqli_query($connection,"select * from rater_list where city_name='اصفهان' and shahr_name='کاشان' and approved=1 and type!=1 order by family asc");
-                                            }
-                                            elseif($state=='آذربایجان شرقی' and $city=='بناب'){
-	                                            $query=mysqli_query($connection,"select * from rater_list where city_name='آذربایجان شرقی' and shahr_name='بناب' and approved=1 and type!=1 order by family asc");
-                                            }
-                                            elseif($state=='قم'){
-                                                $query=mysqli_query($connection,"select * from rater_list where (city_name='قم' or city_name is null) and approved=1 and type!=1 order by family asc");
-                                            }
-                                            else{
-	                                            $query=mysqli_query($connection,"select * from rater_list where city_name='$state' and shahr_name!='بناب' and shahr_name!='کاشان' and city_name!='قم' and approved=1 and type!=1 order by family asc");
-                                            }
-			                                foreach ($query as $raters):
-				                                ?>
-                                                <option style="color: black;font-size: medium" <?php if($raters['username']==$bin['codearzyabejmali_ostani']){echo 'selected';} ?> value="<?php echo $raters['username'] ?>"><?php echo $raters['family'].' - '.$raters['name'].' کد: '.$raters['username'] ?></option>
-			                                <?php endforeach; ?>
-                                    </select>
-                                </td>
-
-
+                                <th onclick="sortTable1(0)">
+                                    کد اثر
+                                </th>
+                                <th onclick="sortTable1(1)">
+                                    نام اثر
+                                </th>
+                                <th onclick="sortTable1(2)">
+                                    قالب پژوهش و سطح ارزیابی
+                                </th>
+                                <th onclick="sortTable1(3)">
+                                    گروه علمی
+                                </th>
+                                <th>
+                                    امتیاز مدرسه
+                                </th>
+                                <th>
+                                    اختصاص به ارزیاب
+                                </th>
                             </tr>
 
-                        <?php
-                        endforeach;
-                        ?>
-                        <script>
-                            function sendcode(coderater,codeasar) {
-                                var xmlhttp=new XMLHttpRequest();
-                                xmlhttp.open("GET","/build/ajax/setejo.php?ratercode="+coderater+"&codeasar="+codeasar,true);
-                                xmlhttp.send();
+                            <?php
+                            $a = 1;
+                            $user = $_SESSION['username'];
+                            if ($city == 'بناب') {
+                                $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_ostani='ارزیابی اجمالی' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and ((etelaat_p.master='هست' and etelaat_p.teachingCity='بناب') or (etelaat_p.master='نیست' and etelaat_p.shahrtahsili='بناب')) and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi,etelaat_a.jamemtiazmadrese desc");
+                            } elseif ($city == 'کاشان') {
+                                $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_ostani='ارزیابی اجمالی' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and ((etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان') or (etelaat_p.master='نیست' and etelaat_p.ostantahsili='کاشان')) order by etelaat_a.groupelmi and etelaat_a.approve_sianat=0,etelaat_a.jamemtiazmadrese desc");
+                            } elseif ($city == 'بابل') {
+                                $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_ostani='ارزیابی اجمالی' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and ((etelaat_p.master='هست' and etelaat_p.teachingProvince='بابل') or (etelaat_p.master='نیست' and etelaat_p.ostantahsili='بابل')) order by etelaat_a.groupelmi and etelaat_a.approve_sianat=0,etelaat_a.jamemtiazmadrese desc");
+                            } elseif ($state == 'قم' and $groupname != null) {
+                                $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_ostani='ارزیابی اجمالی' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and ((etelaat_p.master='هست' and etelaat_p.teachingProvince='قم') or (etelaat_p.master='نیست' and etelaat_p.ostantahsili='قم'))  and etelaat_a.groupelmi='$groupname' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi,etelaat_a.jamemtiazmadrese desc");
+                            } else {
+                                $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_ostani='ارزیابی اجمالی' and etelaat_a.vaziatkarnameostani='در حال ارزیابی'  and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='بابل' and etelaat_a.approve_sianat=0 and ((etelaat_p.master='هست' and etelaat_p.teachingProvince='$state' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='بابل' and etelaat_p.teachingCity!='کاشان') or (etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state')) order by etelaat_a.groupelmi,etelaat_a.jamemtiazmadrese desc");
                             }
-                        </script>
-                    </table>
+                            foreach ($selectfrometelaat_aforejmaliostan as $bin):
+                                ?>
+
+                                <tr>
+                                    <td><?php echo $a;
+                                        $a++; ?></td>
+
+                                    <td>
+                                        <?php echo $bin['codeasar']; ?>
+                                    </td>
+                                    <td>
+                                        <a href="<?php if ($bin['fileasar'] == 'dist/files/asar_files/') {
+                                            echo $bin['fileasar_word'];
+                                        } else {
+                                            echo $bin['fileasar'];
+                                        } ?>" target="_blank">
+                                            <label style="width: 300px">
+                                                <?php echo $bin['nameasar']; ?>
+                                            </label>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <?php echo $bin['ghalebpazhouhesh'] . " سطح " . $bin['satharzyabi']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $bin['groupelmi']; ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        if ($bin['jamemtiazmadrese'] == null or $bin['jamemtiazmadrese'] == '') {
+                                            echo 'بدون ارزیابی در مدرسه';
+                                        } else {
+                                            echo $bin['jamemtiazmadrese'];
+                                            $bin['jamemtiazmadrese'] = null;
+                                        }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <select style="font-size: small;padding: 5px"
+                                                onchange="sendcode(this.value,<?php echo $bin['codeasar'] ?>)">
+                                            <option style="color: #aeaeae;">نام خانوادگی ارزیاب را تایپ کنید</option>
+                                            <?php
+                                            if ($city == 'کاشان') {
+                                                $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and approved=1 and type!=1 order by family");
+                                            } elseif ($city == 'بناب') {
+                                                $query = mysqli_query($connection, "select * from rater_list where shahr_name='بناب' and approved=1 and type!=1 order by family");
+                                            } elseif ($city == 'بابل') {
+                                                $query = mysqli_query($connection, "select * from rater_list where shahr_name='بابل' and approved=1 and type!=1 order by family");
+                                            } elseif ($state == 'قم') {
+                                                $query = mysqli_query($connection, "select * from rater_list where (city_name='قم' or city_name is null) and approved=1 and type!=1 order by family");
+                                            } else {
+                                                $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and shahr_name!='بناب' and shahr_name!='کاشان' and shahr_name!='بابل' and city_name!='قم' and approved=1 and type!=1 order by family");
+                                            }
+                                            foreach ($query as $raters):
+                                                ?>
+                                                <option style="color: black;font-size: medium" <?php if ($raters['username'] == $bin['codearzyabejmali_ostani']) {
+                                                    echo 'selected';
+                                                } ?>
+                                                        value="<?php echo $raters['username'] ?>"><?php echo $raters['family'] . ' - ' . $raters['name'] . ' کد: ' . $raters['username'] ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </td>
+
+
+                                </tr>
+
+                            <?php
+                            endforeach;
+                            ?>
+                            <script>
+                                function sendcode(coderater, codeasar) {
+                                    var xmlhttp = new XMLHttpRequest();
+                                    xmlhttp.open("GET", "./build/ajax/setejo.php?ratercode=" + coderater + "&codeasar=" + codeasar, true);
+                                    xmlhttp.send();
+                                }
+                            </script>
+                        </table>
                     </center>
                 </div>
         </section>
@@ -165,7 +179,8 @@ else{
 
                             <!-- tools box -->
                             <div class="pull-left box-tools">
-                                <button type="button" class="btn bg-info btn-sm" data-widget="collapse"><i class="fa fa-plus"></i>
+                                <button type="button" class="btn bg-info btn-sm" data-widget="collapse"><i
+                                            class="fa fa-plus"></i>
                                 </button>
                             </div>
                             <!-- /. tools -->
@@ -196,38 +211,39 @@ else{
                                     </tr>
 
                                     <?php
-	                                    if ($city!='بناب' and $city!='کاشان' and $city!='قم'){
-		                                    $resultraters=mysqli_query($connection,"select * from rater_list WHERE `type`=0 and city_name='$state' and shahr_name!='بناب' and shahr_name!='کاشان' and approved=1 order by family asc");
-	                                    }elseif($city=='بناب'){
-		                                    $resultraters=mysqli_query($connection,"select * from rater_list WHERE `type`=0 and shahr_name='بناب' and approved=1 order by family asc");
-	                                    }elseif($city=='کاشان'){
-		                                    $resultraters=mysqli_query($connection,"select * from rater_list WHERE `type`=0 and shahr_name='کاشان' and approved=1 order by family asc");
-	                                    }
-                                        elseif($state=='قم'){
-                                            $resultraters=mysqli_query($connection,"select * from rater_list WHERE `type`=0 and (city_name='قم' or city_name is null) and approved=1 order by family asc");
-                                        }
-	
-	                                    foreach ($resultraters as $raters): ?>
+                                    if ($city == 'بناب') {
+                                        $resultraters = mysqli_query($connection, "select * from rater_list WHERE type=0 and shahr_name='بناب' and approved=1 order by family");
+                                    } elseif ($city == 'کاشان') {
+                                        $resultraters = mysqli_query($connection, "select * from rater_list WHERE type=0 and shahr_name='کاشان' and approved=1 order by family");
+                                    } elseif ($city == 'بابل') {
+                                        $resultraters = mysqli_query($connection, "select * from rater_list WHERE type=0 and shahr_name='بابل' and approved=1 order by family");
+                                    } elseif ($state == 'قم') {
+                                        $resultraters = mysqli_query($connection, "select * from rater_list WHERE type=0 and (city_name='قم' or city_name is null) and approved=1 order by family");
+                                    } else {
+                                        $resultraters = mysqli_query($connection, "select * from rater_list WHERE type=0 and city_name='$state' and shahr_name!='بناب' and shahr_name!='کاشان' and shahr_name!='بابل' and approved=1 order by family");
+                                    }
+
+                                    foreach ($resultraters as $raters): ?>
                                         <tr>
                                             <td>
                                                 <?php echo $raters['code'] ?>
                                             </td>
                                             <td>
-                                                <?php echo $raters['name']." ".$raters['family'] ?>
+                                                <?php echo $raters['name'] . " " . $raters['family'] ?>
                                             </td>
                                             <td>
                                                 <?php echo $raters['phone'] ?>
                                             </td>
                                             <td>
-		                                        <?php echo $raters['city_name'] ?>
+                                                <?php echo $raters['city_name'] ?>
                                             </td>
                                             <td>
-		                                        <?php echo $raters['shahr_name'] ?>
+                                                <?php echo $raters['shahr_name'] ?>
                                             </td>
                                             <td>
-		                                        <?php echo $raters['school_name'] ?>
+                                                <?php echo $raters['school_name'] ?>
                                             </td>
-                                            
+
                                         </tr>
 
 
@@ -239,15 +255,15 @@ else{
 
                         </div>
                 </section>
-            </div></section>
+            </div>
+        </section>
         <script>
-            function validateremoveejmaliostani(){
+            function validateremoveejmaliostani() {
                 var asarcode = document.forms["remform"]["remasarcode"].value;
-                if (asarcode == ''){
+                if (asarcode == '') {
                     alert("کد اثر وارد نشده است");
                     return false;
-                }
-                else{
+                } else {
                     return true;
                 }
             }

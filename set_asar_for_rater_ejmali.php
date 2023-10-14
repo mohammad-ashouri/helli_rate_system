@@ -249,11 +249,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                             </section>
                                         </div>
                                     <?php endif; ?>
-
-
                                     <!-- Main content -->
-
-
                                     <?php
                                     switch ($_SESSION['head']) {
                                         case 1:

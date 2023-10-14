@@ -13,6 +13,9 @@ switch ($city){
     case 'کاشان':
         $query=mysqli_query($connection,"select * from rater_list where shahr_name='کاشان' and code='$user'");
         break;
+    case 'بابل':
+        $query=mysqli_query($connection,"select * from rater_list where shahr_name='بابل' and code='$user'");
+        break;
     default:
         $query=mysqli_query($connection,"select * from rater_list where city_name='$state' and code='$user'");
         break;
