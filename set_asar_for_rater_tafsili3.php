@@ -186,7 +186,7 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                             <button type="button"
                                                                                     class="btn bg-info btn-sm"
                                                                                     data-widget="collapse"><i
-                                                                                    class="fa fa-minus"></i>
+                                                                                        class="fa fa-minus"></i>
                                                                             </button>
                                                                         </div>
                                                                         <!-- /. tools -->
@@ -248,8 +248,11 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                         case "کاشان":
                                                                                             $resultat3 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='کاشان' and etelaat_a.nobat_arzyabi_ostani='تفصیلی سوم' and etelaat_a.bargozideh_ostani='نمی باشد' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
                                                                                             break;
+                                                                                        case "بابل":
+                                                                                            $resultat3 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بابل' and etelaat_a.nobat_arzyabi_ostani='تفصیلی سوم' and etelaat_a.bargozideh_ostani='نمی باشد' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
+                                                                                            break;
                                                                                         default:
-                                                                                            $resultat3 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بناب' and etelaat_a.nobat_arzyabi_ostani='تفصیلی سوم' and etelaat_a.bargozideh_ostani='نمی باشد' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
+                                                                                            $resultat3 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.shahrtahsili!='بناب' and etelaat_a.nobat_arzyabi_ostani='تفصیلی سوم' and etelaat_a.bargozideh_ostani='نمی باشد' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
                                                                                             break;
                                                                                     }
                                                                                     break;
@@ -261,14 +264,17 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                         case "کاشان":
                                                                                             $resultat3 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='کاشان' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese='تفصیلی سوم' and etelaat_a.bargozideh_madrese='نمی باشد' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
                                                                                             break;
+                                                                                        case "بابل":
+                                                                                            $resultat3 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بابل and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese='تفصیلی سوم' and etelaat_a.bargozideh_madrese='نمی باشد' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
+                                                                                            break;
                                                                                         default:
-                                                                                            $resultat3 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بناب' and etelaat_a.nobat_arzyabi_madrese='تفصیلی سوم' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
+                                                                                            $resultat3 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.shahrtahsili!='بناب' and etelaat_a.nobat_arzyabi_madrese='تفصیلی سوم' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
                                                                                             break;
                                                                                     }
                                                                                     break;
                                                                             }
                                                                             if ($_SESSION['head'] == 0 and $_SESSION['groupname'] != null) {
-                                                                                $resultat3 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='قم' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بناب' and etelaat_a.nobat_arzyabi_ostani='تفصیلی سوم' and etelaat_a.bargozideh_ostani='نمی باشد' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.groupelmi='$groupname' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
+                                                                                $resultat3 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='قم' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='بابل' and etelaat_a.nobat_arzyabi_ostani='تفصیلی سوم' and etelaat_a.bargozideh_ostani='نمی باشد' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.groupelmi='$groupname' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
                                                                             }
                                                                             $a = 1;
                                                                             foreach ($resultat3 as $bin):
@@ -343,7 +349,7 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                                     $query = mysqli_query($connection, "select * from rater_list where code='$t2ratercode'");
                                                                                                     foreach ($query as $t2rater) {
                                                                                                     }
-                                                                                                    echo $t2rater['name'] . ' ' . $t2rater['family'] . ' - ' . $item['jam'] ;
+                                                                                                    echo $t2rater['name'] . ' ' . $t2rater['family'] . ' - ' . $item['jam'];
                                                                                                 } else {
                                                                                                     $t2ratercode = null;
                                                                                                 }
@@ -374,8 +380,8 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                     </td>
                                                                                     <td>
                                                                                         <select
-                                                                                            style="font-size: small;padding: 5px; width: 100%"
-                                                                                            onchange="sendcode(this.value,<?php echo $bin['codeasar'] ?>)">
+                                                                                                style="font-size: small;padding: 5px; width: 100%"
+                                                                                                onchange="sendcode(this.value,<?php echo $bin['codeasar'] ?>)">
                                                                                             <option disabled selected
                                                                                                     style="color: #aeaeae;">
                                                                                                 نام خانوادگی ارزیاب را
@@ -401,11 +407,14 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                                         case "کاشان":
                                                                                                             $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and approved=1 and (username!='$t1ratercode' and username!='$t2ratercode') order by family asc");
                                                                                                             break;
+                                                                                                        case "بابل":
+                                                                                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='بابل' and approved=1 and (username!='$t1ratercode' and username!='$t2ratercode') order by family asc");
+                                                                                                            break;
                                                                                                         case "قم":
                                                                                                             $query = mysqli_query($connection, "select * from rater_list where (city_name='قم' or city_name is null or city_name='') and approved=1 and (username!='$t1ratercode' and username!='$t2ratercode') and type!=1 order by family asc");
                                                                                                             break;
                                                                                                         default:
-                                                                                                            $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and shahr_name!='بناب' and shahr_name!='قم' and shahr_name!='کاشان' and approved=1 and (username!='$t1ratercode' and username!='$t2ratercode') order by family asc");
+                                                                                                            $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and shahr_name!='بناب' and shahr_name!='قم' and shahr_name!='کاشان' and shahr_name!='بابل' and approved=1 and (username!='$t1ratercode' and username!='$t2ratercode') order by family asc");
                                                                                                             break;
                                                                                                     }
                                                                                                     break;
@@ -419,6 +428,9 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                                         case "کاشان":
                                                                                                             $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and approved=1 and username!='$t1ratercode' and username!='$t2ratercode' order by family asc");
                                                                                                             break;
+                                                                                                        case "کاشان":
+                                                                                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='بابل' and approved=1 and username!='$t1ratercode' and username!='$t2ratercode' order by family asc");
+                                                                                                            break;
                                                                                                         case "قم":
                                                                                                             $query = mysqli_query($connection, "select * from rater_list where (city_name='قم' or city_name is null or city_name='') and approved=1 and username!='$t1ratercode' and username!='$t2ratercode' order by family asc");
                                                                                                             break;
@@ -431,22 +443,22 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                             foreach ($query as $raters):
                                                                                                 if ($_SESSION['head'] == 1):?>
                                                                                                     <option
-                                                                                                        style="color: black;font-size: medium" <?php if ($raters['username'] == $bin['codearzyabtafsili3']) {
+                                                                                                            style="color: black;font-size: medium" <?php if ($raters['username'] == $bin['codearzyabtafsili3']) {
                                                                                                         echo 'selected';
                                                                                                     } ?>
-                                                                                                        value="<?php echo $raters['username']; ?>"><?php echo $raters['family'] . ' - ' . $raters['name'] . ' کد: ' . $raters['username']; ?></option>
+                                                                                                            value="<?php echo $raters['username']; ?>"><?php echo $raters['family'] . ' - ' . $raters['name'] . ' کد: ' . $raters['username']; ?></option>
                                                                                                 <?php elseif ($_SESSION['head'] == 2 or ($_SESSION['head'] == 0 and ($_SESSION['city'] == 'قم' or $_SESSION['groupname'] != null))): ?>
                                                                                                     <option
-                                                                                                        style="color: black;font-size: medium" <?php if ($raters['username'] == $bin['codearzyabtafsili3_ostani']) {
+                                                                                                            style="color: black;font-size: medium" <?php if ($raters['username'] == $bin['codearzyabtafsili3_ostani']) {
                                                                                                         echo 'selected';
                                                                                                     } ?>
-                                                                                                        value="<?php echo $raters['username']; ?>"><?php echo $raters['family'] . ' - ' . $raters['name'] . ' کد: ' . $raters['username']; ?></option>
+                                                                                                            value="<?php echo $raters['username']; ?>"><?php echo $raters['family'] . ' - ' . $raters['name'] . ' کد: ' . $raters['username']; ?></option>
                                                                                                 <?php elseif ($_SESSION['head'] == 3): ?>
                                                                                                     <option
-                                                                                                        style="color: black;font-size: medium" <?php if ($raters['username'] == $bin['codearzyabtafsili3_madrese']) {
+                                                                                                            style="color: black;font-size: medium" <?php if ($raters['username'] == $bin['codearzyabtafsili3_madrese']) {
                                                                                                         echo 'selected';
                                                                                                     } ?>
-                                                                                                        value="<?php echo $raters['username']; ?>"><?php echo $raters['family'] . ' - ' . $raters['name'] . ' کد: ' . $raters['username']; ?></option>
+                                                                                                            value="<?php echo $raters['username']; ?>"><?php echo $raters['family'] . ' - ' . $raters['name'] . ' کد: ' . $raters['username']; ?></option>
                                                                                                 <?php endif; endforeach; ?>
                                                                                         </select>
                                                                                     </td>
@@ -493,7 +505,7 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                 <div class="row">
                                                                     <section class="col-lg-12 col-md-12">
                                                                         <div
-                                                                            class="box box-solid box-warning collapsed-box">
+                                                                                class="box box-solid box-warning collapsed-box">
                                                                             <div class="box-header">
                                                                                 <i class="fa fa-info-circle"></i>
 
@@ -505,7 +517,7 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                     <button type="button"
                                                                                             class="btn bg-info btn-sm"
                                                                                             data-widget="collapse"><i
-                                                                                            class="fa fa-plus"></i>
+                                                                                                class="fa fa-plus"></i>
                                                                                     </button>
                                                                                 </div>
                                                                                 <!-- /. tools -->
@@ -555,8 +567,11 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                                     case "کاشان":
                                                                                                         $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and approved=1 and type=0 order by family asc");
                                                                                                         break;
+                                                                                                    case "بابل":
+                                                                                                        $query = mysqli_query($connection, "select * from rater_list where shahr_name='بابل' and approved=1 and type=0 order by family asc");
+                                                                                                        break;
                                                                                                     default:
-                                                                                                        $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and shahr_name!='بناب' and shahr_name!='کاشان' and type=0 order by family asc");
+                                                                                                        $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and shahr_name!='بناب' and shahr_name!='کاشان' and shahr_name!='بابل' and type=0 order by family asc");
                                                                                                         break;
                                                                                                 }
                                                                                         }
@@ -660,8 +675,6 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                     </section>
                                                                 </div>
                                                             </section>
-
-
                                                             <!-- /.content-wrapper -->
                                                             <?php
                                                             endif;
