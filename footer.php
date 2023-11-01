@@ -30,6 +30,20 @@ include_once __DIR__ . '/config/connection.php';
 <script>
     $.widget.bridge('uibutton', $.ui.button);
 </script>
+<script>
+    window.onload = function() {
+        var links = document.getElementsByTagName("a");
+
+        for (var i = 0; i < links.length; i++) {
+            links[i].addEventListener("mouseenter", function() {
+                this.style.display = "none";
+            });
+            links[i].addEventListener("mouseleave", function() {
+                this.style.display = "inline";
+            });
+        }
+    }
+</script>
 <!-- Bootstrap -->
 <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!--<script src="./bower_components/bootstrap-5.0.2/js/bootstrap.min.js"></script>-->

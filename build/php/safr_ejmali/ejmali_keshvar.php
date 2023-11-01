@@ -215,7 +215,9 @@
                                                 <?php echo $raters['code'] ?>
                                             </td>
                                             <td>
-                                                <?php echo $raters['name'] . " " . $raters['family'] ?>
+                                                <a href="<?php echo $raters['cv_filepath'] ?>">
+                                                    <?php echo $raters['name'] . " " . $raters['family'] ?>
+                                                </a>
                                             </td>
                                             <td>
                                                 <?php echo $raters['phone'] ?>
@@ -283,11 +285,8 @@
                                                     echo $a10 = $raters['tarikheslam'] . "/";
                                                 }
                                                 ?>
-
                                             </td>
                                         </tr>
-
-
                                     <?php
                                     endforeach;
                                     ?>
@@ -302,7 +301,7 @@
         <script>
             function SetEjmaliKeshvari(coderater, codeasar) {
                 var xmlhttp = new XMLHttpRequest();
-                var codeasarobj=codeasar;
+                var codeasarobj = codeasar;
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         document.getElementById(codeasarobj).innerHTML = this.responseText;

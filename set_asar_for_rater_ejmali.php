@@ -66,8 +66,8 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                             <div class="box-header">
                                 <center>
                                     <h3 class='box-title'>
-                                    <i class="fa fa-info-circle"></i>
-                                    اثر با موفقیت از پنل ارزیاب حذف گردید.
+                                        <i class="fa fa-info-circle"></i>
+                                        اثر با موفقیت از پنل ارزیاب حذف گردید.
                                     </h3>
                                 </center>
 

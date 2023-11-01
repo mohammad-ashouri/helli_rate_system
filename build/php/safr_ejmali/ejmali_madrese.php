@@ -205,7 +205,9 @@ $school = $_SESSION['school'];
                                                 <?php echo $raters['code'] ?>
                                             </td>
                                             <td>
-                                                <?php echo $raters['name'] . " " . $raters['family'] ?>
+                                                <a href="<?php echo $raters['cv_filepath'] ?>">
+                                                    <?php echo $raters['name'] . " " . $raters['family'] ?>
+                                                </a>
                                             </td>
                                             <td>
                                                 <?php echo $raters['phone'] ?>
