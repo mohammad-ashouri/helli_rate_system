@@ -263,40 +263,14 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                     $resultat2 = mysqli_query($connection, "SELECT * FROM `etelaat_a` where `nobat_arzyabi`='تفصیلی دوم' and vaziatkarname='در حال ارزیابی' and sharayetavalliehsherkat='دارد' and approve_sianat=1 order by groupelmi asc");
                                                                                     break;
                                                                                 case 2:
-                                                                                    switch ($city) {
-                                                                                        case "بناب":
-                                                                                            $resultat2 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بناب' and etelaat_a.nobat_arzyabi_ostani='تفصیلی دوم' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
-                                                                                            break;
-                                                                                        case "کاشان":
-                                                                                            $resultat2 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='کاشان' and etelaat_a.nobat_arzyabi_ostani='تفصیلی دوم' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
-                                                                                            break;
-                                                                                        case "بابل":
-                                                                                            $resultat2 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بابل' and etelaat_a.nobat_arzyabi_ostani='تفصیلی دوم' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
-                                                                                            break;
-                                                                                        default:
-                                                                                            $resultat2 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='بابل' and etelaat_a.nobat_arzyabi_ostani='تفصیلی دوم' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
-                                                                                            break;
-                                                                                    }
+                                                                                    $resultat2 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_a.nobat_arzyabi_ostani='تفصیلی دوم' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
                                                                                     break;
                                                                                 case 3:
-                                                                                    switch ($city) {
-                                                                                        case "بناب":
-                                                                                            $resultat2 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بناب' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese='تفصیلی دوم' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
-                                                                                            break;
-                                                                                        case "کاشان":
-                                                                                            $resultat2 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='کاشان' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese='تفصیلی دوم' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
-                                                                                            break;
-                                                                                        case "بابل":
-                                                                                            $resultat2 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بابل' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese='تفصیلی دوم' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
-                                                                                            break;
-                                                                                        default:
-                                                                                            $resultat2 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese='تفصیلی دوم' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='بابل' and etelaat_a.approve_sianat=0 and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' order by etelaat_a.groupelmi asc");
-                                                                                            break;
-                                                                                    }
+                                                                                    $resultat2 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese='تفصیلی دوم' and etelaat_a.approve_sianat=0 and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' order by etelaat_a.groupelmi asc");
                                                                                     break;
                                                                             }
                                                                             if ($_SESSION['head'] == 0 and $_SESSION['groupname'] != null) {
-                                                                                $resultat2 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بناب' and etelaat_a.nobat_arzyabi_ostani='تفصیلی دوم' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.groupelmi='$groupname' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
+                                                                                $resultat2 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_a.nobat_arzyabi_ostani='تفصیلی دوم' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.groupelmi='$groupname' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
                                                                             }
                                                                             $a = 1;
                                                                             foreach ($resultat2 as $bin):
@@ -422,40 +396,22 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                                     }
                                                                                                     $t1ratercode = $t1rateritems['rater_id'];
                                                                                                     switch ($city) {
-                                                                                                        case "بناب":
-                                                                                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='بناب' and approved=1 and username!='$t1ratercode' order by family asc");
-                                                                                                            break;
-                                                                                                        case "کاشان":
-                                                                                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and approved=1 and username!='$t1ratercode' order by family asc");
-                                                                                                            break;
-                                                                                                        case "بابل":
-                                                                                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='بابل' and approved=1 and username!='$t1ratercode' order by family asc");
-                                                                                                            break;
                                                                                                         case "قم":
                                                                                                             $query = mysqli_query($connection, "select * from rater_list where (city_name='قم' or city_name is null or city_name='') and approved=1 and type!=1 and username!='$t1ratercode' order by family asc");
                                                                                                             break;
                                                                                                         default:
-                                                                                                            $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and shahr_name!='بناب' and shahr_name!='قم' and shahr_name!='کاشان' and approved=1 and username!='$t1ratercode' order by family asc");
+                                                                                                            $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and approved=1 and username!='$t1ratercode' order by family asc");
                                                                                                             break;
                                                                                                     }
                                                                                                     break;
                                                                                                 case 3:
                                                                                                     $t1ratercode = $bin['codearzyabtafsili1_madrese'];
                                                                                                     switch ($city) {
-                                                                                                        case "بناب":
-                                                                                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='بناب' and approved=1 and username!='$t1ratercode' order by family asc");
-                                                                                                            break;
-                                                                                                        case "کاشان":
-                                                                                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and approved=1 and username!='$t1ratercode' order by family asc");
-                                                                                                            break;
-                                                                                                        case "بابل":
-                                                                                                            $query = mysqli_query($connection, "select * from rater_list where shahr_name='بابل' and approved=1 and username!='$t1ratercode' order by family asc");
-                                                                                                            break;
                                                                                                         case "قم":
                                                                                                             $query = mysqli_query($connection, "select * from rater_list where (city_name='قم' or city_name is null or city_name='') and approved=1 and username!='$t1ratercode' order by family asc");
                                                                                                             break;
                                                                                                         default:
-                                                                                                            $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and shahr_name!='بناب' and shahr_name!='قم' and shahr_name!='کاشان' and approved=1 and username!='$t1ratercode' order by family asc");
+                                                                                                            $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and approved=1 and username!='$t1ratercode' order by family asc");
                                                                                                             break;
                                                                                                     }
                                                                                                     break;
@@ -584,17 +540,8 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                             case 2:
                                                                                             case 3:
                                                                                                 switch ($city) {
-                                                                                                    case "بناب":
-                                                                                                        $query = mysqli_query($connection, "select * from rater_list where shahr_name='بناب' and approved=1 and type=0 order by family asc");
-                                                                                                        break;
-                                                                                                    case "کاشان":
-                                                                                                        $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and approved=1 and type=0 order by family asc");
-                                                                                                        break;
-                                                                                                    case "بابل":
-                                                                                                        $query = mysqli_query($connection, "select * from rater_list where shahr_name='بابل' and approved=1 and type=0 order by family asc");
-                                                                                                        break;
                                                                                                     default:
-                                                                                                        $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and shahr_name!='بناب' and shahr_name!='کاشان' and shahr_name!='بابل' and type=0 order by family asc");
+                                                                                                        $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and type=0 order by family asc");
                                                                                                         break;
                                                                                                 }
                                                                                         }

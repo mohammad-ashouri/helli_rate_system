@@ -15,20 +15,7 @@ if (isset($_POST['move_to_school']) and !empty($_POST['schoolname'])) {
     $state = $_SESSION['city'];
     $city = $_SESSION['shahr_name'];
     $usercode = $_SESSION['username'];
-    switch ($city) {
-        case 'بناب':
-            $query = mysqli_query($connection, "select * from etelaat_p inner join etelaat_a on etelaat_p.codeasar=etelaat_a.codeasar where etelaat_p.shahrtahsili='بناب' and (etelaat_a.vaziatkarnamemadrese is null or etelaat_a.vaziatkarnamemadrese='') and (etelaat_a.vaziatmadreseasar is null or etelaat_a.vaziatmadreseasar='') and etelaat_p.madrese='$school' and etelaat_a.nameasar is not null and etelaat_a.nameasar!='' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_p.master='نیست'");
-            break;
-        case 'کاشان':
-            $query = mysqli_query($connection, "select * from etelaat_p inner join etelaat_a on etelaat_p.codeasar=etelaat_a.codeasar where etelaat_p.shahrtahsili='کاشان' and (etelaat_a.vaziatkarnamemadrese is null or etelaat_a.vaziatkarnamemadrese='') and (etelaat_a.vaziatmadreseasar is null or etelaat_a.vaziatmadreseasar='') and etelaat_p.madrese='$school' and etelaat_a.nameasar is not null and etelaat_a.nameasar!='' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_p.master='نیست'");
-            break;
-        case 'بابل':
-            $query = mysqli_query($connection, "select * from etelaat_p inner join etelaat_a on etelaat_p.codeasar=etelaat_a.codeasar where etelaat_p.shahrtahsili='بابل' and (etelaat_a.vaziatkarnamemadrese is null or etelaat_a.vaziatkarnamemadrese='') and (etelaat_a.vaziatmadreseasar is null or etelaat_a.vaziatmadreseasar='') and etelaat_p.madrese='$school' and etelaat_a.nameasar is not null and etelaat_a.nameasar!='' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_p.master='نیست'");
-            break;
-        default:
-            $query = mysqli_query($connection, "select * from etelaat_p inner join etelaat_a on etelaat_p.codeasar=etelaat_a.codeasar where etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.ostantahsili='$state' and (etelaat_a.vaziatkarnamemadrese is null or etelaat_a.vaziatkarnamemadrese='') and (etelaat_a.vaziatmadreseasar is null or etelaat_a.vaziatmadreseasar='') and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_p.madrese='$school' and etelaat_p.master='نیست'");
-            break;
-    }
+    $query = mysqli_query($connection, "select * from etelaat_p inner join etelaat_a on etelaat_p.codeasar=etelaat_a.codeasar where etelaat_p.ostantahsili='$state' and (etelaat_a.vaziatkarnamemadrese is null or etelaat_a.vaziatkarnamemadrese='') and (etelaat_a.vaziatmadreseasar is null or etelaat_a.vaziatmadreseasar='') and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_p.madrese='$school' and etelaat_p.master='نیست'");
     foreach ($query as $item) {
         $codeasar = $item['codeasar'];
         mysqli_query($connection, "update etelaat_a set vaziatmadreseasar='انتقال از استان',transporter_to_school_user='$usercode',date_transfer_to_school='$date',vaziatkarnamemadrese='در حال ارزیابی',nobat_arzyabi_madrese='ارزیابی اجمالی',nobat_arzyabi_ostani=null where codeasar='$codeasar'");

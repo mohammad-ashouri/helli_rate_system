@@ -6,7 +6,7 @@ include_once __DIR__ . '/build/php/functions.php';
 $query = mysqli_query($connection, "select * from options where op_name='maintenance'");
 foreach ($query as $option) {
 }
-if ($option['op_value'] == 1 and $_SESSION['full_access']!=1) {
+if ($option['op_value'] == 1 and $_SESSION['full_access'] != 1) {
     header("location: maintenance.php");
 }
 
@@ -70,7 +70,7 @@ if (!isset($_SESSION['islogin'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="build/dist/css/bootstrap-theme.css">
-<!--    <link rel="stylesheet" href="bower_components/bootstrap-5.0.2/css/bootstrap.css">-->
+    <!--    <link rel="stylesheet" href="bower_components/bootstrap-5.0.2/css/bootstrap.css">-->
     <!-- Bootstrap rtl -->
     <link rel="stylesheet" href="build/dist/css/rtl.css">
     <!-- Custom styles from me -->
@@ -83,7 +83,7 @@ if (!isset($_SESSION['islogin'])) {
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="build/dist/css/skins/_all-skins.min.css">
 
-<!--    <script src="http://code.jquery.com/jquery-latest.js"></script>-->
+    <!--    <script src="http://code.jquery.com/jquery-latest.js"></script>-->
     <script src="build/js/submit.js"></script>
 
     <!-- Select2 CSS -->
@@ -170,7 +170,7 @@ if (!isset($_SESSION['islogin'])) {
                                 <div class="pull-left">
 
                                     <a href="logout.php"> <input type="button" class="btn btn-default btn-flat"
-                                                                  value="خروج"> </a>
+                                                                 value="خروج"> </a>
                                 </div>
                             </li>
                         </ul>
@@ -226,17 +226,7 @@ if (!isset($_SESSION['islogin'])) {
                             <?php
                             $state = $_SESSION['city'];
                             $city = $_SESSION['shahr_name'];
-                            switch ($city) {
-                                case 'بناب':
-                                    echo 'منطقه بناب';
-                                    break;
-                                case 'کاشان':
-                                    echo 'منطقه کاشان';
-                                    break;
-                                default:
-                                    echo $state;
-                                    break;
-                            }
+                            echo $state;
                             ?>
                         </a>
 
@@ -252,17 +242,7 @@ if (!isset($_SESSION['islogin'])) {
                             <?php
                             $state = $_SESSION['city'];
                             $city = $_SESSION['shahr_name'];
-                            switch ($city) {
-                                case 'بناب':
-                                    echo 'منطقه بناب';
-                                    break;
-                                case 'کاشان':
-                                    echo 'منطقه کاشان';
-                                    break;
-                                default:
-                                    echo $state;
-                                    break;
-                            }
+                            echo $state;
                             ?>
                         </a>
                         <br/><br/>

@@ -90,13 +90,7 @@
                                     <!--                                    </td>-->
                                     <td>
                                         <?php
-                                        if ($bin['shahrtahsili'] == 'بناب') {
-                                            echo 'منطقه بناب';
-                                        } elseif ($bin['shahrtahsili'] == 'کاشان') {
-                                            echo 'منطقه کاشان';
-                                        } else {
-                                            echo $bin['ostantahsili'];
-                                        }
+                                        echo $bin['ostantahsili'];
                                         ?>
                                     </td>
                                     <td>

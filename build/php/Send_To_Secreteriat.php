@@ -77,108 +77,35 @@ if (!empty($_POST['sendtosecretariat']) and isset($_FILES['fileshora']) and isse
         $codeapprovetable = $secreteriat_approves['id'];
 
         //select all rows from etelaat_a where approve_sianat=0 and last festival=$last
-        if ($UserCity != null and $UserCity != '') {
-            switch ($UserCity) {
-                case 'کاشان':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='کاشان' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-                case 'بناب':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بناب' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-                case 'بابل':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بابل' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-            }
-        } else {
-            $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_a.approve_sianat=0");
-        }
+        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
         //start operation of send
-        if ($UserCity != null and $UserCity != '') {
-            switch ($UserCity) {
-                case 'کاشان':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='کاشان' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-                case 'بناب':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بناب' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-                case 'بناب':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بابل' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-            }
-        } else {
-            $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_a.approve_sianat=0");
-        }
+        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
         foreach ($query as $approve) {
-            if ($approve['approve_sianat']==0 and $approve['vaziatkarnameostani'] == 'اتمام ارزیابی' and (($approve['jamemtiazostan'] >= 80 and $approve['bakhshvizheh'] == 'نیست') or ($approve['jamemtiazostan'] >= 75 and $approve['bakhshvizheh'] == 'هست'))) {
+            if ($approve['approve_sianat'] == 0 and $approve['vaziatkarnameostani'] == 'اتمام ارزیابی' and (($approve['jamemtiazostan'] >= 80 and $approve['bakhshvizheh'] == 'نیست') or ($approve['jamemtiazostan'] >= 75 and $approve['bakhshvizheh'] == 'هست'))) {
                 $codeasar = $approve['codeasar'];
                 mysqli_query($connection, "update etelaat_a set approve_sianat=1,approver_sianat='$username',table_approve_sianat='$codeapprovetable',vaziatpazireshasar='پذیرش شد',sharayetavalliehsherkat='دارد',nobat_arzyabi='ارزیابی اجمالی', vaziatkarname='در حال ارزیابی' where codeasar='$codeasar'");
             }
         }
 
-
-        if ($UserCity != null and $UserCity != '') {
-            switch ($UserCity) {
-                case 'کاشان':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='کاشان' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-                case 'بناب':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بناب' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-                case 'بابل':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بابل' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-            }
-        } else {
-            $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_a.approve_sianat=0");
-        }
+        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
         foreach ($query as $approve) {
-            if ($approve['approve_sianat']==0 and $approve['vaziatkarnameostani'] == 'اتمام ارزیابی' and (($approve['jamemtiazostan'] < 80 and $approve['bakhshvizheh'] == 'نیست') or ($approve['jamemtiazostan'] < 75 and $approve['bakhshvizheh'] == 'هست'))) {
+            if ($approve['approve_sianat'] == 0 and $approve['vaziatkarnameostani'] == 'اتمام ارزیابی' and (($approve['jamemtiazostan'] < 80 and $approve['bakhshvizheh'] == 'نیست') or ($approve['jamemtiazostan'] < 75 and $approve['bakhshvizheh'] == 'هست'))) {
                 $codeasar = $approve['codeasar'];
                 mysqli_query($connection, "update etelaat_a set approve_sianat=2,vaziatpazireshasar='پذیرش نشد',sharayetavalliehsherkat='ندارد',ellatnadashtansharayet='اثر رتبه برگزیدگی استانی ندارد' where codeasar='$codeasar'");
             }
         }
 
-
-        if ($UserCity != null and $UserCity != '') {
-            switch ($UserCity) {
-                case 'کاشان':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='کاشان' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-                case 'بناب':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بناب' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-                case 'بابل':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بابل' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-            }
-        } else {
-            $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_a.approve_sianat=0");
-        }
+        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
         foreach ($query as $approve) {
-            if ($approve['approve_sianat']==0 and $approve['fileasar'] == null or $approve['fileasar_word'] == null) {
+            if ($approve['approve_sianat'] == 0 and $approve['fileasar'] == null or $approve['fileasar_word'] == null) {
                 $codeasar = $approve['codeasar'];
                 mysqli_query($connection, "update etelaat_a set approve_sianat=2,vaziatpazireshasar='پذیرش نشد',sharayetavalliehsherkat='ندارد',ellatnadashtansharayet='عدم ارسال فایل اثر توسط استان',vaziatkarnameostani='اتمام ارزیابی',vaziatkarnamemadrese=null,nobat_arzyabi_ostani='اجمالی ردی' where codeasar='$codeasar'");
             }
         }
 
-
-        if ($UserCity != null and $UserCity != '') {
-            switch ($UserCity) {
-                case 'کاشان':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='کاشان' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-                case 'بناب':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بناب' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-                case 'بابل':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بابل' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-            }
-        } else {
-            $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.shahrtahsili!='کاشان' and etelaat_a.approve_sianat=0");
-        }
+        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
         foreach ($query as $approve) {
-            if ($approve['approve_sianat']==0 and $approve['vaziatkarnameostani'] == 'در حال ارزیابی' or $approve['vaziatkarnamemadrese'] == 'در حال ارزیابی') {
+            if ($approve['approve_sianat'] == 0 and $approve['vaziatkarnameostani'] == 'در حال ارزیابی' or $approve['vaziatkarnamemadrese'] == 'در حال ارزیابی') {
                 if ($approve['vaziatkarnamemadrese'] == 'در حال ارزیابی' and ($approve['nobat_arzyabi_madrese'] != null or $approve['nobat_arzyabi_madrese'] != '') and ($approve['fileasar'] != null or $approve['fileasar_word'] != null)) {
                     $codeasar = $approve['codeasar'];
                     mysqli_query($connection, "update etelaat_a set vaziatpazireshasar='پذیرش نشد',sharayetavalliehsherkat='ندارد',ellatnadashtansharayet='عدم اتمام فرایند ارزیابی در مرحله مدرسه ای',approve_sianat=2,vaziatkarnamemadrese='اتمام ارزیابی',vaziatkarnameostani='اتمام ارزیابی',nobat_arzyabi_ostani='اجمالی ردی',nobat_arzyabi_madrese='اجمالی ردی',vaziatpazireshasar_ostani='پذیرش نشد',bargozideh_madrese='نمی باشد',bargozideh_ostani='نمی باشد' where codeasar='$codeasar'");
@@ -186,24 +113,9 @@ if (!empty($_POST['sendtosecretariat']) and isset($_FILES['fileshora']) and isse
             }
         }
 
-
-        if ($UserCity != null and $UserCity != '') {
-            switch ($UserCity) {
-                case 'کاشان':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='کاشان' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-                case 'بناب':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بناب' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-                case 'بابل':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بابل' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-            }
-        } else {
-            $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_a.approve_sianat=0");
-        }
+        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
         foreach ($query as $approve) {
-            if ($approve['approve_sianat']==0 and $approve['vaziatkarnameostani'] == 'در حال ارزیابی' or $approve['vaziatkarnamemadrese'] == 'در حال ارزیابی') {
+            if ($approve['approve_sianat'] == 0 and $approve['vaziatkarnameostani'] == 'در حال ارزیابی' or $approve['vaziatkarnamemadrese'] == 'در حال ارزیابی') {
                 if ($approve['vaziatkarnameostani'] == 'در حال ارزیابی' and ($approve['fileasar'] != null or $approve['fileasar_word'] != null)) {
                     $codeasar = $approve['codeasar'];
                     mysqli_query($connection, "update etelaat_a set vaziatpazireshasar='پذیرش نشد',sharayetavalliehsherkat='ندارد',ellatnadashtansharayet='عدم اتمام فرایند ارزیابی در مرحله استانی',approve_sianat=2,vaziatkarnamemadrese='اتمام ارزیابی',vaziatkarnameostani='اتمام ارزیابی',nobat_arzyabi_ostani='اجمالی ردی',vaziatpazireshasar_ostani='پذیرش نشد',bargozideh_ostani='نمی باشد' where codeasar='$codeasar'");
@@ -211,22 +123,7 @@ if (!empty($_POST['sendtosecretariat']) and isset($_FILES['fileshora']) and isse
             }
         }
 
-
-        if ($UserCity != null and $UserCity != '') {
-            switch ($UserCity) {
-                case 'کاشان':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='کاشان' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-                case 'بناب':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بناب' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-                case 'بابل':
-                    $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.shahrtahsili='بابل' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$last'");
-                    break;
-            }
-        } else {
-            $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_a.approve_sianat=0");
-        }
+        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
         foreach ($query as $approve) {
             if ($approve['approve_sianat'] == 0) {
                 $codeasar = $approve['codeasar'];
@@ -234,7 +131,7 @@ if (!empty($_POST['sendtosecretariat']) and isset($_FILES['fileshora']) and isse
             }
         }
 
-        header("location:" . $main_website_url . "/../../Send_To_Secretariat.php?sent");
+        header("location: ../../Send_To_Secretariat.php?sent");
 
     }
 }

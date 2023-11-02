@@ -243,9 +243,9 @@ if ($_SESSION['head'] == 1):
                                         <th>تلفن</th>
                                         <td>
                                             <input
-                                                value="<?php if (isset($_POST['subsearchostanirater']) and !empty($rateritems)) {
-                                                    echo @$rateritems['phone'];
-                                                } ?>" class="inputratermanager" type="text" name="phone"></td>
+                                                    value="<?php if (isset($_POST['subsearchostanirater']) and !empty($rateritems)) {
+                                                        echo @$rateritems['phone'];
+                                                    } ?>" class="inputratermanager" type="text" name="phone"></td>
                                     </tr>
                                     <tr>
                                         <th>استان</th>
@@ -280,18 +280,19 @@ if ($_SESSION['head'] == 1):
                                             <th>شهر</th>
                                             <td>
                                                 <input
-                                                    value="<?php if (isset($_POST['subsearchostanirater']) and !empty($rateritems)) {
-                                                        echo @$rateritems['shahr_name'];
-                                                    } ?>" class="inputratermanager" type="text" name="city_custom"></td>
+                                                        value="<?php if (isset($_POST['subsearchostanirater']) and !empty($rateritems)) {
+                                                            echo @$rateritems['shahr_name'];
+                                                        } ?>" class="inputratermanager" type="text" name="city_custom">
+                                            </td>
                                         </tr>
                                     <?php endif; ?>
                                     <tr id="schooltr">
                                         <th>مدرسه</th>
                                         <td>
                                             <input
-                                                value="<?php if (isset($_POST['subsearchostanirater']) and !empty($rateritems)) {
-                                                    echo @$rateritems['school_name'];
-                                                } ?>" type="text" name="school" class="inputratermanager">
+                                                    value="<?php if (isset($_POST['subsearchostanirater']) and !empty($rateritems)) {
+                                                        echo @$rateritems['school_name'];
+                                                    } ?>" type="text" name="school" class="inputratermanager">
                                         </td>
                                     </tr>
                                     <?php if (isset($_POST['subsearchostanirater']) and !empty($rateritems)): ?>
@@ -299,8 +300,8 @@ if ($_SESSION['head'] == 1):
                                             <th>تغییر وضعیت کاربری</th>
                                             <td>
                                                 <select
-                                                    onchange="alert('با تغییر این گزینه، کاربر از وضعیت ارزیاب خارج شده و از لیست حذف می گردد.')"
-                                                    name="user_status" id="user_status">
+                                                        onchange="alert('با تغییر این گزینه، کاربر از وضعیت ارزیاب خارج شده و از لیست حذف می گردد.')"
+                                                        name="user_status" id="user_status">
                                                     <option <?php if (isset($_POST['subsearchostanirater']) and !empty($rateritems) and @$rateritems['type'] == 0) {
                                                         echo 'selected';
                                                     } ?> value="0">ارزیاب جشنواره
@@ -377,14 +378,6 @@ if ($_SESSION['head'] == 1):
                                                     echo 'selected';
                                                 } ?>><?php echo $rater_info['city_name']; ?></option>
                                             <?php endforeach; ?>
-                                            <option <?php if (@$_POST['state'] == 'منطقه بناب') {
-                                                echo 'selected';
-                                            } ?>>منطقه بناب
-                                            </option>
-                                            <option <?php if (@$_POST['state'] == 'منطقه کاشان') {
-                                                echo 'selected';
-                                            } ?>>منطقه کاشان
-                                            </option>
                                         </select>
                                         <input type="submit" name="search" value="جستجو" style="padding: 7px">
                                     </h3>
@@ -404,17 +397,7 @@ if ($_SESSION['head'] == 1):
                                         فهرست ارزیابان استان
                                         <?php
                                         $city = $_POST['state'];
-                                        switch ($city) {
-                                            case 'منطقه بناب':
-                                                $resultraters = mysqli_query($connection, "select * from rater_list where `type`=0 and shahr_name='بناب' order by family asc");
-                                                break;
-                                            case 'منطقه کاشان':
-                                                $resultraters = mysqli_query($connection, "select * from rater_list where `type`=0 and shahr_name='کاشان' order by family asc");
-                                                break;
-                                            default:
-                                                $resultraters = mysqli_query($connection, "select * from rater_list where `type`=0 and city_name='$city' and shahr_name!='کاشان' and shahr_name!='بناب' order by family asc");
-                                                break;
-                                        }
+                                        $resultraters = mysqli_query($connection, "select * from rater_list where `type`=0 and city_name='$city' order by family asc");
                                         foreach ($resultraters as $rater_info) {
                                         }
                                         echo $city;
@@ -508,12 +491,14 @@ if ($_SESSION['head'] == 1):
                                                             } ?>"/>
                                                         </form>
                                                         <br>
-                                                        <form action="../build/php/Remove_Ostani_Rater.php" method="post" onsubmit="return confirm('پس از حذف نهایی دیگر نمی توانید با این کد، ارزیاب دیگری تعریف نمایید' +
+                                                        <form action="../build/php/Remove_Ostani_Rater.php"
+                                                              method="post" onsubmit="return confirm('پس از حذف نهایی دیگر نمی توانید با این کد، ارزیاب دیگری تعریف نمایید' +
                                                          '\n' +
                                                           'آیا مطمئن هستید؟')">
                                                             <input type="hidden" name="ratercode"
                                                                    value="<?php echo $raters['username'] ?>">
-                                                            <input style="color:red;padding: 5px;margin-top: 1px" type="submit"
+                                                            <input style="color:red;padding: 5px;margin-top: 1px"
+                                                                   type="submit"
                                                                    name="removeostanirater" value="حذف دائمی ارزیاب"/>
                                                         </form>
                                                     </td>

@@ -404,10 +404,8 @@
                     <span>
                     <?php if ($_SESSION['head'] == 1 or ($_SESSION['head'] == 0 and $_SESSION['groupname'] != null)): ?>
                         وضعیت ارزیابی آثار استانی
-                    <?php elseif ($_SESSION['head'] == 2 and $_SESSION['shahr_name'] != 'بناب' and $_SESSION['shahr_name'] != 'کاشان'): ?>
+                    <?php elseif ($_SESSION['head'] == 2): ?>
                         وضعیت ارزیابی آثار استانی
-                    <?php elseif ($_SESSION['head'] == 2 and ($_SESSION['shahr_name'] == 'بناب' or $_SESSION['shahr_name'] == 'کاشان')): ?>
-                        وضعیت ارزیابی آثار منطقه
                     <?php elseif ($_SESSION['head'] == 3): ?>
                         وضعیت ارزیابی آثار مدرسه
                     <?php endif; ?>

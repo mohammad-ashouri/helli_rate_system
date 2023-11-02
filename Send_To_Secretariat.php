@@ -76,17 +76,7 @@ if ($_SESSION['head'] == 2):
                     <h4 style="padding: 5px;font-weight: bold;text-align: center">دبیر محترم جشنواره استانی</h4>
                     <p style="padding: 5px;text-align: right">فهرست آثار برتر
                         <?php
-                        switch ($_SESSION['shahr_name']) {
-                            case 'بناب':
-                                echo 'منطقه بناب';
-                                break;
-                            case 'کاشان':
-                                echo 'منطقه کاشان';
-                                break;
-                            default:
-                                echo 'استان ' . $_SESSION['city'];
-                                break;
-                        }
+                        echo 'استان ' . $_SESSION['city'];
                         ?>
                         به مرحله کشوری جشنواره به شرح زیر است. یادآور می‌شود ارسال آثار برتر استان به دبیرخانه کشوری
                         جشنواره منوط به ارسال فایل های زیر می‌باشد:</p>
@@ -123,19 +113,7 @@ if ($_SESSION['head'] == 2):
                             foreach ($query as $last) {
                             }
                             $last = $last['advaar_cl'];
-
-                            if ($shahrtahsili == 'کاشان' or $shahrtahsili == 'بناب') {
-                                switch ($shahrtahsili) {
-                                    case 'کاشان':
-                                        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$last' and etelaat_p.shahrtahsili='کاشان' and etelaat_a.jamemtiazostan is not null and etelaat_a.jamemtiazostan!='' and etelaat_a.approve_sianat=0 and ((etelaat_a.jamemtiazostan>=75 and etelaat_a.bakhshvizheh='هست') or (etelaat_a.jamemtiazostan>=80 and etelaat_a.bakhshvizheh='نیست')) order by etelaat_a.jamemtiazostan desc");
-                                        break;
-                                    case 'بناب':
-                                        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$last' and etelaat_p.shahrtahsili='بناب' and etelaat_a.jamemtiazostan is not null and etelaat_a.jamemtiazostan!='' and etelaat_a.approve_sianat=0 and ((etelaat_a.jamemtiazostan>=75 and etelaat_a.bakhshvizheh='هست') or (etelaat_a.jamemtiazostan>=80 and etelaat_a.bakhshvizheh='نیست')) order by etelaat_a.jamemtiazostan desc");
-                                        break;
-                                }
-                            } else {
-                                $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$last' and etelaat_p.ostantahsili='$ostantahsili' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_a.approve_sianat=0 and ((etelaat_a.jamemtiazostan>=75 and etelaat_a.bakhshvizheh='هست') or (etelaat_a.jamemtiazostan>=80 and etelaat_a.bakhshvizheh='نیست')) order by etelaat_a.jamemtiazostan desc");
-                            }
+                            $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$last' and etelaat_p.ostantahsili='$ostantahsili' and etelaat_a.approve_sianat=0 and ((etelaat_a.jamemtiazostan>=75 and etelaat_a.bakhshvizheh='هست') or (etelaat_a.jamemtiazostan>=80 and etelaat_a.bakhshvizheh='نیست')) order by etelaat_a.jamemtiazostan desc");
                             foreach ($query as $values):
                                 ?>
                                 <tr style="<?php
@@ -163,7 +141,8 @@ if ($_SESSION['head'] == 2):
                                                        value="<?php echo $values['codeasar'] ?>">
                                                 <input title="برای رد اثر به دلیل وضعیت صیانتی کلیک کنید"
                                                        class="btn btn-danger btn-block" name="decline_asar"
-                                                       value="عدم تأیید به دلیل امور صیانتی" type="submit" style="margin-bottom: 7px"
+                                                       value="عدم تأیید به دلیل امور صیانتی" type="submit"
+                                                       style="margin-bottom: 7px"
                                                        onclick="return confirm('این عملیات قابل بازگشت نیست. آیا با رد وضعیت صیانتی این اثر موافق هستید؟')">
                                             </center>
                                         </form>

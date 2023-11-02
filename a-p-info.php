@@ -168,45 +168,46 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                             $query = mysqli_query($connection, "select * from ejmali_ostan where codeasar='$codeasar'");
                                             foreach ($query as $ejmali_ostan) {
                                             }
-//                                            if (@$ejmali_ostan != '' or @$ejmali_ostan != null): ?>
-<!--                                                <form target="_blank" action="./sabt-arzyabi-ejmali.php" method="post">-->
-<!--                                                    <span-->
-<!--                                                            style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی اجمالی =></span>-->
-<!--                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-<!--                                                    <span style="font-weight: bold">-->
-<!--                                                     امتیاز:-->
-<!--                                                     --><?php //echo $ejmali_ostan['jam'] ?>
-<!--                                                 </span>-->
-<!--                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-<!--                                                    <span style="font-weight: bold">-->
-<!--                                                     ارزیاب:-->
-<!--                                                     --><?php
-//                                                     $ejmali_ostan_rater = $ejmali_ostan['rater_id'];
-//                                                     $query = mysqli_query($connection, "select * from rater_list where username='$ejmali_ostan_rater'");
-//                                                     foreach ($query as $ejmali_ostan_info) {
-//
-//                                                     }
-//                                                     echo 'استاد ' . $ejmali_ostan_info['name'] . ' ' . $ejmali_ostan_info['family'];
-//                                                     ?>
-<!--                                                 </span>-->
-<!--                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-<!--                                                    <span style="font-weight: bold">-->
-<!--                                                     تاریخ ارزیابی:-->
-<!--                                                    --><?php //echo $ejmali_ostan['tarikhsabt_year'] . '/' . $ejmali_ostan['tarikhsabt_month'] . '/' . $ejmali_ostan['tarikhsabt_day'] ?>
-<!--                                                 </span>-->
-<!--                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-<!--                                                    <span style="font-weight: bold">-->
-<!--                                                    <input name="subjection" value="ejmali_ostan_log" type="hidden">-->
-<!--                                                    <input name="codeasar" value="--><?php //echo $codeasar ?><!--"-->
-<!--                                                           type="hidden">-->
-<!--                                                        <button class="btn btn-block btn-success"-->
-<!--                                                                style="width: 250px; display: inline"-->
-<!--                                                                name="ejmali_ostan_log">مشاهده ریز نمرات ارزیابی اجمالی</button>-->
-<!--                                                </span>-->
-<!--                                                </form>-->
-<!--                                                <hr>-->
-<!--                                            --><?php
-//                                            endif;
+                                            //                                            if (@$ejmali_ostan != '' or @$ejmali_ostan != null): ?>
+                                            <!--                                                <form target="_blank" action="./sabt-arzyabi-ejmali.php" method="post">-->
+                                            <!--                                                    <span-->
+                                            <!--                                                            style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی اجمالی =></span>-->
+                                            <!--                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                                            <!--                                                    <span style="font-weight: bold">-->
+                                            <!--                                                     امتیاز:-->
+                                            <!--                                                     --><?php //echo $ejmali_ostan['jam'] ?>
+                                            <!--                                                 </span>-->
+                                            <!--                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                                            <!--                                                    <span style="font-weight: bold">-->
+                                            <!--                                                     ارزیاب:-->
+                                            <!--                                                     --><?php
+                                            //                                                     $ejmali_ostan_rater = $ejmali_ostan['rater_id'];
+                                            //                                                     $query = mysqli_query($connection, "select * from rater_list where username='$ejmali_ostan_rater'");
+                                            //                                                     foreach ($query as $ejmali_ostan_info) {
+                                            //
+                                            //                                                     }
+                                            //                                                     echo 'استاد ' . $ejmali_ostan_info['name'] . ' ' . $ejmali_ostan_info['family'];
+                                            //                                                     ?>
+                                            <!--                                                 </span>-->
+                                            <!--                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                                            <!--                                                    <span style="font-weight: bold">-->
+                                            <!--                                                     تاریخ ارزیابی:-->
+                                            <!--                                                    --><?php //echo $ejmali_ostan['tarikhsabt_year'] . '/' . $ejmali_ostan['tarikhsabt_month'] . '/' . $ejmali_ostan['tarikhsabt_day'] ?>
+                                            <!--                                                 </span>-->
+                                            <!--                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                                            <!--                                                    <span style="font-weight: bold">-->
+                                            <!--                                                    <input name="subjection" value="ejmali_ostan_log" type="hidden">-->
+                                            <!--                                                    <input name="codeasar" value="-->
+                                            <?php //echo $codeasar ?><!--"-->
+                                            <!--                                                           type="hidden">-->
+                                            <!--                                                        <button class="btn btn-block btn-success"-->
+                                            <!--                                                                style="width: 250px; display: inline"-->
+                                            <!--                                                                name="ejmali_ostan_log">مشاهده ریز نمرات ارزیابی اجمالی</button>-->
+                                            <!--                                                </span>-->
+                                            <!--                                                </form>-->
+                                            <!--                                                <hr>-->
+                                            <!--                                            --><?php
+                                            //                                            endif;
                                             $query = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
                                             foreach ($query as $tafsili2) {
                                             }
@@ -246,8 +247,8 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                                 name="log">مشاهده ریز نمرات ارزیابی تفصیلی دوم</button>
                                                 </span>
                                                 </form>
-                                                <?php endif; ?>
-                                                <hr>
+                                            <?php endif; ?>
+                                            <hr>
                                             <?php
                                             $query = mysqli_query($connection, "select * from tafsili3 where codeasar='$codeasar'");
                                             foreach ($query as $tafsili3) {
@@ -439,16 +440,16 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                             foreach ($query as $tafsili3_ostan) {
                                             }
                                             if (@$tafsili3_ostan != '' and @$tafsili3_ostan != null and @$tafsili3_ostan['jam']): ?>
-                                                <form target="_blank" action="./tafsili3.php" method="post">
+                                            <form target="_blank" action="./tafsili3.php" method="post">
                                                 <span
                                                         style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی سوم =></span>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <span style="font-weight: bold">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <span style="font-weight: bold">
                                                      امتیاز:
                                                      <?php echo $tafsili3_ostan['jam'] ?>
                                                  </span>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <span style="font-weight: bold">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <span style="font-weight: bold">
                                                      ارزیاب:
                                                      <?php
                                                      $tafsili3_ostan_rater = $tafsili3_ostan['rater_id'];
@@ -459,13 +460,13 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                      echo 'استاد ' . $tafsili3_ostan_info['name'] . ' ' . $tafsili3_ostan_info['family'];
                                                      ?>
                                                  </span>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <span style="font-weight: bold">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <span style="font-weight: bold">
                                                      تاریخ ارزیابی:
                                                     <?php echo $tafsili3_ostan['datesabt'] ?>
                                                  </span>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <span style="font-weight: bold">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <span style="font-weight: bold">
                                                     <input name="subjection" value="tafsili3_ostan_log" type="hidden">
                                                     <input name="codeasar" value="<?php echo $codeasar ?>"
                                                            type="hidden">
@@ -473,9 +474,9 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                                 style="width: 250px; display: inline"
                                                                 name="tafsili3_ostan_log">مشاهده ریز نمرات ارزیابی تفصیلی سوم</button>
                                                 </span>
-<!--                                                </form>-->
+                                                <!--                                                </form>-->
                                                 <hr>
-                                            <?php endif; ?>
+                                                <?php endif; ?>
                                         </div>
                                 </section>
                             <?php endif; ?>
@@ -860,13 +861,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                     switch ($_SESSION['head']) {
                         case 2:
                             $state = $_SESSION['city'];
-                            if ($_SESSION['shahr_name'] == 'کاشان') {
-                                $result_p = mysqli_query($connection, "select * from etelaat_p where ostantahsili='اصفهان' and shahrtahsili='کاشان' and `codemelli`='$code'");
-                            } elseif ($_SESSION['shahr_name'] == 'بناب') {
-                                $result_p = mysqli_query($connection, "select * from etelaat_p where ostantahsili='آذربایجان شرقی' and shahrtahsili='بناب' and `codemelli`='$code'");
-                            } else {
-                                $result_p = mysqli_query($connection, "select * from etelaat_p where ostantahsili='$state' and `codemelli`='$code'");
-                            }
+                            $result_p = mysqli_query($connection, "select * from etelaat_p where ostantahsili='$state' and `codemelli`='$code'");
                             break;
                         case 3:
                             $state = $_SESSION['city'];

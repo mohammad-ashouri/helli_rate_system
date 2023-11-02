@@ -19,15 +19,7 @@ if (($_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESSI
 
                     <h3 class='box-title'>لیست آثار برای اختصاص به ارزیاب اجمالی استان
                         <?php
-                        if ($city == 'کاشان') {
-                            echo "منطقه کاشان";
-                        } elseif ($city == 'بناب') {
-                            echo "منطقه بناب";
-                        } elseif ($city == 'بابل') {
-                            echo "منطقه بابل";
-                        } else {
-                            echo $state;
-                        }
+                        echo $state;
                         ?>
 
                     </h3>
@@ -77,16 +69,10 @@ if (($_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESSI
                             <?php
                             $a = 1;
                             $user = $_SESSION['username'];
-                            if ($city == 'بناب') {
-                                $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_ostani='ارزیابی اجمالی' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and ((etelaat_p.master='هست' and etelaat_p.teachingCity='بناب') or (etelaat_p.master='نیست' and etelaat_p.shahrtahsili='بناب')) and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi,etelaat_a.jamemtiazmadrese desc");
-                            } elseif ($city == 'کاشان') {
-                                $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_ostani='ارزیابی اجمالی' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and ((etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان') or (etelaat_p.master='نیست' and etelaat_p.ostantahsili='کاشان')) order by etelaat_a.groupelmi and etelaat_a.approve_sianat=0,etelaat_a.jamemtiazmadrese desc");
-                            } elseif ($city == 'بابل') {
-                                $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_ostani='ارزیابی اجمالی' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and ((etelaat_p.master='هست' and etelaat_p.teachingProvince='بابل') or (etelaat_p.master='نیست' and etelaat_p.ostantahsili='بابل')) order by etelaat_a.groupelmi and etelaat_a.approve_sianat=0,etelaat_a.jamemtiazmadrese desc");
-                            } elseif ($state == 'قم' and $groupname != null) {
+                            if ($state == 'قم' and $groupname != null) {
                                 $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_ostani='ارزیابی اجمالی' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and ((etelaat_p.master='هست' and etelaat_p.teachingProvince='قم') or (etelaat_p.master='نیست' and etelaat_p.ostantahsili='قم'))  and etelaat_a.groupelmi='$groupname' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi,etelaat_a.jamemtiazmadrese desc");
                             } else {
-                                $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_ostani='ارزیابی اجمالی' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.approve_sianat=0 and ((etelaat_p.master='هست' and etelaat_p.teachingProvince='$state' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='بابل' and etelaat_p.teachingCity!='کاشان') or (etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='بابل')) order by etelaat_a.groupelmi,etelaat_a.jamemtiazmadrese desc");
+                                $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_ostani='ارزیابی اجمالی' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.approve_sianat=0 and ((etelaat_p.master='هست' and etelaat_p.teachingProvince='$state') or (etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state')) order by etelaat_a.groupelmi,etelaat_a.jamemtiazmadrese desc");
                             }
                             foreach ($selectfrometelaat_aforejmaliostan as $bin):
                                 ?>
@@ -130,16 +116,10 @@ if (($_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESSI
                                                 onchange="sendcode(this.value,<?php echo $bin['codeasar'] ?>)">
                                             <option style="color: #aeaeae;">نام خانوادگی ارزیاب را تایپ کنید</option>
                                             <?php
-                                            if ($city == 'کاشان') {
-                                                $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and approved=1 and type!=1 order by family");
-                                            } elseif ($city == 'بناب') {
-                                                $query = mysqli_query($connection, "select * from rater_list where shahr_name='بناب' and approved=1 and type!=1 order by family");
-                                            } elseif ($city == 'بابل') {
-                                                $query = mysqli_query($connection, "select * from rater_list where shahr_name='بابل' and approved=1 and type!=1 order by family");
-                                            } elseif ($state == 'قم') {
+                                            if ($state == 'قم') {
                                                 $query = mysqli_query($connection, "select * from rater_list where (city_name='قم' or city_name is null) and approved=1 and type!=1 order by family");
                                             } else {
-                                                $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and shahr_name!='بناب' and shahr_name!='کاشان' and shahr_name!='بابل' and city_name!='قم' and approved=1 and type!=1 order by family");
+                                                $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and approved=1 and type!=1 order by family");
                                             }
                                             foreach ($query as $raters):
                                                 ?>
@@ -211,16 +191,10 @@ if (($_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESSI
                                     </tr>
 
                                     <?php
-                                    if ($city == 'بناب') {
-                                        $resultraters = mysqli_query($connection, "select * from rater_list WHERE type=0 and shahr_name='بناب' and approved=1 order by family");
-                                    } elseif ($city == 'کاشان') {
-                                        $resultraters = mysqli_query($connection, "select * from rater_list WHERE type=0 and shahr_name='کاشان' and approved=1 order by family");
-                                    } elseif ($city == 'بابل') {
-                                        $resultraters = mysqli_query($connection, "select * from rater_list WHERE type=0 and shahr_name='بابل' and approved=1 order by family");
-                                    } elseif ($state == 'قم') {
+                                    if ($state == 'قم') {
                                         $resultraters = mysqli_query($connection, "select * from rater_list WHERE type=0 and (city_name='قم' or city_name is null) and approved=1 order by family");
                                     } else {
-                                        $resultraters = mysqli_query($connection, "select * from rater_list WHERE type=0 and city_name='$state' and shahr_name!='بناب' and shahr_name!='کاشان' and shahr_name!='بابل' and approved=1 order by family");
+                                        $resultraters = mysqli_query($connection, "select * from rater_list WHERE type=0 and city_name='$state' and approved=1 order by family");
                                     }
 
                                     foreach ($resultraters as $raters): ?>

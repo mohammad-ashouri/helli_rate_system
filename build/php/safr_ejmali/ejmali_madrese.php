@@ -16,15 +16,8 @@ $school = $_SESSION['school'];
                         <?php echo $school ?>
                         - استان
                         <?php
-                        if ($city == 'کاشان') {
-                            echo "منطقه کاشان";
-                        } elseif ($city == 'بناب') {
-                            echo "منطقه بناب";
-                        } elseif ($city == 'بابل') {
-                            echo "منطقه بابل";
-                        } else {
-                            echo $state;
-                        } ?>
+                        echo $state;
+                        ?>
                         - شهرستان
                         <?php echo $city ?>
 
@@ -70,15 +63,7 @@ $school = $_SESSION['school'];
                             <?php
                             $a = 1;
                             $user = $_SESSION['username'];
-                            if ($city == 'بناب') {
-                                $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_madrese='ارزیابی اجمالی' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_p.shahrtahsili='بناب' and etelaat_a.approve_sianat=0 and etelaat_p.madrese='$school' order by etelaat_a.groupelmi");
-                            } elseif ($city == 'کاشان') {
-                                $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_madrese='ارزیابی اجمالی' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_p.shahrtahsili='کاشان' and etelaat_a.approve_sianat=0 and etelaat_p.madrese='$school' order by etelaat_a.groupelmi");
-                            } elseif ($city == 'بابل') {
-                                $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_madrese='ارزیابی اجمالی' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_p.shahrtahsili='بابل' and etelaat_a.approve_sianat=0 and etelaat_p.madrese='$school' order by etelaat_a.groupelmi");
-                            } else {
-                                $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_madrese='ارزیابی اجمالی' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='بابل' and etelaat_a.approve_sianat=0 and etelaat_p.madrese='$school' order by etelaat_a.groupelmi");
-                            }
+                            $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_madrese='ارزیابی اجمالی' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_p.ostantahsili='$state' and etelaat_a.approve_sianat=0 and etelaat_p.madrese='$school' order by etelaat_a.groupelmi");
                             foreach ($selectfrometelaat_aforejmaliostan as $bin):
                                 ?>
 
@@ -111,15 +96,7 @@ $school = $_SESSION['school'];
                                                 onchange="sendcode(this.value,<?php echo $bin['codeasar'] ?>)">
                                             <option style="color: #aeaeae;">نام خانوادگی ارزیاب را تایپ کنید</option>
                                             <?php
-                                            if ($city == 'کاشان') {
-                                                $query = mysqli_query($connection, "select * from rater_list where shahr_name='کاشان' and approved=1 order by family");
-                                            } elseif ($city == 'بناب') {
-                                                $query = mysqli_query($connection, "select * from rater_list where shahr_name='بناب' and approved=1 order by family");
-                                            } elseif ($city == 'بابل') {
-                                                $query = mysqli_query($connection, "select * from rater_list where shahr_name='بابل' and approved=1 order by family");
-                                            } else {
-                                                $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and shahr_name!='بناب' and shahr_name!='کاشان' and shahr_name!='بابل' and approved=1 and type!=1 order by family");
-                                            }
+                                            $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and approved=1 and type!=1 order by family");
                                             foreach ($query as $raters):
                                                 ?>
                                                 <option style="color: black;font-size: medium" <?php if ($raters['username'] == $bin['codearzyabejmali_madrese']) {
@@ -189,16 +166,7 @@ $school = $_SESSION['school'];
                                     </tr>
 
                                     <?php
-                                    if ($city == 'بناب') {
-                                        $resultraters = mysqli_query($connection, "select * from rater_list WHERE `type`=0 and shahr_name='بناب' and approved=1 order by family");
-                                    } elseif ($city == 'بابل') {
-                                        $resultraters = mysqli_query($connection, "select * from rater_list WHERE `type`=0 and shahr_name='بابل' and approved=1 order by family");
-                                    } elseif ($city == 'کاشان') {
-                                        $resultraters = mysqli_query($connection, "select * from rater_list WHERE `type`=0 and shahr_name='کاشان' and approved=1 order by family");
-                                    } else {
-                                        $resultraters = mysqli_query($connection, "select * from rater_list WHERE `type`=0 and shahr_name='$city' and approved=1 order by family");
-                                    }
-
+                                    $resultraters = mysqli_query($connection, "select * from rater_list WHERE `type`=0 and shahr_name='$city' and approved=1 order by family");
                                     foreach ($resultraters as $raters): ?>
                                         <tr>
                                             <td>

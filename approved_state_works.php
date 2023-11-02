@@ -82,16 +82,7 @@ if ($_SESSION['head'] == 1):
                                     $query = mysqli_query($connection, "select * from rater_list where username='$sender'");
                                     foreach ($query as $sender_items) {
                                     }
-                                  switch ($sender_items['shahr_name']){
-                                    case 'کاشان':
-                                    case 'بناب':
-                                      echo $sender_items['shahr_name'];
-                                      break;
-                                    default:
                                       echo $sender_items['city_name'];
-                                      break;
-                                  }
-                                    
                                     ?></td>
                                 <td>
                                     <?php echo $sender_items['name'] . ' ' . $sender_items['family'] ?>

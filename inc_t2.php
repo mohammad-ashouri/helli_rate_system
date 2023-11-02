@@ -955,18 +955,10 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         mysqli_query($connection, "update etelaat_a set nobat_arzyabi_ostani='تفصیلی سوم' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] != 'هست' and $avg >= 80) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] == 'هست' and $avg >= 75) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] != 'هست' and $avg <= 80) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='نمی باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] == 'هست' and $avg <= 75) {
@@ -1012,18 +1004,10 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         mysqli_query($connection, "update etelaat_a set nobat_arzyabi_ostani='تفصیلی سوم' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] != 'هست' and $avg >= 80) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] == 'هست' and $avg >= 75) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] != 'هست' and $avg <= 80) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='نمی باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] == 'هست' and $avg <= 75) {
@@ -1068,18 +1052,10 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         mysqli_query($connection, "update etelaat_a set nobat_arzyabi_ostani='تفصیلی سوم' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] != 'هست' and $avg >= 80) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] == 'هست' and $avg >= 75) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] != 'هست' and $avg <= 80) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='نمی باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] == 'هست' and $avg <= 75) {
@@ -1126,18 +1102,10 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         mysqli_query($connection, "update etelaat_a set nobat_arzyabi_ostani='تفصیلی سوم' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] != 'هست' and $avg >= 80) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] == 'هست' and $avg >= 75) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] != 'هست' and $avg <= 80) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='نمی باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] == 'هست' and $avg <= 75) {
@@ -1187,18 +1155,10 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         mysqli_query($connection, "update etelaat_a set nobat_arzyabi_ostani='تفصیلی سوم' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] != 'هست' and $avg >= 80) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] == 'هست' and $avg >= 75) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] != 'هست' and $avg <= 80) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='نمی باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] == 'هست' and $avg <= 75) {
@@ -1248,18 +1208,10 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         mysqli_query($connection, "update etelaat_a set nobat_arzyabi_ostani='تفصیلی سوم' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] != 'هست' and $avg >= 80) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] == 'هست' and $avg >= 75) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] != 'هست' and $avg <= 80) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='نمی باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $valueselect['bakhshvizheh'] == 'هست' and $avg <= 75) {
@@ -1311,18 +1263,10 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         mysqli_query($connection, "update etelaat_a set nobat_arzyabi_ostani='تفصیلی سوم' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'نیست' and $avg >= 80) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'هست' and $avg >= 75) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'نیست' and $avg <= 80) {
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='نمی باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'هست' and $avg <= 75) {
@@ -1383,11 +1327,7 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         }
         mysqli_query($connection, "update etelaat_a set codearzyabtafsili3_ostani=null where codeasar='$codeasar'");
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asar['bakhshvizheh'] == 'هست' and $avg >= 75) {
         $query = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar'");
         foreach ($query as $item) {
@@ -1397,11 +1337,7 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         }
         mysqli_query($connection, "update etelaat_a set codearzyabtafsili3_ostani=null where codeasar='$codeasar'");
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'نیست' and $avg <= 80) {
         $query = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar'");
         foreach ($query as $item) {
@@ -1472,11 +1408,7 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         }
         mysqli_query($connection, "update etelaat_a set codearzyabtafsili3_ostani=null where codeasar='$codeasar'");
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'هست' and $avg >= 75) {
         $query = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar'");
         foreach ($query as $item) {
@@ -1486,11 +1418,7 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         }
         mysqli_query($connection, "update etelaat_a set codearzyabtafsili3_ostani=null where codeasar='$codeasar'");
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'نیست' and $avg <= 80) {
         $query = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar'");
         foreach ($query as $item) {
@@ -1560,11 +1488,7 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         }
         mysqli_query($connection, "update etelaat_a set codearzyabtafsili3_ostani=null where codeasar='$codeasar'");
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'هست' and $avg >= 75) {
         $query = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar'");
         foreach ($query as $item) {
@@ -1574,11 +1498,7 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         }
         mysqli_query($connection, "update etelaat_a set codearzyabtafsili3_ostani=null where codeasar='$codeasar'");
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'نیست' and $avg <= 80) {
         $query = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar'");
         foreach ($query as $item) {
@@ -1650,11 +1570,7 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         }
         mysqli_query($connection, "update etelaat_a set codearzyabtafsili3_ostani=null where codeasar='$codeasar'");
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'هست' and $avg >= 75) {
         $query = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar'");
         foreach ($query as $item) {
@@ -1664,11 +1580,7 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         }
         mysqli_query($connection, "update etelaat_a set codearzyabtafsili3_ostani=null where codeasar='$codeasar'");
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'نیست' and $avg <= 80) {
         $query = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar'");
         foreach ($query as $item) {
@@ -1743,11 +1655,7 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         }
         mysqli_query($connection, "update etelaat_a set codearzyabtafsili3_ostani=null where codeasar='$codeasar'");
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'هست' and $avg >= 75) {
         $query = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar'");
         foreach ($query as $item) {
@@ -1757,11 +1665,7 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         }
         mysqli_query($connection, "update etelaat_a set codearzyabtafsili3_ostani=null where codeasar='$codeasar'");
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'نیست' and $avg <= 80) {
         $query = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar'");
         foreach ($query as $item) {
@@ -1836,11 +1740,7 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         }
         mysqli_query($connection, "update etelaat_a set codearzyabtafsili3_ostani=null where codeasar='$codeasar'");
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'هست' and $avg >= 75) {
         $query = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar'");
         foreach ($query as $item) {
@@ -1850,11 +1750,7 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         }
         mysqli_query($connection, "update etelaat_a set codearzyabtafsili3_ostani=null where codeasar='$codeasar'");
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'نیست' and $avg <= 80) {
         $query = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar'");
         foreach ($query as $item) {
@@ -1928,11 +1824,7 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         }
         mysqli_query($connection, "update etelaat_a set codearzyabtafsili3_ostani=null where codeasar='$codeasar'");
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'هست' and $avg >= 75) {
         $query = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar'");
         foreach ($query as $item) {
@@ -1942,11 +1834,7 @@ if (isset($_POST['subt2ketab']) and isset($_POST['codeasarfield']) and !empty($_
         }
         mysqli_query($connection, "update etelaat_a set codearzyabtafsili3_ostani=null where codeasar='$codeasar'");
         mysqli_query($connection, "update etelaat_a set jamemtiazostan='$avg',bargozideh_ostani='می باشد',vaziatkarnameostani='اتمام ارزیابی' where codeasar='$codeasar'");
-        if ($city == 'بناب' or $city == 'کاشان') {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب منطقه $city' where codeasar='$codeasar'");
-        } else {
-            mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
-        }
+        mysqli_query($connection, "update etelaat_a set vaziatostaniasar='اثر منتخب استان $state' where codeasar='$codeasar'");
     } elseif ($menha <= 20 and $asarselect['bakhshvizheh'] == 'نیست' and $avg <= 80) {
         $query = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar'");
         foreach ($query as $item) {
