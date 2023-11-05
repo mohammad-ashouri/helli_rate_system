@@ -154,168 +154,20 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
     }
     $city = $_POST['city'];
     $school = $_POST['school'];
-    switch ($school) {
-        case 'همه مدارس':
-            switch ($state) {
-                case 'همه استان‌ها':
-                    switch ($groupelmi) {
-                        case 'همه گروه‌ها':
-                            switch ($gender) {
-                                case 'بدون فیلتر':
-                                    $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                    break;
-                                default:
-                                    $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='$gender' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                    break;
-                            }
-                            break;
-                        default:
-                            switch ($gender) {
-                                case 'بدون فیلتر':
-                                    $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                    break;
-                                default:
-                                    $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='$gender' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                    break;
-                            }
-                            break;
-                    }
-                    break;
-                default:
-                    switch ($city) {
-                        case 'همه شهرستان‌ها':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    switch ($gender) {
-                                        case 'بدون فیلتر':
-                                            $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.ostantahsili='$state' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                            break;
-                                        default:
-                                            $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='$gender' and etelaat_p.ostantahsili='$state' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    switch ($gender) {
-                                        case 'بدون فیلتر':
-                                            $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                            break;
-                                        default:
-                                            $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='$gender' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                        default:
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    switch ($gender) {
-                                        case 'بدون فیلتر':
-                                            $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                            break;
-                                        default:
-                                            $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='$gender' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    switch ($gender) {
-                                        case 'بدون فیلتر':
-                                            $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                            break;
-                                        default:
-                                            $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='$gender' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili='$city' and etelaat_p.ostantahsili='$state' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                    }
-                    break;
-            }
-            break;
-        default:
-            switch ($state) {
-                case 'همه استان‌ها':
-                    switch ($groupelmi) {
-                        case 'همه گروه‌ها':
-                            switch ($gender) {
-                                case 'بدون فیلتر':
-                                    $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                    break;
-                                default:
-                                    $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='$gender' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                    break;
-                            }
-                            break;
-                        default:
-                            switch ($gender) {
-                                case 'بدون فیلتر':
-                                    $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                    break;
-                                default:
-                                    $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='$gender' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                    break;
-                            }
-                            break;
-                    }
-                    break;
-                default:
-                    switch ($city) {
-                        case 'همه شهرستان‌ها':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    switch ($gender) {
-                                        case 'بدون فیلتر':
-                                            $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                            break;
-                                        default:
-                                            $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='$gender' and etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    switch ($gender) {
-                                        case 'بدون فیلتر':
-                                            $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                            break;
-                                        default:
-                                            $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='$gender' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                        default:
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    switch ($gender) {
-                                        case 'بدون فیلتر':
-                                            $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                            break;
-                                        default:
-                                            $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='$gender' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    switch ($gender) {
-                                        case 'بدون فیلتر':
-                                            $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                            break;
-                                        default:
-                                            $sql = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='$gender' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili='$city' and etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_a.nobat_arzyabi_madrese!='' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.codeasar";
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                    }
-                    break;
-            }
-            break;
+    $query="select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state')) ";
+    if ($groupelmi!=null){
+        $query.="and etelaat_a.groupelmi='$groupelmi' ";
     }
+    if ($gender!=null){
+        $query.="and etelaat_p.gender='$gender' ";
+    }
+    if ($city!=null){
+        $query.="and etelaat_p.shahrtahsili='$city' or etelaat_p.teachingCity='$city' ";
+    }
+    if ($school!=null){
+        $query.="and etelaat_p.madrese='$school' ";
+    }
+    $query.=";";
     ?>
     <center>
         <div class="row" style="overflow-x: auto">
@@ -325,7 +177,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                         <h3 class="box-title" style="overflow-x: auto">
 
                             <?php
-                            $sql = mysqli_query($connection, $sql);
+                            $sql = mysqli_query($connection, $query);
                             foreach ($sql as $values) {
                             }
                             if (empty($values)):

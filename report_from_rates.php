@@ -46,7 +46,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                             <?php if (@$_SESSION['head'] != 0 or @$_SESSION['groupname'] == null): ?>
                                 گروه علمی:
                                 <select name="groupelmi">
-                                    <option <?php if (@$_POST['groupelmi'] == 'همه گروه ها') {
+                                    <option value="" <?php if (@$_POST['groupelmi'] == 'همه گروه ها') {
                                         echo 'selected';
                                     } ?>>همه گروه‌ها
                                     </option>
@@ -62,7 +62,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                             <?php endif; ?>
                             با جنسیت:
                             <select name="gender">
-                                <option <?php if (@$_POST['gender'] == 'بدون فیلتر') {
+                                <option value="" <?php if (@$_POST['gender'] == 'بدون فیلتر') {
                                     echo 'selected';
                                 } ?>>بدون فیلتر
                                 </option>
@@ -77,10 +77,9 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                             </select>
                             <?php if ($_SESSION['head'] == 2): ?>
                                 <br/><br/>
-                                <?php if ($_SESSION['shahr_name'] != 'بناب' and $_SESSION['shahr_name'] != 'کاشان'): ?>
                                     شهرستان:
                                     <select name="shahr_name">
-                                        <option <?php if (@$_POST['groupelmi'] == 'همه شهرستان‌ها') {
+                                        <option value="" <?php if (@$_POST['groupelmi'] == 'همه شهرستان‌ها') {
                                             echo 'selected';
                                         } ?>>همه شهرستان‌ها
                                         </option>
@@ -88,17 +87,8 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                         $city = $_POST['shahr_name'];
                                         $school = $_POST['school'];
                                         switch ($city) {
-                                            case 'بناب':
-                                                $query = mysqli_query($connection, "select distinct shahrtahsili from etelaat_p where ostantahsili='$state' and shahrtahsili='بناب'");
-                                                break;
-                                            case 'کاشان':
-                                                $query = mysqli_query($connection, "select distinct shahrtahsili from etelaat_p where ostantahsili='$state' and shahrtahsili='کاشان'");
-                                                break;
-                                            case 'بابل':
-                                                $query = mysqli_query($connection, "select distinct shahrtahsili from etelaat_p where ostantahsili='$state' and shahrtahsili='بابل'");
-                                                break;
                                             default:
-                                                $query = mysqli_query($connection, "select distinct shahrtahsili from etelaat_p where ostantahsili='$state' and shahrtahsili is not null and shahrtahsili!='' and shahrtahsili!='بناب' and shahrtahsili!='کاشان' and shahrtahsili!='بابل' order by shahrtahsili");
+                                                $query = mysqli_query($connection, "select distinct shahrtahsili from etelaat_p where ostantahsili='$state' and shahrtahsili is not null and shahrtahsili!='' order by shahrtahsili");
                                                 break;
                                         }
                                         foreach ($query as $shahrtahsili):
@@ -108,28 +98,16 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                             } ?>><?php echo $shahrtahsili['shahrtahsili'] ?></option>
                                         <?php endforeach; ?>
                                     </select>
-                                <?php endif; ?>
                                 مدرسه:
                                 <select name="school">
-                                    <?php if ($city != 'بناب' or $city != 'کاشان'): ?>
-                                        <option <?php if (@$_POST['school'] == 'همه مدارس') {
-                                            echo 'selected';
-                                        } ?>>همه مدارس
-                                        </option>
-                                    <?php endif; ?>
+                                    <option value="" <?php if (@$_POST['school'] == 'همه مدارس') {
+                                        echo 'selected';
+                                    } ?>>همه مدارس
+                                    </option>
                                     <?php
                                     switch ($city) {
-                                        case 'بناب':
-                                            $query = mysqli_query($connection, "select distinct madrese from etelaat_p where ostantahsili='$state' and shahrtahsili='بناب' and madrese is not null and madrese!='' order by madrese");
-                                            break;
-                                        case 'کاشان':
-                                            $query = mysqli_query($connection, "select distinct madrese from etelaat_p where ostantahsili='$state' and shahrtahsili='کاشان' and madrese is not null and madrese!='' order by madrese");
-                                            break;
-                                        case 'بابل':
-                                            $query = mysqli_query($connection, "select distinct madrese from etelaat_p where ostantahsili='$state' and shahrtahsili='بابل' and madrese is not null and madrese!='' order by madrese");
-                                            break;
                                         default:
-                                            $query = mysqli_query($connection, "select distinct madrese from etelaat_p where ostantahsili='$state' and madrese is not null and madrese!='' and shahrtahsili!='بناب' and shahrtahsili!='کاشان' and shahrtahsili!='بابل' and madrese is not null and madrese!='' order by madrese");
+                                            $query = mysqli_query($connection, "select distinct madrese from etelaat_p where ostantahsili='$state' order by madrese");
                                             break;
                                     }
                                     foreach ($query as $madrese):
@@ -176,804 +154,39 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
             }
             break;
         case 2:
-            if ($_SESSION['shahr_name'] == 'بناب') {
-                @$city = 'بناب';
-                @$school = $_POST['school'];
-            } elseif ($_SESSION['shahr_name'] == 'کاشان') {
-                @$city = 'کاشان';
-                @$school = $_POST['school'];
-            } elseif ($_SESSION['shahr_name'] == 'بابل') {
-                @$city = 'بابل';
-                @$school = $_POST['school'];
-            } else {
-                @$city = $_POST['shahr_name'];
-                @$school = $_POST['school'];
+            @$city = $_POST['shahr_name'];
+            @$school = $_POST['school'];
+            $query="select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state')) ";
+            if ($groupelmi!=null){
+                $query.="and etelaat_a.groupelmi='$groupelmi' ";
             }
-
-            switch ($city) {
-                case 'بناب':
-                    switch ($gender) {
-                        case 'مرد':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and etelaat_p.ostantahsili='$state' and ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                        case 'زن':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                        default:
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='بناب' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='بناب' and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='بناب' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بناب')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                    }
-                    break;
-                case 'کاشان':
-                    switch ($gender) {
-                        case 'مرد':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                        case 'زن':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                        default:
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='کاشان' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='کاشان')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                    }
-                    break;
-                case 'بابل':
-                    switch ($gender) {
-                        case 'مرد':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                        case 'زن':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                        default:
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_p.madrese='$school' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.shahrtahsili='بابل' and etelaat_p.master='نیست') or (etelaat_p.master='هست' and etelaat_p.teachingCity='بابل')) and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                    }
-                    break;
-                default:
-                    switch ($gender) {
-                        case 'مرد':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.shahrtahsili!='کاشان' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='مرد' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                        case 'زن':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili,etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                        default:
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state' and etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and ((etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل') or (etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and ((etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل') or (etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل')) and etelaat_p.shahrtahsili='$city' and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_p.madrese='$school' and ((etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل') or (etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                                default:
-                                    switch ($city) {
-                                        case 'همه شهرستان‌ها':
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_a.groupelmi='$groupelmi' and ((etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل') or (etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and ((etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل') or (etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                        default:
-                                            switch ($school) {
-                                                case 'همه مدارس':
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_a.groupelmi='$groupelmi' and ((etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل') or (etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                                default:
-                                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and ((etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل') or (etelaat_p.teachingCity!='بناب' and etelaat_p.teachingCity!='کاشان' and etelaat_p.teachingCity!='بابل')) and etelaat_a.jashnvareh='$jashnvareh' order by etelaat_a.jamemtiazostan desc,etelaat_p.shahrtahsili, etelaat_a.groupelmi");
-                                                    break;
-                                            }
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                    }
-                    break;
+            if ($gender!=null){
+                $query.="and etelaat_p.gender='$gender' ";
             }
+            if ($city!=null){
+                $query.="and etelaat_p.shahrtahsili='$city' or etelaat_p.teachingCity='$city' ";
+            }
+            if ($school!=null){
+                $query.="and etelaat_p.madrese='$school' ";
+            }
+            $query.=";";
+            $sql=mysqli_query($connection,$query);
             break;
         case 3:
-            @$city = $_SESSION['shahr_name'];
-            @$school = $_SESSION['school'];
-            switch ($city) {
-                case 'بناب':
-                    switch ($gender) {
-                        case 'مرد':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili='بناب' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='مرد' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc");
-                                    break;
-                                default:
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili='بناب' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='مرد' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc");
-                                    break;
-                            }
-                            break;
-                        case 'زن':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili='بناب' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='زن' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc");
-                                    break;
-                                default:
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili='بناب' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='زن' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc");
-                                    break;
-                            }
-                            break;
-                        default:
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili='بناب' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc");
-                                    break;
-                                default:
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili='بناب' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc");
-                                    break;
-                            }
-                            break;
-                    }
-                    break;
-                case 'کاشان':
-                    switch ($gender) {
-                        case 'مرد':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili='کاشان' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='مرد' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                                default:
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili='کاشان' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='مرد' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                            }
-                            break;
-                        case 'زن':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili='کاشان' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='زن' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                                default:
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili='کاشان' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='زن' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                            }
-                            break;
-                        default:
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='اصفهان' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili='کاشان' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                                default:
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili='کاشان' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                            }
-                            break;
-                    }
-                    break;
-                case 'بابل':
-                    switch ($gender) {
-                        case 'مرد':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili='بابل' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='مرد' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                                default:
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili='بابل' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='مرد' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                            }
-                            break;
-                        case 'زن':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili='بابل' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='زن' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                                default:
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili='بابل' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='زن' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                            }
-                            break;
-                        default:
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='اصفهان' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili='بابل' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                                default:
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili='بابل' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                            }
-                            break;
-                    }
-                    break;
-                default:
-                    switch ($gender) {
-                        case 'مرد':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili='$city' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='مرد' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                                default:
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili='$city' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='مرد' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                            }
-                            break;
-                        case 'زن':
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili='$city' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='زن' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                                default:
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili='$city' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.gender='زن' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.shahrtahsili!='کاشان' and and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                            }
-                            break;
-                        default:
-                            switch ($groupelmi) {
-                                case 'همه گروه‌ها':
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_p.shahrtahsili='$city' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi ");
-                                    break;
-                                default:
-                                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$state' and etelaat_p.madrese='$school' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.shahrtahsili='$city' and etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' and etelaat_p.shahrtahsili!='بابل' and etelaat_p.master ='نیست' order by etelaat_a.jamemtiazmadrese desc,etelaat_a.groupelmi");
-                                    break;
-                            }
-                            break;
-                    }
-                    break;
+            $city = $_SESSION['shahr_name'];
+            $school = $_SESSION['school'];
+            $query="select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state')) ";
+            if ($groupelmi!=null){
+                $query.="and etelaat_a.groupelmi='$groupelmi' ";
             }
+            if ($gender!=null){
+                $query.="and etelaat_p.gender='$gender' ";
+            }
+            if ($school!=null){
+                $query.="and etelaat_p.madrese='$school' ";
+            }
+            $query.=";";
+            $sql=mysqli_query($connection,$query);
             break;
     }
     ?>
@@ -1040,11 +253,12 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                         <?php endif; ?>
                                         <td style="padding: 10px">
                                             <?php
-                                            $query=mysqli_query($connection,"select master from etelaat_p where codeasar='$codeasar'");
-                                            foreach ($query as $etelaat_p){}
-                                            if ($etelaat_p['master']=='هست'){
+                                            $query = mysqli_query($connection, "select master from etelaat_p where codeasar='$codeasar'");
+                                            foreach ($query as $etelaat_p) {
+                                            }
+                                            if ($etelaat_p['master'] == 'هست') {
                                                 echo 'می باشد';
-                                            }else{
+                                            } else {
                                                 echo 'نمی باشد';
                                             }
                                             ?>
@@ -1062,7 +276,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                             switch ($_SESSION['head']) {
                                                 case 0:
                                                 case 2:
-                                                    if (($values['fileasar'] == null or $values['fileasar_word'] == null) and $values['approve_sianat'] == 0) {
+                                                    if (($values['fileasar'] == null and $values['fileasar_word'] == null)) {
                                                         echo 'فایل بارگذاری نشده';
                                                     } elseif (($values['fileasar'] == null or $values['fileasar_word'] == null) and $values['approve_sianat'] == 2) {
                                                         echo $values['ellatnadashtansharayet'];

@@ -174,14 +174,8 @@ $school_name = $_SESSION['school'];
                     <div class="row">
                         <?php
                         switch ($city_name) {
-                            case 'کاشان':
-                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codearzyabtafsili2_madrese is not null and etelaat_a.codearzyabtafsili2_madrese!='' and etelaat_p.shahrtahsili='کاشان' and etelaat_p.madrese='$school_name' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and nobat_arzyabi_madrese='تفصیلی دوم' order by etelaat_a.groupelmi asc");
-                                break;
-                            case 'بناب':
-                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codearzyabtafsili2_madrese is not null and etelaat_a.codearzyabtafsili2_madrese!='' and etelaat_p.shahrtahsili='بناب' and etelaat_p.madrese='$school_name' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and nobat_arzyabi_madrese='تفصیلی دوم' order by etelaat_a.groupelmi asc");
-                                break;
                             default:
-                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codearzyabtafsili2_madrese is not null and etelaat_a.codearzyabtafsili2_madrese!='' and etelaat_p.ostantahsili='$state_name' and etelaat_p.shahrtahsili='$city_name' and etelaat_p.madrese='$school_name' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and nobat_arzyabi_madrese='تفصیلی دوم' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' order by etelaat_a.groupelmi asc");
+                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codearzyabtafsili2_madrese is not null and etelaat_a.codearzyabtafsili2_madrese!='' and etelaat_p.ostantahsili='$state_name' and etelaat_p.shahrtahsili='$city_name' and etelaat_p.madrese='$school_name' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and nobat_arzyabi_madrese='تفصیلی دوم' order by etelaat_a.groupelmi asc");
                                 break;
                         }
                         ?>
@@ -259,14 +253,8 @@ $school_name = $_SESSION['school'];
                         <?php
 
                         switch ($city_name) {
-                            case 'کاشان':
-                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codearzyabtafsili3_madrese is not null and etelaat_a.codearzyabtafsili3_madrese!='' and etelaat_p.shahrtahsili='کاشان' and etelaat_p.madrese='$school_name' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and nobat_arzyabi_madrese='تفصیلی سوم' order by etelaat_a.groupelmi asc");
-                                break;
-                            case 'بناب':
-                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codearzyabtafsili3_madrese is not null and etelaat_a.codearzyabtafsili3_madrese!='' and etelaat_p.shahrtahsili='بناب' and etelaat_p.madrese='$school_name' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and nobat_arzyabi_madrese='تفصیلی سوم' order by etelaat_a.groupelmi asc");
-                                break;
                             default:
-                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codearzyabtafsili3_madrese is not null and etelaat_a.codearzyabtafsili3_madrese!='' and etelaat_p.ostantahsili='$state_name' and etelaat_p.shahrtahsili='$city_name' and etelaat_p.madrese='$school_name' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and nobat_arzyabi_madrese='تفصیلی سوم' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' order by etelaat_a.groupelmi asc");
+                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codearzyabtafsili3_madrese is not null and etelaat_a.codearzyabtafsili3_madrese!='' and etelaat_p.ostantahsili='$state_name' and etelaat_p.shahrtahsili='$city_name' and etelaat_p.madrese='$school_name' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and nobat_arzyabi_madrese='تفصیلی سوم' order by etelaat_a.groupelmi asc");
                                 break;
                         }
                         ?>

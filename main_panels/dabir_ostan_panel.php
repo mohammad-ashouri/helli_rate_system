@@ -164,14 +164,8 @@
                     <div class="row">
                         <?php
                         switch ($city_name) {
-                            case 'کاشان':
-                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codearzyabtafsili2_ostani and etelaat_a.codearzyabtafsili2_ostani!='' is not null and etelaat_p.shahrtahsili='کاشان' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and nobat_arzyabi_ostani='تفصیلی دوم' order by etelaat_a.groupelmi asc");
-                                break;
-                            case 'بناب':
-                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codearzyabtafsili2_ostani and etelaat_a.codearzyabtafsili2_ostani!='' is not null and etelaat_p.shahrtahsili='بناب' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and nobat_arzyabi_ostani='تفصیلی دوم' order by etelaat_a.groupelmi asc");
-                                break;
                             default:
-                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codearzyabtafsili2_ostani and etelaat_a.codearzyabtafsili2_ostani!='' is not null and etelaat_p.ostantahsili='$state' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and nobat_arzyabi_ostani='تفصیلی دوم' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' order by etelaat_a.groupelmi asc");
+                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codearzyabtafsili2_ostani and etelaat_a.codearzyabtafsili2_ostani!='' is not null and etelaat_p.ostantahsili='$state' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and nobat_arzyabi_ostani='تفصیلی دوم' order by etelaat_a.groupelmi asc");
                                 break;
                         }
 
@@ -245,16 +239,9 @@
 
                     <div class="row">
                         <?php
-
                         switch ($city_name) {
-                            case 'کاشان':
-                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codearzyabtafsili3_ostani is not null and etelaat_a.codearzyabtafsili3_ostani!='' and etelaat_p.shahrtahsili='کاشان' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and nobat_arzyabi_ostani='تفصیلی سوم' order by etelaat_a.groupelmi asc");
-                                break;
-                            case 'بناب':
-                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codearzyabtafsili3_ostani is not null and etelaat_a.codearzyabtafsili3_ostani!='' and etelaat_p.shahrtahsili='بناب' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and nobat_arzyabi_ostani='تفصیلی سوم' order by etelaat_a.groupelmi asc");
-                                break;
                             default:
-                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codearzyabtafsili3_ostani is not null and etelaat_a.codearzyabtafsili3_ostani!='' and etelaat_p.ostantahsili='$state' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and nobat_arzyabi_ostani='تفصیلی سوم' and etelaat_p.shahrtahsili!='بناب' and etelaat_p.shahrtahsili!='کاشان' order by etelaat_a.groupelmi asc");
+                                $query = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codearzyabtafsili3_ostani is not null and etelaat_a.codearzyabtafsili3_ostani!='' and etelaat_p.ostantahsili='$state' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and nobat_arzyabi_ostani='تفصیلی سوم' order by etelaat_a.groupelmi asc");
                                 break;
                         }
                         ?>

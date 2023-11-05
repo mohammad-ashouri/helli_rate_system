@@ -63,7 +63,14 @@ $school = $_SESSION['school'];
                             <?php
                             $a = 1;
                             $user = $_SESSION['username'];
-                            $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_madrese='ارزیابی اجمالی' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_p.ostantahsili='$state' and etelaat_a.approve_sianat=0 and etelaat_p.madrese='$school' order by etelaat_a.groupelmi");
+                            $city = $_SESSION['shahr_name'];
+                            $school = $_SESSION['school'];
+                            $query="select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state')) and etelaat_a.nobat_arzyabi_madrese='ارزیابی اجمالی' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_a.approve_sianat=0 ";
+                            if ($school!=null){
+                                $query.="and etelaat_p.madrese='$school' ";
+                            }
+                            $query.=";";
+                            $selectfrometelaat_aforejmaliostan=mysqli_query($connection,$query);
                             foreach ($selectfrometelaat_aforejmaliostan as $bin):
                                 ?>
 
