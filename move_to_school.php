@@ -62,21 +62,21 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                 </div>
                 <div class="box-body">
                     <center>
-                        <form action="./build/php/Move_Posts_To_School.php" method="post" id="myform" onsubmit="">
+                        <form action="build/php/Move_Posts_To_School.php" method="post" id="myform" onsubmit="">
                                 <span>
                                     مدرسه‌ای که می‌خواهید تمامی آثار ثبت شده‌اش را به آن انتقال دهید، انتخاب کنید :
                                     <select name="schoolname">
                                         <?php
                                         $state = $_SESSION['city'];
                                         $city = $_SESSION['shahr_name'];
-                                        $query = mysqli_query($connection, "select distinct(school_name),shahr_name from rater_list where school_name!='' and city_name='$state' and school_name is not null and approved=1 and type=3 order by school_name asc");
+                                        $query = mysqli_query($connection, "select distinct (madrese),shahrtahsili from etelaat_p where madrese is not null and madrese!='' and madrese!='آزاد' and ostantahsili='$state' order by madrese");
                                         foreach ($query as $items):
                                             ?>
                                             <option value="<?php
-                                            echo $items['school_name'];
+                                            echo $items['madrese'];
                                             ?>">
                                       <?php
-                                      echo $items['school_name'] . ' - ' . $items['shahr_name'];
+                                      echo $items['madrese']. ' - شهرستان ' . $items['shahrtahsili'];
                                       ?>
                                     </option>
                                         <?php
@@ -86,7 +86,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                                 </span>
                             <br/><br/>
                             <input style="padding: 5px" name="move_to_school" type="submit"
-                                   value="انتقال به مدرسه مورد نظر"
+                                   value="انتقال آثار به مدرسه مورد نظر"
                                    onclick="return confirm('لطفا در صورت تایید نهایی بر روی ok کلیک کنید. آثار پس از انتقال، قابل بازگشت به مرحله ی استانی نیستند')">
                         </form>
                     </center>
