@@ -108,7 +108,7 @@ if (($_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESSI
                                         <?php
                                         if ($bin['master']=='هست'){
                                             echo 'استاد می باشد';
-                                        }elseif($bin['نیست']){
+                                        }elseif($bin['master']=='نیست'){
                                             echo 'استاد نمی باشد';
                                         }
                                          ?>
