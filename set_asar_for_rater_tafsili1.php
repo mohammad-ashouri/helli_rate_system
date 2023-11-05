@@ -460,7 +460,7 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                 if ($city == 'قم') {
                                                                     $resultraters = mysqli_query($connection, "select * from rater_list WHERE `type`=0 and (shahr_name='قم' or city_name is null) and approved=1 order by family asc");
                                                                 } else {
-                                                                    $resultraters = mysqli_query($connection, "select * from rater_list WHERE `type`=0 and city_name='$state' and approved=1 order by family asc");
+                                                                    $resultraters = mysqli_query($connection, "select * from rater_list WHERE `type`=0 and city_name='$state' and approved=1 order by family");
                                                                 }
                                                                 foreach ($resultraters as $raters): ?>
                                                                     <tr>
