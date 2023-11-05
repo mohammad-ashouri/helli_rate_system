@@ -107,7 +107,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                     <?php
                                     switch ($city) {
                                         default:
-                                            $query = mysqli_query($connection, "select distinct madrese from etelaat_p where ostantahsili='$state' order by madrese");
+                                            $query = mysqli_query($connection, "select distinct madrese from etelaat_p where ostantahsili='$state' and madrese!='' and madrese is not null order by madrese");
                                             break;
                                     }
                                     foreach ($query as $madrese):
@@ -156,7 +156,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
         case 2:
             @$city = $_POST['shahr_name'];
             @$school = $_POST['school'];
-            $query="select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state')) ";
+            $query="select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state')) and etelaat_p.ostantahsili!='' ";
             if ($groupelmi!=null){
                 $query.="and etelaat_a.groupelmi='$groupelmi' ";
             }
@@ -164,7 +164,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                 $query.="and etelaat_p.gender='$gender' ";
             }
             if ($city!=null){
-                $query.="and etelaat_p.shahrtahsili='$city' or etelaat_p.teachingCity='$city' ";
+                $query.="and (etelaat_p.shahrtahsili='$city' or etelaat_p.teachingCity='$city') ";
             }
             if ($school!=null){
                 $query.="and etelaat_p.madrese='$school' ";
