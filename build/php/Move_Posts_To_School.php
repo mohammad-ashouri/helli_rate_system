@@ -15,7 +15,10 @@ if (isset($_POST['move_to_school']) and !empty($_POST['schoolname'])) {
     $state = $_SESSION['city'];
     $city = $_SESSION['shahr_name'];
     $usercode = $_SESSION['username'];
-    $query = mysqli_query($connection, "select * from etelaat_p inner join etelaat_a on etelaat_p.codeasar=etelaat_a.codeasar where etelaat_p.ostantahsili='$state' and (etelaat_a.vaziatkarnamemadrese is null or etelaat_a.vaziatkarnamemadrese='') and (etelaat_a.vaziatmadreseasar is null or etelaat_a.vaziatmadreseasar='') and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_p.madrese='$school' and etelaat_p.master='نیست'");
+    $query=mysqli_query($connection,"select distinct jashnvareh from etelaat_a order by jashnvareh");
+    foreach ($query as $festivals){}
+    $lastFestival=$festivals['jashnvareh'];
+    $query = mysqli_query($connection, "select * from etelaat_p inner join etelaat_a on etelaat_p.codeasar=etelaat_a.codeasar where etelaat_p.ostantahsili='$state' and (etelaat_a.vaziatkarnamemadrese is null or etelaat_a.vaziatkarnamemadrese='') and (etelaat_a.vaziatmadreseasar is null or etelaat_a.vaziatmadreseasar='') and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_p.madrese='$school' and etelaat_p.master='نیست' and etelaat_a.jashnvareh='$lastFestival'");
     foreach ($query as $item) {
         $codeasar = $item['codeasar'];
         mysqli_query($connection, "update etelaat_a set vaziatmadreseasar='انتقال از استان',transporter_to_school_user='$usercode',date_transfer_to_school='$date',vaziatkarnamemadrese='در حال ارزیابی',nobat_arzyabi_madrese='ارزیابی اجمالی',nobat_arzyabi_ostani=null where codeasar='$codeasar'");

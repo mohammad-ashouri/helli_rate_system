@@ -69,7 +69,10 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                                         <?php
                                         $state = $_SESSION['city'];
                                         $city = $_SESSION['shahr_name'];
-                                        $query = mysqli_query($connection, "select distinct (madrese),shahrtahsili from etelaat_p where madrese is not null and madrese!='' and madrese!='آزاد' and ostantahsili='$state' order by madrese");
+                                        $query=mysqli_query($connection,"select distinct jashnvareh from etelaat_a order by jashnvareh");
+                                        foreach ($query as $festivals){}
+                                        $lastFestival=$festivals['jashnvareh'];
+                                        $query = mysqli_query($connection, "select distinct (madrese),shahrtahsili from etelaat_p inner join etelaat_a on etelaat_p.codeasar=etelaat_a.codeasar where etelaat_p.madrese is not null and etelaat_p.madrese!='' and etelaat_p.madrese!='آزاد' and etelaat_p.ostantahsili='$state' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$lastFestival' order by etelaat_p.madrese");
                                         foreach ($query as $items):
                                             ?>
                                             <option value="<?php
