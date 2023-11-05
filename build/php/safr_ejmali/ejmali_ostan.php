@@ -106,12 +106,12 @@ if (($_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESSI
                                     </td>
                                     <td>
                                         <?php
-                                        if ($bin['master']=='هست'){
+                                        if ($bin['master'] == 'هست') {
                                             echo 'استاد می باشد';
-                                        }elseif($bin['master']=='نیست'){
+                                        } elseif ($bin['master'] == 'نیست') {
                                             echo 'استاد نمی باشد';
                                         }
-                                         ?>
+                                        ?>
                                     </td>
                                     <td>
                                         <?php

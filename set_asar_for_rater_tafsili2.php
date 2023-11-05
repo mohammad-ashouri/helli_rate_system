@@ -238,6 +238,9 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                 <th onclick="sortTable1(3)">
                                                                                     گروه علمی
                                                                                 </th>
+                                                                                <th>
+                                                                                    وضعیت تدریس
+                                                                                </th>
                                                                                 <?php
                                                                                 if ($_SESSION['head'] == 2 or $_SESSION['head'] == 3 or ($_SESSION['head'] == 0 and $_SESSION['groupname'] != null)):
                                                                                     ?>
@@ -253,10 +256,7 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                 <th>
                                                                                     اختصاص به ارزیاب
                                                                                 </th>
-
-
                                                                             </tr>
-
                                                                             <?php
                                                                             switch ($_SESSION['head']) {
                                                                                 case 1:
@@ -300,6 +300,15 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                     </td>
                                                                                     <td>
                                                                                         <?php echo $bin['groupelmi']; ?>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <?php
+                                                                                        if ($bin['master'] == 'هست') {
+                                                                                            echo 'استاد می باشد';
+                                                                                        } elseif ($bin['master'] == 'نیست') {
+                                                                                            echo 'استاد نمی باشد';
+                                                                                        }
+                                                                                        ?>
                                                                                     </td>
                                                                                     <?php
                                                                                     if ($_SESSION['head'] == 2 or $_SESSION['head'] == 3 or ($_SESSION['head'] == 0 and $_SESSION['groupname'] != null)):

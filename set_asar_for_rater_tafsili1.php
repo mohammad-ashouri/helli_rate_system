@@ -234,6 +234,9 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                 گروه علمی
                                                             </th>
                                                             <th>
+                                                                وضعیت تدریس
+                                                            </th>
+                                                            <th>
                                                                 ارزیاب و امتیاز ارزیابی اجمالی
                                                             </th>
                                                             <th>
@@ -286,6 +289,15 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                 </td>
                                                                 <td>
                                                                     <?php echo $bin['groupelmi']; ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    if ($bin['master'] == 'هست') {
+                                                                        echo 'استاد می باشد';
+                                                                    } elseif ($bin['master'] == 'نیست') {
+                                                                        echo 'استاد نمی باشد';
+                                                                    }
+                                                                    ?>
                                                                 </td>
                                                                 <td>
                                                                     <?php

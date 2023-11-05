@@ -226,6 +226,9 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                     گروه علمی
                                                                                 </th>
                                                                                 <th>
+                                                                                    وضعیت تدریس
+                                                                                </th>
+                                                                                <th>
                                                                                     ارزیاب و نمره تفصیلی اول
                                                                                 </th>
                                                                                 <th>
@@ -277,7 +280,13 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                         <?php echo $bin['ghalebpazhouhesh'] . " سطح " . $bin['satharzyabi']; ?>
                                                                                     </td>
                                                                                     <td>
-                                                                                        <?php echo $bin['groupelmi']; ?>
+                                                                                        <?php
+                                                                                        if ($bin['master'] == 'هست') {
+                                                                                            echo 'استاد می باشد';
+                                                                                        } elseif ($bin['master'] == 'نیست') {
+                                                                                            echo 'استاد نمی باشد';
+                                                                                        }
+                                                                                        ?>
                                                                                     </td>
                                                                                     <td>
                                                                                         <?php
@@ -452,9 +461,7 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                 </script>
                                                                                 <?php break;
                                                                             } ?>
-
                                                                         </table>
-
                                                                     </div>
                                                             </section>
                                                             <section class="content">
