@@ -59,6 +59,9 @@ if (($_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESSI
                                     گروه علمی
                                 </th>
                                 <th>
+                                    وضعیت تدریس
+                                </th>
+                                <th>
                                     امتیاز مدرسه
                                 </th>
                                 <th>
@@ -100,6 +103,15 @@ if (($_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESSI
                                     </td>
                                     <td>
                                         <?php echo $bin['groupelmi']; ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        if ($bin['master']=='هست'){
+                                            echo 'استاد می باشد';
+                                        }elseif($bin['نیست']){
+                                            echo 'استاد نمی باشد';
+                                        }
+                                         ?>
                                     </td>
                                     <td>
                                         <?php
