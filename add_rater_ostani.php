@@ -130,13 +130,13 @@ if ($_SESSION['head'] == 1):
                             </div>
                         <?php endif; ?>
                         <center>
-                            <form method="post" action="./build/php/inc.php" onsubmit="return checkcodemelli()">
+                            <form method="post" action="build/php/inc.php" onsubmit="return checkcodemelli()">
                                 <table class="tableratermanager">
                                     <tr>
                                         <th>کد ملی (نام کاربری)</th>
                                         <td>
                                             <input required
-                                                   onchange="checknationalcode(this.value)" <?php if (isset($_POST['subsearchostanirater']) and !empty($rateritems)) {
+                                                   oninput="checknationalcode(this.value)" <?php if (isset($_POST['subsearchostanirater']) and !empty($rateritems)) {
                                                 echo 'disabled';
                                             } ?>
                                                    value="<?php if (isset($_POST['subsearchostanirater']) and !empty($rateritems)) {
@@ -161,7 +161,7 @@ if ($_SESSION['head'] == 1):
                                                         document.getElementById("checkcodemelli").innerHTML = this.responseText;
                                                     }
                                                 }
-                                                xmlhttp.open("GET", "/build/ajax/checknationalcode.php?nationalcode=" + nationalcode, true);
+                                                xmlhttp.open("GET", "build/ajax/checknationalcode.php?nationalcode=" + nationalcode, true);
                                                 xmlhttp.send();
                                             }
                                         </script>
@@ -256,13 +256,13 @@ if ($_SESSION['head'] == 1):
                                                     echo 'selected';
                                                 } ?>></option>
                                                 <?php
-                                                $resultstates = mysqli_query($connection, "select distinct name from state order by name asc");
+                                                $resultstates = mysqli_query($connection, "select distinct ostantahsili from etelaat_p where ostantahsili!='' and ostantahsili is not null order by ostantahsili");
                                                 foreach ($resultstates as $state_info):
                                                     ?>
-                                                    <option <?php if (isset($_POST['subsearchostanirater']) and !empty($rateritems) and @$rateritems['city_name'] == $state_info['name']) {
+                                                    <option <?php if (isset($_POST['subsearchostanirater']) and !empty($rateritems) and @$rateritems['city_name'] == $state_info['ostantahsili']) {
                                                         echo 'selected';
-                                                    } ?> value="<?php echo $state_info['name']; ?>">
-                                                        <?php echo $state_info['name']; ?>
+                                                    } ?> value="<?php echo $state_info['ostantahsili']; ?>">
+                                                        <?php echo $state_info['ostantahsili']; ?>
                                                     </option>
                                                 <?php endforeach; ?>
                                             </select>

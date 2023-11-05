@@ -153,10 +153,10 @@ if ($_SESSION['head']==1):
                                     <td>
                                         <select name="state_custom">
                                             <?php
-                                            $query=mysqli_query($connection,"select * from state order by name asc");
+                                            $query=mysqli_query($connection,"select distinct ostantahsili from etelaat_p where ostantahsili!='' and ostantahsili is not null order by ostantahsili");
                                             foreach ($query as $item):
                                                 ?>
-                                            <option <?php if (isset($_POST['subsearchostaniadmin']) and !empty($ostaniadmin) and $ostaniadmin['city_name']==$item['name']) {echo 'selected';}?>><?php echo $item['name']; ?></option>
+                                            <option <?php if (isset($_POST['subsearchostaniadmin']) and !empty($ostaniadmin) and $ostaniadmin['city_name']==$item['ostantahsili']) {echo 'selected';}?>><?php echo $item['ostantahsili']; ?></option>
                                             <?php endforeach; ?>
                                         </select>
 
