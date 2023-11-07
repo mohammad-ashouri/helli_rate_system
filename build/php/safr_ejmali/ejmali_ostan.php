@@ -16,14 +16,11 @@ if (($_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESSI
             <div class="box box-solid box-success" style="overflow-x: auto">
                 <div class="box-header">
                     <i class="fa fa-info-circle"></i>
-
                     <h3 class='box-title'>لیست آثار برای اختصاص به ارزیاب اجمالی استان
                         <?php
                         echo $state;
                         ?>
-
                     </h3>
-
                     <!-- tools box -->
                     <div class="pull-left box-tools">
                         <button type="button" class="btn bg-info btn-sm" data-widget="collapse"><i
@@ -131,7 +128,7 @@ if (($_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESSI
                                             if ($state == 'قم') {
                                                 $query = mysqli_query($connection, "select * from rater_list where (city_name='قم' or city_name is null) and approved=1 and type!=1 order by family");
                                             } else {
-                                                $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and approved=1 and type=0 order by family");
+                                                $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and approved=1 order by family");
                                             }
                                             foreach ($query as $raters):
                                                 ?>
