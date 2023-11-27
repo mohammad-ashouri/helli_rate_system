@@ -254,7 +254,7 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                 break;
                                                             case 3:
                                                                 $school = $_SESSION['school'];
-                                                                $resultat1 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state' and etelaat_p.teachingCity='$city')) and etelaat_p.madrese='$school' and etelaat_a.nobat_arzyabi_madrese='تفصیلی اول' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
+                                                                $resultat1 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where (etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city' and etelaat_p.madrese='$school') and etelaat_a.nobat_arzyabi_madrese='تفصیلی اول' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi asc");
                                                                 break;
                                                         }
                                                         if (@$_SESSION['head'] == 0 and @$_SESSION['groupname'] != null) {
