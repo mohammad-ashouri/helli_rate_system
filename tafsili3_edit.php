@@ -71,8 +71,7 @@ if ($_SESSION['head'] == 0 and $_SESSION['groupname'] != null) {
                                                                               and tafsili3_ostan.jam is not null 
                                                                               and tafsili1_ostan.jam is not null 
                                                                               and tafsili2_ostan.jam is not null
-                                                                              and etelaat_p.ostantahsili='$state'
-                                                                              and etelaat_a.nobat_arzyabi_ostani='تفصیلی سوم' and etelaat_a.vaziatkarnameostani='اتمام ارزیابی'
+                                                                              and ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state'))                                                                              and etelaat_a.nobat_arzyabi_ostani='تفصیلی سوم' and etelaat_a.vaziatkarnameostani='اتمام ارزیابی'
                                                                               order by etelaat_a.groupelmi asc,etelaat_a.codeasar asc");
                                     break;
                                 case 3:

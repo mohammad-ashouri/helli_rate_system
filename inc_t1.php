@@ -535,6 +535,7 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
     if ($jamnomre >= 70) {
         mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi_ostani='تفصیلی دوم',vaziatkarnameostani='در حال ارزیابی' where `codeasar`='$codeasar'");
+        mysqli_query($connection, "delete from tafsili2_ostan where codeasar='$codeasar'");
         mysqli_query($connection, "insert into tafsili2_ostan (codeasar) values ('$codeasar')");
     } else {
         mysqli_query($connection, "delete from tafsili2_ostan where codeasar='$codeasar'");
@@ -571,6 +572,7 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
     if ($jamnomre >= 70) {
         mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi_ostani='تفصیلی دوم',vaziatkarnameostani='در حال ارزیابی' where `codeasar`='$codeasar'");
+        mysqli_query($connection, "delete from tafsili2_ostan where codeasar='$codeasar'");
         mysqli_query($connection, "insert into tafsili2_ostan (codeasar) values ('$codeasar')");
     } else {
         mysqli_query($connection, "delete from tafsili2_ostan where codeasar='$codeasar'");
@@ -607,6 +609,7 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
     if ($jamnomre >= 70) {
         mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi_ostani='تفصیلی دوم',vaziatkarnameostani='در حال ارزیابی' where `codeasar`='$codeasar'");
+        mysqli_query($connection, "delete from tafsili2_ostan where codeasar='$codeasar'");
         mysqli_query($connection, "insert into tafsili2_ostan (codeasar) values ('$codeasar')");
     } else {
         mysqli_query($connection, "delete from tafsili2_ostan where codeasar='$codeasar'");
@@ -645,6 +648,7 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
     if ($jamnomre >= 70) {
         mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi_ostani='تفصیلی دوم',vaziatkarnameostani='در حال ارزیابی' where `codeasar`='$codeasar'");
+        mysqli_query($connection, "delete from tafsili2_ostan where codeasar='$codeasar'");
         mysqli_query($connection, "insert into tafsili2_ostan (codeasar) values ('$codeasar')");
     } else {
         mysqli_query($connection, "delete from tafsili2_ostan where codeasar='$codeasar'");
@@ -687,6 +691,7 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
     if ($jamnomre >= 70) {
         mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi_ostani='تفصیلی دوم',vaziatkarnameostani='در حال ارزیابی' where `codeasar`='$codeasar'");
+        mysqli_query($connection, "delete from tafsili2_ostan where codeasar='$codeasar'");
         mysqli_query($connection, "insert into tafsili2_ostan (codeasar) values ('$codeasar')");
     } else {
         mysqli_query($connection, "delete from tafsili2_ostan where codeasar='$codeasar'");
@@ -729,6 +734,7 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
     if ($jamnomre >= 70) {
         mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi_ostani='تفصیلی دوم',vaziatkarnameostani='در حال ارزیابی' where `codeasar`='$codeasar'");
+        mysqli_query($connection, "delete from tafsili2_ostan where codeasar='$codeasar'");
         mysqli_query($connection, "insert into tafsili2_ostan (codeasar) values ('$codeasar')");
     } else {
         mysqli_query($connection, "delete from tafsili2_ostan where codeasar='$codeasar'");
@@ -740,7 +746,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
     header("location:" . $main_website_url . "tafsili1_edit.php?tafsili1registrated&code=$codeasar");
 } elseif (isset($_POST['editt1maghaleostani']) and isset($_POST['codeasarfield']) and !empty($_POST['codeasarfield'])) {
-
     $reayatsakhtarasar = $_POST['t1'];
     $shivaeematn = $_POST['t2'];
     $reayataeinnegaresh = $_POST['t3'];
@@ -771,6 +776,7 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
     if ($jamnomre >= 70) {
         mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi_ostani='تفصیلی دوم',vaziatkarnameostani='در حال ارزیابی' where `codeasar`='$codeasar'");
+        mysqli_query($connection, "delete from tafsili2_ostan where codeasar='$codeasar'");
         mysqli_query($connection, "insert into tafsili2_ostan (codeasar) values ('$codeasar')");
     } else {
         mysqli_query($connection, "delete from tafsili2_ostan where codeasar='$codeasar'");
@@ -1088,6 +1094,7 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
     if ($jamnomre >= 70) {
         mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi_madrese='تفصیلی دوم',vaziatkarnamemadrese='در حال ارزیابی' where `codeasar`='$codeasar'");
+        mysqli_query($connection, "delete from tafsili2_madrese where codeasar='$codeasar'");
         mysqli_query($connection, "insert into tafsili2_madrese (codeasar) values ('$codeasar')");
     } else {
         mysqli_query($connection, "delete from tafsili2_madrese where codeasar='$codeasar'");
@@ -1124,6 +1131,7 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
     if ($jamnomre >= 70) {
         mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi_madrese='تفصیلی دوم',vaziatkarnamemadrese='در حال ارزیابی' where `codeasar`='$codeasar'");
+        mysqli_query($connection, "delete from tafsili2_madrese where codeasar='$codeasar'");
         mysqli_query($connection, "insert into tafsili2_madrese (codeasar) values ('$codeasar')");
     } else {
         mysqli_query($connection, "delete from tafsili2_madrese where codeasar='$codeasar'");
@@ -1160,6 +1168,7 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
     if ($jamnomre >= 70) {
         mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi_madrese='تفصیلی دوم',vaziatkarnamemadrese='در حال ارزیابی' where `codeasar`='$codeasar'");
+        mysqli_query($connection, "delete from tafsili2_madrese where codeasar='$codeasar'");
         mysqli_query($connection, "insert into tafsili2_madrese (codeasar) values ('$codeasar')");
     } else {
         mysqli_query($connection, "delete from tafsili2_madrese where codeasar='$codeasar'");
@@ -1198,6 +1207,7 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
     if ($jamnomre >= 70) {
         mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi_madrese='تفصیلی دوم',vaziatkarnamemadrese='در حال ارزیابی' where `codeasar`='$codeasar'");
+        mysqli_query($connection, "delete from tafsili2_madrese where codeasar='$codeasar'");
         mysqli_query($connection, "insert into tafsili2_madrese (codeasar) values ('$codeasar')");
     } else {
         mysqli_query($connection, "delete from tafsili2_madrese where codeasar='$codeasar'");
@@ -1240,6 +1250,7 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
     if ($jamnomre >= 70) {
         mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi_madrese='تفصیلی دوم',vaziatkarnamemadrese='در حال ارزیابی' where `codeasar`='$codeasar'");
+        mysqli_query($connection, "delete from tafsili2_madrese where codeasar='$codeasar'");
         mysqli_query($connection, "insert into tafsili2_madrese (codeasar) values ('$codeasar')");
     } else {
         mysqli_query($connection, "delete from tafsili2_madrese where codeasar='$codeasar'");
@@ -1279,6 +1290,7 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     mysqli_query($connection, $query);
     if ($jamnomre >= 70) {
         mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi_madrese='تفصیلی دوم',vaziatkarnamemadrese='در حال ارزیابی' where `codeasar`='$codeasar'");
+        mysqli_query($connection, "delete from tafsili2_madrese where codeasar='$codeasar'");
         mysqli_query($connection, "insert into tafsili2_madrese (codeasar) values ('$codeasar')");
     } else {
         mysqli_query($connection, "delete from tafsili2_madrese where codeasar='$codeasar'");
@@ -1317,6 +1329,7 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     mysqli_query($connection, $query);
     if ($jamnomre >= 70) {
         mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi_madrese='تفصیلی دوم',vaziatkarnamemadrese='در حال ارزیابی' where `codeasar`='$codeasar'");
+        mysqli_query($connection, "delete from tafsili2_madrese where codeasar='$codeasar'");
         mysqli_query($connection, "insert into tafsili2_madrese (codeasar) values ('$codeasar')");
     } else {
         mysqli_query($connection, "delete from tafsili2_madrese where codeasar='$codeasar'");
