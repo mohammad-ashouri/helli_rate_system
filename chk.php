@@ -13,10 +13,29 @@ include_once 'build/php/functions.php';
 //type=3 => دبیر مدرسه
 //approved=0 => کاربر غیر فعال شده
 $dateforinsertloglogins = $year . '/' . $month . '/' . $day . ' ' . $hour . ':' . $min . ':' . $sec;
+
+function convertPersianNumbersToEnglish($text)
+{
+    $persianToEnglish = array(
+        '۰' => '0',
+        '۱' => '1',
+        '۲' => '2',
+        '۳' => '3',
+        '۴' => '4',
+        '۵' => '5',
+        '۶' => '6',
+        '۷' => '7',
+        '۸' => '8',
+        '۹' => '9'
+    );
+    $englishText = str_replace(array_keys($persianToEnglish), $persianToEnglish, $text);
+    return $englishText;
+}
+
 $ip = '127.0.0.1';
 if (isset($_POST) & !empty($_POST)) {
-    $user = $_POST['username'];
-    $pass = $_POST['password'];
+    $user = convertPersianNumbersToEnglish($_POST['username']);
+    $pass = convertPersianNumbersToEnglish($_POST['password']);
     if ($_POST['captcha'] == $_SESSION['captcha']) {
         if (!isset($_POST['submit']) and empty($user) or empty($pass)) {
             $operation = "LoginError";

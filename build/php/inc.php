@@ -464,7 +464,7 @@ elseif (isset($_POST['addraterkeshvari']) and !empty($_POST['adhesive']) and !em
     $arzyabsamane = 'ارزیاب جشنواره';
     $phone = $_POST['phone'];
     $address = $_POST['address'];
-    $password = $_POST['password'];
+    $password = convertPersianNumbersToEnglish($_POST['password']);
     $accnum = $_POST['acc_number'];
     $bankname = $_POST['bankname'];
     $inputuser = $_POST['adhesive'];
@@ -760,17 +760,17 @@ elseif (isset($_POST['setadmin']) and !empty($_POST['username'])) {
     $operation = "setadmin";
     mysqli_query($connection, "insert into link_logs (id,url,operation,time,username) values ('$LinkLogID','$urlofthispage','$operation','$dateforupdateloghelli','$user')");
 
-    $codeadmin = $_POST['username'];
+    $codeadmin = convertPersianNumbersToEnglish($_POST['username']);
     $nameadmin = $_POST['name'];
     $familyadmin = $_POST['family'];
-    $useradmin = $_POST['username'];
+    $useradmin = convertPersianNumbersToEnglish($_POST['username']);
     $phone = $_POST['phone'];
     $codemelli = $_POST['codemelli'];
-    $password = $_POST['password'];
+    $password = convertPersianNumbersToEnglish($_POST['password']);
     $inputuser = $_SESSION['username'];
     $karshenas = 'کارشناس سامانه';
     $subject = $_POST['subject'];
-    $ratercode = $_POST['username'];
+    $ratercode = convertPersianNumbersToEnglish($_POST['username']);
     $result = mysqli_query($connection, "select * from rater_list where `code`='$ratercode' and `type`=1");
     foreach ($result as $results) {
     }
@@ -833,10 +833,10 @@ elseif (isset($_POST['setadminostani']) and !empty($_POST['username'])) {
 
     $nameadmin = $_POST['name'];
     $familyadmin = $_POST['family'];
-    $useradmin = $_POST['username'];
+    $useradmin = convertPersianNumbersToEnglish($_POST['username']);
     $phone = $_POST['phone'];
     $state = $_POST['state_custom'];
-    $password = $_POST['password'];
+    $password = convertPersianNumbersToEnglish($_POST['password']);
     $inputuser = $_SESSION['username'];
     $gender = $_POST['gender'];
     $subject = $_POST['subject'];
@@ -859,7 +859,7 @@ elseif (isset($_POST['editadminostani']) and !empty($_POST['username'])) {
     $operation = "editadminostani";
     mysqli_query($connection, "insert into link_logs (id,url,operation,time,username) values ('$LinkLogID','$urlofthispage','$operation','$dateforupdateloghelli','$user')");
 
-    $username = $_POST['username'];
+    $username = convertPersianNumbersToEnglish($_POST['username']);
     $nameadmin = $_POST['name'];
     $familyadmin = $_POST['family'];
     $gender = $_POST['gender'];
@@ -934,19 +934,19 @@ elseif (isset($_POST['setadminmadrese']) and !empty($_POST['username'])) {
     $operation = "setadminmadrese";
     mysqli_query($connection, "insert into link_logs (id,url,operation,time,username) values ('$LinkLogID','$urlofthispage','$operation','$dateforupdateloghelli','$user')");
 
-    $codeadmin = $_POST['username'];
+    $codeadmin = convertPersianNumbersToEnglish($_POST['username']);
     $nameadmin = $_POST['name'];
     $familyadmin = $_POST['family'];
-    $useradmin = $_POST['username'];
+    $useradmin = convertPersianNumbersToEnglish($_POST['username']);
     $phone = $_POST['phone'];
     $state = $_POST['state_custom'];
     $shahr = $_POST['city_custom'];
     $school = $_POST['school_custom'];
-    $password = $_POST['password'];
+    $password = convertPersianNumbersToEnglish($_POST['password']);
     $inputuser = $_SESSION['username'];
     $gender = $_POST['gender'];
     $subject = $_POST['subject'];
-    $ratercode = $_POST['username'];
+    $ratercode = convertPersianNumbersToEnglish($_POST['username']);
     $subject = 'دبیر مدرسه ای جشنواره';
     $activation_status = $_POST['activation_status'];
     $result = mysqli_query($connection, "select * from rater_list where `code`='$ratercode'");
@@ -968,7 +968,7 @@ elseif (isset($_POST['editadminmadrese']) and !empty($_POST['username'])) {
     $operation = "editadminmadrese";
     mysqli_query($connection, "insert into link_logs (id,url,operation,time,username) values ('$LinkLogID','$urlofthispage','$operation','$dateforupdateloghelli','$user')");
 
-    $username = $_POST['username'];
+    $username = convertPersianNumbersToEnglish($_POST['username']);
     $nameadmin = $_POST['name'];
     $familyadmin = $_POST['family'];
     $gender = $_POST['gender'];
@@ -1318,8 +1318,6 @@ elseif (isset($_POST['editem']) && !empty($_POST['codeasarfield'])) {
 elseif (isset($_POST['subsetnonkeshvarirater']) and !empty($_POST['code'])) {
     $operation = "subsetnonkeshvarirater";
     mysqli_query($connection, "insert into link_logs (id,url,operation,time,username) values ('$LinkLogID','$urlofthispage','$operation','$dateforupdateloghelli','$user')");
-
-    echo $_POST['code'];
     $codearzyab = $_POST['code'];
     $query = mysqli_query($connection, "select * from rater_list where code='$codearzyab'");
     foreach ($query as $checkraterfound) {
@@ -1327,7 +1325,7 @@ elseif (isset($_POST['subsetnonkeshvarirater']) and !empty($_POST['code'])) {
     if ($checkraterfound != null) {
         header("location:" . $main_website_url . "/../../rater_pages/add_rater_ostani.php?raterfounded&code=$codearzyab");
     } else {
-        $password = $_POST['password'];
+        $password = convertPersianNumbersToEnglish($_POST['password']);
         $namearzyab = $_POST['name'];
         $familyarzyab = $_POST['family'];
         if ($_POST['arshad'] == 'on') {
@@ -1443,7 +1441,7 @@ elseif (isset($_POST['subeditnonkeshvarirater']) and !empty($_POST['editratercod
     } else {
         $namearzyab = $_POST['name'];
         $familyarzyab = $_POST['family'];
-        $password=$_POST['password'];
+        $password=convertPersianNumbersToEnglish($_POST['password']);
         if ($_POST['arshad'] == 'on') {
             $arshad = 'کارشناسی ارشد';
         }
