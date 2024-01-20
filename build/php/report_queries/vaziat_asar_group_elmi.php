@@ -140,6 +140,49 @@ $query137=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inn
 $query138=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='کلام' and etelaat_p.gender='مرد' and etelaat_a.nobat_arzyabi='تفصیلی سوم' and vaziatkarname='اتمام ارزیابی' and bargozidehkeshvari='می باشد' and etelaat_a.jashnvareh='$jashnvareh'");
 $query139=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='کلام' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='تفصیلی دوم' and vaziatkarname='اتمام ارزیابی' and bargozidehkeshvari='می باشد' and etelaat_a.jashnvareh='$jashnvareh'");
 $query140=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='کلام' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='تفصیلی سوم' and vaziatkarname='اتمام ارزیابی' and bargozidehkeshvari='می باشد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query141=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='سیاسی و اجتماعی' and etelaat_p.gender='مرد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query142=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='سیاسی و اجتماعی' and etelaat_p.gender='زن' and etelaat_a.jashnvareh='$jashnvareh'");
+$query143=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='سیاسی و اجتماعی' and etelaat_p.gender='مرد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query144=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='سیاسی و اجتماعی' and etelaat_p.gender='زن' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query145=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='سیاسی و اجتماعی' and etelaat_p.gender='مرد' and etelaat_a.nobat_arzyabi='اجمالی ردی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query146=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='سیاسی و اجتماعی' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='اجمالی ردی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query147=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='سیاسی و اجتماعی' and etelaat_p.gender='مرد' and etelaat_a.nobat_arzyabi='تفصیلی دوم' and vaziatkarname='در حال ارزیابی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query148=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='سیاسی و اجتماعی' and etelaat_p.gender='مرد' and etelaat_a.nobat_arzyabi='تفصیلی سوم' and vaziatkarname='در حال ارزیابی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query149=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='سیاسی و اجتماعی' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='تفصیلی دوم' and vaziatkarname='در حال ارزیابی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query150=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='سیاسی و اجتماعی' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='تفصیلی سوم' and vaziatkarname='در حال ارزیابی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query151=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='سیاسی و اجتماعی' and etelaat_p.gender='مرد' and etelaat_a.nobat_arzyabi='تفصیلی دوم' and vaziatkarname='اتمام ارزیابی' and bargozidehkeshvari='می باشد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query152=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='سیاسی و اجتماعی' and etelaat_p.gender='مرد' and etelaat_a.nobat_arzyabi='تفصیلی سوم' and vaziatkarname='اتمام ارزیابی' and bargozidehkeshvari='می باشد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query153=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='سیاسی و اجتماعی' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='تفصیلی دوم' and vaziatkarname='اتمام ارزیابی' and bargozidehkeshvari='می باشد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query154=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='سیاسی و اجتماعی' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='تفصیلی سوم' and vaziatkarname='اتمام ارزیابی' and bargozidehkeshvari='می باشد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query155=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='اقتصاد و مدیریت' and etelaat_p.gender='مرد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query156=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='اقتصاد و مدیریت' and etelaat_p.gender='زن' and etelaat_a.jashnvareh='$jashnvareh'");
+$query157=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='اقتصاد و مدیریت' and etelaat_p.gender='مرد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query158=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='اقتصاد و مدیریت' and etelaat_p.gender='زن' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query159=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='اقتصاد و مدیریت' and etelaat_p.gender='مرد' and etelaat_a.nobat_arzyabi='اجمالی ردی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query160=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='اقتصاد و مدیریت' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='اجمالی ردی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query161=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='اقتصاد و مدیریت' and etelaat_p.gender='مرد' and etelaat_a.nobat_arzyabi='تفصیلی دوم' and vaziatkarname='در حال ارزیابی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query162=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='اقتصاد و مدیریت' and etelaat_p.gender='مرد' and etelaat_a.nobat_arzyabi='تفصیلی سوم' and vaziatkarname='در حال ارزیابی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query163=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='اقتصاد و مدیریت' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='تفصیلی دوم' and vaziatkarname='در حال ارزیابی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query164=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='اقتصاد و مدیریت' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='تفصیلی سوم' and vaziatkarname='در حال ارزیابی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query165=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='اقتصاد و مدیریت' and etelaat_p.gender='مرد' and etelaat_a.nobat_arzyabi='تفصیلی دوم' and vaziatkarname='اتمام ارزیابی' and bargozidehkeshvari='می باشد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query166=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='اقتصاد و مدیریت' and etelaat_p.gender='مرد' and etelaat_a.nobat_arzyabi='تفصیلی سوم' and vaziatkarname='اتمام ارزیابی' and bargozidehkeshvari='می باشد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query167=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='اقتصاد و مدیریت' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='تفصیلی دوم' and vaziatkarname='اتمام ارزیابی' and bargozidehkeshvari='می باشد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query168=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='اقتصاد و مدیریت' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='تفصیلی سوم' and vaziatkarname='اتمام ارزیابی' and bargozidehkeshvari='می باشد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query169=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='علوم تربیتی و روان‌شناسی' and etelaat_p.gender='مرد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query170=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='علوم تربیتی و روان‌شناسی' and etelaat_p.gender='زن' and etelaat_a.jashnvareh='$jashnvareh'");
+$query171=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='علوم تربیتی و روان‌شناسی' and etelaat_p.gender='مرد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query172=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='علوم تربیتی و روان‌شناسی' and etelaat_p.gender='زن' and etelaat_a.vaziatostaniasar is not null and etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query173=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='علوم تربیتی و روان‌شناسی' and etelaat_p.gender='مرد' and etelaat_a.nobat_arzyabi='اجمالی ردی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query174=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='علوم تربیتی و روان‌شناسی' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='اجمالی ردی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query175=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='علوم تربیتی و روان‌شناسی' and etelaat_p.gender='مرد' and etelaat_a.nobat_arzyabi='تفصیلی دوم' and vaziatkarname='در حال ارزیابی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query176=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='علوم تربیتی و روان‌شناسی' and etelaat_p.gender='مرد' and etelaat_a.nobat_arzyabi='تفصیلی سوم' and vaziatkarname='در حال ارزیابی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query177=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='علوم تربیتی و روان‌شناسی' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='تفصیلی دوم' and vaziatkarname='در حال ارزیابی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query178=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='علوم تربیتی و روان‌شناسی' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='تفصیلی سوم' and vaziatkarname='در حال ارزیابی' and etelaat_a.jashnvareh='$jashnvareh'");
+$query179=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='علوم تربیتی و روان‌شناسی' and etelaat_p.gender='مرد' and etelaat_a.nobat_arzyabi='تفصیلی دوم' and vaziatkarname='اتمام ارزیابی' and bargozidehkeshvari='می باشد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query180=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='علوم تربیتی و روان‌شناسی' and etelaat_p.gender='مرد' and etelaat_a.nobat_arzyabi='تفصیلی سوم' and vaziatkarname='اتمام ارزیابی' and bargozidehkeshvari='می باشد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query181=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='علوم تربیتی و روان‌شناسی' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='تفصیلی دوم' and vaziatkarname='اتمام ارزیابی' and bargozidehkeshvari='می باشد' and etelaat_a.jashnvareh='$jashnvareh'");
+$query182=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='علوم تربیتی و روان‌شناسی' and etelaat_p.gender='زن' and etelaat_a.nobat_arzyabi='تفصیلی سوم' and vaziatkarname='اتمام ارزیابی' and bargozidehkeshvari='می باشد' and etelaat_a.jashnvareh='$jashnvareh'");
+
 ?>
 <center>
     <h4 class="box-title">
@@ -601,6 +644,138 @@ $query140=mysqli_query($connection,"select etelaat_a.codeasar from etelaat_a inn
             </td>
             <td><?php
                 echo mysqli_num_rows($query139)+mysqli_num_rows($query140);
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <th>سیاسی و اجتماعی</th>
+            <td><?php
+
+                echo mysqli_num_rows($query141);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query142);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query143);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query144);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query145);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query146);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query147)+mysqli_num_rows($query148);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query149)+mysqli_num_rows($query150);
+                ?>
+            </td>
+            <td><?php
+               echo mysqli_num_rows($query151)+mysqli_num_rows($query152);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query153)+mysqli_num_rows($query154);
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <th>اقتصاد و مدیریت</th>
+            <td><?php
+
+                echo mysqli_num_rows($query155);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query156);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query157);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query158);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query159);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query160);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query161)+mysqli_num_rows($query162);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query163)+mysqli_num_rows($query164);
+                ?>
+            </td>
+            <td><?php
+               echo mysqli_num_rows($query165)+mysqli_num_rows($query166);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query167)+mysqli_num_rows($query168);
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <th>علوم تربیتی و روان‌شناسی</th>
+            <td><?php
+
+                echo mysqli_num_rows($query169);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query170);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query171);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query172);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query173);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query174);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query175)+mysqli_num_rows($query176);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query177)+mysqli_num_rows($query178);
+                ?>
+            </td>
+            <td><?php
+               echo mysqli_num_rows($query179)+mysqli_num_rows($query180);
+                ?>
+            </td>
+            <td><?php
+                echo mysqli_num_rows($query181)+mysqli_num_rows($query182);
                 ?>
             </td>
         </tr>
