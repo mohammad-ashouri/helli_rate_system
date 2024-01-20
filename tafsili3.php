@@ -75,9 +75,15 @@
             break;
         case 'tafsili3_ostan_log':
             $result=mysqli_query($connection,"select * from etelaat_a inner join tafsili3_ostan on etelaat_a.codeasar=tafsili3_ostan.codeasar where etelaat_a.codeasar='$codeasar'");
+            foreach ($result as $item){}
+            $query=mysqli_query($connection,"select * from tafsili3_ostan where codeasar='$codeasar'");
+            foreach ($query as $tafsili3items){}
             break;
         case 'tafsili3_madrese_log':
             $result=mysqli_query($connection,"select * from etelaat_a inner join tafsili3_madrese on etelaat_a.codeasar=tafsili3_madrese.codeasar where etelaat_a.codeasar='$codeasar'");
+            foreach ($result as $item){}
+            $query=mysqli_query($connection,"select * from tafsili3_madrese where codeasar='$codeasar'");
+            foreach ($query as $tafsili3items){}
             break;
 		default:
 			$result=mysqli_query($connection,"select * from etelaat_a where codeasar='$codeasar' ");
@@ -99,7 +105,7 @@
                 <div class="box-body">
                     <p>لطفا پس از اتمام کار با سامانه، از حساب کاربری خود خارج شوید.</p>
                     <p>لطفا در حفظ و نگهداری نام کاربری و رمز عبور خود نهایت دقت را داشته باشید.</p>
-                    <p><?php if (isset($_POST['tafsili3_madrese_log'])) {
+                    <p><?php if (isset($_POST['tafsili3_ostan_log'])) {
                             echo $codeasar;} ?></p>
                 </div>
             </div>
@@ -162,7 +168,7 @@
 								echo $raterinfo['name'].' '.$raterinfo['family'];
 								?>
                                 در تاریخ
-								<?php echo $item['tarikharzyabitafsili3_ostani'] ?>
+								<?php echo $item['datesabt'] ?>
 							<?php elseif (isset($_POST['editt3m']) or isset($_POST['tafsili3_madrese_log'])): ?>
                                 کارنامه ارزیابی شده
 								<?php
