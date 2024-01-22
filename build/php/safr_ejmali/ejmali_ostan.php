@@ -69,7 +69,6 @@ if (($_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESSI
                             <?php
                             $a = 1;
                             $user = $_SESSION['username'];
-                            echo $state;
                             if ($state == 'قم' and $groupname != null) {
                                 $selectfrometelaat_aforejmaliostan = mysqli_query($connection, "SELECT * FROM etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.nobat_arzyabi_ostani='ارزیابی اجمالی' and etelaat_p.ostantahsili='قم' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_p.master='نیست' and etelaat_a.groupelmi='$groupname' and etelaat_a.approve_sianat=0 order by etelaat_a.groupelmi,etelaat_a.jamemtiazmadrese desc");
                             } else {
