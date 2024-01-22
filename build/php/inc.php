@@ -1437,21 +1437,21 @@ elseif (isset($_POST['subeditnonkeshvarirater']) and !empty($_POST['editratercod
     foreach ($query as $checkraterfound) {
     }
     if ($checkraterfound == null) {
-        header("location:" . $main_website_url . "/../../rater_pages/add_rater_ostani.php?raternotfounded&code=$codearzyab");
+        header("location: /../../add_rater_ostani.php?raternotfounded&code=$codearzyab");
     } else {
         $namearzyab = $_POST['name'];
         $familyarzyab = $_POST['family'];
         $password=convertPersianNumbersToEnglish($_POST['password']);
-        if ($_POST['arshad'] == 'on') {
+        if (@$_POST['arshad'] == 'on') {
             $arshad = 'کارشناسی ارشد';
         }
-        if ($_POST['doctor'] == 'on') {
+        if (@$_POST['doctor'] == 'on') {
             $doctor = 'دکتری';
         }
-        if ($_POST['sath3'] == 'on') {
+        if (@$_POST['sath3'] == 'on') {
             $sath3 = 'سطح 3 حوزه';
         }
-        if ($_POST['sath4'] == 'on') {
+        if (@$_POST['sath4'] == 'on') {
             $sath4 = 'سطح 4 حوزه';
         }
         $sathelmiarzyab = $arshad . '-' . $doctor . '-' . $sath3 . '-' . $sath4;
@@ -1487,7 +1487,7 @@ elseif (isset($_POST['subeditnonkeshvarirater']) and !empty($_POST['editratercod
         $editraterostani = "update rater_list set name='$namearzyab',family='$familyarzyab',password='$password',sath_elmi='$sathelmiarzyab',phone='$phone',gender='$gender',city_name='$state',shahr_name='$city',school_name='$school',type='$user_status',subject='$subject',approved='$active_status',editor='$user',date_edited='$date' where username='$codearzyab'";
         mysqli_query($connection, $editraterostani);
         $info = $namearzyab . ' ' . $familyarzyab;
-        header("location:" . $main_website_url . "/../../rater_pages/add_rater_ostani.php?editedrater&code=$codearzyab&info=$info");
+        header("location: ../../add_rater_ostani.php?editedrater&code=$codearzyab&info=$info");
     }
 }
 //end edit non keshvari rater
