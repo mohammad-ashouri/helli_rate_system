@@ -89,7 +89,7 @@ if ($_SESSION['head'] == 1):
                                                         فردی
                                                     </option>
                                                     <option>
-                                                        گروهی
+                                                        مشترک
                                                     </option>
                                                 </select>
                                             </td>

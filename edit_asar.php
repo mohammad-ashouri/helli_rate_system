@@ -29,10 +29,8 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                 @$QueryPerson = mysqli_query($connection, "select * from `etelaat_p` where `codeasar`='$postcode' and ostantahsili='$state' and etelaat_p.madrese='$school'");
                 break;
         }
-        foreach ($QueryAsar as $searchResult) {
-        }
-        foreach ($QueryPerson as $searchResultPerson) {
-        }
+        $searchResult=mysqli_fetch_array($QueryAsar);
+        $searchResultPerson=mysqli_fetch_array($QueryPerson);
     }
     ?>
     <style>
@@ -328,10 +326,10 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                             } ?>>
                                                                 فردی
                                                             </option>
-                                                            <option <?php if (@$searchResult['noefaaliat'] == 'گروهی') {
+                                                            <option <?php if (@$searchResult['noefaaliat'] == 'مشترک') {
                                                                 echo 'selected';
                                                             } ?>>
-                                                                گروهی
+                                                                مشترک
                                                             </option>
                                                         </select>
                                                     </td>
