@@ -3,6 +3,12 @@ include_once __DIR__ . '/header.php';
 if ($_SESSION['head'] == 1):
 ?>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Initialize Select2
+        $('.select2').select2();
+    });
+</script>
 <div class="content-wrapper">
     <div class="row">
         <section class="col-lg-12 col-md-12">
@@ -53,7 +59,7 @@ if ($_SESSION['head'] == 1):
                         </div>
                         <div class="box-body">
                             <form name="myform" onsubmit="return validateForm()" method="post"
-                                  enctype="multipart/form-data" action="build/php/inc.php">
+                                  enctype="multipart/form-data" action="build/php/New_Post.php">
                                 <center>
                                 <span style="font-weight:bold ">
                                     نام اثر
@@ -64,13 +70,13 @@ if ($_SESSION['head'] == 1):
                                         <tr>
                                             <th>دوره</th>
                                             <td>
-                                                <select name="advaar" class="newasarselections">
+                                                <select name="advaar" class="newasarselections select2" required>
                                                     <?php
-                                                    $selectionfrometelaat_a = mysqli_query($connection, "select distinct(jashnvareh) from etelaat_a where jashnvareh is not null and jashnvareh!='' order by jashnvareh desc ");
+                                                    $selectionfrometelaat_a = mysqli_query($signup_connection, "select distinct(title) from festivals");
                                                     foreach ($selectionfrometelaat_a as $items):
                                                         ?>
                                                         <option>
-                                                            <?php echo $items['jashnvareh'] ?>
+                                                            <?php echo $items['title'] ?>
                                                         </option>
                                                     <?php endforeach; ?>
                                                 </select>
@@ -83,8 +89,7 @@ if ($_SESSION['head'] == 1):
                                         <tr>
                                             <th>نوع فعالیت</th>
                                             <td>
-                                                <select class="newasarselections" name="noefaaliat">
-                                                    <option selected>انتخاب کنید</option>
+                                                <select class="newasarselections select2" name="noefaaliat">
                                                     <option selected>
                                                         فردی
                                                     </option>
@@ -101,8 +106,8 @@ if ($_SESSION['head'] == 1):
                                         <tr>
                                             <th>قالب پژوهش</th>
                                             <td>
-                                                <select class="newasarselections" name="ghalebpazhouhesh">
-                                                    <option selected>انتخاب کنید</option>
+                                                <select class="newasarselections select2" name="ghalebpazhouhesh" required>
+                                                    <option value="" selected>انتخاب کنید</option>
                                                     <option>
                                                         تحقیق پایانی
                                                     </option>
@@ -125,8 +130,8 @@ if ($_SESSION['head'] == 1):
                                         <tr>
                                             <th>سطح ارزیابی</th>
                                             <td>
-                                                <select class="newasarselections" name="satharzyabi">
-                                                    <option selected>انتخاب کنید</option>
+                                                <select class="newasarselections select2" name="satharzyabi" required>
+                                                    <option value="" selected>انتخاب کنید</option>
                                                     <option>
                                                         1
                                                     </option>
@@ -149,44 +154,22 @@ if ($_SESSION['head'] == 1):
                                         <tr>
                                             <th>گروه علمی</th>
                                             <td>
-                                                <select class="newasarselections" name="elmigroup">
-                                                    <option selected>انتخاب کنید</option>
-                                                    <option>
-                                                        اخلاق و تربیت
-                                                    </option>
-                                                    <option>
-                                                        ادبیات
-                                                    </option>
-                                                    <option>
-                                                        اصول فقه
-                                                    </option>
-                                                    <option>
-                                                        تاریخ اسلام
-                                                    </option>
-                                                    <option>
-                                                        تفسیر و علوم قرآنی
-                                                    </option>
-                                                    <option>
-                                                        علوم انسانی
-                                                    </option>
-                                                    <option>
-                                                        علوم حدیث و درایه
-                                                    </option>
-                                                    <option>
-                                                        فقه و حقوق اسلامی
-                                                    </option>
-                                                    <option>
-                                                        فلسفه و منطق
-                                                    </option>
-                                                    <option>
-                                                        کلام
-                                                    </option>
+                                                <select class="newasarselections select2" name="elmigroup" required>
+                                                    <option value="" selected>انتخاب کنید</option>
+                                                    <?php
+                                                    $query = mysqli_query($signup_connection, "select distinct(title) from scientific_groups");
+                                                    foreach ($query as $items):
+                                                        ?>
+                                                        <option>
+                                                            <?php echo $items['title'] ?>
+                                                        </option>
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </td>
                                             <th>جنسیت</th>
                                             <td>
-                                                <select name="gender" class="newasarselections">
-                                                    <option>انتخاب کنید</option>
+                                                <select name="gender" class="newasarselections select2" required>
+                                                    <option value="">انتخاب کنید</option>
                                                     <option>مرد</option>
                                                     <option>زن</option>
                                                 </select>
@@ -195,8 +178,8 @@ if ($_SESSION['head'] == 1):
                                         <tr>
                                             <th>نوع پژوهش</th>
                                             <td>
-                                                <select class="newasarselections" name="noepazhouhesh">
-                                                    <option>انتخاب کنید</option>
+                                                <select class="newasarselections select2" name="noepazhouhesh" required>
+                                                    <option value="">انتخاب کنید</option>
                                                     <option selected>
                                                         تحقیق و تألیف
                                                     </option>
@@ -218,16 +201,16 @@ if ($_SESSION['head'] == 1):
                                         <tr>
                                             <th>وضعیت نشر</th>
                                             <td>
-                                                <select class="newasarselections" name="vaziatnashr">
-                                                    <option selected>انتخاب کنید</option>
+                                                <select class="newasarselections select2" name="vaziatnashr" required>
+                                                    <option value="" selected>انتخاب کنید</option>
                                                     <option>منتشر شده</option>
                                                     <option>منتشر نشده</option>
                                                 </select>
                                             </td>
                                             <th>وضعیت تاهل</th>
                                             <td>
-                                                <select name="vaziattaahol" class="newasarselections">
-                                                    <option selected>انتخاب کنید</option>
+                                                <select name="vaziattaahol" class="newasarselections select2" required>
+                                                    <option value="" selected>انتخاب کنید</option>
                                                     <option>مجرد</option>
                                                     <option>متاهل</option>
                                                 </select>
@@ -247,8 +230,7 @@ if ($_SESSION['head'] == 1):
                                         <tr>
                                             <th>بخش ویژه</th>
                                             <td>
-                                                <select class="newasarselections" name="bakhshvizheh">
-                                                    <option>انتخاب کنید</option>
+                                                <select class="newasarselections select2" name="bakhshvizheh">
                                                     <option>هست</option>
                                                     <option selected>نیست</option>
                                                 </select>
@@ -261,7 +243,7 @@ if ($_SESSION['head'] == 1):
                                         <tr>
                                             <th>وضعیت استانی اثر</th>
                                             <td>
-                                                <select class="newasarselections" name="vaziatostani">
+                                                <select class="newasarselections select2" name="vaziatostani">
                                                     <option selected>انتخاب کنید</option>
                                                     <?php
                                                     $states=mysqli_query($connection,"select distinct ostantahsili from etelaat_p where ostantahsili!='ندارد' and ostantahsili!='' order by ostantahsili");
@@ -282,8 +264,7 @@ if ($_SESSION['head'] == 1):
                                         <tr>
                                             <th>شرایط اولیه شرکت در جشنواره</th>
                                             <td>
-                                                <select name="sharayetavvalie" class="newasarselections">
-                                                    <option>انتخاب کنید</option>
+                                                <select name="sharayetavvalie" class="newasarselections select2" required>
                                                     <option selected>دارد</option>
                                                     <option>ندارد</option>
                                                 </select>
@@ -296,8 +277,8 @@ if ($_SESSION['head'] == 1):
                                         <tr>
                                             <th>علت نداشتن شرایط اولیه</th>
                                             <td>
-                                                <select class="newasarselections" name="ellatnadashtansharayet">
-                                                    <option selected>انتخاب کنید</option>
+                                                <select class="newasarselections select2" name="ellatnadashtansharayet">
+                                                    <option value="" selected disabled>انتخاب کنید</option>
                                                     <option>
                                                         اثر اینترنتی است
                                                     </option>
@@ -371,10 +352,9 @@ if ($_SESSION['head'] == 1):
                                         <tr>
                                             <th>برگزیده کشوری</th>
                                             <td>
-                                                <select name="bargozide" class="newasarselections">
-                                                    <option>انتخاب کنید</option>
+                                                <select name="bargozide" class="newasarselections select2" required>
                                                     <option>می باشد</option>
-                                                    <option>نمی باشد</option>
+                                                    <option selected>نمی باشد</option>
                                                 </select>
                                             </td>
                                             <th>تلفن ثابت</th>
@@ -383,45 +363,103 @@ if ($_SESSION['head'] == 1):
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th></th>
+                                            <th>وضعیت استادی</th>
                                             <td>
+                                                <select class="newasarselections select2" name="ostantahsil" required>
+                                                    <option value="" disabled selected>انتخاب کنید</option>
+                                                    <option value="هست">هست</option>
+                                                    <option value="نیست">نیست</option>
+                                                </select>
                                             </td>
                                             <th>استان تحصیل</th>
                                             <td>
-                                                <select class="newasarselections" name="ostantahsil">
-                                                    <option selected>انتخاب کنید</option>
+                                                <select class="newasarselections select2" name="ostantahsil" required>
+                                                    <option value="" selected>انتخاب کنید</option>
                                                     <?php
-                                                    $states=mysqli_query($connection,"select distinct ostantahsili from etelaat_p where ostantahsili!='ندارد' and ostantahsili!='' order by ostantahsili");
+                                                    $states=mysqli_query($signup_connection,"select distinct ostan from provinces order by ostan");
                                                     foreach ($states as $state):
                                                         ?>
-                                                        <option value="<?php echo $state['ostantahsili']; ?>">
-                                                            <?php echo $state['ostantahsili']; ?>
+                                                        <option value="<?php echo $state['ostan']; ?>">
+                                                            <?php echo $state['ostan']; ?>
                                                         </option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th></th>
+                                            <th>استان تدریس</th>
                                             <td>
+                                                <select class="newasarselections select2" name="ostantadris" required>
+                                                    <option value="" selected>انتخاب کنید</option>
+                                                    <?php
+                                                    $states=mysqli_query($signup_connection,"select distinct ostan from provinces order by ostan");
+                                                    foreach ($states as $state):
+                                                        ?>
+                                                        <option value="<?php echo $state['ostan']; ?>">
+                                                            <?php echo $state['ostan']; ?>
+                                                        </option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </td>
                                             <th>شهر تحصیل</th>
                                             <td>
-                                                <input name="shahrtahsil" class="textnewasartable">
+                                                <select class="newasarselections select2" name="shahrtahsil" required>
+                                                    <option value="" selected>انتخاب کنید</option>
+                                                    <?php
+                                                    $cities=mysqli_query($signup_connection,"select distinct shahr from provinces order by shahr");
+                                                    foreach ($cities as $city):
+                                                        ?>
+                                                        <option value="<?php echo $city['shahr']; ?>">
+                                                            <?php echo $city['shahr']; ?>
+                                                        </option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th></th>
+                                            <th>شهر تدریس</th>
                                             <td>
+                                                <select class="newasarselections select2" name="shahrtadris" required>
+                                                    <option value="" selected>انتخاب کنید</option>
+                                                    <?php
+                                                    $cities=mysqli_query($signup_connection,"select distinct shahr from provinces order by shahr");
+                                                    foreach ($cities as $city):
+                                                        ?>
+                                                        <option value="<?php echo $city['shahr']; ?>">
+                                                            <?php echo $city['shahr']; ?>
+                                                        </option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </td>
                                             <th>نام مدرسه</th>
                                             <td>
-                                                <input name="namemadrese" class="textnewasartable">
+                                                <select class="newasarselections select2" name="namemadrese" required>
+                                                    <option value="" selected>انتخاب کنید</option>
+                                                    <?php
+                                                    $schools=mysqli_query($signup_connection,"select distinct madrese from provinces order by madrese");
+                                                    foreach ($schools as $school):
+                                                        ?>
+                                                        <option value="<?php echo $school['madrese']; ?>">
+                                                            <?php echo $school['madrese']; ?>
+                                                        </option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th></th>
+                                            <th>محل تدریس</th>
                                             <td>
+                                                <select class="newasarselections select2" name="namemahaltadris" required>
+                                                    <option value="" selected>انتخاب کنید</option>
+                                                    <?php
+                                                    $schools=mysqli_query($signup_connection,"select distinct madrese from provinces order by madrese");
+                                                    foreach ($schools as $school):
+                                                        ?>
+                                                        <option value="<?php echo $school['madrese']; ?>">
+                                                            <?php echo $school['madrese']; ?>
+                                                        </option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </td>
                                             <th>پایه، سطح، ترم</th>
                                             <td class="text-center">
@@ -436,8 +474,7 @@ if ($_SESSION['head'] == 1):
                                             </td>
                                             <th>شرط سنی</th>
                                             <td>
-                                                <select name="shartsenni" class="newasarselections">
-                                                    <option>انتخاب کنید</option>
+                                                <select name="shartsenni" class="newasarselections select2">
                                                     <option selected>دارد</option>
                                                     <option>ندارد</option>
                                                 </select>
