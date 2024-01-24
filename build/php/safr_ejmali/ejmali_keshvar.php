@@ -90,7 +90,7 @@
                                     <!--                                    </td>-->
                                     <td>
                                         <?php
-                                        echo $bin['ostantahsili'];
+                                        echo str_replace('اثر منتخب استان', '', $bin['vaziatostaniasar']);
                                         ?>
                                     </td>
                                     <td>
