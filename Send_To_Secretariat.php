@@ -113,7 +113,7 @@ if ($_SESSION['head'] == 2):
                             foreach ($query as $last) {
                             }
                             $last = $last['advaar_cl'];
-                            $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$last' and etelaat_p.ostantahsili='$ostantahsili' and etelaat_a.approve_sianat=0 and ((etelaat_a.jamemtiazostan>=75 and etelaat_a.bakhshvizheh='هست') or (etelaat_a.jamemtiazostan>=80 and etelaat_a.bakhshvizheh='نیست')) order by etelaat_a.jamemtiazostan desc");
+                            $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$last' and ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$ostantahsili') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$ostantahsili')) and etelaat_a.approve_sianat=0 and ((etelaat_a.jamemtiazostan>=75 and etelaat_a.bakhshvizheh='هست') or (etelaat_a.jamemtiazostan>=80 and etelaat_a.bakhshvizheh='نیست')) order by etelaat_a.jamemtiazostan desc");
                             foreach ($query as $values):
                                 ?>
                                 <tr style="<?php

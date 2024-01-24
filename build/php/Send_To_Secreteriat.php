@@ -3,12 +3,10 @@ include_once __DIR__ . '/../../config/connection.php';
 session_start();
 $user = $_SESSION['username'];
 $select = mysqli_query($connection, "select * from log_helli where username='$user' order by radif desc limit 1");
-foreach ($select as $markforlinklogs) {
-}
+$markforlinklogs=mysqli_fetch_array($select);
 $LinkLogID = @$markforlinklogs['radif'];
 $dateforupdateloghelli = $year . '/' . $month . '/' . $day . ' ' . $hour . ':' . $min . ':' . $sec;
 $urlofthispage = $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
-
 
 //start send to secretariat
 if (!empty($_POST['sendtosecretariat']) and isset($_FILES['fileshora']) and isset($_FILES['filesianati'])) {
@@ -18,8 +16,7 @@ if (!empty($_POST['sendtosecretariat']) and isset($_FILES['fileshora']) and isse
 //User Variables
     $username = $_SESSION['username'];
     $query = mysqli_query($connection, "select * from rater_list where username='$username' and type=2");
-    foreach ($query as $UserItems) {
-    }
+    $UserItems=mysqli_fetch_array($query);
     $UserState = $UserItems['city_name'];
     $UserCity = $UserItems['shahr_name'];
 
@@ -47,9 +44,8 @@ if (!empty($_POST['sendtosecretariat']) and isset($_FILES['fileshora']) and isse
         header("location:" . $main_website_url . "Send_To_Secretariat.php?wrongwordfiletype");
     } else {
         //select last festival name
-        $query = mysqli_query($connection, "select * from advaar where active=0");
-        foreach ($query as $last_jashnvareh) {
-        }
+        $query = mysqli_query($connection, "select * from advaar where active=0 order by id desc");
+        $last_jashnvareh=mysqli_fetch_array($query);
         $last = $last_jashnvareh['advaar_cl'];
         $foldername = $username . '-' . $year . '-' . $month . '-' . $day . '-' . $hour . '-' . $min . '-' . $sec;
         if (!mkdir($concurrentDirectory = __DIR__ . "/../../dist/files/Secretariat_Files/$foldername") && !is_dir($concurrentDirectory)) {
@@ -72,14 +68,13 @@ if (!empty($_POST['sendtosecretariat']) and isset($_FILES['fileshora']) and isse
 
 //        select last row of secreteriat informations from this sender
         $query = mysqli_query($connection, "select * from secretariat_approves where sender='$username' and file_type=2 and jashnvareh='$last' order by id desc limit 1");
-        foreach ($query as $secreteriat_approves) {
-        }
+        $secreteriat_approves=mysqli_fetch_array($query);
         $codeapprovetable = $secreteriat_approves['id'];
 
         //select all rows from etelaat_a where approve_sianat=0 and last festival=$last
-        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
+        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$UserState') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$UserState')) and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
         //start operation of send
-        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
+        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$UserState') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$UserState')) and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
         foreach ($query as $approve) {
             if ($approve['approve_sianat'] == 0 and $approve['vaziatkarnameostani'] == 'اتمام ارزیابی' and (($approve['jamemtiazostan'] >= 80 and $approve['bakhshvizheh'] == 'نیست') or ($approve['jamemtiazostan'] >= 75 and $approve['bakhshvizheh'] == 'هست'))) {
                 $codeasar = $approve['codeasar'];
@@ -87,7 +82,7 @@ if (!empty($_POST['sendtosecretariat']) and isset($_FILES['fileshora']) and isse
             }
         }
 
-        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
+        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$UserState') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$UserState')) and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
         foreach ($query as $approve) {
             if ($approve['approve_sianat'] == 0 and $approve['vaziatkarnameostani'] == 'اتمام ارزیابی' and (($approve['jamemtiazostan'] < 80 and $approve['bakhshvizheh'] == 'نیست') or ($approve['jamemtiazostan'] < 75 and $approve['bakhshvizheh'] == 'هست'))) {
                 $codeasar = $approve['codeasar'];
@@ -95,7 +90,7 @@ if (!empty($_POST['sendtosecretariat']) and isset($_FILES['fileshora']) and isse
             }
         }
 
-        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
+        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$UserState') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$UserState')) and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
         foreach ($query as $approve) {
             if ($approve['approve_sianat'] == 0 and $approve['fileasar'] == null or $approve['fileasar_word'] == null) {
                 $codeasar = $approve['codeasar'];
@@ -103,7 +98,7 @@ if (!empty($_POST['sendtosecretariat']) and isset($_FILES['fileshora']) and isse
             }
         }
 
-        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
+        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$UserState') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$UserState')) and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
         foreach ($query as $approve) {
             if ($approve['approve_sianat'] == 0 and $approve['vaziatkarnameostani'] == 'در حال ارزیابی' or $approve['vaziatkarnamemadrese'] == 'در حال ارزیابی') {
                 if ($approve['vaziatkarnamemadrese'] == 'در حال ارزیابی' and ($approve['nobat_arzyabi_madrese'] != null or $approve['nobat_arzyabi_madrese'] != '') and ($approve['fileasar'] != null or $approve['fileasar_word'] != null)) {
@@ -113,7 +108,7 @@ if (!empty($_POST['sendtosecretariat']) and isset($_FILES['fileshora']) and isse
             }
         }
 
-        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
+        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$UserState') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$UserState')) and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
         foreach ($query as $approve) {
             if ($approve['approve_sianat'] == 0 and $approve['vaziatkarnameostani'] == 'در حال ارزیابی' or $approve['vaziatkarnamemadrese'] == 'در حال ارزیابی') {
                 if ($approve['vaziatkarnameostani'] == 'در حال ارزیابی' and ($approve['fileasar'] != null or $approve['fileasar_word'] != null)) {
@@ -123,7 +118,7 @@ if (!empty($_POST['sendtosecretariat']) and isset($_FILES['fileshora']) and isse
             }
         }
 
-        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='$UserState' and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
+        $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$UserState') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$UserState')) and etelaat_a.jashnvareh='$last' and etelaat_a.approve_sianat=0");
         foreach ($query as $approve) {
             if ($approve['approve_sianat'] == 0) {
                 $codeasar = $approve['codeasar'];
