@@ -317,11 +317,10 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                     ?>
                                                                 </td>
                                                                 <td>
-                                                                    <select style="font-size: small;padding: 5px; width: 100%"
+                                                                    <select style="font-size: small;padding: 5px; width: 200px" class="select2"
                                                                             onchange="sendcode(this.value,<?php echo $bin['codeasar'] ?>)">
                                                                         <option disabled selected
-                                                                                style="color: #aeaeae;">نام خانوادگی
-                                                                            ارزیاب را تایپ کنید
+                                                                                style="color: #aeaeae;">انتخاب کنید
                                                                         </option>
                                                                         <?php
                                                                         $user = $_SESSION['username'];
@@ -371,7 +370,7 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                             <script>
                                                                 function sendcode(coderater, codeasar) {
                                                                     var xmlhttp = new XMLHttpRequest();
-                                                                    xmlhttp.open("GET", "/build/ajax/sett1k.php?ratercode=" + coderater + "&codeasar=" + codeasar, true);
+                                                                    xmlhttp.open("GET", "build/ajax/sett1k.php?ratercode=" + coderater + "&codeasar=" + codeasar, true);
                                                                     xmlhttp.send();
                                                                 }
                                                             </script>
@@ -380,7 +379,7 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                             <script>
                                                                 function sendcode(coderater, codeasar) {
                                                                     var xmlhttp = new XMLHttpRequest();
-                                                                    xmlhttp.open("GET", "/build/ajax/sett1o.php?ratercode=" + coderater + "&codeasar=" + codeasar, true);
+                                                                    xmlhttp.open("GET", "build/ajax/sett1o.php?ratercode=" + coderater + "&codeasar=" + codeasar, true);
                                                                     xmlhttp.send();
                                                                 }
                                                             </script>
@@ -389,7 +388,7 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                             <script>
                                                                 function sendcode(coderater, codeasar) {
                                                                     var xmlhttp = new XMLHttpRequest();
-                                                                    xmlhttp.open("GET", "/build/ajax/sett1m.php?ratercode=" + coderater + "&codeasar=" + codeasar, true);
+                                                                    xmlhttp.open("GET", "build/ajax/sett1m.php?ratercode=" + coderater + "&codeasar=" + codeasar, true);
                                                                     xmlhttp.send();
                                                                 }
                                                             </script>

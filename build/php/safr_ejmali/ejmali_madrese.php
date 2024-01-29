@@ -99,7 +99,7 @@ $school = $_SESSION['school'];
                                         <?php echo $bin['groupelmi']; ?>
                                     </td>
                                     <td>
-                                        <select style="font-size: small;padding: 5px"
+                                        <select style="font-size: small;padding: 5px; width: 200px" class="select2"
                                                 onchange="sendcode(this.value,<?php echo $bin['codeasar'] ?>)">
                                             <option style="color: #aeaeae;">نام خانوادگی ارزیاب را تایپ کنید</option>
                                             <?php

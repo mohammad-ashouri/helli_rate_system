@@ -363,7 +363,7 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                     </td>
                                                                                     <td>
                                                                                         <select
-                                                                                                style="font-size: small;padding: 5px; width: 100%"
+                                                                                                style="font-size: small;padding: 5px; width: 200px" class="select2"
                                                                                                 onchange="sendcode(this.value,<?php echo $bin['codeasar'] ?>)">
                                                                                             <option disabled selected
                                                                                                     style="color: #aeaeae;">

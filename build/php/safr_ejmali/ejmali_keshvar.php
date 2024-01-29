@@ -111,7 +111,7 @@
                                     </td>
                                     <td>
 
-                                        <select style="width: 200px;"
+                                        <select style="width: 200px;" class="select2"
                                                 title=" برای انتخاب ارزیاب، کاربر مورد نظر خود را انتخاب کرده و سپس در صورت نیاز کاربر دیگری را انتخاب نمایید"
                                                 onchange="SetEjmaliKeshvari(this.value,<?php echo $codeasar ?>)"
                                                 id='sel_users<?php echo $a; ?>'>
@@ -140,10 +140,6 @@
                                     </td>
                                     <script type="text/javascript">
                                         $(document).ready(function () {
-
-                                            // Initialize Select2
-                                            $('#sel_users<?php echo $a; ?>').select2();
-
                                             // Set option selected onchange
                                             $('#user_selected<?php echo $a; ?>').change(function () {
                                                 var value = $(this).val();
