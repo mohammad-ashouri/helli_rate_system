@@ -65,7 +65,7 @@ $school = $_SESSION['school'];
                             $user = $_SESSION['username'];
                             $city = $_SESSION['shahr_name'];
                             $school = $_SESSION['school'];
-                            $query="select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state' and etelaat_p.teachingCity='$city')) and etelaat_a.nobat_arzyabi_madrese='ارزیابی اجمالی' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_a.approve_sianat=0 ";
+                            $query="select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state' and etelaat_p.shahrtahsili='$city') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state' and etelaat_p.teachingCity='$city')) and etelaat_a.nobat_arzyabi_madrese='ارزیابی اجمالی' and etelaat_a.vaziatkarnamemadrese='در حال ارزیابی' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.approve_sianat=0 ";
                             if ($school!=null){
                                 $query.="and etelaat_p.madrese='$school' ";
                             }
