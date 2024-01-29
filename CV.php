@@ -207,7 +207,7 @@
 <!--                                    <td>مقطع</td>-->
 <!--                                    <td>رشته تحصیلی</td>-->
 <!--                                    <td>تاریخ</td>-->
-<!--                                    <td>عنوان پایان نامه</td>-->
+<!--                                    <td>عنوان پایان‌نامه</td>-->
 <!--                                </tr>-->
 <!--                                <tr>-->
 <!--                                    <td>تحصیلات حوزوی</td>-->
@@ -411,7 +411,7 @@
 <!--                                </tr>-->
 <!--                                <tr>-->
 <!--                                    <th style="background-color: olive; color: white">-->
-<!--                                        مشاوره پایان نامه:-->
+<!--                                        مشاوره پایان‌نامه:-->
 <!--                                    </th>-->
 <!--                                    <td>-->
 <!--                                        <textarea style="height: 150px;border-radius: 7px" name="moshavere">--><?php //if (!empty($item)){echo $item['moshavere_p'];} ?><!--</textarea>-->

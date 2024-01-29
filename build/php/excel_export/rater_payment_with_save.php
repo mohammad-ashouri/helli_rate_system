@@ -75,7 +75,7 @@
 				$objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$k4, 'UTF-8');
 			}elseif ($row['ghalebpazhouhesh']=='تحقیق پایانی' and $row['satharzyabi']==2){
 				$objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$t2, 'UTF-8');
-			}elseif ($row['ghalebpazhouhesh']=='پایان نامه' and $row['satharzyabi']==3){
+			}elseif ($row['ghalebpazhouhesh']=='پایان‌نامه' and $row['satharzyabi']==3){
 				$objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$p3, 'UTF-8');
 			}elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['noepazhouhesh']=='ترجمه'){
 				$objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$kt, 'UTF-8');
@@ -163,7 +163,7 @@
 				$amount=$t2;
 				mysqli_query($connection,"update etelaat_a set how_much_payed_to_rater_tafsili2='$amount' where codeasar='$code'");
 				$objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$amount);
-			}elseif ($row['ghalebpazhouhesh']=='پایان نامه' and $row['satharzyabi']==3){
+			}elseif ($row['ghalebpazhouhesh']=='پایان‌نامه' and $row['satharzyabi']==3){
 				$amount=$p3;
 				mysqli_query($connection,"update etelaat_a set how_much_payed_to_rater_tafsili2='$amount' where codeasar='$code'");
 				$objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$amount);
@@ -214,7 +214,7 @@
 				$objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$k4, 'UTF-8');
 			}elseif ($row['ghalebpazhouhesh']=='تحقیق پایانی' and $row['satharzyabi']==2){
 				$objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$t2, 'UTF-8');
-			}elseif ($row['ghalebpazhouhesh']=='پایان نامه' and $row['satharzyabi']==3){
+			}elseif ($row['ghalebpazhouhesh']=='پایان‌نامه' and $row['satharzyabi']==3){
 				$objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$p3, 'UTF-8');
 			}elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['noepazhouhesh']=='ترجمه'){
 				$objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$kt, 'UTF-8');
@@ -302,7 +302,7 @@
 				$amount=$t2;
 				mysqli_query($connection,"update etelaat_a set how_much_payed_to_rater_tafsili3='$amount' where codeasar='$code'");
 				$objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$amount);
-			}elseif ($row['ghalebpazhouhesh']=='پایان نامه' and $row['satharzyabi']==3){
+			}elseif ($row['ghalebpazhouhesh']=='پایان‌نامه' and $row['satharzyabi']==3){
 				$amount=$p3;
 				mysqli_query($connection,"update etelaat_a set how_much_payed_to_rater_tafsili3='$amount' where codeasar='$code'");
 				$objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$amount);

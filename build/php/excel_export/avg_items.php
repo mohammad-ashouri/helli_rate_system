@@ -20,7 +20,7 @@
 		$k4num=mysqli_num_rows($result);
 		$result = $connection->query("select * from etelaat_a where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh='تحقیق پایانی' and satharzyabi=2") or die(mysqli_connect_errno());
 		$t2num=mysqli_num_rows($result);
-		$result = $connection->query("select * from etelaat_a where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh='پایان نامه' and satharzyabi=3") or die(mysqli_connect_errno());
+		$result = $connection->query("select * from etelaat_a where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh='پایان‌نامه' and satharzyabi=3") or die(mysqli_connect_errno());
 		$p3num=mysqli_num_rows($result);
 		
 		
@@ -150,9 +150,9 @@
 			$naghdvanoavarielmit2t2=(($t2t2['naghdvanoavarielmi']*100)/$cri[13])+$naghdvanoavarielmit2t2;
 		}
 		
-		$resultt2p3 = $connection->query("select * from etelaat_a inner join tafsili2 on etelaat_a.codeasar=tafsili2.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh='پایان نامه' and etelaat_a.satharzyabi=3") or die(mysqli_connect_errno());
+		$resultt2p3 = $connection->query("select * from etelaat_a inner join tafsili2 on etelaat_a.codeasar=tafsili2.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh='پایان‌نامه' and etelaat_a.satharzyabi=3") or die(mysqli_connect_errno());
 		foreach ($resultt2p3 as $t2p3){
-			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh='پایان نامه' and sath_elmi=3");
+			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh='پایان‌نامه' and sath_elmi=3");
 			foreach ($query as $criteria){}
 			$cri=explode('-',$criteria['criteria']);
 			$sakhtarasart2p3=(($t2p3['reayatsakhtarasar']*100)/$cri[0])+$sakhtarasart2p3;
@@ -290,9 +290,9 @@
 			$naghdvanoavarielmit3t2=(($t3t2['naghdvanoavarielmi']*100)/$cri[13])+$naghdvanoavarielmit3t2;
 		}
 		
-		$resultt3p3 = $connection->query("select * from etelaat_a inner join tafsili3 on etelaat_a.codeasar=tafsili3.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili3 is not null and etelaat_a.ghalebpazhouhesh='پایان نامه' and etelaat_a.satharzyabi=3") or die(mysqli_connect_errno());
+		$resultt3p3 = $connection->query("select * from etelaat_a inner join tafsili3 on etelaat_a.codeasar=tafsili3.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili3 is not null and etelaat_a.ghalebpazhouhesh='پایان‌نامه' and etelaat_a.satharzyabi=3") or die(mysqli_connect_errno());
 		foreach ($resultt3p3 as $t3p3){
-			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh='پایان نامه' and sath_elmi=3");
+			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh='پایان‌نامه' and sath_elmi=3");
 			foreach ($query as $criteria){}
 			$cri=explode('-',$criteria['criteria']);
 			$sakhtarasart3p3=(($t3p3['reayatsakhtarasar']*100)/$cri[0])+$sakhtarasart3p3;
@@ -329,7 +329,7 @@
 		$objPHPExcel->getActiveSheet()->SetCellValue('A8', 'کتاب سطح 3');
 		$objPHPExcel->getActiveSheet()->SetCellValue('A9', 'کتاب سطح 4');
 		$objPHPExcel->getActiveSheet()->SetCellValue('A10', 'تحقیق پایانی سطح 2');
-		$objPHPExcel->getActiveSheet()->SetCellValue('A11', 'پایان نامه سطح 3');
+		$objPHPExcel->getActiveSheet()->SetCellValue('A11', 'پایان‌نامه سطح 3');
 		
 		$objPHPExcel->getActiveSheet()->SetCellValue('B1', 'تعداد کل');
 		$objPHPExcel->getActiveSheet()->SetCellValue('C1', 'رعایت ساختار اثر');

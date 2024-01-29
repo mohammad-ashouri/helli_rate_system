@@ -318,7 +318,7 @@ foreach ($result as $item) {
                                     break;
                             }
                             break;
-                        case "پایان نامه":
+                        case "پایان‌نامه":
                             switch ($item['satharzyabi']) {
                                 case 3:
                                     include_once 'build/php/rate_pages/tafsili2/payanname/payanname-sath3-t2.php';

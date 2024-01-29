@@ -115,7 +115,7 @@ if ($_SESSION['head'] == 1):
                                                         مقاله
                                                     </option>
                                                     <option>
-                                                        پایان نامه
+                                                        پایان‌نامه
                                                     </option>
                                                     <option>
                                                         کتاب
