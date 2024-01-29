@@ -270,7 +270,7 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                     break;
                                                                             }
                                                                             if ($_SESSION['head'] == 0 and $_SESSION['groupname'] != null) {
-                                                                                $resultat2 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='قم' and etelaat_a.nobat_arzyabi_ostani='تفصیلی دوم' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.groupelmi='$groupname' and etelaat_a.approve_sianat=0 and etelaat_p.master='نیست' order by etelaat_a.groupelmi asc");
+                                                                                $resultat2 = mysqli_query($connection, "SELECT * FROM `etelaat_a` INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where  ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='قم') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='قم')) and etelaat_a.nobat_arzyabi_ostani='تفصیلی دوم' and etelaat_a.vaziatkarnameostani='در حال ارزیابی' and etelaat_a.groupelmi='$groupname' and etelaat_a.approve_sianat=0 and etelaat_p.master='نیست' order by etelaat_a.groupelmi asc");
                                                                             }
                                                                             $a = 1;
                                                                             foreach ($resultat2 as $bin):
