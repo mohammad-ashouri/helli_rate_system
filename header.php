@@ -95,6 +95,13 @@ if (!isset($_SESSION['islogin'])) {
     <!-- Select2 JS -->
     <script src="bower_components/select2/dist/js/select2.min.js" type="text/javascript"></script>
 
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2({
+                placeholder: 'انتخاب کنید'
+            });
+        });
+    </script>
     <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
