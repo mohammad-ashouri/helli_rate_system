@@ -18,8 +18,8 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
             case 2:
                 $state = $_SESSION['city'];
                 $city = $_SESSION['shahr_name'];
-                @$QueryAsar = mysqli_query($connection, "select * from `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codeasar='$postcode' and ostantahsili='$state' and etelaat_a.approve_sianat!=1");
-                @$QueryPerson = mysqli_query($connection, "select * from `etelaat_p` where `codeasar`='$postcode' and ostantahsili='$state'");
+                @$QueryAsar = mysqli_query($connection, "select * from `etelaat_a` inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.codeasar='$postcode' and ((master='نیست' and ostantahsili='$state') or (master='هست' and teachingProvince='$state')) and etelaat_a.approve_sianat!=1");
+                @$QueryPerson = mysqli_query($connection, "select * from `etelaat_p` where `codeasar`='$postcode' and ((master='نیست' and ostantahsili='$state') or (master='هست' and teachingProvince='$state'))");
                 break;
             case 3:
                 $state = $_SESSION['city'];
@@ -29,8 +29,8 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                 @$QueryPerson = mysqli_query($connection, "select * from `etelaat_p` where `codeasar`='$postcode' and ostantahsili='$state' and etelaat_p.madrese='$school'");
                 break;
         }
-        $searchResult=mysqli_fetch_array($QueryAsar);
-        $searchResultPerson=mysqli_fetch_array($QueryPerson);
+        $searchResult = mysqli_fetch_array($QueryAsar);
+        $searchResultPerson = mysqli_fetch_array($QueryPerson);
     }
     ?>
     <style>
