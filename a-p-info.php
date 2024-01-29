@@ -171,7 +171,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                     </div>
                                     <div class="box-body">
                                         <span style="font-weight: bold">وضعیت ارزیابی:</span>
-                                        <?php echo @$et_a['nobat_arzyabi_ostani'] . ' - ' . @$et_a['vaziatkarnameostani'] ?>
+                                        <?php echo $et_a['nobat_arzyabi'] . ' - ' . $et_a['vaziatkarname'] ?>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <?php if (@$et_a['jamemtiazostan'] != '' or @$et_a['jamemtiazostan'] != null): ?>
                                             <span style="font-weight: bold">جمع امتیاز استان:</span>
