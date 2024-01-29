@@ -716,7 +716,7 @@ elseif (isset($_POST['setadminostani']) and !empty($_POST['username'])) {
         $add = "insert into `rater_list` (`name`,`family`,`code`,`phone`,`username`,`password`,`gender`,`input_user`,`type`,`subject`,approved,date_added,codemelli,city_name)
                             values ('$nameadmin','$familyadmin','$useradmin','$phone','$useradmin','$password','$gender','$inputuser',2,'$subject','$activation_status','$date','$useradmin','$state')";
         mysqli_query($connection, $add);
-        header("location:".$main_website_url ."/../../ostani_admins.php?successadded");
+        header("location:" . $main_website_url . "/../../ostani_admins.php?successadded");
     } else {
         header("location:" . $main_website_url . "/../../ostani_admins.php?wasfound");
     }
@@ -915,9 +915,10 @@ elseif (isset($_POST['setejmali']) && isset($_POST['codeasarfield'])) {
     mysqli_query($connection, "insert into link_logs (id,url,operation,time,username) values ('$LinkLogID','$urlofthispage','$operation','$dateforupdateloghelli','$user')");
 
     $codeasar = $_POST['codeasarfield'];
-    $query=mysqli_query($connection,"select * from t_a_ejmali where codeasar='$codeasar'");
-    foreach($query as $check){}
-    if(!$check){
+    $query = mysqli_query($connection, "select * from t_a_ejmali where codeasar='$codeasar'");
+    foreach ($query as $check) {
+    }
+    if (!$check) {
         mysqli_query($connection, "insert into t_a_ejmali (codeasar) values ('$codeasar')");
     }
     $comment = $_POST['nazar'];
@@ -986,7 +987,10 @@ elseif (isset($_POST['setejmaliostani']) && !empty($_POST['codeasarfield'])) {
     $tozih = $_POST['tozihat'];
     $user = $_SESSION['username'];
     $jamnomre = $t1 + $t2 + $t3 + $t4 + $t5 + $t6 + $t7 + $t8 + $t9;
-    mysqli_query($connection, "insert into ejmali_ostan(codeasar) values ('$codeasar')");
+    $checkEjmaliOstan = mysqli_query($connection, "select * from ejmali_ostan where codeasar = $codeasar");
+    if (mysqli_num_rows($checkEjmaliOstan) < 1) {
+        mysqli_query($connection, "insert into ejmali_ostan(codeasar) values ('$codeasar')");
+    }
     mysqli_query($connection, "update `ejmali_ostan` set reayatsakhtarasar='$t1',shivaeematn='$t2',reayataeinnegaresh='$t3',
                         tabiinmasale='$t4',manabemotabar='$t5',ghabeliatelmiasar='$t6',sazmandehimabahes='$t7',
                         parhizazmatalebzaed='$t8',keyfiatjambandi='$t9',tozihat='$tozih',jam='$jamnomre',
@@ -1000,7 +1004,7 @@ elseif (isset($_POST['setejmaliostani']) && !empty($_POST['codeasarfield'])) {
     } elseif ($jamnomre < 75) {
         mysqli_query($connection, "update etelaat_a set nobat_arzyabi_ostani='اجمالی ردی',vaziatkarnameostani='اتمام ارزیابی' WHERE codeasar='$codeasar'");
     }
-    header("location:" . $main_website_url . "panel.php?ejmaliregistrated");
+    header("location: ../../panel.php?ejmaliregistrated");
 }
 //end ejmali ostan rater
 
@@ -1022,7 +1026,10 @@ elseif (isset($_POST['setejmalimadrese']) && !empty($_POST['codeasarfield'])) {
     $tozih = $_POST['tozihat'];
     $user = $_SESSION['username'];
     $jamnomre = $t1 + $t2 + $t3 + $t4 + $t5 + $t6 + $t7 + $t8 + $t9;
-    mysqli_query($connection, "insert into ejmali_madrese(codeasar) values ('$codeasar')");
+    $checkEjmaliMadrese = mysqli_query($connection, "select * from ejmali_madrese where codeasar = $codeasar");
+    if (mysqli_num_rows($checkEjmaliMadrese) < 1) {
+        mysqli_query($connection, "insert into ejmali_madrese(codeasar) values ('$codeasar')");
+    }
     mysqli_query($connection, "update `ejmali_madrese` set reayatsakhtarasar='$t1',shivaeematn='$t2',reayataeinnegaresh='$t3',
                         tabiinmasale='$t4',manabemotabar='$t5',ghabeliatelmiasar='$t6',sazmandehimabahes='$t7',
                         parhizazmatalebzaed='$t8',keyfiatjambandi='$t9',tozihat='$tozih',jam='$jamnomre',
@@ -1309,7 +1316,7 @@ elseif (isset($_POST['subeditnonkeshvarirater']) and !empty($_POST['editratercod
     } else {
         $namearzyab = $_POST['name'];
         $familyarzyab = $_POST['family'];
-        $password=convertPersianNumbersToEnglish($_POST['password']);
+        $password = convertPersianNumbersToEnglish($_POST['password']);
         if (@$_POST['arshad'] == 'on') {
             $arshad = 'کارشناسی ارشد';
         }
