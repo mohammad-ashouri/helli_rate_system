@@ -255,8 +255,9 @@ if (isset($_POST['paziresh']) and !empty($_POST['codeasarfield']) and !empty($_S
     }
 //end table6 - pdf
 
+//start table7 - word
+
     if ($_FILES['fileasar_word']['name'] != null) {
-        //start table7 - word
         $operation = "AttachFile_WORD_From_Edit";
         mysqli_query($connection, "insert into link_logs (id,url,operation,time,username) values ('$LinkLogID','$urlofthispage','$operation','$dateforupdateloghelli','$user')");
         $file_size = $_FILES['fileasar_word']['size'];
@@ -280,7 +281,6 @@ if (isset($_POST['paziresh']) and !empty($_POST['codeasarfield']) and !empty($_S
             move_uploaded_file($tmpname, "../../dist/files/asar_files_word/" . $folderName . '/' . $file_name);
         }
     }
-//end table7 - word
     if ($_FILES['fileasar_word']['name'] == null and $_FILES['fileasar']['name'] == null) {
         header("location: ../../edit_asar.php?pazireshset&codeasar=$codeasar&nameasar=$asarname");
     }
@@ -288,6 +288,8 @@ if (isset($_POST['paziresh']) and !empty($_POST['codeasarfield']) and !empty($_S
     header("location: ../../edit_asar.php?pazireshset&codeasar=$codeasar&nameasar=$asarname");
 
 }
+//end table7 - word
+
 //end paziresh
 
 //start PazireshCity
@@ -389,7 +391,7 @@ elseif (isset($_POST['pazireshcity']) and !empty($_POST['codeasarfield']) and !e
                 throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
             }
             mysqli_query($connection, "update etelaat_a set `fileasar`= 'dist/files/asar_files/$folderName/$file_name',fileasar_uploader='$adhesive',fileasar_upload_date='$datewithtime' where `codeasar`='$codeasar'");
-            move_uploaded_file($tmpname, "../../dist/files/asar_files/" . $file_name);
+            move_uploaded_file($tmpname, "../../dist/files/asar_files/$folderName/$file_name");
         }
         //end table3 - pdf
     }
@@ -410,12 +412,12 @@ elseif (isset($_POST['pazireshcity']) and !empty($_POST['codeasarfield']) and !e
             header("location: ../../edit_asar.php?pazireshsetWORDFileHaveNotSize&codeasar=$codeasar&nameasar=$asarname");
         } elseif (!in_array($ext_word, $allowed_word)) {
             header("location: ../../edit_asar.php?pazireshsetFileIsNotWORD&codeasar=$codeasar&nameasar=$asarname");
-        }else {
+        } else {
             if (!mkdir($concurrentDirectory = '../../dist/files/asar_files_word/' . $folderName) && !is_dir($concurrentDirectory)) {
                 throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
             }
             mysqli_query($connection, "update etelaat_a set `fileasar_word`= 'dist/files/asar_files_word/$folderName/$file_name',fileasar_word_uploader='$adhesive',fileasar_word_upload_date='$datewithtime' where `codeasar`='$codeasar'");
-            move_uploaded_file($tmpname, "../../dist/files/asar_files_word/".$folderName."/" . $file_name);
+            move_uploaded_file($tmpname, "../../dist/files/asar_files_word/$folderName/$file_name");
         }
 
         //end table3 - word
