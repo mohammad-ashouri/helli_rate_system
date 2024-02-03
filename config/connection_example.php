@@ -4,7 +4,23 @@
 include_once 'jdf.php';
 include_once 'GDate.php';
 // include_once 'PHPExcel/Classes/PHPExcel.php';
-
+function convertPersianNumbersToEnglish($text)
+{
+    $persianToEnglish = array(
+        '۰' => '0',
+        '۱' => '1',
+        '۲' => '2',
+        '۳' => '3',
+        '۴' => '4',
+        '۵' => '5',
+        '۶' => '6',
+        '۷' => '7',
+        '۸' => '8',
+        '۹' => '9'
+    );
+    $englishText = str_replace(array_keys($persianToEnglish), $persianToEnglish, $text);
+    return $englishText;
+}
 date_default_timezone_set("Asia/Tehran");
 $main_website_url = "localhost/";
 $year = jdate('Y');
