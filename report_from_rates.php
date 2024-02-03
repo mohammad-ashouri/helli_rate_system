@@ -156,7 +156,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
         case 2:
             @$city = $_POST['shahr_name'];
             @$school = $_POST['school'];
-            $query="select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state' and etelaat_p.ostantahsili!='' ";
+            $query="select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state')) ";
             if ($groupelmi!=null){
                 $query.="and etelaat_a.groupelmi='$groupelmi' ";
             }
