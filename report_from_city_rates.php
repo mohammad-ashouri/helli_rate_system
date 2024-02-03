@@ -48,7 +48,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                             <select name="groupelmi">
                                 <option <?php if (@$_POST['groupelmi'] == 'همه گروه ها') {
                                     echo 'selected';
-                                } ?>>همه گروه‌ها
+                                } ?> value="">همه گروه‌ها
                                 </option>
                                 <?php
                                 $query = mysqli_query($connection, "select distinct groupelmi from etelaat_a where groupelmi is not null and groupelmi!='' order by groupelmi");
@@ -63,7 +63,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                             <select name="gender">
                                 <option <?php if (@$_POST['gender'] == 'بدون فیلتر') {
                                     echo 'selected';
-                                } ?>>بدون فیلتر
+                                } ?> value="">بدون فیلتر
                                 </option>
                                 <option <?php if (@$_POST['gender'] == 'مرد') {
                                     echo 'selected';
@@ -81,7 +81,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                                 <select name="state">
                                     <option <?php if (@$_POST['state'] == 'همه استان‌ها') {
                                         echo 'selected';
-                                    } ?>>همه استان‌ها
+                                    } ?> value="">همه استان‌ها
                                     </option>
                                     <?php
                                     $query = mysqli_query($connection, "select distinct ostantahsili from etelaat_p where ostantahsili is not null and ostantahsili!='' order by ostantahsili");
@@ -98,7 +98,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                             <select name="city">
                                 <option <?php if (@$_POST['city'] == 'همه شهرستان‌ها') {
                                     echo 'selected';
-                                } ?>>همه شهرستان‌ها
+                                } ?> value="">همه شهرستان‌ها
                                 </option>
                                 <?php
                                 if ($head == 1) {
@@ -110,14 +110,14 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                                     ?>
                                     <option <?php if (@$_POST['city'] == $shahrtahsili['shahrtahsili']) {
                                         echo 'selected';
-                                    } ?>><?php echo $shahrtahsili['shahrtahsili'] ?></option>
+                                    } ?> value="<?php echo $shahrtahsili['shahrtahsili'] ?>"><?php echo $shahrtahsili['shahrtahsili'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                             مدرسه:
                             <select name="school">
                                 <option <?php if (@$_POST['school'] == 'همه مدارس') {
                                     echo 'selected';
-                                } ?>>همه مدارس
+                                } ?> value="">همه مدارس
                                 </option>
                                 <?php
                                 if ($head == 1) {
@@ -154,7 +154,10 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
     }
     $city = $_POST['city'];
     $school = $_POST['school'];
-    $query="select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state')) ";
+    $query="select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.vaziatkarnamemadrese is not null and vaziatkarnamemadrese!='' and etelaat_a.nobat_arzyabi_madrese is not null and etelaat_p.master!='هست' and etelaat_a.nobat_arzyabi_madrese!='' ";
+    if ($state!=null){
+        $query.=" and etelaat_p.ostantahsili='$state'";
+    }
     if ($groupelmi!=null){
         $query.="and etelaat_a.groupelmi='$groupelmi' ";
     }
@@ -162,7 +165,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
         $query.="and etelaat_p.gender='$gender' ";
     }
     if ($city!=null){
-        $query.="and etelaat_p.shahrtahsili='$city' or etelaat_p.teachingCity='$city' ";
+        $query.="and etelaat_p.shahrtahsili='$city' ";
     }
     if ($school!=null){
         $query.="and etelaat_p.madrese='$school' ";
@@ -178,8 +181,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
 
                             <?php
                             $sql = mysqli_query($connection, $query);
-                            foreach ($sql as $values) {
-                            }
+                            $values=mysqli_fetch_array($sql);
                             if (empty($values)):
                                 ?>
                                 <section class="col-lg-12 col-md-12">
@@ -198,7 +200,6 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                                         <th>نام اثر</th>
                                         <th>قالب/سطح</th>
                                         <th>گروه علمی</th>
-                                        <th>بخش اساتید</th>
                                         <?php if ($head == 1): ?>
                                             <th>استان</th>
                                         <?php endif; ?>
@@ -212,14 +213,13 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                                         <th>امتیاز نهایی</th>
                                     </tr>
                                     <?php
-                                    foreach ($sql as $values):
+                                    foreach ($sql as $key=>$values):
                                         $coderater = null;
                                         ?>
 
                                         <tr style="font-size: 15px;border-bottom: 2px solid black">
                                             <td style="padding: 10px">
-                                                <?php echo $counter;
-                                                $counter++ ?>
+                                                <?php echo ++$key;?>
                                             </td>
                                             <td style="padding: 10px">
                                                 <?php echo $codeasar = $values['codeasar'] ?>
@@ -244,24 +244,12 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                                             <td style="padding: 10px">
                                                 <?php echo $values['groupelmi'] ?>
                                             </td>
-                                            <td style="padding: 10px">
-                                                <?php
-                                                $query = mysqli_query($connection, "select master from etelaat_p where codeasar='$codeasar'");
-                                                foreach ($query as $etelaat_p) {
-                                                }
-                                                if ($etelaat_p['master'] == 'هست') {
-                                                    echo 'می باشد';
-                                                } else {
-                                                    echo 'نمی باشد';
-                                                }
-                                                ?>
-                                            </td>
                                             <?php if ($head == 1): ?>
                                                 <td>
                                                     <?php echo $values['ostantahsili'] ?>
                                                 </td>
                                             <?php endif; ?>
-                                            <td>
+                                            <td class="text-center">
                                                 <?php echo $values['shahrtahsili'] ?>
                                             </td>
                                             <td>
@@ -269,8 +257,18 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                                             </td>
                                             <td style="padding: 10px">
                                                 <?php
-                                                if ($values['fileasar'] == null or $values['fileasar_word'] == null) {
+                                                if (($values['fileasar'] == null and $values['fileasar_word'] == null)) {
                                                     echo 'فایل بارگذاری نشده';
+                                                } elseif (($values['fileasar'] == null or $values['fileasar_word'] == null) and $values['approve_sianat'] == 2) {
+                                                    echo $values['ellatnadashtansharayet'];
+                                                } elseif ($values['vaziatkarnamemadrese'] == 'در حال ارزیابی' and ($values['nobat_arzyabi_madrese'] != null or $values['nobat_arzyabi_madrese'] != '')) {
+                                                    echo 'در حال ارزیابی در مدرسه';
+                                                } elseif (($values['jamemtiazmadrese'] != null or $values['jamemtiazmadrese'] != '') and (($values['jamemtiazmadrese'] < 75 and $values['bakhshvizheh'] == 'هست') or ($values['jamemtiazmadrese'] < 80 and $values['bakhshvizheh'] == 'نیست'))) {
+                                                    echo 'رد اثر در مدرسه';
+                                                } elseif ($values['approve_sianat'] == 2 and $values['ellatnadashtansharayet'] == 'عدم اتمام فرایند ارزیابی در مرحله مدرسه ای') {
+                                                    echo 'عدم اتمام فرایند ارزیابی در مرحله مدرسه ای';
+                                                } elseif ($values['approve_sianat'] == 2 and $values['ellatnadashtansharayet'] == 'عدم اتمام فرایند ارزیابی در مرحله استانی') {
+                                                    echo 'عدم اتمام فرایند ارزیابی در مرحله استانی';
                                                 } else {
                                                     echo $values['nobat_arzyabi_madrese'] . ' (' . $values['vaziatkarnamemadrese'] . ')';
                                                 }
@@ -279,12 +277,10 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                                             <td style="padding: 10px">
                                                 <?php
                                                 $selectfromejmalimadrese = mysqli_query($connection, "select * from ejmali_madrese where codeasar='$codeasar' and jam is not null");
-                                                foreach ($selectfromejmalimadrese as $ejm) {
-                                                }
+                                                $ejm=mysqli_fetch_array($selectfromejmalimadrese);
                                                 $coderater = @$ejm['rater_id'];
                                                 $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
-                                                foreach ($sql as $ejr) {
-                                                }
+                                                $ejr=mysqli_fetch_array($sql);
                                                 echo @$ejr['name'] . ' ' . @$ejr['family'];
                                                 echo ' - ' . @$ejm['jam'];
                                                 @$ejm['jam'] = null;
@@ -298,12 +294,10 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                                                 <?php
 
                                                 $selectfromtafsili1madrese = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar' and jam is not null");
-                                                foreach ($selectfromtafsili1madrese as $t1m) {
-                                                }
+                                                $t1m=mysqli_fetch_array($selectfromtafsili1madrese);
                                                 $coderater = @$t1m['rater_id'];
                                                 $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
-                                                foreach ($sql as $t1r) {
-                                                }
+                                                $t1r=mysqli_fetch_array($sql);
                                                 echo @$t1r['name'] . ' ' . @$t1r['family'];
                                                 echo ' - ' . @$t1m['jam'];
                                                 @$t1m['jam'] = null;
@@ -316,12 +310,10 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                                             <td style="padding: 10px">
                                                 <?php
                                                 $selectfromtafsili2madrese = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar' and jam is not null");
-                                                foreach ($selectfromtafsili2madrese as $t2m) {
-                                                }
+                                                $t2m=mysqli_fetch_array($selectfromtafsili2madrese);
                                                 $coderater = @$t2m['rater_id'];
                                                 $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
-                                                foreach ($sql as $t2r) {
-                                                }
+                                                $t2r=mysqli_fetch_array($sql);
                                                 echo @$t2r['name'] . ' ' . @$t2r['family'];
                                                 echo ' - ' . @$t2m['jam'];
                                                 @$t2m['jam'] = null;
@@ -334,12 +326,10 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                                             <td style="padding: 10px">
                                                 <?php
                                                 $selectfromtafsili3madrese = mysqli_query($connection, "select * from tafsili3_madrese where codeasar='$codeasar' and jam is not null");
-                                                foreach ($selectfromtafsili3madrese as $t3m) {
-                                                }
+                                                $t3m=mysqli_fetch_array($selectfromtafsili3madrese);
                                                 $coderater = @$t3m['rater_id'];
                                                 $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
-                                                foreach ($sql as $t3r) {
-                                                }
+                                                $t3r=mysqli_fetch_array($sql);
                                                 echo @$t3r['name'] . ' ' . @$t3r['family'];
                                                 echo ' - ' . @$t3m['jam'];
                                                 @$t3m['jam'] = null;
