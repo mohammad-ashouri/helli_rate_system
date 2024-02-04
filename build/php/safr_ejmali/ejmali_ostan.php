@@ -121,7 +121,7 @@ if (($_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESSI
                                         ?>
                                     </td>
                                     <td>
-                                        <select style="font-size: small;padding: 5px; width: 200px" class="select2"
+                                        <select style="font-size: small;padding: 5px; width: auto" class="select2"
                                                 onchange="sendcode(this.value,<?php echo $bin['codeasar'] ?>)">
                                             <option style="color: #aeaeae;">نام خانوادگی ارزیاب را تایپ کنید</option>
                                             <?php

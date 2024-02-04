@@ -189,7 +189,7 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                             <section class="content">
                                 <div class="row">
                                     <section class="col-lg-12 col-md-12">
-                                        <div class="box box-solid box-warning">
+                                        <div class="box box-solid box-warning" style="overflow-x: auto">
                                             <div class="box-header">
                                                 <i class="fa fa-info-circle"></i>
 
@@ -317,7 +317,7 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                     ?>
                                                                 </td>
                                                                 <td>
-                                                                    <select style="font-size: small;padding: 5px; width: 200px" class="select2"
+                                                                    <select style="font-size: small;padding: 5px; width: auto" class="select2"
                                                                             onchange="sendcode(this.value,<?php echo $bin['codeasar'] ?>)">
                                                                         <option disabled selected
                                                                                 style="color: #aeaeae;">انتخاب کنید
