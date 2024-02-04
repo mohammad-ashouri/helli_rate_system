@@ -333,7 +333,7 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                             case 3:
                                                                                 switch ($city) {
                                                                                     case "قم":
-                                                                                        $query = mysqli_query($connection, "select * from rater_list where (shahr_name='قم' or city_name is null) and approved=1 and type!=1 order by family asc");
+                                                                                        $query = mysqli_query($connection, "select * from rater_list where (city_name='قم' or city_name is null or city_name='') and approved=1 and type!=1 order by family asc");
                                                                                         break;
                                                                                     default:
                                                                                         $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and approved=1 order by family asc");
