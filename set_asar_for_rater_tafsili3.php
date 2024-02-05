@@ -280,6 +280,9 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                         <?php echo $bin['ghalebpazhouhesh'] . " سطح " . $bin['satharzyabi']; ?>
                                                                                     </td>
                                                                                     <td>
+                                                                                        <?php echo $bin['groupelmi'] ?>
+                                                                                    </td>
+                                                                                    <td>
                                                                                         <?php
                                                                                         if ($bin['master'] == 'هست') {
                                                                                             echo 'استاد می باشد';
