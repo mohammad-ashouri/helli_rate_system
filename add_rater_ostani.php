@@ -130,7 +130,7 @@ if ($_SESSION['head'] == 1):
                             </div>
                         <?php endif; ?>
                         <center>
-                            <form method="post" action="build/php/inc.php" onsubmit="return checkcodemelli()">
+                            <form method="post" action="build/php/Manage_Ostani_Rater.php" onsubmit="return checkcodemelli()">
                                 <table class="tableratermanager">
                                     <tr>
                                         <th>کد ملی (نام کاربری)</th>
