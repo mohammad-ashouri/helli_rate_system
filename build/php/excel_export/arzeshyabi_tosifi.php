@@ -1,12 +1,9 @@
 <?php
-require '../../../vendor/autoload.php';
-
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 include_once '../../../config/connection.php';
 $groupelmi = $_POST['elmigroup'];
-
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 $result = $connection->query("SELECT distinct(etelaat_a.codeasar),etelaat_a.nameasar,etelaat_a.ghalebpazhouhesh,etelaat_a.satharzyabi,etelaat_a.vaziatostaniasar from etelaat_a inner join rater_comments_archive on etelaat_a.codeasar=rater_comments_archive.codeasar where etelaat_a.groupelmi='$groupelmi'  and etelaat_a.nobat_arzyabi='ارزیابی اجمالی' and etelaat_a.sharayetavalliehsherkat='دارد' order by etelaat_a.codeasar asc") or die(mysqli_connect_errno());
 if (isset($_POST['exp_ejmali']) and !empty(mysqli_fetch_array($result))) {
     $objPHPExcel = new Spreadsheet();
