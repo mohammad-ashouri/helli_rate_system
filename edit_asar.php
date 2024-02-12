@@ -914,7 +914,6 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                     <th>استاد می باشد یا خیر؟</th>
                                                     <td>
                                                         <select name="master">
-                                                            <option <?php if (@$searchResultPerson['master'] == '') echo 'selected'; ?>></option>
                                                             <option <?php if (@$searchResultPerson['master'] == 'هست') echo 'selected'; ?>>
                                                                 هست
                                                             </option>

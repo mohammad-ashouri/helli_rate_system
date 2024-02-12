@@ -82,15 +82,12 @@ $school = $_SESSION['school'];
                                         <?php echo $bin['codeasar']; ?>
                                     </td>
                                     <td>
-                                        <a href="<?php if ($bin['fileasar'] == 'dist/files/asar_files/') {
-                                            echo $bin['fileasar_word'];
-                                        } else {
-                                            echo $bin['fileasar'];
-                                        } ?>" target="_blank">
-                                            <label style="width: 300px">
-                                                <?php echo $bin['nameasar']; ?>
-                                            </label>
-                                        </a>
+                                        <?php
+                                        if (!empty($raters['cv_filepath']) and $raters['cv_filepath']!=null) {
+                                            echo "<a href=" . $raters['cv_filepath'] . ">$raters[name] $raters[family]</a>";
+                                        }
+                                        else echo $raters['name'] . " " . $raters['family']
+                                        ?>
                                     </td>
                                     <td>
                                         <?php echo $bin['ghalebpazhouhesh'] . " سطح " . $bin['satharzyabi']; ?>

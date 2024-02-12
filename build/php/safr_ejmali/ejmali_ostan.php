@@ -212,9 +212,12 @@ if (($_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESSI
                                                 <?php echo $raters['code'] ?>
                                             </td>
                                             <td>
-                                                <a href="<?php echo $raters['cv_filepath'] ?>">
-                                                    <?php echo $raters['name'] . " " . $raters['family'] ?>
-                                                </a>
+                                                <?php
+                                                if (!empty($raters['cv_filepath']) and $raters['cv_filepath']!=null) {
+                                                    echo "<a href=" . $raters['cv_filepath'] . ">$raters[name] $raters[family]</a>";
+                                                }
+                                                else echo $raters['name'] . " " . $raters['family']
+                                                ?>
                                             </td>
                                             <td>
                                                 <?php echo $raters['phone'] ?>
