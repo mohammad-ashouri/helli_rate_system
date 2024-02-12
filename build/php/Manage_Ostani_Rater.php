@@ -21,16 +21,16 @@ if (isset($_POST['subsetnonkeshvarirater']) and !empty($_POST['code'])) {
         $password = convertPersianNumbersToEnglish($_POST['password']);
         $namearzyab = $_POST['name'];
         $familyarzyab = $_POST['family'];
-        if ($_POST['arshad'] == 'on') {
+        if (isset($_POST['arshad']) and $_POST['arshad'] == 'on') {
             $arshad = 'کارشناسی ارشد';
         }
-        if ($_POST['doctor'] == 'on') {
+        if (isset($_POST['doctor']) and $_POST['doctor'] == 'on') {
             $doctor = 'دکتری';
         }
-        if ($_POST['sath3'] == 'on') {
+        if (isset($_POST['sath3']) and $_POST['sath3'] == 'on') {
             $sath3 = 'سطح 3 حوزه';
         }
-        if ($_POST['sath4'] == 'on') {
+        if (isset($_POST['sath4']) and $_POST['sath4'] == 'on') {
             $sath4 = 'سطح 4 حوزه';
         }
         $sathelmiarzyab = $arshad . '-' . $doctor . '-' . $sath3 . '-' . $sath4;
@@ -84,16 +84,16 @@ elseif (isset($_POST['subeditnonkeshvarirater']) and !empty($_POST['editratercod
         $namearzyab = $_POST['name'];
         $familyarzyab = $_POST['family'];
         $password = convertPersianNumbersToEnglish($_POST['password']);
-        if (@$_POST['arshad'] == 'on') {
+        if (isset($_POST['arshad']) and $_POST['arshad'] == 'on') {
             $arshad = 'کارشناسی ارشد';
         }
-        if (@$_POST['doctor'] == 'on') {
+        if (isset($_POST['doctor']) and $_POST['doctor'] == 'on') {
             $doctor = 'دکتری';
         }
-        if (@$_POST['sath3'] == 'on') {
+        if (isset($_POST['sath3']) and $_POST['sath3'] == 'on') {
             $sath3 = 'سطح 3 حوزه';
         }
-        if (@$_POST['sath4'] == 'on') {
+        if (isset($_POST['sath4']) and $_POST['sath4'] == 'on') {
             $sath4 = 'سطح 4 حوزه';
         }
         $sathelmiarzyab = $arshad . '-' . $doctor . '-' . $sath3 . '-' . $sath4;

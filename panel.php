@@ -194,10 +194,8 @@ if (!empty($_GET)):
 endif;
 endif; ?>
 <?php
-$coderater = $_SESSION['coderater'];
-$approved = mysqli_query($connection, "select * from rater_list where code='$coderater'");
-foreach ($approved as $approved1) {
-}
+$approved = mysqli_query($connection, "select * from rater_list where code=$_SESSION[coderater]");
+$approved1=mysqli_fetch_array($approved);
 if ($approved1['approved'] == 0 and $approved1['type'] == 0):
     ?>
     <div class="row">
@@ -209,6 +207,9 @@ if ($approved1['approved'] == 0 and $approved1['type'] == 0):
                         صفحه کاربری شما تایید نشده است:
                     </h3>
                 </div>
+                <form action="build/php/RaterCV.php" method="post"
+                      enctype="multipart/form-data" onsubmit="return validatefileisselected()">
+
                 <div class="box-body">
                     <center>
                         <h4 style="background-color: #9affc6; padding: 5px">لطفا در
@@ -251,8 +252,6 @@ if ($approved1['approved'] == 0 and $approved1['type'] == 0):
                             </p>
                         <?php endif; ?>
                         <label style="border: 3px solid black; padding: 5px">
-                            <form action="./build/php/RaterCV.php" method="post"
-                                  enctype="multipart/form-data" onsubmit="return validatefileisselected()">
                                 <input type="checkbox" name="accept_data"
                                        id="accept_data" onchange="checkaccept()">
                                 اطلاعات خود را تایید می‌کنم
@@ -278,9 +277,10 @@ if ($approved1['approved'] == 0 and $approved1['type'] == 0):
                                value="<?php echo $user ?>">
                         <input type="submit" name="uploadcv" value="ارسال رزومه"
                                style="padding: 10px;width: 150px;font-weight: bold" class="btn btn-block btn-success">
-                        </form>
                     </center>
                 </div>
+                </form>
+
             </div>
         </section>
     </div>
