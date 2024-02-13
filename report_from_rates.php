@@ -149,7 +149,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                     $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.gender='زن' and etelaat_a.groupelmi='$groupelmi' and etelaat_p.ostantahsili='قم' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_a.groupelmi,etelaat_a.codeasar");
                     break;
                 default:
-                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_p.ostantahsili='قم' and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_a.groupelmi,etelaat_a.codeasar");
+                    $sql = mysqli_query($connection, "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='قم') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='قم')) and etelaat_a.groupelmi='$groupelmi' and etelaat_a.jashnvareh='$jashnvareh' order by  etelaat_a.jamemtiazostan desc,etelaat_a.groupelmi,etelaat_a.codeasar");
                     break;
             }
             break;
