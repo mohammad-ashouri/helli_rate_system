@@ -194,7 +194,8 @@ if (!empty($_GET)):
 endif;
 endif; ?>
 <?php
-$approved = mysqli_query($connection, "select * from rater_list where code=$_SESSION[coderater]");
+$coderater=$_SESSION['coderater'];
+$approved = mysqli_query($connection, "select * from rater_list where code='$coderater'");
 $approved1=mysqli_fetch_array($approved);
 if ($approved1['approved'] == 0 and $approved1['type'] == 0):
     ?>
