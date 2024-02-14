@@ -201,9 +201,10 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                     <th>ردیف</th>
                                     <th>کد اثر</th>
                                     <th>نام اثر</th>
+                                    <th>قالب/سطح</th>
                                     <th>نویسنده</th>
                                     <th>جنسیت</th>
-                                    <th>قالب/سطح</th>
+                                    <th>مدرسه</th>
                                     <th>گروه علمی</th>
                                     <th>بخش اساتید</th>
                                     <?php if ($_SESSION['head'] == 2): ?>
@@ -250,6 +251,9 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                         </td>
                                         <td style="padding: 10px">
                                             <?php echo $values['gender'] ?>
+                                        </td>
+                                        <td class="text-center" style="padding: 10px">
+                                            <?php echo $values['madrese'] ?>
                                         </td>
                                             <td style="padding: 10px">
                                                 <?php echo $values['groupelmi'] ?>
