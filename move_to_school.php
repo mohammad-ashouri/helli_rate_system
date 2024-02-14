@@ -1,4 +1,5 @@
 <?php
+global $school;
 include_once __DIR__ . '/header.php';
 if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
 ?>
@@ -30,17 +31,25 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                         </div>
                     </div>
                 <?php elseif (isset($_GET['moved'])): ?>
-                    <?php
-
-                    ?>
                     <div class="box box-solid box-success">
                         <div class="box-header">
                             <i class="fa fa-info-circle"></i>
                             <h3 class="box-title">
-                                آثار با موفقیت به مدرسه ی مورد نظر انتقال یافت!
                                 <?php
-                                echo '(' . $_GET["num"] . ' اثر)';
+                                $city=$_GET['city'];
+                                $school=$_GET['school'];
+                                $num=$_GET["num"];
+                                echo "آثار با موفقیت به مدرسه $school شهرستان $city انتقال یافت ($num اثر) "
                                 ?>
+                            </h3>
+                        </div>
+                    </div>
+                <?php elseif (isset($_GET['not_moved'])): ?>
+                    <div class="box box-solid box-danger">
+                        <div class="box-header">
+                            <i class="fa fa-info-circle"></i>
+                            <h3 class="box-title">
+                                اثری برای انتقال وجود ندارد.
                             </h3>
                         </div>
                     </div>
@@ -65,21 +74,23 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                         <form action="build/php/Move_Posts_To_School.php" method="post" id="myform" onsubmit="">
                                 <span>
                                     مدرسه‌ای که می‌خواهید تمامی آثار ثبت شده‌اش را به آن انتقال دهید، انتخاب کنید :
-                                    <select name="schoolname">
+                                    <select name="school" required>
+                                        <option value="" disabled selected>انتخاب کنید</option>
                                         <?php
                                         $state = $_SESSION['city'];
                                         $city = $_SESSION['shahr_name'];
-                                        $query=mysqli_query($connection,"select distinct jashnvareh from etelaat_a order by jashnvareh");
-                                        foreach ($query as $festivals){}
-                                        $lastFestival=$festivals['jashnvareh'];
-                                        $query = mysqli_query($connection, "select distinct (madrese),shahrtahsili from etelaat_p inner join etelaat_a on etelaat_p.codeasar=etelaat_a.codeasar where etelaat_p.madrese is not null and etelaat_p.madrese!='' and etelaat_p.madrese!='آزاد' and etelaat_p.ostantahsili='$state' and etelaat_a.approve_sianat=0 and etelaat_a.jashnvareh='$lastFestival' order by etelaat_p.madrese");
+                                        $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and type=3 order by school_name");
                                         foreach ($query as $items):
                                             ?>
                                             <option value="<?php
-                                            echo $items['madrese'];
+                                            $school_info=[
+                                                "city"=>$items['shahr_name'],
+                                                "school"=>$items['school_name']
+                                            ];
+                                            echo implode("|",$school_info);
                                             ?>">
                                       <?php
-                                      echo $items['madrese']. ' - شهرستان ' . $items['shahrtahsili'];
+                                      echo $items['school_name']. ' - شهرستان ' . $items['shahr_name'];
                                       ?>
                                     </option>
                                         <?php
