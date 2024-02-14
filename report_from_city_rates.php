@@ -198,6 +198,8 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                                         <th>ردیف</th>
                                         <th>کد اثر</th>
                                         <th>نام اثر</th>
+                                        <th>نویسنده</th>
+                                        <th>جنسیت</th>
                                         <th>قالب/سطح</th>
                                         <th>گروه علمی</th>
                                         <?php if ($head == 1): ?>
@@ -239,6 +241,12 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
 
                                             </td>
                                             <td style="padding: 10px">
+                                                <?php echo $values['fname'] . ' ' . $values['family'] ?>
+                                            </td>
+                                            <td style="padding: 10px">
+                                                <?php echo $values['gender'] ?>
+                                            </td>
+                                            <td style="padding: 10px">
                                                 <?php echo $values['ghalebpazhouhesh'] . ' ' . $values['satharzyabi'] ?>
                                             </td>
                                             <td style="padding: 10px">
@@ -252,7 +260,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2):
                                             <td class="text-center">
                                                 <?php echo $values['shahrtahsili'] ?>
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 <?php echo $values['madrese'] ?>
                                             </td>
                                             <td style="padding: 10px">

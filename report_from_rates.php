@@ -77,27 +77,27 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                             </select>
                             <?php if ($_SESSION['head'] == 2): ?>
                                 <br/><br/>
-                                    شهرستان:
-                                    <select name="shahr_name">
-                                        <option value="" <?php if (@$_POST['groupelmi'] == 'همه شهرستان‌ها') {
+                                شهرستان:
+                                <select name="shahr_name">
+                                    <option value="" <?php if (@$_POST['groupelmi'] == 'همه شهرستان‌ها') {
+                                        echo 'selected';
+                                    } ?>>همه شهرستان‌ها
+                                    </option>
+                                    <?php
+                                    $city = $_POST['shahr_name'];
+                                    $school = $_POST['school'];
+                                    switch ($city) {
+                                        default:
+                                            $query = mysqli_query($connection, "select distinct shahrtahsili from etelaat_p where ostantahsili='$state' and shahrtahsili is not null and shahrtahsili!='' order by shahrtahsili");
+                                            break;
+                                    }
+                                    foreach ($query as $shahrtahsili):
+                                        ?>
+                                        <option <?php if (@$_POST['shahr_name'] == $shahrtahsili['shahrtahsili']) {
                                             echo 'selected';
-                                        } ?>>همه شهرستان‌ها
-                                        </option>
-                                        <?php
-                                        $city = $_POST['shahr_name'];
-                                        $school = $_POST['school'];
-                                        switch ($city) {
-                                            default:
-                                                $query = mysqli_query($connection, "select distinct shahrtahsili from etelaat_p where ostantahsili='$state' and shahrtahsili is not null and shahrtahsili!='' order by shahrtahsili");
-                                                break;
-                                        }
-                                        foreach ($query as $shahrtahsili):
-                                            ?>
-                                            <option <?php if (@$_POST['shahr_name'] == $shahrtahsili['shahrtahsili']) {
-                                                echo 'selected';
-                                            } ?>><?php echo $shahrtahsili['shahrtahsili'] ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                        } ?>><?php echo $shahrtahsili['shahrtahsili'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                                 مدرسه:
                                 <select name="school">
                                     <option value="" <?php if (@$_POST['school'] == 'همه مدارس') {
@@ -156,37 +156,37 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
         case 2:
             @$city = $_POST['shahr_name'];
             @$school = $_POST['school'];
-            $query="select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state')) ";
-            if ($groupelmi!=null){
-                $query.="and etelaat_a.groupelmi='$groupelmi' ";
+            $query = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state')) ";
+            if ($groupelmi != null) {
+                $query .= "and etelaat_a.groupelmi='$groupelmi' ";
             }
-            if ($gender!=null){
-                $query.="and etelaat_p.gender='$gender' ";
+            if ($gender != null) {
+                $query .= "and etelaat_p.gender='$gender' ";
             }
-            if ($city!=null){
-                $query.="and (etelaat_p.shahrtahsili='$city' or etelaat_p.teachingCity='$city') ";
+            if ($city != null) {
+                $query .= "and (etelaat_p.shahrtahsili='$city' or etelaat_p.teachingCity='$city') ";
             }
-            if ($school!=null){
-                $query.="and etelaat_p.madrese='$school' ";
+            if ($school != null) {
+                $query .= "and etelaat_p.madrese='$school' ";
             }
-            $query.=";";
-            $sql=mysqli_query($connection,$query);
+            $query .= ";";
+            $sql = mysqli_query($connection, $query);
             break;
         case 3:
             $city = $_SESSION['shahr_name'];
             $school = $_SESSION['school'];
-            $query="select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and (etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state') ";
-            if ($groupelmi!=null){
-                $query.="and etelaat_a.groupelmi='$groupelmi' ";
+            $query = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and (etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state') ";
+            if ($groupelmi != null) {
+                $query .= "and etelaat_a.groupelmi='$groupelmi' ";
             }
-            if ($gender!=null){
-                $query.="and etelaat_p.gender='$gender' ";
+            if ($gender != null) {
+                $query .= "and etelaat_p.gender='$gender' ";
             }
-            if ($school!=null){
-                $query.="and etelaat_p.madrese='$school' ";
+            if ($school != null) {
+                $query .= "and etelaat_p.madrese='$school' ";
             }
-            $query.=";";
-            $sql=mysqli_query($connection,$query);
+            $query .= ";";
+            $sql = mysqli_query($connection, $query);
             break;
     }
     ?>
@@ -201,10 +201,10 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                     <th>ردیف</th>
                                     <th>کد اثر</th>
                                     <th>نام اثر</th>
+                                    <th>نویسنده</th>
+                                    <th>جنسیت</th>
                                     <th>قالب/سطح</th>
-                                    <?php if ($_SESSION['head'] != 0): ?>
-                                        <th>گروه علمی</th>
-                                    <?php endif; ?>
+                                    <th>گروه علمی</th>
                                     <th>بخش اساتید</th>
                                     <?php if ($_SESSION['head'] == 2): ?>
                                         <th>شهرستان</th>
@@ -241,16 +241,19 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                             <?php else: ?>
                                                 <?php echo $values['nameasar'] ?>
                                             <?php endif; ?>
-
                                         </td>
                                         <td style="padding: 10px">
                                             <?php echo $values['ghalebpazhouhesh'] . ' ' . $values['satharzyabi'] ?>
                                         </td>
-                                        <?php if ($_SESSION['head'] != 0): ?>
+                                        <td style="padding: 10px">
+                                            <?php echo $values['fname'] . ' ' . $values['family'] ?>
+                                        </td>
+                                        <td style="padding: 10px">
+                                            <?php echo $values['gender'] ?>
+                                        </td>
                                             <td style="padding: 10px">
                                                 <?php echo $values['groupelmi'] ?>
                                             </td>
-                                        <?php endif; ?>
                                         <td style="padding: 10px">
                                             <?php
                                             $query = mysqli_query($connection, "select master from etelaat_p where codeasar='$codeasar'");

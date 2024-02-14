@@ -165,8 +165,9 @@ if ($_SESSION['head'] == 1):
                                     <th>ردیف</th>
                                     <th>کد اثر</th>
                                     <th>نام اثر</th>
+                                    <th> نویسنده</th>
+                                    <th>جنسیت</th>
                                     <th>مشخصات استادی</th>
-                                    <th>مشخصات نویسنده</th>
                                     <th>قالب/سطح</th>
                                     <th>گروه علمی</th>
                                     <th>استان/شهرستان/مدرسه</th>
@@ -204,16 +205,17 @@ if ($_SESSION['head'] == 1):
 
                                         </td>
                                         <td style="padding: 10px">
+                                            <?php echo $values['fname'] . ' ' . $values['family'] ?>
+                                        </td>
+                                        <td style="padding: 10px">
+                                            <?php echo $values['gender'] ?>
+                                        </td>
+                                        <td style="padding: 10px">
                                             <?php
                                             $query = mysqli_query($connection, "select fname,family,ostantahsili,shahrtahsili,madrese,master from etelaat_p where codeasar='$codeasar'");
                                             foreach ($query as $etelaat_p) {
                                             }
                                             echo $etelaat_p['master'];
-                                            ?>
-                                        </td>
-                                        <td style="padding: 10px">
-                                            <?php
-                                            echo $etelaat_p['fname'] . ' ' . $etelaat_p['family'];
                                             ?>
                                         </td>
                                         <td style="padding: 10px">

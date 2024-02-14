@@ -211,6 +211,8 @@ if ($_SESSION['head'] == 1): ?>
                                         <th>ردیف</th>
                                         <th>کد اثر</th>
                                         <th>نام اثر</th>
+                                        <th>نویسنده</th>
+                                        <th>جنسیت</th>
                                         <th>قالب/سطح</th>
                                         <th>گروه علمی</th>
                                         <th>استان</th>
@@ -278,6 +280,12 @@ if ($_SESSION['head'] == 1): ?>
                                                 <a href="<?php echo $values['fileasar'] ?>">
                                                     <?php echo $values['nameasar'] ?>
                                                 </a>
+                                            </td>
+                                            <td style="padding: 10px">
+                                                <?php echo $values['fname'] . ' ' . $values['family'] ?>
+                                            </td>
+                                            <td style="padding: 10px">
+                                                <?php echo $values['gender'] ?>
                                             </td>
                                             <td style="padding: 10px"><?php echo $values['ghalebpazhouhesh'] . ' ' . $values['satharzyabi'] ?></td>
                                             <td style="padding: 10px"><?php echo $values['groupelmi'] ?></td>
