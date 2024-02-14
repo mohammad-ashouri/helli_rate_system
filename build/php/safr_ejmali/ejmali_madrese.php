@@ -98,9 +98,9 @@ $school = $_SESSION['school'];
                                         <?php echo $bin['groupelmi']; ?>
                                     </td>
                                     <td>
-                                        <select style="font-size: small;padding: 5px; width: 200px" class="select2"
+                                        <select style="font-size: small;padding: 5px; width: auto" class="select2"
                                                 onchange="sendcode(this.value,<?php echo $bin['codeasar'] ?>)">
-                                            <option style="color: #aeaeae;">نام خانوادگی ارزیاب را تایپ کنید</option>
+                                            <option selected disabled style="color: #aeaeae;">نام خانوادگی ارزیاب را تایپ کنید</option>
                                             <?php
                                             $query = mysqli_query($connection, "select * from rater_list where city_name='$state' and approved=1 and type!=1 order by family");
                                             foreach ($query as $raters):

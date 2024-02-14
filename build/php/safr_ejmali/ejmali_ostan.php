@@ -123,7 +123,7 @@ if (($_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESSI
                                     <td>
                                         <select style="font-size: small;padding: 5px; width: auto" class="select2"
                                                 onchange="sendcode(this.value,<?php echo $bin['codeasar'] ?>)">
-                                            <option style="color: #aeaeae;">نام خانوادگی ارزیاب را تایپ کنید</option>
+                                            <option selected disabled style="color: #aeaeae;">نام خانوادگی ارزیاب را تایپ کنید</option>
                                             <?php
                                             if ($state == 'قم') {
                                                 $query = mysqli_query($connection, "select * from rater_list where (city_name='قم' or city_name is null) and approved=1 and type!=1 order by family");
