@@ -27,7 +27,7 @@ if ($_SESSION['head'] == 1): ?>
                             دریافت گزارشات ارزیابی آثار در دوره‌ی:
                             <select name="jashnvareh">
                                 <?php
-                                $selectionfrometelaat_a = mysqli_query($connection, "select distinct(jashnvareh) from etelaat_a where jashnvareh is not null and jashnvareh!=''");
+                                $selectionfrometelaat_a = mysqli_query($connection, "select distinct(jashnvareh) from etelaat_a where jashnvareh is not null and jashnvareh!='' order by jashnvareh desc");
                                 foreach ($selectionfrometelaat_a as $items):
                                     ?>
                                     <option <?php if (@$_POST['jashnvareh'] == $items['jashnvareh']) {
