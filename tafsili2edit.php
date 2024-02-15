@@ -44,7 +44,7 @@ if ($_SESSION['head']==1):
 			                            $query=mysqli_query($connection,"select distinct jashnvareh from etelaat_a  ");
 			                            foreach ($query as $jashnvarehlist):
 				                            ?>
-                                            <option value="<?php echo $jashnvarehlist['jashnvareh']; ?>" <?php if ($_POST['jashnvareh']==$jashnvarehlist['jashnvareh']) echo 'selected' ?>><?php echo $jashnvarehlist['jashnvareh']; ?></option>
+                                            <option value="<?php echo $jashnvarehlist['jashnvareh']; ?>" <?php if (@$_POST['jashnvareh']==$jashnvarehlist['jashnvareh']) echo 'selected' ?>><?php echo $jashnvarehlist['jashnvareh']; ?></option>
 			                            <?php endforeach; ?>
                                 </select>
                                 <input type="submit" name="jashnvarehset" value="جستجو" style="padding: 6px">
