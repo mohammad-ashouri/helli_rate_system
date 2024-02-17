@@ -40,6 +40,8 @@ if (isset($_POST['exp_ejmali']) and !empty(mysqli_fetch_array($result))) {
             $rater1['accept_or_reject'] = 'توقف';
         } elseif ($rater1['accept_or_reject'] == 'راه‌یابی اثر به مرحله تفصیلی') {
             $rater1['accept_or_reject'] = 'ارجاع';
+        } elseif ($rater1['accept_or_reject'] == 'نیاز به بررسی بیشتر در گروه') {
+            $rater1['accept_or_reject'] = 'بررسی';
         } else {
             $rater1['accept_or_reject'] = '';
         }
@@ -59,6 +61,8 @@ if (isset($_POST['exp_ejmali']) and !empty(mysqli_fetch_array($result))) {
             $rater2['accept_or_reject'] = 'توقف';
         } elseif ($rater2['accept_or_reject'] == 'راه‌یابی اثر به مرحله تفصیلی') {
             $rater2['accept_or_reject'] = 'ارجاع';
+        } elseif ($rater2['accept_or_reject'] == 'نیاز به بررسی بیشتر در گروه') {
+            $rater1['accept_or_reject'] = 'بررسی';
         } else {
             $rater2['accept_or_reject'] = '';
         }
@@ -79,6 +83,8 @@ if (isset($_POST['exp_ejmali']) and !empty(mysqli_fetch_array($result))) {
             $rater3['accept_or_reject'] = 'توقف';
         } elseif ($rater3['accept_or_reject'] == 'راه‌یابی اثر به مرحله تفصیلی') {
             $rater3['accept_or_reject'] = 'ارجاع';
+        } elseif ($rater3['accept_or_reject'] == 'نیاز به بررسی بیشتر در گروه') {
+            $rater1['accept_or_reject'] = 'بررسی';
         } else {
             $rater3['accept_or_reject'] = '';
         }
@@ -99,6 +105,8 @@ if (isset($_POST['exp_ejmali']) and !empty(mysqli_fetch_array($result))) {
                 $rater4['accept_or_reject'] = 'توقف';
             } elseif ($rater4['accept_or_reject'] == 'راه‌یابی اثر به مرحله تفصیلی') {
                 $rater4['accept_or_reject'] = 'ارجاع';
+            } elseif ($rater4['accept_or_reject'] == 'نیاز به بررسی بیشتر در گروه') {
+                $rater1['accept_or_reject'] = 'بررسی';
             } else {
                 $rater4['accept_or_reject'] = '';
             }
@@ -120,6 +128,8 @@ if (isset($_POST['exp_ejmali']) and !empty(mysqli_fetch_array($result))) {
                 $rater5['accept_or_reject'] = 'توقف';
             } elseif ($rater5['accept_or_reject'] == 'راه‌یابی اثر به مرحله تفصیلی') {
                 $rater5['accept_or_reject'] = 'ارجاع';
+            } elseif ($rater5['accept_or_reject'] == 'نیاز به بررسی بیشتر در گروه') {
+                $rater1['accept_or_reject'] = 'بررسی';
             } else {
                 $rater5['accept_or_reject'] = '';
             }

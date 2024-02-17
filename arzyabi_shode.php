@@ -259,7 +259,9 @@ include_once 'header.php';
                                                                                             <?php if ($values['accept_or_reject'] == "توقف اثر در مرحله اجمالی"): ?>
                                                                                                 <label style="color: red"><?php echo $values['accept_or_reject'] ?></label>
                                                                                             <?php endif; ?>
-                                                                                            <?php ?>
+                                                                                            <?php if ($values['accept_or_reject'] == "نیاز به بررسی بیشتر در گروه"): ?>
+                                                                                                <label style="color: red"><?php echo $values['accept_or_reject'] ?></label>
+                                                                                            <?php endif; ?>
                                                                                         </label>
                                                                                     </td>
                                                                                 </form>

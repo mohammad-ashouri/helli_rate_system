@@ -162,8 +162,9 @@ foreach ($result as $binm3) {
                                             <select style="width: available; overflow-x: auto" name="nazar"
                                                     id="<?php echo "nazar" . $jscounter ?>">
                                                 <option selected>انتخاب کنید</option>
-                                                <option>راه‌یابی اثر به مرحله تفصیلی</option>
-                                                <option>توقف اثر در مرحله اجمالی</option>
+                                                <option value="راه‌یابی اثر به مرحله تفصیلی">راه‌یابی اثر به مرحله تفصیلی</option>
+                                                <option value="توقف اثر در مرحله اجمالی">توقف اثر در مرحله اجمالی</option>
+                                                <option value="نیاز به بررسی بیشتر در گروه">نیاز به بررسی بیشتر در گروه</option>
                                             </select>
                                             <br/><br/>
                                             <textarea id="<?php echo "tozihat" . $jscounter;
