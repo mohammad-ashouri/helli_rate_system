@@ -53,8 +53,20 @@ switch (@$_POST['subjection']){
 	    $result=mysqli_query($connection,"select * from etelaat_a where codeasar='$codeasar' and nobat_arzyabi='تفصیلی اول' and vaziatkarname='در حال ارزیابی'");
         break;
 }
-foreach ($result as $item){}
+$item=mysqli_fetch_array($result);
 
+$query = mysqli_query($connection, "select master from etelaat_p where codeasar='$codeasar'");
+$etelaat_p = mysqli_fetch_array($query);
+switch ($etelaat_p['master']) {
+    case 'نیست':
+        $alertMessage = 'طلاب جوان';
+        break;
+    case 'هست':
+        $alertMessage = 'اساتید';
+        break;
+    default:
+        $alertMessage = Null;
+}
 ?>
 
     <div class="content-wrapper">
@@ -79,6 +91,15 @@ foreach ($result as $item){}
     <!-- Content Wrapper. Contains page content -->
     <!-- Main content -->
     <section class="content">
+        <div class="box box-solid box-danger">
+            <div class="box-header">
+                <p>
+                    <i class="fa fa-info-circle"></i>
+                    ارزیاب گرامی توجه داشته باشید که این اثر در بخش
+                    <u><?php echo $alertMessage; ?></u> جشنواره شرکت کرده است.
+                </p>
+            </div>
+        </div>
         <div class="row" style="overflow-x: auto">
             <section class="col-lg-12 col-md-12">
                 <div class="box box-success">

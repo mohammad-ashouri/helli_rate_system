@@ -23,15 +23,34 @@
     @$postcode = $_POST['code'];
     if (isset($postcode) && !empty($postcode)) {
         $result = mysqli_query($connection, "select * from `t_a_ejmali` where `codeasar`='$postcode' and jam is null and rater_id='" . $rows['code'] . "'");
-        foreach ($result as $rows_ejmali) {
-        }
+        $rows_ejmali = mysqli_fetch_array($result);
         $result = mysqli_query($connection, "select * from `etelaat_a` where `codeasar`='$postcode'");
-        foreach ($result as $rows_eta) {
+        $rows_eta = mysqli_fetch_array($result);
+        $query = mysqli_query($connection, "select master from etelaat_p where codeasar='$postcode'");
+        $etelaat_p = mysqli_fetch_array($query);
+        switch ($etelaat_p['master']) {
+            case 'نیست':
+                $alertMessage = 'طلاب جوان';
+                break;
+            case 'هست':
+                $alertMessage = 'اساتید';
+                break;
+            default:
+                $alertMessage = Null;
         }
     }
     ?>
 
     <section class="content">
+        <div class="box box-solid box-danger">
+            <div class="box-header">
+                <p>
+                    <i class="fa fa-info-circle"></i>
+                    ارزیاب گرامی توجه داشته باشید که این اثر در بخش
+                    <u><?php echo $alertMessage; ?></u> جشنواره شرکت کرده است.
+                </p>
+            </div>
+        </div>
         <div class="row">
             <section class="col-lg-12 col-md-12">
                 <div class="box box-solid box-info">
@@ -50,7 +69,8 @@
                     <?php if ($_SESSION['head'] == 1 and (!isset($_POST['ejmali_madrese_log']) and !isset($_POST['ejmali_ostan_log']))): ?>
                         <div class="box-body">
 
-                            <form id="myform" method="post" action="./build/php/inc.php" onsubmit="return validateForm()">
+                            <form id="myform" method="post" action="./build/php/inc.php"
+                                  onsubmit="return validateForm()">
                                 <p>کد اثر
                                     <input style="width: 120px; border-radius: 5px; padding: 5px" type="text"
                                            disabled="disabled" value="<?php
@@ -84,7 +104,8 @@
                                     نظر شما:
                                     <select style="" name="nazar" id="nazar">
                                         <option selected>انتخاب کنید</option>
-                                        <option value="راه‌یابی اثر به مرحله تفصیلی">راه‌یابی اثر به مرحله تفصیلی</option>
+                                        <option value="راه‌یابی اثر به مرحله تفصیلی">راه‌یابی اثر به مرحله تفصیلی
+                                        </option>
                                         <option value="توقف اثر در مرحله اجمالی">توقف اثر در مرحله اجمالی</option>
                                     </select>
                                 </center>
@@ -128,15 +149,16 @@ echo @$rows_ejmali['tozihat']; ?>
                                         </div>
                                     </section>
                                 </div>
-<!--                                <center>-->
-<!---->
-<!--                                    <p class="row1-ejmali">-->
-<!--                                        تاریخ ثبت-->
-<!--                                        &nbsp;&nbsp;-->
-<!--                                        <input class="tarikh" disabled="disabled" value="--><?php //echo jdate("Y/n/j") ?><!--">-->
-<!---->
-<!---->
-<!--                                </center>-->
+                                <!--                                <center>-->
+                                <!---->
+                                <!--                                    <p class="row1-ejmali">-->
+                                <!--                                        تاریخ ثبت-->
+                                <!--                                        &nbsp;&nbsp;-->
+                                <!--                                        <input class="tarikh" disabled="disabled" value="-->
+                                <?php //echo jdate("Y/n/j") ?><!--">-->
+                                <!---->
+                                <!---->
+                                <!--                                </center>-->
                                 </p>
                                 <center>
                                     <p class="virayesh-ejmali-button">
@@ -179,7 +201,7 @@ echo @$rows_ejmali['tozihat']; ?>
                                         $query = mysqli_query($connection, "select * from ejmali_ostan where codeasar='$codeasar'");
                                     } elseif (isset($_POST['ejmali_madrese_log'])) {
                                         $query = mysqli_query($connection, "select * from ejmali_madrese where codeasar='$codeasar'");
-                                    }else{
+                                    } else {
                                         $query = mysqli_query($connection, "select * from ejmali_ostan where codeasar='$codeasar'");
                                     }
                                     break;

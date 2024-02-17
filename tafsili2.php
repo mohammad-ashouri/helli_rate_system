@@ -6,9 +6,9 @@ if (isset($_POST['subset'])) {
     $codeasar = $_POST['codeasart2'];
 } elseif (isset($_POST['logsend'])) {
     $codeasar = $_POST['codeasar'];
-}elseif (isset($_POST['tafsili2_ostan_log'])) {
+} elseif (isset($_POST['tafsili2_ostan_log'])) {
     $codeasar = $_POST['codeasar'];
-}elseif (isset($_POST['tafsili2_madrese_log'])) {
+} elseif (isset($_POST['tafsili2_madrese_log'])) {
     $codeasar = $_POST['codeasar'];
 } elseif (isset($_POST['editt2k'])) {
     $codeasar = $_POST['editt2k'];
@@ -19,7 +19,9 @@ if (isset($_POST['subset'])) {
 } else {
     $codeasar = $_POST['codeasar'];
 }
-if(@$_POST['subjection']==null or @$_POST['subjection']=='') {$_POST['subjection']=null;}
+if (@$_POST['subjection'] == null or @$_POST['subjection'] == '') {
+    $_POST['subjection'] = null;
+}
 switch (@$_POST['subjection']) {
     case "schoolt2":
         $result = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar' and codearzyabtafsili2_madrese='$user' and nobat_arzyabi_madrese='تفصیلی دوم'");
@@ -31,7 +33,7 @@ switch (@$_POST['subjection']) {
     case "log":
         $result = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
         $query = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
-    foreach ($query as $tafsili2items){}
+        $tafsili2items = mysqli_fetch_array($query);
         break;
     case "editt2o":
         $result = mysqli_query($connection, "select * from etelaat_a inner join tafsili2_ostan on etelaat_a.codeasar=tafsili2_ostan.codeasar where etelaat_a.codeasar='$codeasar'");
@@ -42,14 +44,14 @@ switch (@$_POST['subjection']) {
     case 'log_tafsili2_ostan':
     case 'tafsili2_ostan_log':
         $result = mysqli_query($connection, "select * from etelaat_a inner join tafsili2_ostan on etelaat_a.codeasar=tafsili2_ostan.codeasar where etelaat_a.codeasar='$codeasar'");
-    $query=mysqli_query($connection,"select * from tafsili2_ostan where codeasar='$codeasar'");
-    foreach ($query as $tafsili2items){}
+        $query = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar'");
+        $tafsili2items = mysqli_fetch_array($query);
         break;
     case 'log_tafsili2_madrese':
     case 'tafsili2_madrese_log':
         $result = mysqli_query($connection, "select * from etelaat_a inner join tafsili2_madrese on etelaat_a.codeasar=tafsili2_madrese.codeasar where etelaat_a.codeasar='$codeasar'");
-    $query=mysqli_query($connection,"select * from tafsili2_madrese where codeasar='$codeasar'");
-    foreach ($query as $tafsili2items){}
+        $query = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar'");
+        $tafsili2items = mysqli_fetch_array($query);
         break;
 //		case "tafsili2ostan":
 //			$result=mysqli_query($connection,"select * from etelaat_a where codeasar='$codeasar' and nobat_arzyabi_ostani='تفصیلی دوم' and vaziatkarnameostani='در حال ارزیابی'");
@@ -63,7 +65,18 @@ switch (@$_POST['subjection']) {
         $result = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
         break;
 }
-foreach ($result as $item) {
+$item = mysqli_fetch_array($result);
+$query = mysqli_query($connection, "select master from etelaat_p where codeasar='$codeasar'");
+$etelaat_p = mysqli_fetch_array($query);
+switch ($etelaat_p['master']) {
+    case 'نیست':
+        $alertMessage = 'طلاب جوان';
+        break;
+    case 'هست':
+        $alertMessage = 'اساتید';
+        break;
+    default:
+        $alertMessage = Null;
 }
 ?>
 
@@ -90,6 +103,15 @@ foreach ($result as $item) {
     <!-- Content Wrapper. Contains page content -->
     <!-- Main content -->
     <section class="content">
+        <div class="box box-solid box-danger">
+            <div class="box-header">
+                <p>
+                    <i class="fa fa-info-circle"></i>
+                    ارزیاب گرامی توجه داشته باشید که این اثر در بخش
+                    <u><?php echo $alertMessage; ?></u> جشنواره شرکت کرده است.
+                </p>
+            </div>
+        </div>
         <div class="row" style="overflow-x: auto">
             <section class="col-lg-12 col-md-12">
                 <div class="box box-success">
