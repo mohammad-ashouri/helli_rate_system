@@ -53,9 +53,9 @@ include_once 'header.php';
                                     ?>
                                 </select>
                                 <input type="submit" name="subgroup" style="padding: 7px" value="جستجو">
+                            </h3>
                         </form>
                         <?php endif; ?>
-                        </h3>
                     </div>
 
                     <div class="box-body" style="overflow-x: auto">
@@ -162,7 +162,6 @@ include_once 'header.php';
                                                             if (isset($_POST['subgroup'])):
                                                                 $customgroup = $_POST['customgroup'];
                                                                 ?>
-                                                                
 
 
                                                                 <table id="myTable3" class="arzyabishodetable"
@@ -196,15 +195,15 @@ include_once 'header.php';
                                                                                            } ?>">
                                                                                             <?php echo $items['nameasar']; ?>
                                                                                         </a>
-
                                                                                     </label>
                                                                                     <span>
-
-                                        <input type="hidden" value="<?php echo $items['codeasar'] ?>" name="code">
-                                        <input style="padding: 7px;  left: 50px;position:absolute" type="submit"
-                                               value="ارزیابی اجمالی">
-
-                                    </span>
+                                                                                        <input type="hidden"
+                                                                                               value="<?php echo $items['codeasar'] ?>"
+                                                                                               name="code">
+                                                                                        <input style="padding: 7px;  left: 50px;"
+                                                                                               type="submit"
+                                                                                               value="ثبت ارزیابی اجمالی">
+                                                                                    </span>
                                                                                 </td>
                                                                             </form>
                                                                         </tr>
@@ -303,29 +302,19 @@ include_once 'header.php';
 
                                                                                 </td>
                                                                             </tr>
-
-
                                                                         <?php
                                                                         endforeach;
                                                                     endforeach;
-
                                                                     ?>
                                                                 </table>
-
-
                                                             <?php
                                                             endif;
-
                                                             ?>
-
                                                         </div>
                                                 </section>
-
                                             </div>
                             </section>
                             <?php endif; ?>
-
-
                             <!-- /.content-wrapper -->
                             <?php
                             include_once 'footer.php';
