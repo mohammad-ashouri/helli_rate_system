@@ -1,6 +1,6 @@
 <?php
-include_once __DIR__.'/header.php';
-if ($_SESSION['head']==1):
+include_once __DIR__ . '/header.php';
+if ($_SESSION['head'] == 1):
 ?>
 
 <div class="content-wrapper">
@@ -32,15 +32,15 @@ if ($_SESSION['head']==1):
                     <i class="fa fa-info-circle"></i>
                     <h3 class="box-title">
                         <form method="post" target="_blank" action="build/php/excel_export/arzeshyabi_tosifi.php">
-                        خروجی اکسل از ارزشیابی‌های توصیفی گروه علمی:
+                            خروجی اکسل از ارزشیابی‌های توصیفی گروه علمی:
                             <select name="elmigroup">
                                 <?php
-                                $selectionfromelmigroup=mysqli_query($connection,"select * from elmigroup_option");
+                                $selectionfromelmigroup = mysqli_query($connection, "select * from elmigroup_option");
                                 foreach ($selectionfromelmigroup as $items):
-                                ?>
-                                <option>
-                                    <?php echo $items['elmigroup'] ?>
-                                </option>
+                                    ?>
+                                    <option>
+                                        <?php echo $items['elmigroup'] ?>
+                                    </option>
                                 <?php endforeach; ?>
                             </select>
                             <input type="submit" value="دریافت خروجی" name="exp_ejmali" style="padding: 6px">
@@ -61,7 +61,7 @@ if ($_SESSION['head']==1):
                             وضعیت نمره‌دهی دبیرخانه‌های استانی جشنواره در مقایسه با دبیرخانه مرکزی در جشنواره
                             <select name="jashnvareh">
                                 <?php
-                                $selectionfromelmigroup=mysqli_query($connection,"select distinct(jashnvareh) from etelaat_p");
+                                $selectionfromelmigroup = mysqli_query($connection, "select distinct(jashnvareh) from etelaat_p");
                                 foreach ($selectionfromelmigroup as $items):
                                     ?>
                                     <option>
@@ -87,7 +87,7 @@ if ($_SESSION['head']==1):
                             اطلاعات کلی برگزیدگان کشوری دوره:
                             <select name="jashnvareh">
                                 <?php
-                                $selectionfromelmigroup=mysqli_query($connection,"select distinct(jashnvareh) from etelaat_p");
+                                $selectionfromelmigroup = mysqli_query($connection, "select distinct(jashnvareh) from etelaat_p");
                                 foreach ($selectionfromelmigroup as $items):
                                     ?>
                                     <option>
@@ -113,7 +113,7 @@ if ($_SESSION['head']==1):
                             وضعیت آثار بر اساس گروه علمی در دوره:
                             <select name="jashnvareh">
                                 <?php
-                                $selectionfromelmigroup=mysqli_query($connection,"select distinct(jashnvareh) from etelaat_p");
+                                $selectionfromelmigroup = mysqli_query($connection, "select distinct(jashnvareh) from etelaat_p");
                                 foreach ($selectionfromelmigroup as $items):
                                     ?>
                                     <option>
@@ -121,7 +121,8 @@ if ($_SESSION['head']==1):
                                     </option>
                                 <?php endforeach; ?>
                             </select>
-                            <input type="submit" value="دریافت خروجی" name="exp_vaziat_asar_elmigroup" style="padding: 6px">
+                            <input type="submit" value="دریافت خروجی" name="exp_vaziat_asar_elmigroup"
+                                   style="padding: 6px">
                         </form>
                     </h3>
                 </div>
@@ -139,7 +140,7 @@ if ($_SESSION['head']==1):
                             خروجی ارزیابی اجمالی ارزیابان کشوری جشنواره:
                             <select name="jashnvareh">
                                 <?php
-                                $selectionfromelmigroup=mysqli_query($connection,"select distinct(jashnvareh) from etelaat_a");
+                                $selectionfromelmigroup = mysqli_query($connection, "select distinct(jashnvareh) from etelaat_a");
                                 foreach ($selectionfromelmigroup as $items):
                                     ?>
                                     <option>
@@ -167,7 +168,7 @@ if ($_SESSION['head']==1):
                             در جشنواره:
                             <select name="jashnvareh">
                                 <?php
-                                $selectionfromelmigroup=mysqli_query($connection,"select distinct(jashnvareh) from etelaat_a");
+                                $selectionfromelmigroup = mysqli_query($connection, "select distinct(jashnvareh) from etelaat_a");
                                 foreach ($selectionfromelmigroup as $items):
                                     ?>
                                     <option>
@@ -193,14 +194,14 @@ if ($_SESSION['head']==1):
                             میانگین آیتم های ارزیابی
                             در جشنواره:
                             <select name="jashnvareh">
-								<?php
-									$selectionfromelmigroup=mysqli_query($connection,"select distinct(jashnvareh) from etelaat_a");
-									foreach ($selectionfromelmigroup as $items):
-										?>
-                                        <option>
-											<?php echo $items['jashnvareh'] ?>
-                                        </option>
-									<?php endforeach; ?>
+                                <?php
+                                $selectionfromelmigroup = mysqli_query($connection, "select distinct(jashnvareh) from etelaat_a");
+                                foreach ($selectionfromelmigroup as $items):
+                                    ?>
+                                    <option>
+                                        <?php echo $items['jashnvareh'] ?>
+                                    </option>
+                                <?php endforeach; ?>
                             </select>
                             <input type="submit" value="دریافت خروجی" name="exp_avg_items" style="padding: 6px">
                         </form>
@@ -219,14 +220,14 @@ if ($_SESSION['head']==1):
                         <form method="post" target="_blank" action="/build/php/excel_export/exp_all_schools.php">
                             خروجی تمامی مدارس صاحبان ثبت شده در سامانه با حذف تکراری‌ها در جشنواره:
                             <select name="jashnvareh">
-							    <?php
-								    $selectionfromelmigroup=mysqli_query($connection,"select distinct(jashnvareh) from etelaat_a");
-								    foreach ($selectionfromelmigroup as $items):
-									    ?>
-                                        <option>
-										    <?php echo $items['jashnvareh'] ?>
-                                        </option>
-								    <?php endforeach; ?>
+                                <?php
+                                $selectionfromelmigroup = mysqli_query($connection, "select distinct(jashnvareh) from etelaat_a");
+                                foreach ($selectionfromelmigroup as $items):
+                                    ?>
+                                    <option>
+                                        <?php echo $items['jashnvareh'] ?>
+                                    </option>
+                                <?php endforeach; ?>
                             </select>
                             <input type="submit" value="دریافت خروجی" name="exp_all_schools" style="padding: 6px">
                         </form>
@@ -252,7 +253,7 @@ if ($_SESSION['head']==1):
 
         </section>
     </div>
-        <?php
-        endif;
-        include_once __DIR__.'/footer.php';
-        ?>
+    <?php
+    endif;
+    include_once __DIR__ . '/footer.php';
+    ?>
