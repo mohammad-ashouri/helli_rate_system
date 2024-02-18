@@ -135,7 +135,7 @@ if ($_SESSION['head']==1):
                 <div class="box-header">
                     <i class="fa fa-info-circle"></i>
                     <h3 class="box-title">
-                        <form method="post" target="_blank" action="/build/php/excel_export/export_ejmali_keshvari.php">
+                        <form method="post" target="_blank" action="build/php/excel_export/export_ejmali_keshvari.php">
                             خروجی ارزیابی اجمالی ارزیابان کشوری جشنواره:
                             <select name="jashnvareh">
                                 <?php
