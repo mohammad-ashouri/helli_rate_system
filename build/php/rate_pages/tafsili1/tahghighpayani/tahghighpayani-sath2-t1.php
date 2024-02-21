@@ -63,7 +63,7 @@
                         <input value="<?php if ($_POST['subjection']=='editt1o' or $_POST['subjection']=='editt1m' or isset($_POST['tafsili1_ostan_log']) or isset($_POST['tafsili1_madrese_log'])){echo @$item['shivaeematn'];} ?>" id="t2" type="number" step="any" name="t2" class="rate_inputs" onblur="calcular()" >
 
                         &nbsp;&nbsp;
-                        از 3
+                        از 6
                     </td>
                 </tr>
                 <tr>
