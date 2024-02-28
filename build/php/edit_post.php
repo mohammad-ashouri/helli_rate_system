@@ -31,6 +31,7 @@ if (isset($_POST['paziresh']) and !empty($_POST['codeasarfield']) and !empty($_S
     $vaziatpazireshasar = $_POST['vaziatpaziresh'];
     $sharayetavvaliehsherkatasar = $_POST['sharayetavalieh'];
     $ellat = $_POST['ellat'];
+    $description = $_POST['description'];
     $vaziatmadreseasar = $_POST['vaziatmadreseasar'];
     $bargozideh_madrese = $_POST['bargozideh_madrese'];
     $jamemtiazmadrese = $_POST['jamemtiazmadrese'];
@@ -56,6 +57,9 @@ if (isset($_POST['paziresh']) and !empty($_POST['codeasarfield']) and !empty($_S
     }
     if ($ellat == "انتخاب کنید") {
         $ellatasar = null;
+    }
+    if (empty($description)) {
+        $description = null;
     }
     if ($vaziatpazireshasar == "انتخاب کنید") {
         $vaziatpazireshasar = NULL;
@@ -98,6 +102,7 @@ if (isset($_POST['paziresh']) and !empty($_POST['codeasarfield']) and !empty($_S
                    vaziatpazireshasar='$vaziatpazireshasar',
                    sharayetavalliehsherkat='$sharayetavvaliehsherkatasar',
                    ellatnadashtansharayet='$ellat',
+                   description='$description',
                     emtiaznahaei='$emtiaznahaei',
                     jamemtiazmadrese='$jamemtiazmadrese',
                    vaziatmadreseasar='$vaziatmadreseasar',

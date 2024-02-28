@@ -297,7 +297,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                 </form>
                                 <?php if (isset($_POST['code']) and !empty($searchResult) and !empty($searchResultPerson)): ?>
                                     <br/><br/>
-                                    <form method="post" enctype="multipart/form-data" action="./build/php/edit_post.php"
+                                    <form method="post" enctype="multipart/form-data" action="build/php/edit_post.php"
                                           id="pazireshform" onsubmit="return validatepaziresh()">
                                         <p>کد اثر
                                             <input style="padding: 8px;border-radius: 7px;text-align: left;width: 100px"
@@ -497,6 +497,12 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                                     </option>
                                                                 <?php endforeach; ?>
                                                             </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>توضیحات</th>
+                                                        <td>
+                                                            <textarea name="description" class="pazireshselections" style="text-align: right; height: 150px"><?php echo $searchResult['description'];?></textarea>
                                                         </td>
                                                     </tr>
                                                     <tr id="vaziatostanitr">
