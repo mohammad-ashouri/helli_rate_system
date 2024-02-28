@@ -156,7 +156,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
         case 2:
             @$city = $_POST['shahr_name'];
             @$school = $_POST['school'];
-            $query = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state')) ";
+            $query = "select * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$state') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$state')) and (etelaat_a.nobat_arzyabi_ostani != '' or etelaat_a.nobat_arzyabi_ostani is not null) ";
             if ($groupelmi != null) {
                 $query .= "and etelaat_a.groupelmi='$groupelmi' ";
             }
@@ -217,7 +217,6 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                     <th>ارزیاب و امتیاز تفصیلی اول</th>
                                     <th>ارزیاب و امتیاز تفصیلی دوم</th>
                                     <th>ارزیاب و امتیاز تفصیلی سوم</th>
-
                                     <th>امتیاز نهایی</th>
                                 </tr>
                                 <?php foreach ($sql as $values):
@@ -265,8 +264,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                         <td style="padding: 10px">
                                             <?php
                                             $query = mysqli_query($connection, "select master from etelaat_p where codeasar='$codeasar'");
-                                            foreach ($query as $etelaat_p) {
-                                            }
+                                            $etelaat_p = mysqli_fetch_array($query);
                                             if ($etelaat_p['master'] == 'هست') {
                                                 echo 'می باشد';
                                             } else {
@@ -287,7 +285,9 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                             switch ($_SESSION['head']) {
                                                 case 0:
                                                 case 2:
-                                                    if (($values['fileasar'] == null and $values['fileasar_word'] == null)) {
+                                                    if (($values['sharayetavalliehsherkat'] == 'ندارد')) {
+                                                        echo $values['ellatnadashtansharayet'];
+                                                    } elseif ($values['fileasar'] == null and $values['fileasar_word'] == null) {
                                                         echo 'فایل بارگذاری نشده';
                                                     } elseif (($values['fileasar'] == null or $values['fileasar_word'] == null) and $values['approve_sianat'] == 2) {
                                                         echo $values['ellatnadashtansharayet'];
@@ -314,34 +314,33 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                             switch ($_SESSION['head']) {
                                                 case 0:
                                                 case 2:
-                                                    $coderater = $values['codearzyabejmali_ostani'];
                                                     $selectfromejmaliostan = mysqli_query($connection, "select * from ejmali_ostan where codeasar='$codeasar' and jam is not null");
-                                                    foreach ($selectfromejmaliostan as $ejo) {
-                                                    }
-                                                    $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
-                                                    foreach ($sql as $ejr) {
-                                                    }
-                                                    echo @$ejr['name'] . ' ' . @$ejr['family'];
-                                                    if (@$ejo['jam'] == null and $coderater != null) {
-                                                        echo "<p style='color:red'>-ارزیابی ثبت نشده</p>";
-                                                    } else {
-                                                        echo ' - ' . @$ejo['jam'];
+                                                    $ejo = mysqli_fetch_array($selectfromejmaliostan);
+                                                    if (!empty($ejo)) {
+                                                        $coderater = $ejo['rater_id'];
+                                                        $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
+                                                        $ejr = mysqli_fetch_array($sql);
+                                                        echo $ejr['name'] . ' ' . $ejr['family'];
+                                                        if (@$ejo['jam'] == null and $coderater != null) {
+                                                            echo "<p style='color:red'>-ارزیابی ثبت نشده</p>";
+                                                        } else {
+                                                            echo ' - ' . @$ejo['jam'];
+                                                        }
                                                     }
                                                     break;
                                                 case 3:
-                                                    $coderater = $values['codearzyabejmali_madrese'];
                                                     $selectfromejmalimadrese = mysqli_query($connection, "select * from ejmali_madrese where codeasar='$codeasar' and jam is not null");
-                                                    foreach ($selectfromejmalimadrese as $ejm) {
-                                                    }
-                                                    $coderater = @$ejm['rater_id'];
-                                                    $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
-                                                    foreach ($sql as $ejr) {
-                                                    }
-                                                    echo @$ejr['name'] . ' ' . @$ejr['family'];
-                                                    if (@$ejm['jam'] == null and $coderater != null) {
-                                                        echo "<p style='color:red'>-ارزیابی ثبت نشده</p>";
-                                                    } else {
-                                                        echo ' - ' . @$ejm['jam'];
+                                                    $ejm = mysqli_fetch_array($selectfromejmalimadrese);
+                                                    if (!empty($ejm)) {
+                                                        $coderater = $ejm['rater_id'];
+                                                        $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
+                                                        $ejr = mysqli_fetch_array($sql);
+                                                        echo @$ejr['name'] . ' ' . @$ejr['family'];
+                                                        if (@$ejm['jam'] == null and $coderater != null) {
+                                                            echo "<p style='color:red'>-ارزیابی ثبت نشده</p>";
+                                                        } else {
+                                                            echo ' - ' . @$ejm['jam'];
+                                                        }
                                                     }
                                                     break;
                                             }
@@ -353,32 +352,32 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                                 case 0:
                                                 case 2:
                                                     $selectfromtafsili1ostan = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$codeasar' and jam is not null");
-                                                    foreach ($selectfromtafsili1ostan as $t1o) {
-                                                    }
-                                                    $coderater = $values['codearzyabtafsili1_ostani'];
-                                                    $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
-                                                    foreach ($sql as $t1r) {
-                                                    }
-                                                    echo @$t1r['name'] . ' ' . @$t1r['family'];
-                                                    if (@$t1o['jam'] == null and @$ejo['jam'] != null and $coderater != null) {
-                                                        echo "<p style='color:red'>-ارزیابی ثبت نشده</p>";
-                                                    } else {
-                                                        echo ' - ' . @$t1o['jam'];
+                                                    $t1o = mysqli_fetch_array($selectfromtafsili1ostan);
+                                                    if (!empty($t1o)) {
+                                                        $coderater = $t1o['rater_id'];
+                                                        $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
+                                                        $t1r = mysqli_fetch_array($sql);
+                                                        echo @$t1r['name'] . ' ' . @$t1r['family'];
+                                                        if (@$t1o['jam'] == null and @$ejo['jam'] != null and $coderater != null) {
+                                                            echo "<p style='color:red'>-ارزیابی ثبت نشده</p>";
+                                                        } else {
+                                                            echo ' - ' . @$t1o['jam'];
+                                                        }
                                                     }
                                                     break;
                                                 case 3:
                                                     $selectfromtafsili1madrese = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar' and jam is not null");
-                                                    foreach ($selectfromtafsili1madrese as $t1m) {
-                                                    }
-                                                    $coderater = $values['codearzyabtafsili1_madrese'];
-                                                    $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
-                                                    foreach ($sql as $t1r) {
-                                                    }
-                                                    echo @$t1r['name'] . ' ' . @$t1r['family'];
-                                                    if (@$t1m['jam'] == null and @$ejm['jam'] != null and $coderater != null) {
-                                                        echo "<p style='color:red'>-ارزیابی ثبت نشده</p>";
-                                                    } else {
-                                                        echo ' - ' . @$t1m['jam'];
+                                                    $t1m = mysqli_fetch_array($selectfromtafsili1madrese);
+                                                    if (!empty($t1m)) {
+                                                        $coderater = $t1m['rater_id'];
+                                                        $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
+                                                        $t1r = mysqli_fetch_array($sql);
+                                                        echo @$t1r['name'] . ' ' . @$t1r['family'];
+                                                        if (@$t1m['jam'] == null and @$ejm['jam'] != null and $coderater != null) {
+                                                            echo "<p style='color:red'>-ارزیابی ثبت نشده</p>";
+                                                        } else {
+                                                            echo ' - ' . @$t1m['jam'];
+                                                        }
                                                     }
                                                     break;
                                             }
@@ -390,32 +389,32 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                                 case 0:
                                                 case 2:
                                                     $selectfromtafsili2ostan = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar' and jam is not null");
-                                                    foreach ($selectfromtafsili2ostan as $t2o) {
-                                                    }
-                                                    $coderater = $values['codearzyabtafsili2_ostani'];
-                                                    $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
-                                                    foreach ($sql as $t2r) {
-                                                    }
-                                                    echo @$t2r['name'] . ' ' . @$t2r['family'];
-                                                    if (@$t2o['jam'] == null and @$t1o['jam'] != null and $coderater != null) {
-                                                        echo "<p style='color:red'>-ارزیابی ثبت نشده</p>";
-                                                    } else {
-                                                        echo ' - ' . @$t2o['jam'];
+                                                    $t2o = mysqli_fetch_array($selectfromtafsili2ostan);
+                                                    if (!empty($t2o)) {
+                                                        $coderater = $t2o['rater_id'];
+                                                        $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
+                                                        $t2r = mysqli_fetch_array($sql);
+                                                        echo @$t2r['name'] . ' ' . @$t2r['family'];
+                                                        if (@$t2o['jam'] == null and @$t1o['jam'] != null and $coderater != null) {
+                                                            echo "<p style='color:red'>-ارزیابی ثبت نشده</p>";
+                                                        } else {
+                                                            echo ' - ' . @$t2o['jam'];
+                                                        }
                                                     }
                                                     break;
                                                 case 3:
                                                     $selectfromtafsili2madrese = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar' and jam is not null");
-                                                    foreach ($selectfromtafsili2madrese as $t2m) {
-                                                    }
-                                                    $coderater = $values['codearzyabtafsili2_madrese'];
-                                                    $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
-                                                    foreach ($sql as $t2r) {
-                                                    }
-                                                    echo @$t2r['name'] . ' ' . @$t2r['family'];
-                                                    if (@$t2m['jam'] == null and @$t1m['jam'] != null and $coderater != null) {
-                                                        echo "<p style='color:red'>-ارزیابی ثبت نشده</p>";
-                                                    } else {
-                                                        echo ' - ' . @$t2m['jam'];
+                                                    $t2m = mysqli_fetch_array($selectfromtafsili2madrese);
+                                                    if (!empty($t2m)) {
+                                                        $coderater = $t2m['rater_id'];
+                                                        $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
+                                                        $t2r = mysqli_fetch_array($sql);
+                                                        echo @$t2r['name'] . ' ' . @$t2r['family'];
+                                                        if (@$t2m['jam'] == null and @$t1m['jam'] != null and $coderater != null) {
+                                                            echo "<p style='color:red'>-ارزیابی ثبت نشده</p>";
+                                                        } else {
+                                                            echo ' - ' . @$t2m['jam'];
+                                                        }
                                                     }
                                                     break;
                                             }
@@ -427,32 +426,32 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                                 case 0:
                                                 case 2:
                                                     $selectfromtafsili3ostan = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar' and jam is not null");
-                                                    foreach ($selectfromtafsili3ostan as $t3o) {
-                                                    }
-                                                    $coderater = $values['codearzyabtafsili3_ostani'];
-                                                    $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
-                                                    foreach ($sql as $t3r) {
-                                                    }
-                                                    echo @$t3r['name'] . ' ' . @$t3r['family'];
-                                                    if (@$t3o['jam'] == null and @$t2o['jam'] != null and $coderater != null) {
-                                                        echo "<p style='color:red'>-ارزیابی ثبت نشده</p>";
-                                                    } else {
-                                                        echo ' - ' . @$t3o['jam'];
+                                                    $t3o = mysqli_fetch_array($selectfromtafsili3ostan);
+                                                    if (!empty($t3o)) {
+                                                        $coderater = $t3o['rater_id'];
+                                                        $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
+                                                        $t3r = mysqli_fetch_array($sql);
+                                                        echo @$t3r['name'] . ' ' . @$t3r['family'];
+                                                        if (@$t3o['jam'] == null and @$t2o['jam'] != null and $coderater != null) {
+                                                            echo "<p style='color:red'>-ارزیابی ثبت نشده</p>";
+                                                        } else {
+                                                            echo ' - ' . @$t3o['jam'];
+                                                        }
                                                     }
                                                     break;
                                                 case 3:
                                                     $selectfromtafsili3madrese = mysqli_query($connection, "select * from tafsili3_madrese where codeasar='$codeasar' and jam is not null");
-                                                    foreach ($selectfromtafsili3madrese as $t3m) {
-                                                    }
-                                                    $coderater = $values['codearzyabtafsili3_madrese'];
-                                                    $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
-                                                    foreach ($sql as $t3r) {
-                                                    }
-                                                    echo @$t3r['name'] . ' ' . @$t3r['family'];
-                                                    if (@$t3m['jam'] == null and @$t2m['jam'] != null and $coderater != null) {
-                                                        echo "<p style='color:red'>-ارزیابی ثبت نشده</p>";
-                                                    } else {
-                                                        echo ' - ' . @$t3m['jam'];
+                                                    $t3m = mysqli_fetch_array($selectfromtafsili3madrese);
+                                                    if (!empty($t3m)) {
+                                                        $coderater = $t3m['rater_id'];
+                                                        $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
+                                                        $t3r = mysqli_fetch_array($sql);
+                                                        echo @$t3r['name'] . ' ' . @$t3r['family'];
+                                                        if (@$t3m['jam'] == null and @$t2m['jam'] != null and $coderater != null) {
+                                                            echo "<p style='color:red'>-ارزیابی ثبت نشده</p>";
+                                                        } else {
+                                                            echo ' - ' . @$t3m['jam'];
+                                                        }
                                                     }
                                                     break;
                                             }
