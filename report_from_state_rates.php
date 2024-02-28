@@ -170,6 +170,7 @@ if ($_SESSION['head'] == 1):
                                     <th>مشخصات استادی</th>
                                     <th>قالب/سطح</th>
                                     <th>گروه علمی</th>
+                                    <th>تعداد صفحه</th>
                                     <th>استان/شهرستان/مدرسه</th>
                                     <th>ارزیاب و امتیاز ارزیابی اجمالی</th>
                                     <th>ارزیاب و امتیاز تفصیلی اول</th>
@@ -223,6 +224,9 @@ if ($_SESSION['head'] == 1):
                                         </td>
                                         <td style="padding: 10px">
                                             <?php echo $values['groupelmi'] ?>
+                                        </td>
+                                        <td style="padding: 10px">
+                                            <?php echo $values['tedadsafhe'] ?>
                                         </td>
                                         <td style="text-align:center">
                                             <?php echo $etelaat_p['ostantahsili'].' / '.$etelaat_p['shahrtahsili'].' / '. $etelaat_p['madrese']; ?>

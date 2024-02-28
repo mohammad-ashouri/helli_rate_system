@@ -206,6 +206,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                     <th>جنسیت</th>
                                     <th>مدرسه</th>
                                     <th>گروه علمی</th>
+                                    <th>تعداد صفحه</th>
                                     <th>بخش اساتید</th>
                                     <?php if ($_SESSION['head'] == 2): ?>
                                         <th>شهرستان</th>
@@ -255,9 +256,12 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                         <td class="text-center" style="padding: 10px">
                                             <?php echo $values['madrese'] ?>
                                         </td>
-                                            <td style="padding: 10px">
-                                                <?php echo $values['groupelmi'] ?>
-                                            </td>
+                                        <td style="padding: 10px">
+                                            <?php echo $values['groupelmi'] ?>
+                                        </td>
+                                        <td style="padding: 10px">
+                                            <?php echo $values['tedadsafhe'] ?>
+                                        </td>
                                         <td style="padding: 10px">
                                             <?php
                                             $query = mysqli_query($connection, "select master from etelaat_p where codeasar='$codeasar'");

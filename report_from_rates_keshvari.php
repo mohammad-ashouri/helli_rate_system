@@ -215,6 +215,7 @@ if ($_SESSION['head'] == 1): ?>
                                         <th>جنسیت</th>
                                         <th>قالب/سطح</th>
                                         <th>گروه علمی</th>
+                                        <th>تعداد صفحه</th>
                                         <th>استان</th>
                                         <th>وضعیت ارزیابی</th>
                                         <th>امتیاز استانی</th>
@@ -427,6 +428,9 @@ if ($_SESSION['head'] == 1): ?>
                                             <td style="padding: 10px">
                                                 <?php echo $values['groupelmi']
                                                 ?>
+                                            </td>
+                                            <td style="padding: 10px">
+                                                <?php echo $values['tedadsafhe'] ?>
                                             </td>
                                             <td style="padding: 10px">
                                                 <?php
