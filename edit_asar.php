@@ -502,7 +502,8 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                     <tr>
                                                         <th>توضیحات</th>
                                                         <td>
-                                                            <textarea name="description" class="pazireshselections" style="text-align: right; height: 150px"><?php echo $searchResult['description'];?></textarea>
+                                                            <textarea name="description" class="pazireshselections"
+                                                                      style="text-align: right; height: 150px"><?php echo $searchResult['description']; ?></textarea>
                                                         </td>
                                                     </tr>
                                                     <tr id="vaziatostanitr">
@@ -735,16 +736,14 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                 <tr>
                                                     <th>استان</th>
                                                     <td>
-                                                        <select name="state_custom" id="statecustom">
-                                                            <option></option>
+                                                        <select name="state_custom" id="ostantahsili">
                                                             <?php
-
-                                                            $resultstates = mysqli_query($connection, "select distinct name from state order by name asc");
-                                                            foreach ($resultstates as $state_info):
+                                                            $resultstates = mysqli_query($signup_connection, "select distinct ostan from provinces order by ostan asc");
+                                                            foreach ($resultstates as $state):
                                                                 ?>
-                                                                <option <?php if (@$state_info['name'] == @$searchResultPerson['ostantahsili']) {
+                                                                <option <?php if (@$state['ostan'] == @$searchResultPerson['ostantahsili']) {
                                                                     echo 'selected';
-                                                                } ?> value="<?php echo @$state_info['name']; ?>"><?php echo $state_info['name']; ?></option>
+                                                                } ?> value="<?php echo @$state['ostan']; ?>"><?php echo $state['ostan']; ?></option>
                                                             <?php endforeach; ?>
                                                         </select>
                                                     </td>
@@ -752,17 +751,31 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                 <tr id="citytr">
                                                     <th>شهر</th>
                                                     <td>
-                                                        <input placeholder="شهر تحصیلی را وارد کنید"
-                                                               class="pazireshselections" type="text" name="city_custom"
-                                                               value="<?php echo @$searchResultPerson['shahrtahsili']; ?>">
+                                                        <select name="city_custom" id="shahrtahsili">
+                                                            <?php
+                                                            $resultcities = mysqli_query($signup_connection, "select distinct shahr from provinces where ostan='$searchResultPerson[ostantahsili]' order by shahr asc");
+                                                            foreach ($resultcities as $city):
+                                                                ?>
+                                                                <option <?php if (@$city['shahr'] == @$searchResultPerson['shahrtahsili']) {
+                                                                    echo 'selected';
+                                                                } ?> value="<?php echo @$city['shahr']; ?>"><?php echo $city['shahr']; ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
                                                     </td>
                                                 </tr>
                                                 <tr id="schooltr">
                                                     <th>مدرسه</th>
                                                     <td>
-                                                        <input placeholder="نام مدرسه را وارد کنید"
-                                                               class="pazireshselections" type="text" name="madrese"
-                                                               value="<?php echo @$searchResultPerson['madrese']; ?>">
+                                                        <select name="madrese" id="madresetahsili">
+                                                            <?php
+                                                            $resultProvinces = mysqli_query($signup_connection, "select distinct madrese from provinces where shahr='$searchResultPerson[shahrtahsili]' order by madrese asc");
+                                                            foreach ($resultProvinces as $province):
+                                                                ?>
+                                                                <option <?php if (@$province['madrese'] == @$searchResultPerson['madrese']) {
+                                                                    echo 'selected';
+                                                                } ?> value="<?php echo @$province['madrese']; ?>"><?php echo $province['madrese']; ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -784,8 +797,8 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                 <tr>
                                                     <th>آدرس</th>
                                                     <td>
-                                                        <textarea
-                                                                name="address"><?php echo @$searchResultPerson['address'] ?></textarea>
+                                                        <textarea class="pazireshselections"
+                                                                  name="address"><?php echo @$searchResultPerson['address'] ?></textarea>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -926,6 +939,52 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                             <option <?php if (@$searchResultPerson['master'] == 'نیست') echo 'selected'; ?>>
                                                                 نیست
                                                             </option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>استان محل تدریس</th>
+                                                    <td>
+                                                        <select name="teaching_province"
+                                                                id="teaching_province">
+                                                            <?php
+                                                            $resultstates = mysqli_query($signup_connection, "select distinct ostan from provinces order by ostan asc");
+                                                            foreach ($resultstates as $state):
+                                                                ?>
+                                                                <option <?php if (@$state['ostan'] == @$searchResultPerson['teachingProvince']) {
+                                                                    echo 'selected';
+                                                                } ?> value="<?php echo @$state['ostan']; ?>"><?php echo $state['ostan']; ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>شهرستان محل تدریس</th>
+                                                    <td>
+                                                        <select name="teaching_city" id="teaching_city">
+                                                            <?php
+                                                            $resultcities = mysqli_query($signup_connection, "select distinct shahr from provinces where ostan='$searchResultPerson[teachingProvince]' order by shahr asc");
+                                                            foreach ($resultcities as $city):
+                                                                ?>
+                                                                <option <?php if (@$city['shahr'] == @$searchResultPerson['teachingCity']) {
+                                                                    echo 'selected';
+                                                                } ?> value="<?php echo @$city['shahr']; ?>"><?php echo $city['shahr']; ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>مدرسه محل تدریس</th>
+                                                    <td>
+                                                        <select name="teaching_school" id="teaching_school">
+                                                            <?php
+                                                            $resultProvinces = mysqli_query($signup_connection, "select distinct madrese from provinces where shahr='$searchResultPerson[teachingCity]' order by madrese asc");
+                                                            foreach ($resultProvinces as $province):
+                                                                ?>
+                                                                <option <?php if (@$province['madrese'] == @$searchResultPerson['teachingPlaceName']) {
+                                                                    echo 'selected';
+                                                                } ?> value="<?php echo @$province['madrese']; ?>"><?php echo $province['madrese']; ?></option>
+                                                            <?php endforeach; ?>
                                                         </select>
                                                     </td>
                                                 </tr>
@@ -1110,17 +1169,13 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                 <table class="tablepaziresh">
                                                     <?php
                                                     $selection = mysqli_query($connection, "select * from ejmali_ostan where codeasar='$postcode'");
-                                                    foreach ($selection as $ejmaliostan) {
-                                                    }
+                                                    $ejmaliostan = mysqli_fetch_array($selection);
                                                     $selection = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$postcode'");
-                                                    foreach ($selection as $tafsili1ostan) {
-                                                    }
+                                                    $tafsili1ostan = mysqli_fetch_array($selection);
                                                     $selection = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$postcode'");
-                                                    foreach ($selection as $tafsili2ostan) {
-                                                    }
+                                                    $tafsili2ostan = mysqli_fetch_array($selection);
                                                     $selection = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$postcode'");
-                                                    foreach ($selection as $tafsili3ostan) {
-                                                    }
+                                                    $tafsili3ostan = mysqli_fetch_array($selection);
                                                     ?>
                                                     <tr>
                                                         <th>نوبت ارزیابی</th>
@@ -1484,122 +1539,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
             </div>
         </section>
     </div>
-    <script>
-        function validatesearch() {
-            var searchinput = document.getElementById("searchinput").value;
-            if (searchinput == '' || searchinput == null) {
-                alert("کد اثر را وارد کنید");
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        function validatepaziresh() {
-            var nameasar = document.getElementById("nameasar").value;
-            if (nameasar == '' || nameasar == null) {
-                alert('نام اثر وارد نشده است');
-                return false;
-            } else {
-                return true;
-            }
-
-        }
-
-        // window.onload= function checkvaziatpaziresh(){
-        //     var vaziatpaziresh = document.getElementById("vaziatpaziresh").value;
-        //     if (vaziatpaziresh=="پذیرش نشد"){
-        //         document.getElementById("sharayetavaliehtr").style.display="none";
-        //         var sharayetavaliehtr = document.getElementById("sharayetavaliehtr").style.display="none";
-        //         var ellattr = document.getElementById("ellattr").style.display="none";
-        //         var vaziatostanitr = document.getElementById("vaziatostanitr").style.display="none";
-        //         var emtiaznahaeitr = document.getElementById("emtiaznahaeitr").style.display="none";
-        //         var bargozidehtr = document.getElementById("bargozidehtr").style.display="none";
-        //         var filet1 = document.getElementById("filet1").style.display="none";
-        //         var filet2 = document.getElementById("filet2").style.display="none";
-        //         var filet3 = document.getElementById("filet3").style.display="none";
-        //         var fileasar = document.getElementById("fileasar").style.display="none";
-        //     }else if (vaziatpaziresh=="پذیرش شد"){
-        //         document.getElementById("sharayetavaliehtr").style.display="";
-        //         var sharayetavaliehtr = document.getElementById("sharayetavaliehtr").style.display="";
-        //         var ellattr = document.getElementById("ellattr").style.display="";
-        //         var vaziatostanitr = document.getElementById("vaziatostanitr").style.display="";
-        //         var emtiaznahaeitr = document.getElementById("emtiaznahaeitr").style.display="";
-        //         var bargozidehtr = document.getElementById("bargozidehtr").style.display="";
-        //         var filet1 = document.getElementById("filet1").style.display="";
-        //         var filet2 = document.getElementById("filet2").style.display="";
-        //         var filet3 = document.getElementById("filet3").style.display="";
-        //         var fileasar = document.getElementById("fileasar").style.display="";
-        //         var sharayetavalieh = document.getElementById("sharayetavalieh").value;
-        //         if (sharayetavalieh=="دارد"){
-        //             document.getElementById("ellattr").style.display="none";
-        //         }else if (sharayetavalieh=="ندارد"){
-        //             document.getElementById("ellattr").style.display="";
-        //         }
-        //     }
-        //
-        // }
-        // function checkvaziat(){
-        //     var sharayetavalieh=document.getElementById("sharayetavalieh");
-        //     var ellattr=document.getElementById("ellattr")
-        //     if (sharayetavalieh=='پذیرش شد'){
-        //
-        //     }
-        // }
-        // function checksharayet(){
-        //     if (sharayetavalieh=="دارد"){
-        //         document.getElementById("ellattr").style.display="none";
-        //     }else if (sharayetavalieh=="ندارد"){
-        //         document.getElementById("ellattr").style.display="";
-        //     }
-        // }
-        // function validatepaziresh(){
-        //     var vaziatpaziresh = document.getElementById("vaziatpaziresh").value;
-        //     var sharayetavalieh = document.getElementById("sharayetavalieh").value;
-        //     var ellat = document.getElementById("ellat").value;
-        //     var vaziatostani = document.getElementById("vaziatostani").value;
-        //     var emtiaznahaei = document.getElementById("emtiaznahaei").value;
-        //     var bakhshvizheh = document.getElementById("bakhshvizheh").value;
-        //     var ghalebpazhouhesh = document.getElementById("ghalebpazhouhesh").value;
-        //     var tedadsafhe = document.getElementById("tedadsafhe").value;
-        //
-        //     if (vaziatpaziresh=="پذیرش شد"){
-        //         if (ghalebpazhouhesh=="مقاله"){
-        //             if (tedadsafhe==null || tedadsafhe=='' || tedadsafhe<5){
-        //                 alert("تعداد صفحه کمتر از 5 است")
-        //                 return false;
-        //             }
-        //         }
-        //         else if (sharayetavalieh=="ندارد" && ellat=="انتخاب کنید"){
-        //             alert("علت نداشتن شرایط اولیه را انتخاب کنید");
-        //             return false;
-        //         }
-        //         else if (sharayetavalieh=="دارد" && vaziatostani=="انتخاب کنید"){
-        //             alert("وضعیت استانی اثر را انتخاب کنید");
-        //             return false;
-        //         }
-        //         else if (sharayetavalieh=="دارد" && vaziatostani != "انتخاب کنید"){
-        //             if (bakhshvizheh=="هست" && emtiaznahaei<=75){
-        //                 alert(" نمره استانی بالای 75 نیست");
-        //                 return false;
-        //             }
-        //             else if (bakhshvizheh=="نیست" && emtiaznahaei<=80){
-        //                 alert(" نمره استانی بالای 80 نیست");
-        //                 return false;
-        //             }
-        //         }
-        //         else{
-        //             return true;
-        //         }
-        //     }else{
-        //         return true;
-        //     }
-        //
-        // }
-        function changecolor() {
-            document.getElementById("linkfile").style.color = "blue";
-        }
-    </script>
+    <script src="build/js/edit_asar.js"></script>
 <?php
 endif;
 include_once 'footer.php';

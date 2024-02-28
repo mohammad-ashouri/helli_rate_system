@@ -145,6 +145,9 @@ if (isset($_POST['paziresh']) and !empty($_POST['codeasarfield']) and !empty($_S
     $shparvandetahsili = $_POST['shparvandetahsili'];
     $salakhzmadrakghhozavi = $_POST['salakhzmadrakghhozavi'];
     $master = $_POST['master'];
+    $teachingProvince = $_POST['teaching_province'];
+    $teachingCity = $_POST['teaching_city'];
+    $teachingSchool = $_POST['teaching_school'];
     $mastercode = $_POST['mastercode'];
     mysqli_query($connection, "update etelaat_p set fname='$fname',family='$family',father_name='$father_name',codemelli='$codemelli',tarikhtavallod='$tarikhtavallod',
 									gender='$gender',vaziattaahol='$vaziattaahol',ostantahsili='$state_custom',shahrtahsili='$city_custom',madrese='$madrese',
@@ -152,7 +155,9 @@ if (isset($_POST['paziresh']) and !empty($_POST['codeasarfield']) and !empty($_S
 									meliat='$meliat',namekeshvar='$namekeshvar',gozarname='$gozarname',reshtetakhasosihozavi='$reshtetakhasosihozavi',
 									markaztakhasosihozavi='$markaztakhasosihozavi',namemarkaztahsili='$namemarkaztahsili',noetahsilathozavi='$noetahsilathozavi',
 									tahsilatghhozavi='$tahsilatghhozavi',reshtedaneshgahi='$reshtedaneshgahi',shparvandetahsili='$shparvandetahsili',
-									salakhzmadrakghhozavi='$salakhzmadrakghhozavi',master='$master',mastercode='$mastercode' where codeasar='$codeasar'");
+									salakhzmadrakghhozavi='$salakhzmadrakghhozavi',master='$master',mastercode='$mastercode',
+									teachingProvince='$teachingProvince', teachingCity='$teachingCity', teachingPlaceName='$teachingSchool'
+									where codeasar='$codeasar'");
 //end table 2
 //start table 3
     $nobat_arzyabi_madrese = $_POST['nobat_arzyabi_madrese'];
