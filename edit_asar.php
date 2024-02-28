@@ -737,6 +737,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                     <th>استان</th>
                                                     <td>
                                                         <select name="state_custom" id="ostantahsili">
+                                                            <option>بدون استان</option>
                                                             <?php
                                                             $resultstates = mysqli_query($signup_connection, "select distinct ostan from provinces order by ostan asc");
                                                             foreach ($resultstates as $state):
@@ -947,6 +948,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                     <td>
                                                         <select name="teaching_province"
                                                                 id="teaching_province">
+                                                            <option>بدون استان</option>
                                                             <?php
                                                             $resultstates = mysqli_query($signup_connection, "select distinct ostan from provinces order by ostan asc");
                                                             foreach ($resultstates as $state):
