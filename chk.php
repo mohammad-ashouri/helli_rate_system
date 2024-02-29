@@ -25,8 +25,7 @@ if (isset($_POST) & !empty($_POST)) {
             header("location:index?error");
         } else {
             $result = mysqli_query($connection, "select * from rater_list where username='$user' and password='$pass'");
-            foreach ($result as $rows) {
-            }
+            $rows = mysqli_fetch_array($result);
             if (isset($rows)) {
                 if ($user == $rows['username'] and $pass == $rows['password'] and $rows['type'] == 0) {
                     $operation = "RaterLoginSuccess";
@@ -34,14 +33,13 @@ if (isset($_POST) & !empty($_POST)) {
                     $_SESSION['groupname'] = null;
                     $_SESSION['username'] = $user;
                     $query = mysqli_query($connection, "select * from log_helli where username='$user' and logout_year is null");
-                    foreach ($query as $items) {
-                    }
+                    $items = mysqli_fetch_array($query);
                     if ($items != null) {
                         $code = $items['username'];
                         mysqli_query($connection, "update log_helli set logout_year=1,logout_month=1,logout_day=1,logout_hour=1,logout_minute=1,logout_second=1 where username='$code' and logout_year is null");
                     }
-                    mysqli_query($connection, "insert into log_helli(username,login_year,login_month,login_day,login_hour,login_minute,login_second,ip_address,browser_name,browser_version)
-                values ('$user','$year','$month','$day','$hour','$min','$sec','$ip','$browsername','$browserversion')");
+                    mysqli_query($connection, "insert into log_helli(username,login_year,login_month,login_day,login_hour,login_minute,login_second,ip_address)
+                values ('$user','$year','$month','$day','$hour','$min','$sec','$ip')");
                     $_SESSION['head'] = $rows['type'];
                     $_SESSION['islogin'] = true;
                     $_SESSION['coderater'] = $rows['code'];
@@ -78,14 +76,14 @@ if (isset($_POST) & !empty($_POST)) {
 
                     $_SESSION['username'] = $user;
                     $query = mysqli_query($connection, "select * from log_helli where username='$user' and logout_year is null");
-                    foreach ($query as $items) {
-                    }
+                    $items = mysqli_fetch_array($query);
+
                     if ($items != null) {
                         $code = @$items['username'];
                         mysqli_query($connection, "update log_helli set logout_year=1,logout_month=1,logout_day=1,logout_hour=1,logout_minute=1,logout_second=1 where username='$code' and logout_year is null");
                     }
-                    mysqli_query($connection, "insert into log_helli(username,login_year,login_month,login_day,login_hour,login_minute,login_second,ip_address,browser_name,browser_version)
-                values ('$user','$year','$month','$day','$hour','$min','$sec','$ip','$browsername','$browserversion')");
+                    mysqli_query($connection, "insert into log_helli(username,login_year,login_month,login_day,login_hour,login_minute,login_second,ip_address)
+                values ('$user','$year','$month','$day','$hour','$min','$sec','$ip')");
                     if ($rows['full_access'] == 1) {
                         $_SESSION['full_access'] = 1;
                     }
@@ -104,14 +102,14 @@ if (isset($_POST) & !empty($_POST)) {
 
                     $_SESSION['username'] = $user;
                     $query = mysqli_query($connection, "select * from log_helli where username='$user' and logout_year is null");
-                    foreach ($query as $items) {
-                    }
+                    $items = mysqli_fetch_array($query);
+
                     if ($items != null) {
                         $code = $items['username'];
                         mysqli_query($connection, "update log_helli set logout_year=1,logout_month=1,logout_day=1,logout_hour=1,logout_minute=1,logout_second=1 where username='$code' and logout_year is null");
                     }
-                    mysqli_query($connection, "insert into log_helli(username,login_year,login_month,login_day,login_hour,login_minute,login_second,ip_address,browser_name,browser_version)
-                values ('$user','$year','$month','$day','$hour','$min','$sec','$ip','$browsername','$browserversion')");
+                    mysqli_query($connection, "insert into log_helli(username,login_year,login_month,login_day,login_hour,login_minute,login_second,ip_address)
+                values ('$user','$year','$month','$day','$hour','$min','$sec','$ip')");
 
                     $_SESSION['head'] = $rows['type'];
                     $_SESSION['city'] = $rows['city_name'];
@@ -129,14 +127,14 @@ if (isset($_POST) & !empty($_POST)) {
 
                     $_SESSION['username'] = $user;
                     $query = mysqli_query($connection, "select * from log_helli where username='$user' and logout_year is null");
-                    foreach ($query as $items) {
-                    }
+                    $items = mysqli_fetch_array($query);
+
                     if ($items != null) {
                         $code = $items['username'];
                         mysqli_query($connection, "update log_helli set logout_year=1,logout_month=1,logout_day=1,logout_hour=1,logout_minute=1,logout_second=1 where username='$code' and logout_year is null");
                     }
-                    mysqli_query($connection, "insert into log_helli(username,login_year,login_month,login_day,login_hour,login_minute,login_second,ip_address,browser_name,browser_version)
-        values ('$user','$year','$month','$day','$hour','$min','$sec','$ip','$browsername','$browserversion')");
+                    mysqli_query($connection, "insert into log_helli(username,login_year,login_month,login_day,login_hour,login_minute,login_second,ip_address)
+        values ('$user','$year','$month','$day','$hour','$min','$sec','$ip')");
 
                     $_SESSION['head'] = $rows['type'];
                     $_SESSION['city'] = $rows['city_name'];
@@ -155,8 +153,7 @@ if (isset($_POST) & !empty($_POST)) {
                     mysqli_query($connection, "insert into login_logs (user_id,date_time,operation,IPAddress) values ('$user','$dateforinsertloglogins','$operation','$ip')");
                     header("location:index.php?notfound");
                 }
-            }
-            else{
+            } else {
                 header("location:index.php?notfound");
             }
         }
