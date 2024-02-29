@@ -1,21 +1,20 @@
 <?php
 include_once 'config/connection.php';
 session_start();
-$rater_id = $_SESSION['username'];
-$editor = $_SESSION['username'];
+$user = $rater_id = $editor = $_SESSION['username'];
 $school = @$_SESSION['school'];
 $city = @$_SESSION['shahr_name'];
 $state = $_SESSION['city'];
-$user = $_SESSION['username'];
 $urlofthispage = $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
 $codeasar = $_POST['codeasarfield'];
 $query = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
-foreach ($query as $valueselect) {
-}
+$valueselect = mysqli_fetch_array($query);
 $select = mysqli_query($connection, "select * from log_helli where username='$user' order by radif desc limit 1");
-foreach ($select as $markforlinklogs) {
-}
+$markforlinklogs = mysqli_fetch_array($select);
 $linklog = @$markforlinklogs['radif'];
+$datesabt = $date_edit = $year . "/" . $month . "/" . $day;
+$timesabt = $time_edit = $hour . ":" . $min . ":" . $sec;
+
 if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_POST['codeasarfield'])) {
     $reayatsakhtarasar = $_POST['t1'];
     $shivaeematn = $_POST['t2'];
@@ -35,9 +34,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     mysqli_query($connection, "update `etelaat_a` set `tarikharzyabitafsili3`='$datesabt' where `codeasar`='$codeasar'");
     $query = "update tafsili3 set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
@@ -49,11 +45,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
 
     $resultselect = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselect) {
-    }
+    $valueselect = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselect['jamemtiazostan'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -97,9 +91,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t13'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     mysqli_query($connection, "update `etelaat_a` set `tarikharzyabitafsili3`='$datesabt' where `codeasar`='$codeasar'");
     $query = "update tafsili3 set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
@@ -108,11 +99,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     emtiazatvizheh='$emtiazatvizheh',jam='$jamnomre',timesabt='$timesabt',datesabt='$datesabt',rater_id='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselect) {
-    }
+    $valueselect = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselect['jamemtiazostan'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -155,9 +144,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $tozihattalighat = $_POST['t12'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     mysqli_query($connection, "update `etelaat_a` set `tarikharzyabitafsili3`='$datesabt' where `codeasar`='$codeasar'");
     $query = "update tafsili3 set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
@@ -166,11 +152,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     jam='$jamnomre',timesabt='$timesabt',datesabt='$datesabt',rater_id='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselect) {
-    }
+    $valueselect = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselect['jamemtiazostan'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -215,9 +199,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t14'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     mysqli_query($connection, "update `etelaat_a` set `tarikharzyabitafsili3`='$datesabt' where `codeasar`='$codeasar'");
     $query = "update tafsili3 set etebarvaarzeshelmiasar_matnmosaheh='$etebarelmi',mizantasallotmosahehbarmozoo='$mizantasallot',ahamiatvamobtanibarniazasar_matnmosaheh='$ahamiatmobtanibarniaz',
             takhrijmasader='$takhrijmasader',ghedmatmatnmosaheh='$ghedmatmatnmosaheh',entekhabmonasebnoskheasli='$entekhabmonasebasli',
@@ -226,11 +207,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     hajmmatnmosaheh='$hajmmatnmosaheh',emtiazatvizheh='$emtiazatvizheh',jam='$jamnomre',timesabt='$timesabt',datesabt='$datesabt',rater_id='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselect) {
-    }
+    $valueselect = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselect['jamemtiazostan'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -277,9 +256,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     mysqli_query($connection, "update `etelaat_a` set `tarikharzyabitafsili3`='$datesabt' where `codeasar`='$codeasar'");
     $query = "update tafsili3 set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
@@ -289,11 +265,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
             adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',timesabt='$timesabt',datesabt='$datesabt',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselect) {
-    }
+    $valueselect = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselect['jamemtiazostan'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -340,9 +314,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     mysqli_query($connection, "update `etelaat_a` set `tarikharzyabitafsili3`='$datesabt' where `codeasar`='$codeasar'");
     $query = "update tafsili3 set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
@@ -352,11 +323,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',timesabt='$timesabt',datesabt='$datesabt',rater_id='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselect) {
-    }
+    $valueselect = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselect['jamemtiazostan'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -402,9 +371,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t15'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] - $_POST['t15'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     mysqli_query($connection, "update `etelaat_a` set `tarikharzyabitafsili3`='$datesabt' where `codeasar`='$codeasar'");
     $query = "update tafsili3 set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
@@ -414,11 +380,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',timesabt='$timesabt',datesabt='$datesabt',rater_id='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselect) {
-    }
+    $valueselect = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselect['jamemtiazostan'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -465,8 +429,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
     $rater_id = $_SESSION['username'];
 
     mysqli_query($connection, "update `etelaat_a` set `tarikharzyabitafsili3`='$date_edit' where `codeasar`='$codeasar'");
@@ -480,11 +442,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
 
     $resultselect = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselect) {
-    }
+    $valueselect = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselect['jamemtiazostan'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -528,8 +488,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t13'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
     $rater_id = $_SESSION['username'];
 
     mysqli_query($connection, "update `etelaat_a` set `tarikharzyabitafsili3`='$date_edit' where `codeasar`='$codeasar'");
@@ -540,11 +498,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     emtiazatvizheh='$emtiazatvizheh',jam='$jamnomre',time_edit='$time_edit',date_edit='$date_edit',editor='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselect) {
-    }
+    $valueselect = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselect['jamemtiazostan'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -587,8 +543,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $tozihattalighat = $_POST['t12'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
     $rater_id = $_SESSION['username'];
 
     mysqli_query($connection, "update `etelaat_a` set `tarikharzyabitafsili3`='$date_edit' where `codeasar`='$codeasar'");
@@ -599,11 +553,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     jam='$jamnomre',time_edit='$time_edit',date_edit='$date_edit',editor='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselect) {
-    }
+    $valueselect = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselect['jamemtiazostan'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -648,8 +600,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t14'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
     $rater_id = $_SESSION['username'];
 
     mysqli_query($connection, "update `etelaat_a` set `tarikharzyabitafsili3`='$date_edit' where `codeasar`='$codeasar'");
@@ -660,11 +610,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     hajmmatnmosaheh='$hajmmatnmosaheh',emtiazatvizheh='$emtiazatvizheh',jam='$jamnomre',time_edit='$time_edit',date_edit='$date_edit',editor='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselect) {
-    }
+    $valueselect = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselect['jamemtiazostan'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -711,8 +659,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
     $rater_id = $_SESSION['username'];
 
     mysqli_query($connection, "update `etelaat_a` set `tarikharzyabitafsili3`='$date_edit' where `codeasar`='$codeasar'");
@@ -724,11 +670,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
             adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',time_edit='$time_edit',date_edit='$date_edit',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselect) {
-    }
+    $valueselect = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselect['jamemtiazostan'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -775,8 +719,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
     $rater_id = $_SESSION['username'];
 
     mysqli_query($connection, "update `etelaat_a` set `tarikharzyabitafsili3`='$date_edit' where `codeasar`='$codeasar'");
@@ -788,11 +730,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',time_edit='$time_edit',date_edit='$date_edit',editor='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselect) {
-    }
+    $valueselect = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselect['jamemtiazostan'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -838,8 +778,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t15'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] - $_POST['t15'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
     $rater_id = $_SESSION['username'];
 
     mysqli_query($connection, "update `etelaat_a` set `tarikharzyabitafsili3`='$date_edit' where `codeasar`='$codeasar'");
@@ -851,11 +789,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',time_edit='$time_edit',date_edit='$date_edit',editor='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselect) {
-    }
+    $valueselect = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2 where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselect['jamemtiazostan'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -902,9 +838,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_ostan set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -915,11 +848,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
 
     $resultselect = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -966,9 +897,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t13'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_ostan set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
             moadelyabivazhegan='$moadelyabi',tavanmandimotarjemdarenteghal='$tavanmandimotarjem',vafadaritarjomebematnasli='$vafadaritarjome',
@@ -978,11 +906,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
 
     $resultselect = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -1028,9 +954,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $tozihattalighat = $_POST['t12'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_ostan set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
             moadelyabivazhegan='$moadelyabi',tavanmandimotarjemdarenteghal='$tavanmandimotarjem',vafadaritarjomebematnasli='$vafadaritarjome',
@@ -1038,11 +961,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     jam='$jamnomre',timesabt='$timesabt',datesabt='$datesabt',rater_id='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -1090,9 +1011,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t14'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_ostan set etebarvaarzeshelmiasar_matnmosaheh='$etebarelmi',mizantasallotmosahehbarmozoo='$mizantasallot',ahamiatvamobtanibarniazasar_matnmosaheh='$ahamiatmobtanibarniaz',
             takhrijmasader='$takhrijmasader',ghedmatmatnmosaheh='$ghedmatmatnmosaheh',entekhabmonasebnoskheasli='$entekhabmonasebasli',
             fahmsahihnoskheasli='$fahmsahihnoskheasli',afzoodantalighat='$afzoodantalighat',moghadamejamemosaheh='$moghadamejamemosaheh',
@@ -1100,11 +1018,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     hajmmatnmosaheh='$hajmmatnmosaheh',emtiazatvizheh='$emtiazatvizheh',jam='$jamnomre',timesabt='$timesabt',datesabt='$datesabt',rater_id='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -1154,9 +1070,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_ostan set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -1165,11 +1078,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',timesabt='$timesabt',datesabt='$datesabt',rater_id='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -1219,9 +1130,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_ostan set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -1230,11 +1138,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',timesabt='$timesabt',datesabt='$datesabt',rater_id='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -1283,9 +1189,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t15'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] - $_POST['t15'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_ostan set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -1294,11 +1197,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',timesabt='$timesabt',datesabt='$datesabt',rater_id='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -1348,9 +1249,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_ostan set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -1361,11 +1259,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
 
     $resultselect = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -1414,9 +1310,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t13'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_ostan set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
             moadelyabivazhegan='$moadelyabi',tavanmandimotarjemdarenteghal='$tavanmandimotarjem',vafadaritarjomebematnasli='$vafadaritarjome',
@@ -1426,11 +1319,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
 
     $resultselect = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -1478,9 +1369,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $tozihattalighat = $_POST['t12'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_ostan set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
             moadelyabivazhegan='$moadelyabi',tavanmandimotarjemdarenteghal='$tavanmandimotarjem',vafadaritarjomebematnasli='$vafadaritarjome',
@@ -1488,11 +1376,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     jam='$jamnomre',time_edit='$time_edit',date_edit='$date_edit',editor='$editor',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -1542,9 +1428,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t14'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_ostan set etebarvaarzeshelmiasar_matnmosaheh='$etebarelmi',mizantasallotmosahehbarmozoo='$mizantasallot',ahamiatvamobtanibarniazasar_matnmosaheh='$ahamiatmobtanibarniaz',
             takhrijmasader='$takhrijmasader',ghedmatmatnmosaheh='$ghedmatmatnmosaheh',entekhabmonasebnoskheasli='$entekhabmonasebasli',
             fahmsahihnoskheasli='$fahmsahihnoskheasli',afzoodantalighat='$afzoodantalighat',moghadamejamemosaheh='$moghadamejamemosaheh',
@@ -1552,11 +1435,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     hajmmatnmosaheh='$hajmmatnmosaheh',emtiazatvizheh='$emtiazatvizheh',jam='$jamnomre',time_edit='$time_edit',date_edit='$date_edit',editor='$editor',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -1608,9 +1489,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_ostan set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -1619,11 +1497,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',time_edit='$time_edit',date_edit='$date_edit',editor='$editor',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -1675,9 +1551,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_ostan set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -1686,11 +1559,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',time_edit='$time_edit',date_edit='$date_edit',editor='$editor',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -1741,9 +1612,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t15'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] - $_POST['t15'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_ostan set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -1752,11 +1620,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',time_edit='$time_edit',date_edit='$date_edit',editor='$editor',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -1808,9 +1674,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_madrese set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -1821,11 +1684,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
 
     $resultselect = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -1871,9 +1732,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t13'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_madrese set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
             moadelyabivazhegan='$moadelyabi',tavanmandimotarjemdarenteghal='$tavanmandimotarjem',vafadaritarjomebematnasli='$vafadaritarjome',
@@ -1883,11 +1741,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
 
     $resultselect = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -1932,9 +1788,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $tozihattalighat = $_POST['t12'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_madrese set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
             moadelyabivazhegan='$moadelyabi',tavanmandimotarjemdarenteghal='$tavanmandimotarjem',vafadaritarjomebematnasli='$vafadaritarjome',
@@ -1942,11 +1795,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     jam='$jamnomre',timesabt='$timesabt',datesabt='$datesabt',rater_id='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -1993,9 +1844,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t14'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_madrese set etebarvaarzeshelmiasar_matnmosaheh='$etebarelmi',mizantasallotmosahehbarmozoo='$mizantasallot',ahamiatvamobtanibarniazasar_matnmosaheh='$ahamiatmobtanibarniaz',
             takhrijmasader='$takhrijmasader',ghedmatmatnmosaheh='$ghedmatmatnmosaheh',entekhabmonasebnoskheasli='$entekhabmonasebasli',
             fahmsahihnoskheasli='$fahmsahihnoskheasli',afzoodantalighat='$afzoodantalighat',moghadamejamemosaheh='$moghadamejamemosaheh',
@@ -2003,11 +1851,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     hajmmatnmosaheh='$hajmmatnmosaheh',emtiazatvizheh='$emtiazatvizheh',jam='$jamnomre',timesabt='$timesabt',datesabt='$datesabt',rater_id='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -2056,9 +1902,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_madrese set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -2067,11 +1910,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',timesabt='$timesabt',datesabt='$datesabt',rater_id='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -2120,9 +1961,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_madrese set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -2131,11 +1969,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',timesabt='$timesabt',datesabt='$datesabt',rater_id='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -2183,9 +2019,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t15'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] - $_POST['t15'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_madrese set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -2194,11 +2027,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',timesabt='$timesabt',datesabt='$datesabt',rater_id='$rater_id',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -2247,9 +2078,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_madrese set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -2260,11 +2088,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
 
     $resultselect = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -2312,9 +2138,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t13'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_madrese set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
             moadelyabivazhegan='$moadelyabi',tavanmandimotarjemdarenteghal='$tavanmandimotarjem',vafadaritarjomebematnasli='$vafadaritarjome',
@@ -2324,11 +2147,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
 
 
     $resultselect = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -2375,9 +2196,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $tozihattalighat = $_POST['t12'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_madrese set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
             moadelyabivazhegan='$moadelyabi',tavanmandimotarjemdarenteghal='$tavanmandimotarjem',vafadaritarjomebematnasli='$vafadaritarjome',
@@ -2385,11 +2203,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     jam='$jamnomre',time_edit='$time_edit',date_edit='$date_edit',editor='$editor',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -2438,9 +2254,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t14'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_madrese set etebarvaarzeshelmiasar_matnmosaheh='$etebarelmi',mizantasallotmosahehbarmozoo='$mizantasallot',ahamiatvamobtanibarniazasar_matnmosaheh='$ahamiatmobtanibarniaz',
             takhrijmasader='$takhrijmasader',ghedmatmatnmosaheh='$ghedmatmatnmosaheh',entekhabmonasebnoskheasli='$entekhabmonasebasli',
             fahmsahihnoskheasli='$fahmsahihnoskheasli',afzoodantalighat='$afzoodantalighat',moghadamejamemosaheh='$moghadamejamemosaheh',
@@ -2448,11 +2261,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     hajmmatnmosaheh='$hajmmatnmosaheh',emtiazatvizheh='$emtiazatvizheh',jam='$jamnomre',time_edit='$time_edit',date_edit='$date_edit',editor='$editor',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -2503,9 +2314,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_madrese set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -2514,11 +2322,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',time_edit='$time_edit',date_edit='$date_edit',editor='$editor',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -2569,9 +2375,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_madrese set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -2580,11 +2383,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',time_edit='$time_edit',date_edit='$date_edit',editor='$editor',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
@@ -2634,9 +2435,6 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t15'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] - $_POST['t15'];
-    $date_edit = $year . "/" . $month . "/" . $day;
-    $time_edit = $hour . ":" . $min . ":" . $sec;
-
     $query = "update tafsili3_madrese set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -2645,11 +2443,9 @@ if (isset($_POST['subt3ketab']) and isset($_POST['codeasarfield']) and !empty($_
                     adamreayatakhlaghpazhooheshi='$adamreayatakhlagh',jam='$jamnomre',time_edit='$time_edit',date_edit='$date_edit',editor='$editor',tozihat='$tozihat' where codeasar='$codeasar'";
     mysqli_query($connection, $query);
     $resultselect = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt1) {
-    }
+    $valueselectt1 = mysqli_fetch_array($resultselect);
     $resultselect = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar'");
-    foreach ($resultselect as $valueselectt2) {
-    }
+    $valueselectt2 = mysqli_fetch_array($resultselect);
 
     $menhat1 = $valueselectt1['jam'] - $jamnomre;
     $tafazol3va1 = abs($menhat1);
