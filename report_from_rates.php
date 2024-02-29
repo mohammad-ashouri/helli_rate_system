@@ -201,7 +201,8 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                     <th>ردیف</th>
                                     <th>کد اثر</th>
                                     <th>نام اثر</th>
-                                    <th>قالب/سطح</th>
+                                    <th>قالب پژوهش</th>
+                                    <th>سطح</th>
                                     <th>نویسنده</th>
                                     <th>جنسیت</th>
                                     <th>مدرسه</th>
@@ -244,7 +245,10 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                             <?php endif; ?>
                                         </td>
                                         <td style="padding: 10px">
-                                            <?php echo $values['ghalebpazhouhesh'] . ' ' . $values['satharzyabi'] ?>
+                                            <?php echo $values['ghalebpazhouhesh'] ?>
+                                        </td>
+                                        <td style="padding: 10px">
+                                            <?php echo $values['satharzyabi'] ?>
                                         </td>
                                         <td style="padding: 10px">
                                             <?php echo $values['fname'] . ' ' . $values['family'] ?>
