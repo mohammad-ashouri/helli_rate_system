@@ -211,7 +211,6 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                     <th>بخش اساتید</th>
                                     <?php if ($_SESSION['head'] == 2): ?>
                                         <th>شهرستان</th>
-                                        <th>مدرسه</th>
                                     <?php endif; ?>
                                     <th>وضعیت ارزیابی</th>
                                     <th>ارزیاب و امتیاز ارزیابی اجمالی</th>
@@ -279,9 +278,6 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                         <?php if ($_SESSION['head'] == 2): ?>
                                             <td class="text-center">
                                                 <?php echo $values['shahrtahsili'] ?>
-                                            </td>
-                                            <td class="text-center">
-                                                <?php echo $values['madrese'] ?>
                                             </td>
                                         <?php endif; ?>
                                         <td class="text-center" style="padding: 10px">
