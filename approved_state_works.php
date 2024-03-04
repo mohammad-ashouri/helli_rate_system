@@ -80,8 +80,7 @@ if ($_SESSION['head'] == 1):
                                 <td><?php
                                     $sender = $secretariat_items['sender'];
                                     $query = mysqli_query($connection, "select * from rater_list where username='$sender'");
-                                    foreach ($query as $sender_items) {
-                                    }
+                                    $sender_items=mysqli_fetch_array($query);
                                       echo $sender_items['city_name'];
                                     ?></td>
                                 <td>
@@ -90,27 +89,24 @@ if ($_SESSION['head'] == 1):
                                 <td>
                                     <?php
                                     $query = mysqli_query($connection, "select * from secretariat_approves where sender='$sender' and jashnvareh='$jashnvareh'");
-                                    foreach ($query as $items) {
-                                    }
+                                    $items=mysqli_fetch_array($query);
                                     echo $items['sent_date']
                                     ?>
                                 </td>
                                 <td>
                                     <a href="<?php
-                                    $query = mysqli_query($connection, "select * from secretariat_approves where sender='$sender' and jashnvareh='$jashnvareh' and file_type=1");
-                                    foreach ($query as $items) {
-                                    }
-                                    echo $main_website_url . $items['src'];
+                                    $query = mysqli_query($connection, "select src from secretariat_approves where sender='$sender' and jashnvareh='$jashnvareh' and file_type=1");
+                                    $src=mysqli_fetch_array($query);
+                                    echo $src['src'];
                                     ?>" target="_blank">
                                         دانلود فایل
                                     </a>
                                 </td>
                                 <td>
                                     <a href="<?php
-                                    $query = mysqli_query($connection, "select * from secretariat_approves where sender='$sender' and jashnvareh='$jashnvareh' and file_type=2");
-                                    foreach ($query as $items) {
-                                    }
-                                    echo $main_website_url . $items['src'];
+                                    $query = mysqli_query($connection, "select src from secretariat_approves where sender='$sender' and jashnvareh='$jashnvareh' and file_type=2");
+                                    $src=mysqli_fetch_array($query);
+                                    echo $src['src'];
                                     ?>" target="_blank">
                                         دانلود فایل
                                     </a>
