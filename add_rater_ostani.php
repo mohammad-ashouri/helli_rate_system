@@ -130,7 +130,8 @@ if ($_SESSION['head'] == 1):
                             </div>
                         <?php endif; ?>
                         <center>
-                            <form method="post" action="build/php/Manage_Ostani_Rater.php" onsubmit="return checkcodemelli()">
+                            <form method="post" action="build/php/Manage_Ostani_Rater.php"
+                                  onsubmit="return checkcodemelli()">
                                 <table class="tableratermanager">
                                     <tr>
                                         <th>کد ملی (نام کاربری)</th>
@@ -421,6 +422,9 @@ if ($_SESSION['head'] == 1):
                                                     نام و نام خانوادگی
                                                 </th>
                                                 <th>
+                                                    سطح علمی
+                                                </th>
+                                                <th>
                                                     شماره همراه
                                                 </th>
                                                 <th>
@@ -456,6 +460,18 @@ if ($_SESSION['head'] == 1):
                                                         <?php echo $raters['name'] . " " . $raters['family'] ?>
                                                     </td>
                                                     <td>
+                                                        <?php
+                                                        if (isset($raters['sath_elmi'])) {
+                                                            $sath = explode('-', $raters['sath_elmi']);
+                                                            foreach ($sath as $item) {
+                                                                if ($item) {
+                                                                    echo $item . ' - ';
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td>
                                                         <?php echo $raters['phone'] ?>
                                                     </td>
                                                     <td>
@@ -466,6 +482,70 @@ if ($_SESSION['head'] == 1):
                                                     </td>
                                                     <td>
                                                         <?php echo $raters['school_name'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                        $a1 = $raters['adabiat'];
+                                                        $a2 = $raters['akhlaghtarbiat'];
+                                                        $a3 = $raters['hadisderaye'];
+                                                        $a4 = $raters['falsafe'];
+                                                        $a5 = $raters['tafsir'];
+                                                        $a6 = $raters['kalaam'];
+                                                        $a7 = $raters['ulumensani'];
+                                                        $a8 = $raters['feghh'];
+                                                        $a9 = $raters['osoolfegh'];
+                                                        $a10 = $raters['tarikheslam'];
+                                                        if ($a1 == NULL) {
+                                                            $a1 = "";
+                                                        } else {
+                                                            echo $a1 = $raters['adabiat'] . "/";
+                                                        }
+                                                        if ($a2 == NULL) {
+                                                            $a2 = "";
+                                                        } else {
+                                                            echo $a2 = $raters['akhlaghtarbiat'] . "/";
+                                                        }
+                                                        if ($a3 == NULL) {
+                                                            $a3 = "";
+                                                        } else {
+                                                            echo $a3 = $raters['hadisderaye'] . "/";
+                                                        }
+                                                        if ($a4 == NULL) {
+                                                            $a4 = "";
+                                                        } else {
+                                                            echo $a4 = $raters['falsafe'] . "/";
+                                                        }
+                                                        if ($a5 == NULL) {
+                                                            $a5 = "";
+                                                        } else {
+                                                            echo $a5 = $raters['tafsir'] . "/";
+                                                        }
+                                                        if ($a6 == NULL) {
+                                                            $a6 = "";
+                                                        } else {
+                                                            echo $a6 = $raters['kalaam'] . "/";
+                                                        }
+                                                        if ($a7 == NULL) {
+                                                            $a7 = "";
+                                                        } else {
+                                                            echo $a7 = $raters['ulumensani'] . "/";
+                                                        }
+                                                        if ($a8 == NULL) {
+                                                            $a8 = "";
+                                                        } else {
+                                                            echo $a8 = $raters['feghh'] . "/";
+                                                        }
+                                                        if ($a9 == NULL) {
+                                                            $a9 = "";
+                                                        } else {
+                                                            echo $a9 = $raters['osoolfegh'] . "/";
+                                                        }
+                                                        if ($a10 == NULL) {
+                                                            $a10 = "";
+                                                        } else {
+                                                            echo $a10 = $raters['tarikheslam'] . "/";
+                                                        }
+                                                        ?>
                                                     </td>
                                                     <td>
                                                         <?php if ($raters['cv_filepath'] != ''): ?>
