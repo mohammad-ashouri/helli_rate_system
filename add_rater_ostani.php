@@ -470,7 +470,7 @@ if ($_SESSION['head'] == 1):
                                                     <td>
                                                         <?php if ($raters['cv_filepath'] != ''): ?>
                                                             <a href="<?php
-                                                            echo $main_website_url . $raters['cv_filepath'] ?>">
+                                                            echo $raters['cv_filepath'] ?>">
                                                                 دانلود فایل رزومه
                                                             </a>
                                                         <?php endif; ?>
