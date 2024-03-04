@@ -110,9 +110,8 @@ if ($_SESSION['head'] == 2):
                             $ostantahsili = $_SESSION['city'];
                             $shahrtahsili = $_SESSION['shahr_name'];
                             $query = mysqli_query($connection, "select * from advaar where active=0");
-                            foreach ($query as $last) {
-                            }
-                            $last = $last['advaar_cl'];
+                            $lastFestival = mysqli_fetch_array($query);
+                            $last = $lastFestival['advaar_cl'];
                             $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$last' and ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$ostantahsili') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$ostantahsili')) and etelaat_a.approve_sianat=0 and ((etelaat_a.jamemtiazostan>=75 and etelaat_a.bakhshvizheh='هست') or (etelaat_a.jamemtiazostan>=80 and etelaat_a.bakhshvizheh='نیست')) order by etelaat_a.jamemtiazostan desc");
                             foreach ($query as $values):
                                 ?>
@@ -159,27 +158,45 @@ if ($_SESSION['head'] == 2):
                                     </td>
                                 </tr>
                             <?php
-                            endforeach; ?>
+                            endforeach;  ?>
                         </table>
                         <br/>
 
                         <br/>
+                        <?php
+                        if (isset($values) and !empty($values)):
+                        ?>
+                            <div class="box box-solid box-danger">
+                                <div class="box-header">
+                                    <h3 class="box-title">
+                                        دبیر محترم
+                                        <br/>
+                                        <br/>
+                                        لطفا فایل تکمیل‌شده شورای علمی و فایل نامه‌ی اتوماسیونی معرفی منتخبین به معاون محترم پژوهش (با فرمت Word یا PDF) را در قسمت‌های مربوط بارگزاری کنید تا دکمه ارسال به مرحله کشوری برای شما فعال شود.
+                                        <br/>
+                                        <br/>
+                                        لازم به ذکر است که در متن نامه اتوماسیونی معرفی منتخبین استان، می‌بایست منتخبین این دوره، به لحاظ صیانتی نیز تأیید شده باشند.                                    </h3>
+                                </div>
+                            </div>
                         <form method="post" action="build/php/Send_To_Secreteriat.php" enctype="multipart/form-data"
                               onsubmit="return CheckFields()">
-                            <label>
-                                فایل شورای علمی
-                                <br/><br/>
-                                <input type="file" name="fileshora" accept=".docx,.doc" id="fileshora">
-                            </label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <label>
-                                فایل تایید صلاحیت منتخبین (نام فایل باید شماره نامه تاییدیه باشد)
-                                <br/><br/>
-                                <input type="file" name="filesianati" accept=".docx,.doc" id="filesianati">
-                            </label>
+                            <div style="display: block ruby; padding-bottom: 25px;">
+                                <div>
+                                    <label for="fileshora">
+                                        فایل شورای علمی
+                                    </label>
+                                    <input type="file" name="fileshora" accept=".docx,.doc" id="fileshora">
+                                </div>
+                                <div>
+                                    <label for="filesianati">
+                                        فایل نامه معرفی و تایید صلاحیت منتخبین
+                                    </label>
+                                    <input type="file" name="filesianati" accept=".docx,.doc" id="filesianati">
+                                </div>
+                            </div>
 
-                            <br/><br/><br/>
+
+
                             <p id="top_button_paragraph" style="color:red">دکمه ارسال پس از انتخاب فایل ها به صورت
                                 خودکار فعال خواهد شد</p>
                             <input id="Send" type="submit" value="ارسال به دبیرخانه کشوری" style="width: 200px;"
@@ -187,6 +204,7 @@ if ($_SESSION['head'] == 2):
                                    title="این دکمه پس از انتخاب فایل ها فعال می شود"
                                    onclick="return confirm('این عملیات قابل بازگشت نیست. آیا تایید می کنید؟')">
                         </form>
+                        <?php endif; ?>
                     </center>
 
 
