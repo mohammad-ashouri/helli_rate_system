@@ -201,7 +201,8 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                     <th>ردیف</th>
                                     <th>کد اثر</th>
                                     <th>نام اثر</th>
-                                    <th>قالب/سطح</th>
+                                    <th>قالب پژوهش</th>
+                                    <th>سطح</th>
                                     <th>نویسنده</th>
                                     <th>جنسیت</th>
                                     <th>مدرسه</th>
@@ -210,6 +211,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                     <th>بخش اساتید</th>
                                     <?php if ($_SESSION['head'] == 2): ?>
                                         <th>شهرستان</th>
+                                        <th>مدرسه</th>
                                     <?php endif; ?>
                                     <th>وضعیت ارزیابی</th>
                                     <th>ارزیاب و امتیاز ارزیابی اجمالی</th>
@@ -222,14 +224,14 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                     $coderater = null;
                                     ?>
                                     <tr style="font-size: 15px;border-bottom: 2px solid black">
-                                        <td style="padding: 10px">
+                                        <td class="text-center" style="padding: 10px">
                                             <?php echo $counter;
                                             $counter++ ?>
                                         </td>
-                                        <td style="padding: 10px">
+                                        <td class="text-center" style="padding: 10px">
                                             <?php echo $codeasar = $values['codeasar'] ?>
                                         </td>
-                                        <td style="padding: 10px">
+                                        <td class="text-center" style="padding: 10px">
                                             <?php if ($values['fileasar'] != null or $values['fileasar_word'] != null): ?>
                                                 <a href="<?php if ($values['fileasar'] != null and $values['fileasar'] != 'dist/files/asar_files/') {
                                                     echo $values['fileasar'];
@@ -242,25 +244,28 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                                 <?php echo $values['nameasar'] ?>
                                             <?php endif; ?>
                                         </td>
-                                        <td style="padding: 10px">
-                                            <?php echo $values['ghalebpazhouhesh'] . ' ' . $values['satharzyabi'] ?>
+                                        <td class="text-center" style="padding: 10px">
+                                            <?php echo $values['ghalebpazhouhesh'] ?>
                                         </td>
-                                        <td style="padding: 10px">
+                                        <td class="text-center" style="padding: 10px">
+                                            <?php echo $values['satharzyabi'] ?>
+                                        </td>
+                                        <td class="text-center" style="padding: 10px">
                                             <?php echo $values['fname'] . ' ' . $values['family'] ?>
                                         </td>
-                                        <td style="padding: 10px">
+                                        <td class="text-center">
                                             <?php echo $values['gender'] ?>
                                         </td>
                                         <td class="text-center" style="padding: 10px">
                                             <?php echo $values['madrese'] ?>
                                         </td>
-                                        <td style="padding: 10px">
+                                        <td class="text-center">
                                             <?php echo $values['groupelmi'] ?>
                                         </td>
-                                        <td style="padding: 10px">
+                                        <td class="text-center" style="padding: 10px">
                                             <?php echo $values['tedadsafhe'] ?>
                                         </td>
-                                        <td style="padding: 10px">
+                                        <td class="text-center" style="padding: 10px">
                                             <?php
                                             $query = mysqli_query($connection, "select master from etelaat_p where codeasar='$codeasar'");
                                             $etelaat_p = mysqli_fetch_array($query);
@@ -272,11 +277,14 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                             ?>
                                         </td>
                                         <?php if ($_SESSION['head'] == 2): ?>
-                                            <td>
+                                            <td class="text-center">
                                                 <?php echo $values['shahrtahsili'] ?>
                                             </td>
+                                            <td class="text-center">
+                                                <?php echo $values['madrese'] ?>
+                                            </td>
                                         <?php endif; ?>
-                                        <td style="padding: 10px">
+                                        <td class="text-center" style="padding: 10px">
                                             <?php
                                             switch ($_SESSION['head']) {
                                                 case 0:
@@ -305,7 +313,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                             }
                                             ?>
                                         </td>
-                                        <td style="padding: 10px">
+                                        <td class="text-center" style="padding: 10px">
                                             <?php
                                             switch ($_SESSION['head']) {
                                                 case 0:
@@ -313,7 +321,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                                     $selectfromejmaliostan = mysqli_query($connection, "select * from ejmali_ostan where codeasar='$codeasar' and jam is not null");
                                                     $ejo = mysqli_fetch_array($selectfromejmaliostan);
                                                     if (!empty($ejo)) {
-                                                        $coderater = $ejo['rater_id'];
+                                                        $coderater = $values['codearzyabejmali_ostani'];
                                                         $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
                                                         $ejr = mysqli_fetch_array($sql);
                                                         echo $ejr['name'] . ' ' . $ejr['family'];
@@ -328,7 +336,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                                     $selectfromejmalimadrese = mysqli_query($connection, "select * from ejmali_madrese where codeasar='$codeasar' and jam is not null");
                                                     $ejm = mysqli_fetch_array($selectfromejmalimadrese);
                                                     if (!empty($ejm)) {
-                                                        $coderater = $ejm['rater_id'];
+                                                        $coderater = $values['codearzyabejmali_madrese'];
                                                         $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
                                                         $ejr = mysqli_fetch_array($sql);
                                                         echo @$ejr['name'] . ' ' . @$ejr['family'];
@@ -342,7 +350,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                             }
                                             ?>
                                         </td>
-                                        <td style="padding: 10px">
+                                        <td class="text-center" style="padding: 10px">
                                             <?php
                                             switch ($_SESSION['head']) {
                                                 case 0:
@@ -350,7 +358,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                                     $selectfromtafsili1ostan = mysqli_query($connection, "select * from tafsili1_ostan where codeasar='$codeasar' and jam is not null");
                                                     $t1o = mysqli_fetch_array($selectfromtafsili1ostan);
                                                     if (!empty($t1o)) {
-                                                        $coderater = $t1o['rater_id'];
+                                                        $coderater = $values['codearzyabtafsili1_ostani'];
                                                         $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
                                                         $t1r = mysqli_fetch_array($sql);
                                                         echo @$t1r['name'] . ' ' . @$t1r['family'];
@@ -365,7 +373,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                                     $selectfromtafsili1madrese = mysqli_query($connection, "select * from tafsili1_madrese where codeasar='$codeasar' and jam is not null");
                                                     $t1m = mysqli_fetch_array($selectfromtafsili1madrese);
                                                     if (!empty($t1m)) {
-                                                        $coderater = $t1m['rater_id'];
+                                                        $coderater =$values['codearzyabtafsili1_madrese'];
                                                         $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
                                                         $t1r = mysqli_fetch_array($sql);
                                                         echo @$t1r['name'] . ' ' . @$t1r['family'];
@@ -379,7 +387,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                             }
                                             ?>
                                         </td>
-                                        <td style="padding: 10px">
+                                        <td class="text-center" style="padding: 10px">
                                             <?php
                                             switch ($_SESSION['head']) {
                                                 case 0:
@@ -387,7 +395,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                                     $selectfromtafsili2ostan = mysqli_query($connection, "select * from tafsili2_ostan where codeasar='$codeasar' and jam is not null");
                                                     $t2o = mysqli_fetch_array($selectfromtafsili2ostan);
                                                     if (!empty($t2o)) {
-                                                        $coderater = $t2o['rater_id'];
+                                                        $coderater = $values['codearzyabtafsili2_ostani'];
                                                         $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
                                                         $t2r = mysqli_fetch_array($sql);
                                                         echo @$t2r['name'] . ' ' . @$t2r['family'];
@@ -402,7 +410,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                                     $selectfromtafsili2madrese = mysqli_query($connection, "select * from tafsili2_madrese where codeasar='$codeasar' and jam is not null");
                                                     $t2m = mysqli_fetch_array($selectfromtafsili2madrese);
                                                     if (!empty($t2m)) {
-                                                        $coderater = $t2m['rater_id'];
+                                                        $coderater = $values['codearzyabtafsili2_madrese'];
                                                         $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
                                                         $t2r = mysqli_fetch_array($sql);
                                                         echo @$t2r['name'] . ' ' . @$t2r['family'];
@@ -416,7 +424,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                             }
                                             ?>
                                         </td>
-                                        <td style="padding: 10px">
+                                        <td class="text-center" style="padding: 10px">
                                             <?php
                                             switch ($_SESSION['head']) {
                                                 case 0:
@@ -424,7 +432,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                                     $selectfromtafsili3ostan = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar' and jam is not null");
                                                     $t3o = mysqli_fetch_array($selectfromtafsili3ostan);
                                                     if (!empty($t3o)) {
-                                                        $coderater = $t3o['rater_id'];
+                                                        $coderater = $values['codearzyabtafsili3_ostani'];
                                                         $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
                                                         $t3r = mysqli_fetch_array($sql);
                                                         echo @$t3r['name'] . ' ' . @$t3r['family'];
@@ -439,7 +447,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                                     $selectfromtafsili3madrese = mysqli_query($connection, "select * from tafsili3_madrese where codeasar='$codeasar' and jam is not null");
                                                     $t3m = mysqli_fetch_array($selectfromtafsili3madrese);
                                                     if (!empty($t3m)) {
-                                                        $coderater = $t3m['rater_id'];
+                                                        $coderater = $values['codearzyabtafsili3_madrese'];
                                                         $sql = mysqli_query($connection, "select * from rater_list where username='$coderater'");
                                                         $t3r = mysqli_fetch_array($sql);
                                                         echo @$t3r['name'] . ' ' . @$t3r['family'];
@@ -453,7 +461,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3 o
                                             }
                                             ?>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <?php
                                             switch ($_SESSION['head']) {
                                                 case 0:

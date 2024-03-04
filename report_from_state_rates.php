@@ -168,7 +168,8 @@ if ($_SESSION['head'] == 1):
                                     <th> نویسنده</th>
                                     <th>جنسیت</th>
                                     <th>مشخصات استادی</th>
-                                    <th>قالب/سطح</th>
+                                    <th>قالب پژوهش</th>
+                                    <th>سطح</th>
                                     <th>گروه علمی</th>
                                     <th>تعداد صفحه</th>
                                     <th>استان/شهرستان/مدرسه</th>
@@ -220,7 +221,10 @@ if ($_SESSION['head'] == 1):
                                             ?>
                                         </td>
                                         <td style="padding: 10px">
-                                            <?php echo $values['ghalebpazhouhesh'] . ' ' . $values['satharzyabi'] ?>
+                                            <?php echo $values['ghalebpazhouhesh'] ?>
+                                        </td>
+                                        <td style="padding: 10px">
+                                            <?php echo $values['satharzyabi'] ?>
                                         </td>
                                         <td style="padding: 10px">
                                             <?php echo $values['groupelmi'] ?>

@@ -2,12 +2,13 @@
 $codeasar = $_POST['codeasarfield'];
 include_once 'config/connection.php';
 session_start();
-$user = $_SESSION['username'];
+$user = $rater_id = $_SESSION['username'];
 $urlofthispage = $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
 $select = mysqli_query($connection, "select * from log_helli where username='$user' order by radif desc limit 1");
-foreach ($select as $markforlinklogs) {
-}
+$markforlinklogs=mysqli_fetch_array($select);
 $linklog = @$markforlinklogs['radif'];
+$datesabt = $year . "/" . $month . "/" . $day;
+$timesabt = $hour . ":" . $min . ":" . $sec;
 if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_POST['codeasarfield'])) {
     $reayatsakhtarasar = $_POST['t1'];
     $shivaeematn = $_POST['t2'];
@@ -27,9 +28,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi='تفصیلی دوم' where `codeasar`='$codeasar'");
     $query = "update tafsili1 set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
@@ -58,9 +56,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t13'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi='تفصیلی دوم' where `codeasar`='$codeasar'");
     $query = "update tafsili1 set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
@@ -87,9 +82,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $tozihattalighat = $_POST['t12'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi='تفصیلی دوم' where `codeasar`='$codeasar'");
     $query = "update tafsili1 set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
@@ -118,9 +110,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t14'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi='تفصیلی دوم' where `codeasar`='$codeasar'");
     $query = "update tafsili1 set etebarvaarzeshelmiasar_matnmosaheh='$etebarelmi',mizantasallotmosahehbarmozoo='$mizantasallot',ahamiatvamobtanibarniazasar_matnmosaheh='$ahamiatmobtanibarniaz',
             takhrijmasader='$takhrijmasader',ghedmatmatnmosaheh='$ghedmatmatnmosaheh',entekhabmonasebnoskheasli='$entekhabmonasebasli',
@@ -151,9 +140,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi='تفصیلی دوم' where `codeasar`='$codeasar'");
     $query = "update tafsili1 set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
@@ -185,9 +171,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi='تفصیلی دوم' where `codeasar`='$codeasar'");
     $query = "update tafsili1 set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
@@ -218,9 +201,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t15'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] - $_POST['t15'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     mysqli_query($connection, "update `etelaat_a` set nobat_arzyabi='تفصیلی دوم' where `codeasar`='$codeasar'");
     $query = "update tafsili1 set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
@@ -252,9 +232,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_ostan set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -288,9 +265,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t13'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_ostan set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
             moadelyabivazhegan='$moadelyabi',tavanmandimotarjemdarenteghal='$tavanmandimotarjem',vafadaritarjomebematnasli='$vafadaritarjome',
@@ -323,9 +297,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $tozihattalighat = $_POST['t12'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_ostan set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
             moadelyabivazhegan='$moadelyabi',tavanmandimotarjemdarenteghal='$tavanmandimotarjem',vafadaritarjomebematnasli='$vafadaritarjome',
@@ -360,9 +331,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t14'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_ostan set etebarvaarzeshelmiasar_matnmosaheh='$etebarelmi',mizantasallotmosahehbarmozoo='$mizantasallot',ahamiatvamobtanibarniazasar_matnmosaheh='$ahamiatmobtanibarniaz',
             takhrijmasader='$takhrijmasader',ghedmatmatnmosaheh='$ghedmatmatnmosaheh',entekhabmonasebnoskheasli='$entekhabmonasebasli',
             fahmsahihnoskheasli='$fahmsahihnoskheasli',afzoodantalighat='$afzoodantalighat',moghadamejamemosaheh='$moghadamejamemosaheh',
@@ -400,9 +368,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_ostan set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -441,9 +406,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_ostan set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -481,9 +443,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t15'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] - $_POST['t15'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_ostan set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -522,9 +481,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_ostan set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -560,9 +516,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t13'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_ostan set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
             moadelyabivazhegan='$moadelyabi',tavanmandimotarjemdarenteghal='$tavanmandimotarjem',vafadaritarjomebematnasli='$vafadaritarjome',
@@ -597,9 +550,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $tozihattalighat = $_POST['t12'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_ostan set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
             moadelyabivazhegan='$moadelyabi',tavanmandimotarjemdarenteghal='$tavanmandimotarjem',vafadaritarjomebematnasli='$vafadaritarjome',
@@ -636,9 +586,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t14'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_ostan set etebarvaarzeshelmiasar_matnmosaheh='$etebarelmi',mizantasallotmosahehbarmozoo='$mizantasallot',ahamiatvamobtanibarniazasar_matnmosaheh='$ahamiatmobtanibarniaz',
             takhrijmasader='$takhrijmasader',ghedmatmatnmosaheh='$ghedmatmatnmosaheh',entekhabmonasebnoskheasli='$entekhabmonasebasli',
             fahmsahihnoskheasli='$fahmsahihnoskheasli',afzoodantalighat='$afzoodantalighat',moghadamejamemosaheh='$moghadamejamemosaheh',
@@ -678,9 +625,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_ostan set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -721,9 +665,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_ostan set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -763,9 +704,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t15'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] - $_POST['t15'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_ostan set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -807,9 +745,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_madrese set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -845,9 +780,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t13'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_madrese set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
             moadelyabivazhegan='$moadelyabi',tavanmandimotarjemdarenteghal='$tavanmandimotarjem',vafadaritarjomebematnasli='$vafadaritarjome',
@@ -881,9 +813,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $tozihattalighat = $_POST['t12'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_madrese set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
             moadelyabivazhegan='$moadelyabi',tavanmandimotarjemdarenteghal='$tavanmandimotarjem',vafadaritarjomebematnasli='$vafadaritarjome',
@@ -919,9 +848,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t14'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_madrese set etebarvaarzeshelmiasar_matnmosaheh='$etebarelmi',mizantasallotmosahehbarmozoo='$mizantasallot',ahamiatvamobtanibarniazasar_matnmosaheh='$ahamiatmobtanibarniaz',
             takhrijmasader='$takhrijmasader',ghedmatmatnmosaheh='$ghedmatmatnmosaheh',entekhabmonasebnoskheasli='$entekhabmonasebasli',
             fahmsahihnoskheasli='$fahmsahihnoskheasli',afzoodantalighat='$afzoodantalighat',moghadamejamemosaheh='$moghadamejamemosaheh',
@@ -959,9 +885,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_madrese set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -1000,9 +923,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_madrese set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -1040,9 +960,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t15'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] - $_POST['t15'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_madrese set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -1081,9 +998,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_madrese set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -1119,9 +1033,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t13'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_madrese set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
             moadelyabivazhegan='$moadelyabi',tavanmandimotarjemdarenteghal='$tavanmandimotarjem',vafadaritarjomebematnasli='$vafadaritarjome',
@@ -1156,9 +1067,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $tozihattalighat = $_POST['t12'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_madrese set etghanvaetebarelmiasar='$etghan',pichidegimatntarjome='$doshvarimatn',nadashtansabeghetarome='$nadashtansabeghe',
             hajmmatntarjomeshode='$hajmmatntarjome',ahamiatasarvaebtenabarniaz='$ahamiatasar',mizandarksahihmotarjem='$mizandarksahih',
             moadelyabivazhegan='$moadelyabi',tavanmandimotarjemdarenteghal='$tavanmandimotarjem',vafadaritarjomebematnasli='$vafadaritarjome',
@@ -1195,9 +1103,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $emtiazatvizheh = $_POST['t14'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_madrese set etebarvaarzeshelmiasar_matnmosaheh='$etebarelmi',mizantasallotmosahehbarmozoo='$mizantasallot',ahamiatvamobtanibarniazasar_matnmosaheh='$ahamiatmobtanibarniaz',
             takhrijmasader='$takhrijmasader',ghedmatmatnmosaheh='$ghedmatmatnmosaheh',entekhabmonasebnoskheasli='$entekhabmonasebasli',
             fahmsahihnoskheasli='$fahmsahihnoskheasli',afzoodantalighat='$afzoodantalighat',moghadamejamemosaheh='$moghadamejamemosaheh',
@@ -1237,9 +1142,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_madrese set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -1278,9 +1180,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t16'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] + $_POST['t15'] - $_POST['t16'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_madrese set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
@@ -1317,9 +1216,6 @@ if (isset($_POST['subt1ketab']) and isset($_POST['codeasarfield']) and !empty($_
     $adamreayatakhlagh = $_POST['t15'];
     $tozihat = $_POST['tozihat'];
     $jamnomre = $_POST['t1'] + $_POST['t2'] + $_POST['t3'] + $_POST['t4'] + $_POST['t5'] + $_POST['t6'] + $_POST['t7'] + $_POST['t8'] + $_POST['t9'] + $_POST['t10'] + $_POST['t11'] + $_POST['t12'] + $_POST['t13'] + $_POST['t14'] - $_POST['t15'];
-    $datesabt = $year . "/" . $month . "/" . $day;
-    $timesabt = $hour . ":" . $min . ":" . $sec;
-    $rater_id = $user;
     $query = "update tafsili1_madrese set reayatsakhtarasar='$reayatsakhtarasar',shivaeematn='$shivaeematn',reayataeinnegaresh='$reayataeinnegaresh',
             tabiinmasale='$tabiinmasale',sazmandehimabahes='$sazmandehi',parhizazmatalebzaed='$parhizazmatalebzaed',
             estefadeazmanabe='$manabemotabar',keyfiattabiinmataleb='$keyfiattabiinmataleb',ahammiatmasale='$ahamiatmasale',
