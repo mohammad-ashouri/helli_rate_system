@@ -234,6 +234,12 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                 گروه علمی
                                                             </th>
                                                             <th>
+                                                                نویسنده
+                                                            </th>
+                                                            <th>
+                                                                جنسیت
+                                                            </th>
+                                                            <th>
                                                                 وضعیت تدریس
                                                             </th>
                                                             <th>
@@ -289,6 +295,16 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                 </td>
                                                                 <td>
                                                                     <?php echo $bin['groupelmi']; ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo "$bin[fname] $bin[family]"
+                                                                    ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                    echo $bin['gender'];
+                                                                    ?>
                                                                 </td>
                                                                 <td>
                                                                     <?php

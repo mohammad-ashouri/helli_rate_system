@@ -229,6 +229,12 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                     وضعیت تدریس
                                                                                 </th>
                                                                                 <th>
+                                                                                    نویسنده
+                                                                                </th>
+                                                                                <th>
+                                                                                    جنسیت
+                                                                                </th>
+                                                                                <th>
                                                                                     ارزیاب و نمره تفصیلی اول
                                                                                 </th>
                                                                                 <th>
@@ -281,6 +287,16 @@ if ((@$_SESSION['city'] == 'قم' or @$_SESSION['groupname'] != null) and $_SESS
                                                                                     </td>
                                                                                     <td>
                                                                                         <?php echo $bin['groupelmi'] ?>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <?php
+                                                                                        echo "$bin[fname] $bin[family]"
+                                                                                        ?>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <?php
+                                                                                        echo $bin['gender'];
+                                                                                        ?>
                                                                                     </td>
                                                                                     <td>
                                                                                         <?php

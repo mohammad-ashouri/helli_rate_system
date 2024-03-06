@@ -56,6 +56,12 @@ $school = $_SESSION['school'];
                                     گروه علمی
                                 </th>
                                 <th>
+                                    نویسنده
+                                </th>
+                                <th>
+                                    جنسیت
+                                </th>
+                                <th>
                                     اختصاص به ارزیاب
                                 </th>
                             </tr>
@@ -96,6 +102,16 @@ $school = $_SESSION['school'];
                                     </td>
                                     <td>
                                         <?php echo $bin['groupelmi']; ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        echo "$bin[fname] $bin[family]"
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        echo $bin['gender'];
+                                        ?>
                                     </td>
                                     <td>
                                         <select style="font-size: small;padding: 5px; width: auto" class="select2"

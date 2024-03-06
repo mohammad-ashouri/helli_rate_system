@@ -37,11 +37,17 @@
                                     <br>
                                     گروه علمی
                                 </th>
-                                <!--                                <th>-->
-                                <!--                                    بخش ویژه-->
-                                <!--                                </th>-->
+                                <th>
+                                    بخش ویژه
+                                </th>
                                 <th>
                                     استان منتخب
+                                </th>
+                                <th>
+                                    نویسنده
+                                </th>
+                                <th>
+                                    جنسیت
                                 </th>
                                 <th>
                                     نمره استان
@@ -84,13 +90,23 @@
                                         <br>
                                         <?php echo $bin['groupelmi']; ?>
                                     </td>
-                                    <!--                                    <td>-->
-                                    <!--                                        --><?php //echo $bin['bakhshvizheh']
-                                    ?>
-                                    <!--                                    </td>-->
+                                    <td>
+                                        <?php echo $bin['bakhshvizheh']
+                                        ?>
+                                    </td>
                                     <td>
                                         <?php
                                         echo str_replace('اثر منتخب استان', '', $bin['vaziatostaniasar']);
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        echo "$bin[fname] $bin[family]"
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        echo $bin['gender'];
                                         ?>
                                     </td>
                                     <td>
@@ -210,10 +226,9 @@
                                             </td>
                                             <td>
                                                 <?php
-                                                if (!empty($raters['cv_filepath']) and $raters['cv_filepath']!=null) {
+                                                if (!empty($raters['cv_filepath']) and $raters['cv_filepath'] != null) {
                                                     echo "<a href=" . $raters['cv_filepath'] . ">$raters[name] $raters[family]</a>";
-                                                }
-                                                else echo $raters['name'] . " " . $raters['family']
+                                                } else echo $raters['name'] . " " . $raters['family']
                                                 ?>
                                             </td>
                                             <td>
