@@ -109,9 +109,9 @@ if ($_SESSION['head'] == 2):
                             $a = 1;
                             $ostantahsili = $_SESSION['city'];
                             $shahrtahsili = $_SESSION['shahr_name'];
-                            $query = mysqli_query($connection, "select * from advaar where active=0");
+                            $query = mysqli_query($signup_connection, "select * from festivals where active=0 order by id desc");
                             $lastFestival = mysqli_fetch_array($query);
-                            $last = $lastFestival['advaar_cl'];
+                            $last = "$lastFestival[id]-$lastFestival[title]";
                             $query = mysqli_query($connection, "select * from etelaat_a INNER join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$last' and ((etelaat_p.master='نیست' and etelaat_p.ostantahsili='$ostantahsili') or (etelaat_p.master='هست' and etelaat_p.teachingProvince='$ostantahsili')) and etelaat_a.approve_sianat=0 and ((etelaat_a.jamemtiazostan>=75 and etelaat_a.bakhshvizheh='هست') or (etelaat_a.jamemtiazostan>=80 and etelaat_a.bakhshvizheh='نیست')) order by etelaat_a.jamemtiazostan desc");
                             foreach ($query as $values):
                                 ?>
