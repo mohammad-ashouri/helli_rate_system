@@ -22,7 +22,7 @@
     $searchResult = null;
     @$postcode = $_POST['code'];
     if (isset($postcode) && !empty($postcode)) {
-        $result = mysqli_query($connection, "select * from `t_a_ejmali` where `codeasar`='$postcode' and jam is null and rater_id='" . $postcode['code'] . "'");
+        $result = mysqli_query($connection, "select * from `t_a_ejmali` where `codeasar`='$postcode' and jam is null and rater_id='" . $rows['code'] . "'");
         $rows_ejmali = mysqli_fetch_array($result);
         $result = mysqli_query($connection, "select * from `etelaat_a` where `codeasar`='$postcode'");
         $rows_eta = mysqli_fetch_array($result);
