@@ -356,7 +356,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <span style="font-weight: bold">
                                                     <input name="subjection" value="ejmali_ostan_log" type="hidden">
-                                                    <input name="codeasar" value="<?php echo $codeasar ?>"
+                                                    <input name="code" value="<?php echo $codeasar ?>"
                                                            type="hidden">
                                                         <button class="btn btn-block btn-success"
                                                                 style="width: 250px; display: inline"
@@ -546,7 +546,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <span style="font-weight: bold">
                                                     <input name="subjection" value="ejmali_madrese_log" type="hidden">
-                                                    <input name="codeasar" value="<?php echo $codeasar ?>"
+                                                    <input name="code" value="<?php echo $codeasar ?>"
                                                            type="hidden">
                                                         <button class="btn btn-block btn-success"
                                                                 style="width: 250px; display: inline"
