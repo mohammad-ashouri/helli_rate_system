@@ -182,7 +182,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                         foreach ($query as $ejmali_ostan) {
                                         }
                                         //                                            if (@$ejmali_ostan != '' or @$ejmali_ostan != null): ?>
-                                        <!--                                                <form target="_blank" action="./sabt-arzyabi-ejmali.php" method="post">-->
+                                        <!--                                                <form target="_blank" action="sabt-arzyabi-ejmali.php" method="post">-->
                                         <!--                                                    <span-->
                                         <!--                                                            style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی اجمالی =></span>-->
                                         <!--                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
@@ -225,7 +225,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                         foreach ($query as $tafsili2) {
                                         }
                                         if (@$tafsili2 != '' and @$tafsili2 != null and @$tafsili2['jam'] != null): ?>
-                                            <form target="_blank" action="./tafsili2.php" method="post">
+                                            <form target="_blank" action="tafsili2.php" method="post">
                                                     <span
                                                             style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی دوم =></span>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -267,7 +267,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                         foreach ($query as $tafsili3) {
                                         }
                                         if (@$tafsili3 != '' and @$tafsili3 != null and @$tafsili3['jam'] != null): ?>
-                                            <form target="_blank" action="./tafsili3.php" method="post">
+                                            <form target="_blank" action="tafsili3.php" method="post">
                                                     <span
                                                             style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی سوم =></span>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -328,7 +328,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                         foreach ($query as $ejmali_ostan) {
                                         }
                                         if (@$ejmali_ostan != '' or @$ejmali_ostan != null): ?>
-                                            <form target="_blank" action="./sabt-arzyabi-ejmali.php" method="post">
+                                            <form target="_blank" action="sabt-arzyabi-ejmali.php" method="post">
                                                     <span
                                                             style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی اجمالی =></span>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -370,7 +370,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                         foreach ($query as $tafsili1_ostan) {
                                         }
                                         if (@$tafsili1_ostan != '' and @$tafsili1_ostan != null and @$tafsili1_ostan['jam'] != null): ?>
-                                            <form target="_blank" action="./tafsili1.php" method="post">
+                                            <form target="_blank" action="tafsili1.php" method="post">
                                                     <span
                                                             style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی اول =></span>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -412,7 +412,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                         foreach ($query as $tafsili2_ostan) {
                                         }
                                         if (@$tafsili2_ostan != '' and @$tafsili2_ostan != null and @$tafsili2_ostan['jam']): ?>
-                                            <form target="_blank" action="./tafsili2.php" method="post">
+                                            <form target="_blank" action="tafsili2.php" method="post">
                                                     <span
                                                             style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی دوم =></span>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -453,7 +453,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                         $query = mysqli_query($connection, "select * from tafsili3_ostan where codeasar='$codeasar'");
                                         $tafsili3_ostan = mysqli_fetch_array($query);
                                         if (@$tafsili3_ostan != '' and @$tafsili3_ostan != null and @$tafsili3_ostan['jam']): ?>
-                                            <form target="_blank" action="./tafsili3.php" method="post">
+                                            <form target="_blank" action="tafsili3.php" method="post">
                                                 <span
                                                         style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی تفصیلی سوم =></span>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -518,7 +518,7 @@ if ($_SESSION['head'] == 1 or $_SESSION['head'] == 2 or $_SESSION['head'] == 3):
                                         foreach ($query as $ejmali_madrese) {
                                         }
                                         if ($ejmali_madrese != '' or $ejmali_madrese != null): ?>
-                                            <form target="_blank" action="/sabt-arzyabi-ejmali.php" method="post">
+                                            <form target="_blank" action="sabt-arzyabi-ejmali.php" method="post">
                                                     <span
                                                             style="font-weight: bold; background-color: #bdc3cb; padding: 7px ">ارزیابی اجمالی =></span>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
