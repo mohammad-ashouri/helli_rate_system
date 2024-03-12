@@ -46,6 +46,10 @@ if ($_SESSION['head']==1):
             <label for="4">
                 وضعیت آثار بر اساس گروه علمی
             </label>
+            <input type="checkbox" id="5" name="vaziat_asar_madares" <?php if (@$_POST['vaziat_asar_madares']!=NULL) echo "checked"?>>
+            <label for="5">
+                وضعیت آثار مدرسه ای
+            </label>
             &nbsp;&nbsp;&nbsp;
             <input type="submit" name="subselect" style="padding: 6px" value="نمایش دوره مورد نظر">
         </form>
@@ -144,6 +148,9 @@ if ($_SESSION['head']==1):
                     }
                     if (@$_POST['vaziat_asar_group_elmi']!=NULL){
                         include_once 'build/php/report_queries/vaziat_asar_group_elmi.php';
+                    }
+                    if (@$_POST['vaziat_asar_madares']!=NULL){
+                        include_once 'build/php/report_queries/vaziat_asar_madares.php';
                     }
 
                     ?>
