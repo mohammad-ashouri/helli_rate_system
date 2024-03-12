@@ -41,6 +41,9 @@
                                     بخش ویژه
                                 </th>
                                 <th>
+                                    بخش اساتید
+                                </th>
+                                <th>
                                     استان منتخب
                                 </th>
                                 <th>
@@ -92,6 +95,11 @@
                                     </td>
                                     <td>
                                         <?php echo $bin['bakhshvizheh']
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        echo $bin['master']
                                         ?>
                                     </td>
                                     <td>
