@@ -16,11 +16,12 @@ if (isset($_POST['exp_ejmali']) and mysqli_num_rows($result) > 0) {
     $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'نام اثر');
     $objPHPExcel->getActiveSheet()->SetCellValue('D1', 'قالب/سطح');
     $objPHPExcel->getActiveSheet()->SetCellValue('E1', 'استان');
-    $objPHPExcel->getActiveSheet()->SetCellValue('K1', 'نظر گروه');
-    $objPHPExcel->getActiveSheet()->SetCellValue('L1', 'توضیحات');
+    $objPHPExcel->getActiveSheet()->SetCellValue('F1', 'بخش اساتید');
+    $objPHPExcel->getActiveSheet()->SetCellValue('L1', 'نظر گروه');
+    $objPHPExcel->getActiveSheet()->SetCellValue('M1', 'توضیحات');
 
-    $objPHPExcel->getActiveSheet()->getStyle("A1:L1")->getFont()->setBold(true);
-    $result = $connection->query("SELECT distinct(etelaat_a.codeasar),etelaat_a.nameasar,etelaat_a.ghalebpazhouhesh,etelaat_a.satharzyabi,etelaat_a.vaziatostaniasar from etelaat_a inner join rater_comments_archive on etelaat_a.codeasar=rater_comments_archive.codeasar where etelaat_a.groupelmi='$groupelmi' and etelaat_a.nobat_arzyabi='ارزیابی اجمالی' and etelaat_a.sharayetavalliehsherkat='دارد' order by etelaat_a.codeasar asc") or die(mysqli_connect_errno());
+    $objPHPExcel->getActiveSheet()->getStyle("A1:M1")->getFont()->setBold(true);
+    $result = $connection->query("SELECT distinct(etelaat_a.codeasar),etelaat_a.nameasar,etelaat_a.ghalebpazhouhesh,etelaat_a.satharzyabi,etelaat_a.vaziatostaniasar,etelaat_p.master from etelaat_a inner join rater_comments_archive on etelaat_a.codeasar=rater_comments_archive.codeasar inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.groupelmi='$groupelmi' and etelaat_a.nobat_arzyabi='ارزیابی اجمالی' and etelaat_a.sharayetavalliehsherkat='دارد' order by etelaat_a.codeasar asc") or die(mysqli_connect_errno());
 
     $rowCount = 2;
     foreach ($result as $key => $row) {
@@ -29,6 +30,7 @@ if (isset($_POST['exp_ejmali']) and mysqli_num_rows($result) > 0) {
         $objPHPExcel->getActiveSheet()->SetCellValue('C' . $rowCount, mb_strtoupper($row['nameasar'], 'UTF-8'));
         $objPHPExcel->getActiveSheet()->SetCellValue('D' . $rowCount, mb_strtoupper($row['ghalebpazhouhesh'] . ' سطح ' . $row['satharzyabi'], 'UTF-8'));
         $objPHPExcel->getActiveSheet()->SetCellValue('E' . $rowCount, mb_strtoupper(substr($row['vaziatostaniasar'], 28), 'UTF-8'));
+        $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount, mb_strtoupper($row['master'], 'UTF-8'));
         $rowCount++;
     }
 
@@ -48,13 +50,13 @@ if (isset($_POST['exp_ejmali']) and mysqli_num_rows($result) > 0) {
             $rater1['accept_or_reject'] = '';
         }
         if ($rater1['accept_or_reject'] != '' and $rater1['accept_or_reject'] != null) {
-            $objPHPExcel->getActiveSheet()->setCellValue('F' . $rowCount, $rater1['accept_or_reject']);
+            $objPHPExcel->getActiveSheet()->setCellValue('G' . $rowCount, $rater1['accept_or_reject']);
         } else {
-            $objPHPExcel->getActiveSheet()->setCellValue('F' . $rowCount, '-');
+            $objPHPExcel->getActiveSheet()->setCellValue('G' . $rowCount, '-');
         }
         $rater1code = $rater1['rater_id'];
         $rowCount++;
-        $objPHPExcel->getActiveSheet()->SetCellValue('F1', 'نظر استاد ' . $rater1['rater_info']);
+        $objPHPExcel->getActiveSheet()->SetCellValue('G1', 'نظر استاد ' . $rater1['rater_info']);
     }
 
     $result = $connection->query("SELECT distinct(etelaat_a.codeasar),etelaat_a.nameasar,etelaat_a.ghalebpazhouhesh,etelaat_a.satharzyabi,etelaat_a.vaziatostaniasar from etelaat_a inner join rater_comments_archive on etelaat_a.codeasar=rater_comments_archive.codeasar where etelaat_a.groupelmi='$groupelmi' and etelaat_a.nobat_arzyabi='ارزیابی اجمالی' and etelaat_a.sharayetavalliehsherkat='دارد' order by etelaat_a.codeasar asc") or die(mysqli_connect_errno());
@@ -74,13 +76,13 @@ if (isset($_POST['exp_ejmali']) and mysqli_num_rows($result) > 0) {
                 $rater2['accept_or_reject'] = '';
             }
             if ($rater2['accept_or_reject'] != '' and $rater2['accept_or_reject'] != null) {
-                $objPHPExcel->getActiveSheet()->setCellValue('G' . $rowCount, $rater2['accept_or_reject']);
+                $objPHPExcel->getActiveSheet()->setCellValue('H' . $rowCount, $rater2['accept_or_reject']);
             } else {
-                $objPHPExcel->getActiveSheet()->setCellValue('G' . $rowCount, '-');
+                $objPHPExcel->getActiveSheet()->setCellValue('H' . $rowCount, '-');
             }
             $rater2code = $rater2['rater_id'];
             $rowCount++;
-            $objPHPExcel->getActiveSheet()->SetCellValue('G1', 'نظر استاد ' . $rater2['rater_info']);
+            $objPHPExcel->getActiveSheet()->SetCellValue('H1', 'نظر استاد ' . $rater2['rater_info']);
         }
     }
 
@@ -101,13 +103,13 @@ if (isset($_POST['exp_ejmali']) and mysqli_num_rows($result) > 0) {
                 $rater3['accept_or_reject'] = '';
             }
             if ($rater3['accept_or_reject'] != '' and $rater3['accept_or_reject'] != null) {
-                $objPHPExcel->getActiveSheet()->setCellValue('H' . $rowCount, $rater3['accept_or_reject']);
+                $objPHPExcel->getActiveSheet()->setCellValue('I' . $rowCount, $rater3['accept_or_reject']);
             } else {
-                $objPHPExcel->getActiveSheet()->setCellValue('H' . $rowCount, '-');
+                $objPHPExcel->getActiveSheet()->setCellValue('I' . $rowCount, '-');
             }
             $rater3code = $rater3['rater_id'];
             $rowCount++;
-            $objPHPExcel->getActiveSheet()->SetCellValue('H1', 'نظر استاد ' . $rater3['rater_info']);
+            $objPHPExcel->getActiveSheet()->SetCellValue('I1', 'نظر استاد ' . $rater3['rater_info']);
         }
     }
 
@@ -129,13 +131,13 @@ if (isset($_POST['exp_ejmali']) and mysqli_num_rows($result) > 0) {
                     $rater4['accept_or_reject'] = '';
                 }
                 if ($rater4['accept_or_reject'] != '' and $rater4['accept_or_reject'] != null) {
-                    $objPHPExcel->getActiveSheet()->setCellValue('I' . $rowCount, $rater4['accept_or_reject']);
+                    $objPHPExcel->getActiveSheet()->setCellValue('J' . $rowCount, $rater4['accept_or_reject']);
                 } else {
-                    $objPHPExcel->getActiveSheet()->setCellValue('I' . $rowCount, '-');
+                    $objPHPExcel->getActiveSheet()->setCellValue('J' . $rowCount, '-');
                 }
                 $rater4code = $rater4['rater_id'];
                 $rowCount++;
-                $objPHPExcel->getActiveSheet()->SetCellValue('I1', 'نظر استاد ' . $rater4['rater_info']);
+                $objPHPExcel->getActiveSheet()->SetCellValue('J1', 'نظر استاد ' . $rater4['rater_info']);
             }
         }
     }
@@ -158,12 +160,12 @@ if (isset($_POST['exp_ejmali']) and mysqli_num_rows($result) > 0) {
                     $rater5['accept_or_reject'] = '';
                 }
                 if ($rater5['accept_or_reject'] != '' and $rater5['accept_or_reject'] != null) {
-                    $objPHPExcel->getActiveSheet()->setCellValue('J' . $rowCount, $rater5['accept_or_reject']);
+                    $objPHPExcel->getActiveSheet()->setCellValue('K' . $rowCount, $rater5['accept_or_reject']);
                 } else {
-                    $objPHPExcel->getActiveSheet()->setCellValue('J' . $rowCount, '-');
+                    $objPHPExcel->getActiveSheet()->setCellValue('K' . $rowCount, '-');
                 }
                 $rowCount++;
-                $objPHPExcel->getActiveSheet()->SetCellValue('J1', 'نظر استاد ' . $rater5['rater_info']);
+                $objPHPExcel->getActiveSheet()->SetCellValue('K1', 'نظر استاد ' . $rater5['rater_info']);
             }
         }
     }
