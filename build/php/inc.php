@@ -918,7 +918,7 @@ elseif (isset($_POST['setejmali']) && isset($_POST['codeasarfield'])) {
     $query = mysqli_query($connection, "select * from t_a_ejmali where codeasar='$codeasar'");
     foreach ($query as $check) {
     }
-    if (!$check) {
+    if (mysqli_num_rows($check)==0) {
         mysqli_query($connection, "insert into t_a_ejmali (codeasar) values ('$codeasar')");
     }
     $comment = $_POST['nazar'];
@@ -949,7 +949,7 @@ elseif (isset($_POST['setejmali']) && isset($_POST['codeasarfield'])) {
             break;
     }
     $tozih = $_POST['tozihat'];
-    $user = $_SESSION['coderater'];
+    $user = $_SESSION['username'];
     $query = "update `t_a_ejmali` set reayatsakhtarasar='$t1',shivaeematn='$t2',reayataeinnegaresh='$t3',
                         tabiinmasale='$t4',manabemotabar='$t5',ghabeliatelmiasar='$t6',sazmandehimabahes='$t7',
                         parhizazmatalebzaed='$t8',keyfiatjambandi='$t9',tozihat='$tozih',jam='$jamnomre',
