@@ -916,8 +916,6 @@ elseif (isset($_POST['setejmali']) && isset($_POST['codeasarfield'])) {
 
     $codeasar = $_POST['codeasarfield'];
     $query = mysqli_query($connection, "select * from t_a_ejmali where codeasar='$codeasar'");
-    foreach ($query as $check) {
-    }
     if (mysqli_num_rows($check)==0) {
         mysqli_query($connection, "insert into t_a_ejmali (codeasar) values ('$codeasar')");
     }
