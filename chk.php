@@ -70,7 +70,8 @@ if (isset($_POST) & !empty($_POST)) {
                     }
                     header("location:panel.php");
 
-                } elseif ($user == $rows['username'] && $pass == $rows['password'] and $rows['type'] == 1 and $rows['approved'] == 1) {
+                }
+                elseif ($user == $rows['username'] && $pass == $rows['password'] and $rows['type'] == 1 and $rows['approved'] == 1) {
                     $operation = "AdminLoginSuccess";
                     mysqli_query($connection, "insert into login_logs (user_id,date_time,operation,IPAddress) values ('$user','$dateforinsertloglogins','$operation','$ip')");
 
@@ -95,7 +96,8 @@ if (isset($_POST) & !empty($_POST)) {
                     $_SESSION['start'] = time();
                     $_SESSION['end'] = $_SESSION['start'] + 10800;
                     header("location:panel.php");
-                } elseif ($user == $rows['username'] && $pass == $rows['password'] and $rows['type'] == 2 and $rows['approved'] == 1) {
+                }
+                elseif ($user == $rows['username'] && $pass == $rows['password'] and $rows['type'] == 2 and $rows['approved'] == 1) {
 
                     $operation = "StateAdminLoginSuccess";
                     mysqli_query($connection, "insert into login_logs (user_id,date_time,operation,IPAddress) values ('$user','$dateforinsertloglogins','$operation','$ip')");
@@ -121,7 +123,8 @@ if (isset($_POST) & !empty($_POST)) {
                     $_SESSION['start'] = time();
                     $_SESSION['end'] = $_SESSION['start'] + 10800;
                     header("location:panel.php");
-                } elseif ($user == $rows['username'] && $pass == $rows['password'] and $rows['type'] == 3 and $rows['approved'] == 1) {
+                }
+                elseif ($user == $rows['username'] && $pass == $rows['password'] and $rows['type'] == 3 and $rows['approved'] == 1) {
                     $operation = "CityAdminLoginSuccess";
                     mysqli_query($connection, "insert into login_logs (user_id,date_time,operation,IPAddress) values ('$user','$dateforinsertloglogins','$operation','$ip')");
 
@@ -147,7 +150,8 @@ if (isset($_POST) & !empty($_POST)) {
                     $_SESSION['start'] = time();
                     $_SESSION['end'] = $_SESSION['start'] + 10800;
                     header("location:panel.php");
-                } else {
+                }
+                else {
                     $pass = $_POST['password'];
                     $operation = "NotFoundUser(PasswordEntered=$pass)";
                     mysqli_query($connection, "insert into login_logs (user_id,date_time,operation,IPAddress) values ('$user','$dateforinsertloglogins','$operation','$ip')");

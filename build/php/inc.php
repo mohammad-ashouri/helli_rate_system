@@ -947,7 +947,7 @@ elseif (isset($_POST['setejmali']) && isset($_POST['codeasarfield'])) {
             break;
     }
     $tozih = $_POST['tozihat'];
-    $user = $_SESSION['username'];
+    $user = $_SESSION['coderater'];
     $query = "update `t_a_ejmali` set reayatsakhtarasar='$t1',shivaeematn='$t2',reayataeinnegaresh='$t3',
                         tabiinmasale='$t4',manabemotabar='$t5',ghabeliatelmiasar='$t6',sazmandehimabahes='$t7',
                         parhizazmatalebzaed='$t8',keyfiatjambandi='$t9',tozihat='$tozih',jam='$jamnomre',
