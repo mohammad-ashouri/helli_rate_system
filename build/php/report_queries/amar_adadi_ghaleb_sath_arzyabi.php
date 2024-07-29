@@ -19,18 +19,18 @@ $tahghighpayanisath2=mysqli_query($connection,"SELECT * from etelaat_a inner joi
 $tahghighpayanisath3=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.ghalebpazhouhesh='تحقیق پایانی' and etelaat_a.satharzyabi=3 and etelaat_a.jashnvareh='$jashnvareh' ");
 $tahghighpayanisath4=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.ghalebpazhouhesh='تحقیق پایانی' and etelaat_a.satharzyabi=4 and etelaat_a.jashnvareh='$jashnvareh' ");
 //کتاب
-$ketabsabtnami=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.ghalebpazhouhesh='کتاب' and etelaat_a.jashnvareh='$jashnvareh' ");
-$ketabsath1=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.ghalebpazhouhesh='کتاب' and etelaat_a.satharzyabi=1 and etelaat_a.jashnvareh='$jashnvareh' ");
-$ketabsath2=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.ghalebpazhouhesh='کتاب' and etelaat_a.satharzyabi=2 and etelaat_a.jashnvareh='$jashnvareh' ");
-$ketabsath3=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.ghalebpazhouhesh='کتاب' and etelaat_a.satharzyabi=3 and etelaat_a.jashnvareh='$jashnvareh' ");
-$ketabsath4=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.ghalebpazhouhesh='کتاب' and etelaat_a.satharzyabi=4 and etelaat_a.jashnvareh='$jashnvareh' ");
+$ketabsabtnami=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.ghalebpazhouhesh like '%کتاب%' and etelaat_a.jashnvareh='$jashnvareh' ");
+$ketabsath1=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.ghalebpazhouhesh like '%کتاب%' and etelaat_a.satharzyabi=1 and etelaat_a.jashnvareh='$jashnvareh' ");
+$ketabsath2=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.ghalebpazhouhesh like '%کتاب%' and etelaat_a.satharzyabi=2 and etelaat_a.jashnvareh='$jashnvareh' ");
+$ketabsath3=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.ghalebpazhouhesh like '%کتاب%' and etelaat_a.satharzyabi=3 and etelaat_a.jashnvareh='$jashnvareh' ");
+$ketabsath4=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.ghalebpazhouhesh like '%کتاب%' and etelaat_a.satharzyabi=4 and etelaat_a.jashnvareh='$jashnvareh' ");
 //فاقد قالب پژوهش
-$faghedghaleb=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.ghalebpazhouhesh!='کتاب' and etelaat_a.ghalebpazhouhesh!='تحقیق پایانی' and etelaat_a.ghalebpazhouhesh!='پایان‌نامه' and etelaat_a.ghalebpazhouhesh!='مقاله' and etelaat_a.jashnvareh='$jashnvareh' ");
+$faghedghaleb=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.ghalebpazhouhesh not like '%کتاب%' and etelaat_a.ghalebpazhouhesh!='تحقیق پایانی' and etelaat_a.ghalebpazhouhesh!='پایان‌نامه' and etelaat_a.ghalebpazhouhesh!='مقاله' and etelaat_a.jashnvareh='$jashnvareh' ");
 //فاقد سطح ارزیابی چهار قالب پژوهش
 $faghedsathmaghale=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.ghalebpazhouhesh='مقاله' and etelaat_a.satharzyabi is null ");
 $faghedsathtahghighpayani=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.ghalebpazhouhesh='تحقیق پایانی' and etelaat_a.satharzyabi is null ");
 $faghedsathpayanname=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.ghalebpazhouhesh='پایان‌نامه' and etelaat_a.satharzyabi is null ");
-$faghedsathketab=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.ghalebpazhouhesh='کتاب' and etelaat_a.satharzyabi is null ");
+$faghedsathketab=mysqli_query($connection,"SELECT * from etelaat_a inner join etelaat_p on etelaat_a.codeasar=etelaat_p.codeasar where etelaat_a.jashnvareh='$jashnvareh' and etelaat_a.ghalebpazhouhesh like '%کتاب%' and etelaat_a.satharzyabi is null ");
 ?>
 
 <center>

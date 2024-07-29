@@ -58,21 +58,21 @@ if (isset($_POST['exp_payment_export'])){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$m3, 'UTF-8');
         }elseif ($row['ghalebpazhouhesh']=='مقاله' and $row['satharzyabi']==4){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$m4, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['satharzyabi']==1){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['satharzyabi']==1){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$k1, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['satharzyabi']==2){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['satharzyabi']==2){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$k2, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['satharzyabi']==3){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['satharzyabi']==3){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$k3, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['satharzyabi']==4){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['satharzyabi']==4){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$k4, 'UTF-8');
         }elseif ($row['ghalebpazhouhesh']=='تحقیق پایانی' and $row['satharzyabi']==2){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$t2, 'UTF-8');
         }elseif ($row['ghalebpazhouhesh']=='پایان‌نامه' and $row['satharzyabi']==3){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$p3, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['noepazhouhesh']=='ترجمه'){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['noepazhouhesh']=='ترجمه'){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$kt, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['noepazhouhesh']=='تصحیح و تعلیق'){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['noepazhouhesh']=='تصحیح و تعلیق'){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$ktashih, 'UTF-8');
         }
         if ($row['ghalebpazhouhesh']=='مقاله' and $row['satharzyabi']==1){
@@ -112,21 +112,21 @@ if (isset($_POST['exp_payment_export'])){
                 $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount, 0, 'UTF-8');
             }
         }
-        elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['satharzyabi']==1){
+        elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['satharzyabi']==1){
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$k1, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['satharzyabi']==2){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['satharzyabi']==2){
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$k2, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['satharzyabi']==3){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['satharzyabi']==3){
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$k3, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['satharzyabi']==4){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['satharzyabi']==4){
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$k4, 'UTF-8');
         }elseif ($row['ghalebpazhouhesh']=='تحقیق پایانی' and $row['satharzyabi']==2){
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$t2, 'UTF-8');
         }elseif ($row['ghalebpazhouhesh']=='پایان‌نامه' and $row['satharzyabi']==3){
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$p3, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['noepazhouhesh']=='ترجمه'){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['noepazhouhesh']=='ترجمه'){
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$kt, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['noepazhouhesh']=='تصحیح و تعلیق'){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['noepazhouhesh']=='تصحیح و تعلیق'){
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$ktashih, 'UTF-8');
         }
         $objPHPExcel->getActiveSheet()->SetCellValue('H' . $rowCount, $row['account_number'], 'UTF-8');
@@ -152,21 +152,21 @@ if (isset($_POST['exp_payment_export'])){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$m3, 'UTF-8');
         }elseif ($row['ghalebpazhouhesh']=='مقاله' and $row['satharzyabi']==4){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$m4, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['satharzyabi']==1){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['satharzyabi']==1){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$k1, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['satharzyabi']==2){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['satharzyabi']==2){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$k2, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['satharzyabi']==3){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['satharzyabi']==3){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$k3, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['satharzyabi']==4){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['satharzyabi']==4){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$k4, 'UTF-8');
         }elseif ($row['ghalebpazhouhesh']=='تحقیق پایانی' and $row['satharzyabi']==2){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$t2, 'UTF-8');
         }elseif ($row['ghalebpazhouhesh']=='پایان‌نامه' and $row['satharzyabi']==3){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$p3, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['noepazhouhesh']=='ترجمه'){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['noepazhouhesh']=='ترجمه'){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$kt, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['noepazhouhesh']=='تصحیح و تعلیق'){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['noepazhouhesh']=='تصحیح و تعلیق'){
             $objPHPExcel->getActiveSheet()->SetCellValue('F' . $rowCount,$ktashih, 'UTF-8');
         }
         if ($row['ghalebpazhouhesh']=='مقاله' and $row['satharzyabi']==1){
@@ -206,21 +206,21 @@ if (isset($_POST['exp_payment_export'])){
                 $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount, 0, 'UTF-8');
             }
         }
-        elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['satharzyabi']==1){
+        elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['satharzyabi']==1){
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$k1, 'UTF-8');
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['satharzyabi']==2){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['satharzyabi']==2){
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$k2);
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['satharzyabi']==3){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['satharzyabi']==3){
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$k3);
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['satharzyabi']==4){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['satharzyabi']==4){
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$k4);
         }elseif ($row['ghalebpazhouhesh']=='تحقیق پایانی' and $row['satharzyabi']==2){
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$t2);
         }elseif ($row['ghalebpazhouhesh']=='پایان‌نامه' and $row['satharzyabi']==3){
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$p3);
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['noepazhouhesh']=='ترجمه'){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['noepazhouhesh']=='ترجمه'){
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$kt);
-        }elseif ($row['ghalebpazhouhesh']=='کتاب' and $row['noepazhouhesh']=='تصحیح و تعلیق'){
+        }elseif (strpos($row['ghalebpazhouhesh'],'کتاب') and $row['noepazhouhesh']=='تصحیح و تعلیق'){
             $objPHPExcel->getActiveSheet()->SetCellValue('G' . $rowCount,$ktashih);
         }
         $objPHPExcel->getActiveSheet()->SetCellValue('H' . $rowCount, $row['account_number'], 'UTF-8');
