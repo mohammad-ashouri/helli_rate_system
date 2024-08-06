@@ -2,13 +2,13 @@
 	if (isset($_POST['exp_avg_items'])){
 		include_once __DIR__.'/../../../config/connection.php';
 		
-		$result = $connection->query("select * from etelaat_a where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh='مقاله' and satharzyabi=1") or die(mysqli_connect_errno());
+		$result = $connection->query("select * from etelaat_a where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh LIKE '%مقاله%' and satharzyabi=1") or die(mysqli_connect_errno());
 		$m1num=mysqli_num_rows($result);
-		$result = $connection->query("select * from etelaat_a where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh='مقاله' and satharzyabi=2") or die(mysqli_connect_errno());
+		$result = $connection->query("select * from etelaat_a where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh LIKE '%مقاله%' and satharzyabi=2") or die(mysqli_connect_errno());
 		$m2num=mysqli_num_rows($result);
-		$result = $connection->query("select * from etelaat_a where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh='مقاله' and satharzyabi=3") or die(mysqli_connect_errno());
+		$result = $connection->query("select * from etelaat_a where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh LIKE '%مقاله%' and satharzyabi=3") or die(mysqli_connect_errno());
 		$m3num=mysqli_num_rows($result);
-		$result = $connection->query("select * from etelaat_a where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh='مقاله' and satharzyabi=4") or die(mysqli_connect_errno());
+		$result = $connection->query("select * from etelaat_a where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh LIKE '%مقاله%' and satharzyabi=4") or die(mysqli_connect_errno());
 		$m4num=mysqli_num_rows($result);
 		$result = $connection->query("select * from etelaat_a where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh LIKE '%کتاب%' and satharzyabi=1") or die(mysqli_connect_errno());
 		$k1num=mysqli_num_rows($result);
@@ -24,9 +24,9 @@
 		$p3num=mysqli_num_rows($result);
 		
 		
-		$resultt2m1 = $connection->query("select * from etelaat_a inner join tafsili2 on etelaat_a.codeasar=tafsili2.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh='مقاله' and etelaat_a.satharzyabi=1") or die(mysqli_connect_errno());
+		$resultt2m1 = $connection->query("select * from etelaat_a inner join tafsili2 on etelaat_a.codeasar=tafsili2.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh LIKE '%مقاله%' and etelaat_a.satharzyabi=1") or die(mysqli_connect_errno());
 		foreach ($resultt2m1 as $t2m1){
-			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh='مقاله' and sath_elmi=1");
+			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh LIKE '%مقاله%' and sath_elmi=1");
 			foreach ($query as $criteria){}
 			$cri=explode('-',$criteria['criteria']);
 			$sakhtarasart2m1=(($t2m1['reayatsakhtarasar']*100)/$cri[0])+$sakhtarasart2m1;
@@ -38,9 +38,9 @@
 			$naghdvanoavarielmit2m1=(($t2m1['naghdvanoavarielmi']*100)/$cri[13])+$naghdvanoavarielmit2m1;
 		}
 		
-		$resultt2m2 = $connection->query("select * from etelaat_a inner join tafsili2 on etelaat_a.codeasar=tafsili2.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh='مقاله' and etelaat_a.satharzyabi=2") or die(mysqli_connect_errno());
+		$resultt2m2 = $connection->query("select * from etelaat_a inner join tafsili2 on etelaat_a.codeasar=tafsili2.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh LIKE '%مقاله%' and etelaat_a.satharzyabi=2") or die(mysqli_connect_errno());
 		foreach ($resultt2m2 as $t2m2){
-			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh='مقاله' and sath_elmi=2");
+			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh LIKE '%مقاله%' and sath_elmi=2");
 			foreach ($query as $criteria){}
 			$cri=explode('-',$criteria['criteria']);
 			$sakhtarasart2m2=(($t2m2['reayatsakhtarasar']*100)/$cri[0])+$sakhtarasart2m2;
@@ -52,9 +52,9 @@
 			$naghdvanoavarielmit2m2=(($t2m2['naghdvanoavarielmi']*100)/$cri[13])+$naghdvanoavarielmit2m2;
 		}
 		
-		$resultt2m3 = $connection->query("select * from etelaat_a inner join tafsili2 on etelaat_a.codeasar=tafsili2.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh='مقاله' and etelaat_a.satharzyabi=3") or die(mysqli_connect_errno());
+		$resultt2m3 = $connection->query("select * from etelaat_a inner join tafsili2 on etelaat_a.codeasar=tafsili2.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh LIKE '%مقاله%' and etelaat_a.satharzyabi=3") or die(mysqli_connect_errno());
 		foreach ($resultt2m3 as $t2m3){
-			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh='مقاله' and sath_elmi=3");
+			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh LIKE '%مقاله%' and sath_elmi=3");
 			foreach ($query as $criteria){}
 			$cri=explode('-',$criteria['criteria']);
 			$sakhtarasart2m3=(($t2m3['reayatsakhtarasar']*100)/$cri[0])+$sakhtarasart2m3;
@@ -66,9 +66,9 @@
 			$naghdvanoavarielmit2m3=(($t2m3['naghdvanoavarielmi']*100)/$cri[13])+$naghdvanoavarielmit2m3;
 		}
 		
-		$resultt2m4 = $connection->query("select * from etelaat_a inner join tafsili2 on etelaat_a.codeasar=tafsili2.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh='مقاله' and etelaat_a.satharzyabi=4") or die(mysqli_connect_errno());
+		$resultt2m4 = $connection->query("select * from etelaat_a inner join tafsili2 on etelaat_a.codeasar=tafsili2.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili2 is not null and etelaat_a.ghalebpazhouhesh LIKE '%مقاله%' and etelaat_a.satharzyabi=4") or die(mysqli_connect_errno());
 		foreach ($resultt2m4 as $t2m4){
-			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh='مقاله' and sath_elmi=4");
+			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh LIKE '%مقاله%' and sath_elmi=4");
 			foreach ($query as $criteria){}
 			$cri=explode('-',$criteria['criteria']);
 			$sakhtarasart2m4=(($t2m4['reayatsakhtarasar']*100)/$cri[0])+$sakhtarasart2m4;
@@ -164,9 +164,9 @@
 			$naghdvanoavarielmit2p3=(($t2p3['naghdvanoavarielmi']*100)/$cri[13])+$naghdvanoavarielmit2p3;
 		}
 		
-		$resultt3m1 = $connection->query("select * from etelaat_a inner join tafsili3 on etelaat_a.codeasar=tafsili3.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili3 is not null and etelaat_a.ghalebpazhouhesh='مقاله' and etelaat_a.satharzyabi=1") or die(mysqli_connect_errno());
+		$resultt3m1 = $connection->query("select * from etelaat_a inner join tafsili3 on etelaat_a.codeasar=tafsili3.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili3 is not null and etelaat_a.ghalebpazhouhesh LIKE '%مقاله%' and etelaat_a.satharzyabi=1") or die(mysqli_connect_errno());
 		foreach ($resultt3m1 as $t3m1){
-			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh='مقاله' and sath_elmi=1");
+			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh LIKE '%مقاله%' and sath_elmi=1");
 			foreach ($query as $criteria){}
 			$cri=explode('-',$criteria['criteria']);
 			$sakhtarasart3m1=(($t3m1['reayatsakhtarasar']*100)/$cri[0])+$sakhtarasart3m1;
@@ -178,9 +178,9 @@
 			$naghdvanoavarielmit3m1=(($t3m1['naghdvanoavarielmi']*100)/$cri[13])+$naghdvanoavarielmit3m1;
 		}
 		
-		$resultt3m2 = $connection->query("select * from etelaat_a inner join tafsili3 on etelaat_a.codeasar=tafsili3.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili3 is not null and etelaat_a.ghalebpazhouhesh='مقاله' and etelaat_a.satharzyabi=2") or die(mysqli_connect_errno());
+		$resultt3m2 = $connection->query("select * from etelaat_a inner join tafsili3 on etelaat_a.codeasar=tafsili3.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili3 is not null and etelaat_a.ghalebpazhouhesh LIKE '%مقاله%' and etelaat_a.satharzyabi=2") or die(mysqli_connect_errno());
 		foreach ($resultt3m2 as $t3m2){
-			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh='مقاله' and sath_elmi=2");
+			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh LIKE '%مقاله%' and sath_elmi=2");
 			foreach ($query as $criteria){}
 			$cri=explode('-',$criteria['criteria']);
 			$sakhtarasart3m2=(($t3m2['reayatsakhtarasar']*100)/$cri[0])+$sakhtarasart3m2;
@@ -192,9 +192,9 @@
 			$naghdvanoavarielmit3m2=(($t3m2['naghdvanoavarielmi']*100)/$cri[13])+$naghdvanoavarielmit3m2;
 		}
 		
-		$resultt3m3 = $connection->query("select * from etelaat_a inner join tafsili3 on etelaat_a.codeasar=tafsili3.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili3 is not null and etelaat_a.ghalebpazhouhesh='مقاله' and etelaat_a.satharzyabi=3") or die(mysqli_connect_errno());
+		$resultt3m3 = $connection->query("select * from etelaat_a inner join tafsili3 on etelaat_a.codeasar=tafsili3.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili3 is not null and etelaat_a.ghalebpazhouhesh LIKE '%مقاله%' and etelaat_a.satharzyabi=3") or die(mysqli_connect_errno());
 		foreach ($resultt3m3 as $t3m3){
-			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh='مقاله' and sath_elmi=3");
+			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh LIKE '%مقاله%' and sath_elmi=3");
 			foreach ($query as $criteria){}
 			$cri=explode('-',$criteria['criteria']);
 			$sakhtarasart3m3=(($t3m3['reayatsakhtarasar']*100)/$cri[0])+$sakhtarasart3m3;
@@ -206,9 +206,9 @@
 			$naghdvanoavarielmit3m3=(($t3m3['naghdvanoavarielmi']*100)/$cri[13])+$naghdvanoavarielmit3m3;
 		}
 		
-		$resultt3m4 = $connection->query("select * from etelaat_a inner join tafsili3 on etelaat_a.codeasar=tafsili3.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili3 is not null and etelaat_a.ghalebpazhouhesh='مقاله' and etelaat_a.satharzyabi=4") or die(mysqli_connect_errno());
+		$resultt3m4 = $connection->query("select * from etelaat_a inner join tafsili3 on etelaat_a.codeasar=tafsili3.codeasar where etelaat_a.vaziatpazireshasar='پذیرش شد' and etelaat_a.sharayetavalliehsherkat='دارد' and etelaat_a.vaziatostaniasar is not null and etelaat_a.tarikharzyabitafsili3 is not null and etelaat_a.ghalebpazhouhesh LIKE '%مقاله%' and etelaat_a.satharzyabi=4") or die(mysqli_connect_errno());
 		foreach ($resultt3m4 as $t3m4){
-			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh='مقاله' and sath_elmi=4");
+			$query=mysqli_query($connection,"select * from form_criteria where ghalebpazhouhesh LIKE '%مقاله%' and sath_elmi=4");
 			foreach ($query as $criteria){}
 			$cri=explode('-',$criteria['criteria']);
 			$sakhtarasart3m4=(($t3m4['reayatsakhtarasar']*100)/$cri[0])+$sakhtarasart3m4;

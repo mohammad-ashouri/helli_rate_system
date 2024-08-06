@@ -232,121 +232,116 @@ switch ($etelaat_p['master']) {
                         </h3>
                     </div>
                     <?php
-                    switch ($item['ghalebpazhouhesh']) {
-                        case "کتاب":
-                            switch ($item['satharzyabi']) {
-                                case 1:
-                                    switch ($item['noepazhouhesh']) {
-                                        case 'ترجمه':
-                                            include_once 'build/php/rate_pages/tafsili2/ketabtarjome/ketabtarjome-t2.php';
-                                            break;
-                                        case 'تصحیح و تعلیق':
-                                            include_once 'build/php/rate_pages/tafsili2/ketabtashihtaligh/ketabtashih-t2.php';
-                                            break;
-                                        default:
-                                            include_once 'build/php/rate_pages/tafsili2/ketab/sath_1.php';
-                                            break;
-                                    }
-                                    break;
-                                case 2:
-                                    switch ($item['noepazhouhesh']) {
-                                        case 'ترجمه':
-                                            include_once 'build/php/rate_pages/tafsili2/ketabtarjome/ketabtarjome-t2.php';
-                                            break;
-                                        case 'تصحیح و تعلیق':
-                                            include_once 'build/php/rate_pages/tafsili2/ketabtashihtaligh/ketabtashih-t2.php';
-                                            break;
-                                        default:
-                                            include_once 'build/php/rate_pages/tafsili2/ketab/sath_2.php';
-                                            break;
-                                    }
-                                    break;
-                                case 3:
-                                    switch ($item['noepazhouhesh']) {
-                                        case 'ترجمه':
-                                            include_once 'build/php/rate_pages/tafsili2/ketabtarjome/ketabtarjome-t2.php';
-                                            break;
-                                        case 'تصحیح و تعلیق':
-                                            include_once 'build/php/rate_pages/tafsili2/ketabtashihtaligh/ketabtashih-t2.php';
-                                            break;
-                                        default:
-                                            include_once 'build/php/rate_pages/tafsili2/ketab/sath_3.php';
-                                            break;
-                                    }
-                                    break;
-                                case 4:
-                                    switch ($item['noepazhouhesh']) {
-                                        case 'ترجمه':
-                                            include_once 'build/php/rate_pages/tafsili2/ketabtarjome/ketabtarjome-t2.php';
-                                            break;
-                                        case 'تصحیح و تعلیق':
-                                            include_once 'build/php/rate_pages/tafsili2/ketabtashihtaligh/ketabtashih-t2.php';
-                                            break;
-                                        default:
-                                            include_once 'build/php/rate_pages/tafsili2/ketab/sath_4.php';
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                        case "مقاله":
-                            switch ($item['satharzyabi']) {
-                                case 1:
-                                    switch ($item['noepazhouhesh']) {
-                                        case 'ترجمه':
-                                            include_once 'build/php/rate_pages/tafsili2/maghaletarjome/maghaletarjome-t2.php';
-                                            break;
-                                        default:
-                                            include_once 'build/php/rate_pages/tafsili2/maghale/sath_1.php';
-                                            break;
-                                    }
-                                    break;
-                                case 2:
-                                    switch ($item['noepazhouhesh']) {
-                                        case 'ترجمه':
-                                            include_once 'build/php/rate_pages/tafsili2/maghaletarjome/maghaletarjome-t2.php';
-                                            break;
-                                        default:
-                                            include_once 'build/php/rate_pages/tafsili2/maghale/sath_2.php';
-                                            break;
-                                    }
-                                    break;
-                                case 3:
-                                    switch ($item['noepazhouhesh']) {
-                                        case 'ترجمه':
-                                            include_once 'build/php/rate_pages/tafsili2/maghaletarjome/maghaletarjome-t2.php';
-                                            break;
-                                        default:
-                                            include_once 'build/php/rate_pages/tafsili2/maghale/sath_3.php';
-                                            break;
-                                    }
-                                    break;
-                                case 4:
-                                    switch ($item['noepazhouhesh']) {
-                                        case 'ترجمه':
-                                            include_once 'build/php/rate_pages/tafsili2/maghaletarjome/maghaletarjome-t2.php';
-                                            break;
-                                        default:
-                                            include_once 'build/php/rate_pages/tafsili2/maghale/sath_4.php';
-                                            break;
-                                    }
-                                    break;
-                            }
-                            break;
-                        case "تحقیق پایانی":
-                            switch ($item['satharzyabi']) {
-                                case 2:
-                                    include_once 'build/php/rate_pages/tafsili2/tahghighpayani/tahghighpayani-sath2-t2.php';
-                                    break;
-                            }
-                            break;
-                        case "پایان‌نامه":
-                            switch ($item['satharzyabi']) {
-                                case 3:
-                                    include_once 'build/php/rate_pages/tafsili2/payanname/payanname-sath3-t2.php';
-                                    break;
-                            }
-                            break;
+                    if (strpos($item['ghalebpazhouhesh'], 'کتاب')) {
+                        switch ($item['satharzyabi']) {
+                            case 1:
+                                switch ($item['noepazhouhesh']) {
+                                    case 'ترجمه':
+                                        include_once 'build/php/rate_pages/tafsili2/ketabtarjome/ketabtarjome-t2.php';
+                                        break;
+                                    case 'تصحیح و تعلیق':
+                                        include_once 'build/php/rate_pages/tafsili2/ketabtashihtaligh/ketabtashih-t2.php';
+                                        break;
+                                    default:
+                                        include_once 'build/php/rate_pages/tafsili2/ketab/sath_1.php';
+                                        break;
+                                }
+                                break;
+                            case 2:
+                                switch ($item['noepazhouhesh']) {
+                                    case 'ترجمه':
+                                        include_once 'build/php/rate_pages/tafsili2/ketabtarjome/ketabtarjome-t2.php';
+                                        break;
+                                    case 'تصحیح و تعلیق':
+                                        include_once 'build/php/rate_pages/tafsili2/ketabtashihtaligh/ketabtashih-t2.php';
+                                        break;
+                                    default:
+                                        include_once 'build/php/rate_pages/tafsili2/ketab/sath_2.php';
+                                        break;
+                                }
+                                break;
+                            case 3:
+                                switch ($item['noepazhouhesh']) {
+                                    case 'ترجمه':
+                                        include_once 'build/php/rate_pages/tafsili2/ketabtarjome/ketabtarjome-t2.php';
+                                        break;
+                                    case 'تصحیح و تعلیق':
+                                        include_once 'build/php/rate_pages/tafsili2/ketabtashihtaligh/ketabtashih-t2.php';
+                                        break;
+                                    default:
+                                        include_once 'build/php/rate_pages/tafsili2/ketab/sath_3.php';
+                                        break;
+                                }
+                                break;
+                            case 4:
+                                switch ($item['noepazhouhesh']) {
+                                    case 'ترجمه':
+                                        include_once 'build/php/rate_pages/tafsili2/ketabtarjome/ketabtarjome-t2.php';
+                                        break;
+                                    case 'تصحیح و تعلیق':
+                                        include_once 'build/php/rate_pages/tafsili2/ketabtashihtaligh/ketabtashih-t2.php';
+                                        break;
+                                    default:
+                                        include_once 'build/php/rate_pages/tafsili2/ketab/sath_4.php';
+                                        break;
+                                }
+                                break;
+                        }
+                    } elseif (strpos($item['ghalebpazhouhesh'], 'مقاله')) {
+                        switch ($item['satharzyabi']) {
+                            case 1:
+                                switch ($item['noepazhouhesh']) {
+                                    case 'ترجمه':
+                                        include_once 'build/php/rate_pages/tafsili2/maghaletarjome/maghaletarjome-t2.php';
+                                        break;
+                                    default:
+                                        include_once 'build/php/rate_pages/tafsili2/maghale/sath_1.php';
+                                        break;
+                                }
+                                break;
+                            case 2:
+                                switch ($item['noepazhouhesh']) {
+                                    case 'ترجمه':
+                                        include_once 'build/php/rate_pages/tafsili2/maghaletarjome/maghaletarjome-t2.php';
+                                        break;
+                                    default:
+                                        include_once 'build/php/rate_pages/tafsili2/maghale/sath_2.php';
+                                        break;
+                                }
+                                break;
+                            case 3:
+                                switch ($item['noepazhouhesh']) {
+                                    case 'ترجمه':
+                                        include_once 'build/php/rate_pages/tafsili2/maghaletarjome/maghaletarjome-t2.php';
+                                        break;
+                                    default:
+                                        include_once 'build/php/rate_pages/tafsili2/maghale/sath_3.php';
+                                        break;
+                                }
+                                break;
+                            case 4:
+                                switch ($item['noepazhouhesh']) {
+                                    case 'ترجمه':
+                                        include_once 'build/php/rate_pages/tafsili2/maghaletarjome/maghaletarjome-t2.php';
+                                        break;
+                                    default:
+                                        include_once 'build/php/rate_pages/tafsili2/maghale/sath_4.php';
+                                        break;
+                                }
+                                break;
+                        }
+                    } elseif (strpos($item['ghalebpazhouhesh'], 'تحقیق پایانی')) {
+                        switch ($item['satharzyabi']) {
+                            case 2:
+                                include_once 'build/php/rate_pages/tafsili2/tahghighpayani/tahghighpayani-sath2-t2.php';
+                                break;
+                        }
+                    } elseif (strpos($item['ghalebpazhouhesh'], 'پایان‌نامه')) {
+                        switch ($item['satharzyabi']) {
+                            case 3:
+                                include_once 'build/php/rate_pages/tafsili2/payanname/payanname-sath3-t2.php';
+                                break;
+                        }
                     }
                     ?>
                 </div>

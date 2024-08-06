@@ -1,5 +1,5 @@
 <?php
-	$query=mysqli_query($connection,"select * from form_criteria where name='تفصیلی' and ghalebpazhouhesh='مقاله' and sath_elmi=4");
+	$query=mysqli_query($connection,"select * from form_criteria where name='تفصیلی' and ghalebpazhouhesh LIKE '%مقاله$' and sath_elmi=4");
 	foreach ($query as $items){}
     $items=explode('-',$items['criteria']);
 ?>
