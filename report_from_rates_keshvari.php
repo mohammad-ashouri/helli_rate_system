@@ -213,8 +213,7 @@ if ($_SESSION['head'] == 1): ?>
                                         <th>نام اثر</th>
                                         <th>نویسنده</th>
                                         <th>جنسیت</th>
-                                        <th>قالب پژوهش</th>
-                                        <th>سطح</th>
+                                        <th>قالب/سطح</th>
                                         <th>گروه علمی</th>
                                         <th>تعداد صفحه</th>
                                         <th>استان</th>
@@ -291,6 +290,7 @@ if ($_SESSION['head'] == 1): ?>
                                             </td>
                                             <td style="padding: 10px"><?php echo $values['ghalebpazhouhesh'] . ' ' . $values['satharzyabi'] ?></td>
                                             <td style="padding: 10px"><?php echo $values['groupelmi'] ?></td>
+                                            <td style="padding: 10px"><?php echo $values['tedadsafhe'] ?></td>
                                             <td style="padding: 10px">
                                                 <?php
                                                 $codeasar = $values['codeasar'];

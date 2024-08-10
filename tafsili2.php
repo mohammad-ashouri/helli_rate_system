@@ -63,6 +63,7 @@ switch (@$_POST['subjection']) {
 //			break;
     default:
         $result = mysqli_query($connection, "select * from etelaat_a where codeasar='$codeasar'");
+        $_POST['subjection']=null;
         break;
 }
 $item = mysqli_fetch_array($result);
@@ -232,7 +233,7 @@ switch ($etelaat_p['master']) {
                         </h3>
                     </div>
                     <?php
-                    if (strpos($item['ghalebpazhouhesh'], 'کتاب')) {
+                    if (strstr($item['ghalebpazhouhesh'], 'کتاب')) {
                         switch ($item['satharzyabi']) {
                             case 1:
                                 switch ($item['noepazhouhesh']) {
@@ -287,7 +288,7 @@ switch ($etelaat_p['master']) {
                                 }
                                 break;
                         }
-                    } elseif (strpos($item['ghalebpazhouhesh'], 'مقاله')) {
+                    } elseif (strstr($item['ghalebpazhouhesh'], 'مقاله')) {
                         switch ($item['satharzyabi']) {
                             case 1:
                                 switch ($item['noepazhouhesh']) {
@@ -330,13 +331,13 @@ switch ($etelaat_p['master']) {
                                 }
                                 break;
                         }
-                    } elseif (strpos($item['ghalebpazhouhesh'], 'تحقیق پایانی')) {
+                    } elseif (strstr($item['ghalebpazhouhesh'], 'تحقیق پایانی')) {
                         switch ($item['satharzyabi']) {
                             case 2:
                                 include_once 'build/php/rate_pages/tafsili2/tahghighpayani/tahghighpayani-sath2-t2.php';
                                 break;
                         }
-                    } elseif (strpos($item['ghalebpazhouhesh'], 'پایان‌نامه')) {
+                    } elseif (strstr($item['ghalebpazhouhesh'], 'پایان‌نامه')) {
                         switch ($item['satharzyabi']) {
                             case 3:
                                 include_once 'build/php/rate_pages/tafsili2/payanname/payanname-sath3-t2.php';
